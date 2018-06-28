@@ -31,7 +31,7 @@ uses
   ExtCtrls, ComCtrls, UWalletKeys, StdCtrls, ULog, Grids, UAppParams,
   UBlockChain, UNode, UGridUtils, UAccounts, Menus, ImgList,
   synautil, UNetProtocol, UCrypto, Buttons, IniPropStorage, UPoolMining, URPC, IniFiles,
-  UFRMAccountSelect, uPSComponent, Types, httpsend, uPSRuntime, uPSCompiler, uPSUtils, UFRMRequestMoney,PropertyStorage,
+  UFRMAccountSelect, Types, httpsend, UFRMRequestMoney,PropertyStorage,
   UFRMMineCoins{$IFDEF WINDOWS},windows{$ENDIF};
 
 Const
