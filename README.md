@@ -1,4 +1,4 @@
-# MicroCoin Destop Wallet
+# MicroCoin Desktop Wallet
 
 ## How to build
 
