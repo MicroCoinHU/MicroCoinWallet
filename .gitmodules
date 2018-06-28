@@ -1,0 +1,3 @@
+[submodule "src/MicroCoin"]
+	path = src/MicroCoin
+	url = https://github.com/MicroCoinHU/MicroCoin.git

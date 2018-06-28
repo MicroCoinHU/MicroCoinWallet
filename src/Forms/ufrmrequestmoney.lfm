@@ -1,0 +1,66 @@
+object RequestMoneyForm: TRequestMoneyForm
+  Left = 373
+  Height = 568
+  Top = 150
+  Width = 776
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'Request Money'
+  ClientHeight = 568
+  ClientWidth = 776
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poMainFormCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.8.0.6'
+  object Label1: TLabel
+    Left = 180
+    Height = 45
+    Top = 48
+    Width = 194
+    Caption = 'Total amount:'
+    Font.Height = -32
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 180
+    Height = 45
+    Top = 120
+    Width = 117
+    Caption = 'Payload:'
+    Font.Height = -32
+    ParentColor = False
+    ParentFont = False
+  end
+  object Memo1: TMemo
+    Left = 400
+    Height = 45
+    Top = 120
+    Width = 202
+    OnChange = Memo1Change
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 678
+    Height = 30
+    Top = 530
+    Width = 87
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    OnClick = BitBtn1Click
+    TabOrder = 1
+  end
+  object Amount: TEdit
+    Left = 392
+    Height = 23
+    Top = 48
+    Width = 208
+    OnChange = AmountChange
+    TabOrder = 2
+    Text = '0'
+  end
+end

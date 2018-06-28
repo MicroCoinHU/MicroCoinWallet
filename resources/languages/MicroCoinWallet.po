@@ -1,0 +1,2480 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tfrmabout.bbclose.caption
+msgctxt "tfrmabout.bbclose.caption"
+msgid "Close"
+msgstr ""
+
+#: tfrmabout.caption
+msgid "About..."
+msgstr ""
+
+#: tfrmabout.label1.caption
+msgid "Micro Coin Wallet, Miner && Explorer"
+msgstr ""
+
+#: tfrmabout.lblbuild.caption
+msgid "Build:"
+msgstr ""
+
+#: tfrmabout.lblprotocolversion.caption
+msgid "Protocol:"
+msgstr ""
+
+#: tfrmaccountselect.bbcancel.caption
+msgctxt "tfrmaccountselect.bbcancel.caption"
+msgid "Cancel"
+msgstr ""
+
+#: tfrmaccountselect.bbsearch.caption
+msgid "Search"
+msgstr ""
+
+#: tfrmaccountselect.bbselect.caption
+msgid "Select"
+msgstr ""
+
+#: tfrmaccountselect.caption
+msgctxt "tfrmaccountselect.caption"
+msgid "Accounts"
+msgstr ""
+
+#: tfrmaccountselect.cbaccountsbalance.caption
+msgid "Accounts Balance"
+msgstr ""
+
+#: tfrmaccountselect.cbaccountsname.caption
+msgid "Accounts name"
+msgstr ""
+
+#: tfrmaccountselect.cbmyaccounts.caption
+msgid "My Accounts"
+msgstr ""
+
+#: tfrmaccountselect.cbonlyforprivatesaletome.caption
+msgid "Only for private sale to me"
+msgstr ""
+
+#: tfrmaccountselect.cbonlyforpublicsale.caption
+msgid "Only for public sale"
+msgstr ""
+
+#: tfrmaccountselect.cbonlyforsale.caption
+msgid "Only for sale"
+msgstr ""
+
+#: tfrmaccountselect.label17.caption
+msgctxt "tfrmaccountselect.label17.caption"
+msgid "Accounts:"
+msgstr ""
+
+#: tfrmaccountselect.label19.caption
+msgctxt "tfrmaccountselect.label19.caption"
+msgid "Balance:"
+msgstr ""
+
+#: tfrmaccountselect.lblaccountsbalance.caption
+msgctxt "tfrmaccountselect.lblaccountsbalance.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmaccountselect.lblaccountscount.caption
+msgctxt "tfrmaccountselect.lblaccountscount.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.bbopendatafolder.caption
+msgid "Open Data Folder"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.bbupdatepassword.caption
+msgctxt "tfrmmicrocoinwalletconfig.bbupdatepassword.caption"
+msgid "Wallet Password"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.caption
+msgctxt "tfrmmicrocoinwalletconfig.caption"
+msgid "Options"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.cbjsonrpcminerserveractive.caption
+msgid "JSON-RPC Server Miner (TCP/IP, no HTTP)"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.cbjsonrpcportenabled.caption
+msgid "JSON-RPC Server port enabled (HTTP)"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.cbsavedebuglogs.caption
+msgid "Save debug logs too"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.cbsavelogfiles.caption
+msgid "Save log file"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.cbshowlogs.caption
+msgid "Show logs"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.cbshowmodalmessages.caption
+msgid "Show modal messages"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.ebdefaultfee.text
+msgctxt "tfrmmicrocoinwalletconfig.ebdefaultfee.text"
+msgid "0"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.ebinternetserverport.text
+msgid "4004"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.ebjsonrpcallowedips.text
+msgid "ebJSONRPCAllowedIPs"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.ebjsonrpcminerserverport.text
+msgid "4009"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.ebminername.text
+msgid "ebMinerName"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.gbminerprivatekey.caption
+msgid " Miner Server Private Key: "
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.label1.caption
+msgid "Default fee for operation"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.label2.caption
+msgid "Internet Server Port"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.label3.caption
+msgid "Miner Name:"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.label4.caption
+msgid "This name will be included in each new block you mine!"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.label5.caption
+msgid "JSON-RPC Port"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.label6.caption
+msgid "Allowed IP's"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.label7.caption
+msgid "Ip's separated by semicolon or empty for all"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.lbldefaultinternetserverport.caption
+msgctxt "tfrmmicrocoinwalletconfig.lbldefaultinternetserverport.caption"
+msgid "(Default XXXX)"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.lbldefaultjsonrpcminerserverport.caption
+msgctxt "tfrmmicrocoinwalletconfig.lbldefaultjsonrpcminerserverport.caption"
+msgid "(Default XXXX)"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.rbgenerateanewprivatekeyeachblock.caption
+msgid "Generate a new private key for each generated block"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.rbmineallwayswiththiskey.caption
+msgid "Always mine with this key:"
+msgstr ""
+
+#: tfrmmicrocoinwalletconfig.rbusearandomkey.caption
+msgid "Use a random existing key"
+msgstr ""
+
+#: tfrmminecoins.bitbtn1.caption
+msgid "Start"
+msgstr ""
+
+#: tfrmminecoins.bitbtn2.caption
+msgid "Stop"
+msgstr ""
+
+#: tfrmminecoins.caption
+msgctxt "tfrmminecoins.caption"
+msgid "Mine Coins"
+msgstr ""
+
+#: tfrmminecoins.label1.caption
+msgid "CPU Count"
+msgstr ""
+
+#: tfrmnodesip.bbcancel.caption
+msgctxt "tfrmnodesip.bbcancel.caption"
+msgid "Cancel"
+msgstr ""
+
+#: tfrmnodesip.bbok.caption
+msgid "OK"
+msgstr ""
+
+#: tfrmnodesip.caption
+msgid "Node IP Addresses"
+msgstr ""
+
+#: tfrmnodesip.cbtryonlywiththisservers.caption
+msgid "Connect ONLY to these nodes"
+msgstr ""
+
+#: tfrmnodesip.label1.caption
+msgid "Availble Node IP's to connect:"
+msgstr ""
+
+#: tfrmoperation.actexecute.caption
+msgctxt "tfrmoperation.actexecute.caption"
+msgid "Execute (F12)"
+msgstr ""
+
+#: tfrmoperation.bbcancel.caption
+msgctxt "tfrmoperation.bbcancel.caption"
+msgid "Cancel"
+msgstr ""
+
+#: tfrmoperation.bbexecute.caption
+msgctxt "tfrmoperation.bbexecute.caption"
+msgid "Execute (F12)"
+msgstr ""
+
+#: tfrmoperation.bbpassword.caption
+msgctxt "tfrmoperation.bbpassword.caption"
+msgid "Password"
+msgstr ""
+
+#: tfrmoperation.caption
+msgid "New Operation"
+msgstr ""
+
+#: tfrmoperation.ebsenderaccount.text
+msgid "ebSenderAccount"
+msgstr ""
+
+#: tfrmoperation.ethaddress.editlabel.caption
+msgid "Ethereum address"
+msgstr ""
+
+#: tfrmoperation.ethamount.editlabel.caption
+msgid "ETH amount"
+msgstr ""
+
+#: tfrmoperation.gbchangekey.caption
+msgid " Change type: "
+msgstr ""
+
+#: tfrmoperation.gbpayload.caption
+msgid " Payload: "
+msgstr ""
+
+#: tfrmoperation.gbsaletype.caption
+msgid " Sale type: "
+msgstr ""
+
+#: tfrmoperation.label1.caption
+msgid "Sale price:"
+msgstr ""
+
+#: tfrmoperation.label2.caption
+msgid "excessive amount will remain on bought account"
+msgstr ""
+
+#: tfrmoperation.label3.caption
+msgid "Seller account (where to pay)"
+msgstr ""
+
+#: tfrmoperation.label4.caption
+msgid "Payload data:"
+msgstr ""
+
+#: tfrmoperation.lblaccountbalance.caption
+msgid "lblAccountBalance"
+msgstr ""
+
+#: tfrmoperation.lblaccountcaption.caption
+msgctxt "tfrmoperation.lblaccountcaption.caption"
+msgid "Account:"
+msgstr ""
+
+#: tfrmoperation.lblaccountscount.caption
+msgctxt "tfrmoperation.lblaccountscount.caption"
+msgid "XXX"
+msgstr ""
+
+#: tfrmoperation.lblaccounttobuy.caption
+msgid "Account to Buy"
+msgstr ""
+
+#: tfrmoperation.lblamount.caption
+msgctxt "tfrmoperation.lblamount.caption"
+msgid "Amount"
+msgstr ""
+
+#: tfrmoperation.lblbalancecaption.caption
+msgctxt "tfrmoperation.lblbalancecaption.caption"
+msgid "Balance:"
+msgstr ""
+
+#: tfrmoperation.lblbuyaccounterrors.caption
+msgctxt "tfrmoperation.lblbuyaccounterrors.caption"
+msgid "Errors detected"
+msgstr ""
+
+#: tfrmoperation.lblbuyamount.caption
+msgctxt "tfrmoperation.lblbuyamount.caption"
+msgid "Amount"
+msgstr ""
+
+#: tfrmoperation.lblbuynewkey.caption
+msgctxt "tfrmoperation.lblbuynewkey.caption"
+msgid "New private key"
+msgstr ""
+
+#: tfrmoperation.lblchangeinfoerrors.caption
+msgctxt "tfrmoperation.lblchangeinfoerrors.caption"
+msgid "Errors detected"
+msgstr ""
+
+#: tfrmoperation.lblchangekeyerrors.caption
+msgctxt "tfrmoperation.lblchangekeyerrors.caption"
+msgid "Errors detected"
+msgstr ""
+
+#: tfrmoperation.lblchangename.caption
+msgid "Change name"
+msgstr ""
+
+#: tfrmoperation.lblchangetype.caption
+msgid "Change type"
+msgstr ""
+
+#: tfrmoperation.lbldelisterrors.caption
+msgctxt "tfrmoperation.lbldelisterrors.caption"
+msgid "Errors detected"
+msgstr ""
+
+#: tfrmoperation.lbldestaccount.caption
+msgid "Destination account"
+msgstr ""
+
+#: tfrmoperation.lblencryptionerrors.caption
+msgctxt "tfrmoperation.lblencryptionerrors.caption"
+msgid "Errors detected"
+msgstr ""
+
+#: tfrmoperation.lblencryptpassword.caption
+msgid "Password:"
+msgstr ""
+
+#: tfrmoperation.lblfee.caption
+msgid "Operation Fee"
+msgstr ""
+
+#: tfrmoperation.lblglobalerrors.caption
+msgid "????"
+msgstr ""
+
+#: tfrmoperation.lbllistaccounterrors.caption
+msgctxt "tfrmoperation.lbllistaccounterrors.caption"
+msgid "Errors detected"
+msgstr ""
+
+#: tfrmoperation.lblnewownererrors.caption
+msgctxt "tfrmoperation.lblnewownererrors.caption"
+msgid "Errors detected"
+msgstr ""
+
+#: tfrmoperation.lblnewownerpublickey.caption
+msgctxt "tfrmoperation.lblnewownerpublickey.caption"
+msgid "New owners public key"
+msgstr ""
+
+#: tfrmoperation.lblnewprivatekey.caption
+msgctxt "tfrmoperation.lblnewprivatekey.caption"
+msgid "New private key"
+msgstr ""
+
+#: tfrmoperation.lblpayloadlength.caption
+msgctxt "tfrmoperation.lblpayloadlength.caption"
+msgid "XXX"
+msgstr ""
+
+#: tfrmoperation.lblsalelockeduntilblock.caption
+msgid "Locked until block:"
+msgstr ""
+
+#: tfrmoperation.lblsalenewownerpublickey.caption
+msgctxt "tfrmoperation.lblsalenewownerpublickey.caption"
+msgid "New owners public key"
+msgstr ""
+
+#: tfrmoperation.lblsigneraccount.caption
+msgid "Signer account (Fee payer)"
+msgstr ""
+
+#: tfrmoperation.lbltransactionerrors.caption
+msgctxt "tfrmoperation.lbltransactionerrors.caption"
+msgid "Errors detected"
+msgstr ""
+
+#: tfrmoperation.rbchangekeytransferaccounttonewowner.caption
+msgid "Transfer account to a new owner"
+msgstr ""
+
+#: tfrmoperation.rbchangekeywithanother.caption
+msgid "Change private key"
+msgstr ""
+
+#: tfrmoperation.rbencrptedwithpassword.caption
+msgid "Encrypted with password"
+msgstr ""
+
+#: tfrmoperation.rbencryptedwithec.caption
+msgid "Encrypted with dest account public key"
+msgstr ""
+
+#: tfrmoperation.rbencryptedwitholdec.caption
+msgctxt "tfrmoperation.rbencryptedwitholdec.caption"
+msgid "Encrypted with old public key"
+msgstr ""
+
+#: tfrmoperation.rblistaccountforprivatesale.caption
+msgid "List account for private sale"
+msgstr ""
+
+#: tfrmoperation.rblistaccountforpublicsale.caption
+msgid "List account for public sale"
+msgstr ""
+
+#: tfrmoperation.rbnotencrypted.caption
+msgid "Dont encrypt (Public payload)"
+msgstr ""
+
+#: tfrmoperation.tsbuyaccount.caption
+msgid "Buy account"
+msgstr ""
+
+#: tfrmoperation.tschangeinfo.caption
+msgid "Change Info"
+msgstr ""
+
+#: tfrmoperation.tschangeprivatekey.caption
+msgid "Change key"
+msgstr ""
+
+#: tfrmoperation.tsdelist.caption
+msgid "Delist account"
+msgstr ""
+
+#: tfrmoperation.tsglobalerror.caption
+msgid "Notification"
+msgstr ""
+
+#: tfrmoperation.tslistforsale.caption
+msgid "List account for sale"
+msgstr ""
+
+#: tfrmoperation.tsoperation.caption
+msgctxt "tfrmoperation.tsoperation.caption"
+msgid "Operation"
+msgstr ""
+
+#: tfrmoperation.tstransaction.caption
+msgid "Transaction"
+msgstr ""
+
+#: tfrmpayloaddecoder.bbclose.caption
+msgctxt "tfrmpayloaddecoder.bbclose.caption"
+msgid "Close"
+msgstr ""
+
+#: tfrmpayloaddecoder.bbfind.caption
+msgid "&Find"
+msgstr ""
+
+#: tfrmpayloaddecoder.bbsavemethods.caption
+msgid "Save"
+msgstr ""
+
+#: tfrmpayloaddecoder.caption
+msgid "Operation Information/Decoder"
+msgstr ""
+
+#: tfrmpayloaddecoder.cbmethodpublicpayload.caption
+msgid "Not encrypted (Public payload)"
+msgstr ""
+
+#: tfrmpayloaddecoder.cbshowashexadecimal.caption
+msgid "Show as hexadecimal"
+msgstr ""
+
+#: tfrmpayloaddecoder.cbusingpasswords.caption
+msgid "Using Passwords of the list"
+msgstr ""
+
+#: tfrmpayloaddecoder.cbusingprivatekeys.caption
+msgid "Using Private keys of my Wallet"
+msgstr ""
+
+#: tfrmpayloaddecoder.ebophash.text
+msgid "12345678901234567890123456789012345678901234567890123456789012"
+msgstr ""
+
+#: tfrmpayloaddecoder.label1.caption
+msgid "Block/Op:"
+msgstr ""
+
+#: tfrmpayloaddecoder.label2.caption
+msgid "Operation:"
+msgstr ""
+
+#: tfrmpayloaddecoder.label3.caption
+msgid "Original Payload in Hexadecimal:"
+msgstr ""
+
+#: tfrmpayloaddecoder.label4.caption
+msgid "OpHash"
+msgstr ""
+
+#: tfrmpayloaddecoder.label6.caption
+msgid "Date Time:"
+msgstr ""
+
+#: tfrmpayloaddecoder.label7.caption
+msgid "Decoded Payload:"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblamount.caption
+msgctxt "tfrmpayloaddecoder.lblamount.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblamountcaption.caption
+msgid "Amount:"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblblock.caption
+msgid "000000/0000"
+msgstr ""
+
+#: tfrmpayloaddecoder.lbldatetime.caption
+msgctxt "tfrmpayloaddecoder.lbldatetime.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmpayloaddecoder.lbldecodedmethod.caption
+msgid "(Method)"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblfee.caption
+msgctxt "tfrmpayloaddecoder.lblfee.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblfeecaption.caption
+msgid "Fee:"
+msgstr ""
+
+#: tfrmpayloaddecoder.lbloperationtxt.caption
+msgctxt "tfrmpayloaddecoder.lbloperationtxt.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblpasswordsinfo.caption
+msgid "lblPasswordsInfo"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblreceiver.caption
+msgctxt "tfrmpayloaddecoder.lblreceiver.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblreceivercaption.caption
+msgid "Receiver:"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblreceiverinfo.caption
+msgid "(Receiver info)"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblsender.caption
+msgid "9999999-99"
+msgstr ""
+
+#: tfrmpayloaddecoder.lblsendercaption.caption
+msgctxt "tfrmpayloaddecoder.lblsendercaption.caption"
+msgid "Sender:"
+msgstr ""
+
+#: tfrmpayloaddecoder.tsdecoded.caption
+msgctxt "tfrmpayloaddecoder.tsdecoded.caption"
+msgid "Payload"
+msgstr ""
+
+#: tfrmpayloaddecoder.tsdecodemethods.caption
+msgid "Decode methods"
+msgstr ""
+
+#: tfrmwallet.bbaccountsrefresh.caption
+msgid "Refresh"
+msgstr ""
+
+#: tfrmwallet.bbchangekeyname.caption
+msgctxt "tfrmwallet.bbchangekeyname.caption"
+msgid "Change Key name"
+msgstr ""
+
+#: tfrmwallet.bbminecoins.caption
+msgctxt "tfrmwallet.bbminecoins.caption"
+msgid "Mine Coins"
+msgstr ""
+
+#: tfrmwallet.bbrequestmoney.caption
+msgid "Request MicroCoin"
+msgstr ""
+
+#: tfrmwallet.bbselectedaccountsoperation.caption
+msgctxt "tfrmwallet.bbselectedaccountsoperation.caption"
+msgid "Batch Operations"
+msgstr ""
+
+#: tfrmwallet.bbsendamessage.caption
+msgid "Send a Message"
+msgstr ""
+
+#: tfrmwallet.button1.caption
+msgid "Send to mobile app"
+msgstr ""
+
+#: tfrmwallet.button2.caption
+msgid "Button2"
+msgstr ""
+
+#: tfrmwallet.caption
+msgid "Micro Coin Wallet, JSON-RPC Miner & Explorer"
+msgstr ""
+
+#: tfrmwallet.cbexploremyaccounts.caption
+msgid "Explore accounts with one of my Wallet Keys"
+msgstr ""
+
+#: tfrmwallet.cbfilteraccounts.caption
+msgid "Filter accounts by balance"
+msgstr ""
+
+#: tfrmwallet.cbshowdebuglogs.caption
+msgid "Show Debug Logs"
+msgstr ""
+
+#: tfrmwallet.ebfilteraccountbybalancemax.hint
+msgid "Max balance"
+msgstr ""
+
+#: tfrmwallet.ebfilteraccountbybalancemin.hint
+msgid "Min balance"
+msgstr ""
+
+#: tfrmwallet.groupbox1.caption
+msgctxt "tfrmwallet.groupbox1.caption"
+msgid "Overview"
+msgstr ""
+
+#: tfrmwallet.groupbox2.caption
+msgctxt "tfrmwallet.groupbox2.caption"
+msgid "Accounts"
+msgstr ""
+
+#: tfrmwallet.groupbox3.caption
+msgctxt "tfrmwallet.groupbox3.caption"
+msgid "Operations"
+msgstr ""
+
+#: tfrmwallet.ipnodes1.caption
+msgid "Available Node List"
+msgstr ""
+
+#: tfrmwallet.label1.caption
+msgid "MICROCOIN"
+msgstr ""
+
+#: tfrmwallet.label10.caption
+msgid "Difficulty"
+msgstr ""
+
+#: tfrmwallet.label11.caption
+msgid "Messages:"
+msgstr ""
+
+#: tfrmwallet.label12.caption
+msgid "Message to send:"
+msgstr ""
+
+#: tfrmwallet.label13.caption
+msgid "Available Connections:"
+msgstr ""
+
+#: tfrmwallet.label14.caption
+msgid "(Messages will be encrypted, so only dest connection will be able to read it)"
+msgstr ""
+
+#: tfrmwallet.label15.caption
+msgid "Select multiple accounts to execute massive operations"
+msgstr ""
+
+#: tfrmwallet.label16.caption
+msgid "Blocks Found:"
+msgstr ""
+
+#: tfrmwallet.label17.caption
+msgctxt "tfrmwallet.label17.caption"
+msgid "Accounts:"
+msgstr ""
+
+#: tfrmwallet.label18.caption
+msgctxt "tfrmwallet.label18.caption"
+msgid "Find account"
+msgstr ""
+
+#: tfrmwallet.label19.caption
+msgctxt "tfrmwallet.label19.caption"
+msgid "Balance:"
+msgstr ""
+
+#: tfrmwallet.label2.caption
+msgctxt "tfrmwallet.label2.caption"
+msgid "Filter by blocks range"
+msgstr ""
+
+#: tfrmwallet.label20.caption
+msgctxt "tfrmwallet.label20.caption"
+msgid "Accounts:"
+msgstr ""
+
+#: tfrmwallet.label21.caption
+msgid "Last block"
+msgstr ""
+
+#: tfrmwallet.label22.caption
+msgid "Accounts Balance:"
+msgstr ""
+
+#: tfrmwallet.label3.caption
+msgid "Active Connections:"
+msgstr ""
+
+#: tfrmwallet.label4.caption
+msgid "Block count"
+msgstr ""
+
+#: tfrmwallet.label5.caption
+msgctxt "tfrmwallet.label5.caption"
+msgid "Accounts"
+msgstr ""
+
+#: tfrmwallet.label6.caption
+msgid "Known Node Servers:"
+msgstr ""
+
+#: tfrmwallet.label7.caption
+msgid "Blacklisted Nodes"
+msgstr ""
+
+#: tfrmwallet.label8.caption
+msgid "Node Status:"
+msgstr ""
+
+#: tfrmwallet.label9.caption
+msgctxt "tfrmwallet.label9.caption"
+msgid "Filter by blocks range"
+msgstr ""
+
+#: tfrmwallet.lblaccountsbalance.caption
+msgctxt "tfrmwallet.lblaccountsbalance.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmwallet.lblaccountscount.caption
+msgctxt "tfrmwallet.lblaccountscount.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmwallet.lblblocksfound.caption
+msgctxt "tfrmwallet.lblblocksfound.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmwallet.lblblocksfound.hint
+msgid "Blocks found while Miner is running..."
+msgstr ""
+
+#: tfrmwallet.lblcurrentaccounts.caption
+msgctxt "tfrmwallet.lblcurrentaccounts.caption"
+msgid "lblCurrentAccounts"
+msgstr ""
+
+#: tfrmwallet.lblcurrentblock.caption
+msgctxt "tfrmwallet.lblcurrentblock.caption"
+msgid "lblCurrentBlock"
+msgstr ""
+
+#: tfrmwallet.lblcurrentblocktime.caption
+msgid "lblCurrentBlockTime"
+msgstr ""
+
+#: tfrmwallet.lblcurrentdifficulty.caption
+msgctxt "tfrmwallet.lblcurrentdifficulty.caption"
+msgid "lblCurrentDifficulty"
+msgstr ""
+
+#: tfrmwallet.lblminersclients.caption
+msgctxt "tfrmwallet.lblminersclients.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmwallet.lblminingstatuscaption.caption
+msgid "Miner Clients:"
+msgstr ""
+
+#: tfrmwallet.lblnodestatus.caption
+msgid "???"
+msgstr ""
+
+#: tfrmwallet.lbloperationspending.caption
+msgctxt "tfrmwallet.lbloperationspending.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmwallet.lbloperationspendingcaption.caption
+msgid "Pending Operations:"
+msgstr ""
+
+#: tfrmwallet.lblselectedaccountsbalance.caption
+msgctxt "tfrmwallet.lblselectedaccountsbalance.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmwallet.lblselectedaccountscount.caption
+msgctxt "tfrmwallet.lblselectedaccountscount.caption"
+msgid "000"
+msgstr ""
+
+#: tfrmwallet.lbltimeaverage.caption
+msgctxt "tfrmwallet.lbltimeaverage.caption"
+msgid "lblTimeAverage"
+msgstr ""
+
+#: tfrmwallet.lbltimeaverageaux.caption
+msgctxt "tfrmwallet.lbltimeaverageaux.caption"
+msgid "lblTimeAverageAux"
+msgstr ""
+
+#: tfrmwallet.menuitem1.caption
+msgid "Tools"
+msgstr ""
+
+#: tfrmwallet.menuitem13.caption
+msgid "Magyar"
+msgstr ""
+
+#: tfrmwallet.menuitem2.caption
+msgid "Language"
+msgstr ""
+
+#: tfrmwallet.menuitem3.caption
+msgctxt "tfrmwallet.menuitem3.caption"
+msgid "Pending Operations"
+msgstr ""
+
+#: tfrmwallet.menuitem4.caption
+msgctxt "tfrmwallet.menuitem4.caption"
+msgid "Block Explorer"
+msgstr ""
+
+#: tfrmwallet.menuitem5.caption
+msgctxt "tfrmwallet.menuitem5.caption"
+msgid "Operations Explorer"
+msgstr ""
+
+#: tfrmwallet.menuitem6.caption
+msgctxt "tfrmwallet.menuitem6.caption"
+msgid "Messages"
+msgstr ""
+
+#: tfrmwallet.menuitem7.caption
+msgctxt "tfrmwallet.menuitem7.caption"
+msgid "Node Stats"
+msgstr ""
+
+#: tfrmwallet.menuitem8.caption
+msgctxt "tfrmwallet.menuitem8.caption"
+msgid "Overview"
+msgstr ""
+
+#: tfrmwallet.menuitem9.caption
+msgctxt "tfrmwallet.menuitem9.caption"
+msgid "Logs"
+msgstr ""
+
+#: tfrmwallet.miabout.caption
+msgid "About"
+msgstr ""
+
+#: tfrmwallet.miaboutmicrocoin.caption
+msgid "About Micro Coin..."
+msgstr ""
+
+#: tfrmwallet.miaccountinformation.caption
+msgid "Account Information"
+msgstr ""
+
+#: tfrmwallet.miaddaccounttoselected.caption
+msgid "Add account to selected"
+msgstr ""
+
+#: tfrmwallet.miclose.caption
+msgctxt "tfrmwallet.miclose.caption"
+msgid "Close"
+msgstr ""
+
+#: tfrmwallet.midecodepayload.caption
+msgid "Decode Payload"
+msgstr ""
+
+#: tfrmwallet.mifindaccount.caption
+msgctxt "tfrmwallet.mifindaccount.caption"
+msgid "Find account"
+msgstr ""
+
+#: tfrmwallet.mifindnextaccountwithhighbalance.caption
+msgid "Find next account with high balance"
+msgstr ""
+
+#: tfrmwallet.mifindoperationbyophash.caption
+msgid "Find Operation by OpHash"
+msgstr ""
+
+#: tfrmwallet.mifindpreviousaccountwithhighbalance.caption
+msgid "Find previous account with high balance"
+msgstr ""
+
+#: tfrmwallet.mimultiaccountoperation.caption
+msgid "Multi account operation"
+msgstr ""
+
+#: tfrmwallet.minewoperation.caption
+msgid "New single Operation"
+msgstr ""
+
+#: tfrmwallet.mioperations.caption
+msgctxt "tfrmwallet.mioperations.caption"
+msgid "Operations"
+msgstr ""
+
+#: tfrmwallet.mioptions.caption
+msgctxt "tfrmwallet.mioptions.caption"
+msgid "Options"
+msgstr ""
+
+#: tfrmwallet.miprivatekeys.caption
+msgid "Private Keys"
+msgstr ""
+
+#: tfrmwallet.miproject.caption
+msgid "Wallet"
+msgstr ""
+
+#: tfrmwallet.miremoveaccountfromselected.caption
+msgid "Remove account from selected"
+msgstr ""
+
+#: tfrmwallet.mmenglish.caption
+msgid "English"
+msgstr ""
+
+#: tfrmwallet.panel10.caption
+msgid "Panel10"
+msgstr ""
+
+#: tfrmwallet.panel5.caption
+msgid "Panel5"
+msgstr ""
+
+#: tfrmwallet.sbselectedaccountsadd.caption
+msgid ">"
+msgstr ""
+
+#: tfrmwallet.sbselectedaccountsaddall.caption
+msgid ">>"
+msgstr ""
+
+#: tfrmwallet.sbselectedaccountsdel.caption
+msgid "<"
+msgstr ""
+
+#: tfrmwallet.sbselectedaccountsdelall.caption
+msgid "<<"
+msgstr ""
+
+#: tfrmwallet.speedbutton1.caption
+msgid "Send"
+msgstr ""
+
+#: tfrmwallet.statusbar.panels[0].text
+msgid "Server Active"
+msgstr ""
+
+#: tfrmwallet.statusbar.panels[1].text
+msgid "Connection status"
+msgstr ""
+
+#: tfrmwallet.statusbar.panels[2].text
+msgid "Blocks"
+msgstr ""
+
+#: tfrmwallet.tabsheet1.caption
+msgid "TabSheet1"
+msgstr ""
+
+#: tfrmwallet.tabsheet2.caption
+msgid "Account history"
+msgstr ""
+
+#: tfrmwallet.tabsheet3.caption
+msgid "Multiple Operations"
+msgstr ""
+
+#: tfrmwallet.tsaccountoperations.caption
+msgid "Operations of selected Account"
+msgstr ""
+
+#: tfrmwallet.tsblockchain.caption
+msgctxt "tfrmwallet.tsblockchain.caption"
+msgid "Block Explorer"
+msgstr ""
+
+#: tfrmwallet.tslogs.caption
+msgctxt "tfrmwallet.tslogs.caption"
+msgid "Logs"
+msgstr ""
+
+#: tfrmwallet.tsmessages.caption
+msgctxt "tfrmwallet.tsmessages.caption"
+msgid "Messages"
+msgstr ""
+
+#: tfrmwallet.tsmultiselectaccounts.caption
+msgid "Selected accounts for massive operations"
+msgstr ""
+
+#: tfrmwallet.tsmyaccounts.caption
+msgid "Account Explorer"
+msgstr ""
+
+#: tfrmwallet.tsnodestats.caption
+msgctxt "tfrmwallet.tsnodestats.caption"
+msgid "Node Stats"
+msgstr ""
+
+#: tfrmwallet.tsoperations.caption
+msgctxt "tfrmwallet.tsoperations.caption"
+msgid "Operations Explorer"
+msgstr ""
+
+#: tfrmwallet.tspendingoperations.caption
+msgctxt "tfrmwallet.tspendingoperations.caption"
+msgid "Pending Operations"
+msgstr ""
+
+#: tfrmwalletkeys.bbchangename.caption
+msgid "Change Name"
+msgstr ""
+
+#: tfrmwalletkeys.bbdelete.caption
+msgid "Delete"
+msgstr ""
+
+#: tfrmwalletkeys.bbexportallwalletkeys.caption
+msgid "Export all Wallet Keys to a file"
+msgstr ""
+
+#: tfrmwalletkeys.bbexportprivatekey.caption
+msgid "Export Private key"
+msgstr ""
+
+#: tfrmwalletkeys.bbexportpublickey.caption
+msgid "Export Public key"
+msgstr ""
+
+#: tfrmwalletkeys.bbgeneratenewkey.caption
+msgid "Generate a new Key"
+msgstr ""
+
+#: tfrmwalletkeys.bbimportkeysfile.caption
+msgid "Import a Wallet Keys File"
+msgstr ""
+
+#: tfrmwalletkeys.bbimportprivatekey.caption
+msgid "Import Private key"
+msgstr ""
+
+#: tfrmwalletkeys.bbimportpublickey.caption
+msgid "Import Public key"
+msgstr ""
+
+#: tfrmwalletkeys.bblock.caption
+msgid "Lock"
+msgstr ""
+
+#: tfrmwalletkeys.bbupdatepassword.caption
+msgctxt "tfrmwalletkeys.bbupdatepassword.caption"
+msgid "Password"
+msgstr ""
+
+#: tfrmwalletkeys.caption
+msgid "Wallet keys"
+msgstr ""
+
+#: tfrmwalletkeys.lblencryptiontype.caption
+msgctxt "tfrmwalletkeys.lblencryptiontype.caption"
+msgid "000000000"
+msgstr ""
+
+#: tfrmwalletkeys.lblencryptiontypecaption.caption
+msgid "Encryption type:"
+msgstr ""
+
+#: tfrmwalletkeys.lblkeyname.caption
+msgctxt "tfrmwalletkeys.lblkeyname.caption"
+msgid "000000000"
+msgstr ""
+
+#: tfrmwalletkeys.lblkeynamecaption.caption
+msgid "Key name:"
+msgstr ""
+
+#: tfrmwalletkeys.lblkeysencrypted.caption
+msgid "lblKeysEncrypted"
+msgstr ""
+
+#: tfrmwalletkeys.lblprivatekeycaption.caption
+msgid "Private key:"
+msgstr ""
+
+#: tfrmwalletkeys.lblprivatekeycaption2.caption
+msgid "(In hexa format)"
+msgstr ""
+
+#: tqrform.bbclose.caption
+msgid "Scanned"
+msgstr ""
+
+#: tqrform.bitbtn1.caption
+msgctxt "tqrform.bitbtn1.caption"
+msgid "Cancel"
+msgstr ""
+
+#: tqrform.caption
+msgid "Transfer account to mobile app"
+msgstr ""
+
+#: tqrform.label1.caption
+msgid "Read this QR Code with the MicroCoin Mobile Wallet!"
+msgstr ""
+
+#: tqrform.label2.caption
+msgid "WARNING! After you scanned, your account will only accessible on your phone"
+msgstr ""
+
+#: trequestmoneyform.amount.text
+msgctxt "trequestmoneyform.amount.text"
+msgid "0"
+msgstr ""
+
+#: trequestmoneyform.caption
+msgid "Request Money"
+msgstr ""
+
+#: trequestmoneyform.label1.caption
+msgid "Total amount:"
+msgstr ""
+
+#: trequestmoneyform.label2.caption
+msgid "Payload:"
+msgstr ""
+
+#: ufrmabout.rsblockchainpr
+msgid "BlockChain Protocol: %d (%d)  -  Net Protocol: %d (%d)"
+msgstr ""
+
+#: ufrmabout.rsbuild
+msgid "Build: %s"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rschangepasswo
+msgctxt "ufrmmicrocoinwalletconfig.rschangepasswo"
+msgid "Change password"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rschangewallet
+msgid "Change Wallet password"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rsdefaultd
+msgid "(Default %d)"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rsexceptionats
+msgid "Exception at SetAppParams: %s"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rsinsertwallet
+msgid "Insert Wallet Password"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rsinvalidfeeva
+msgid "Invalid Fee value"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rsinvalidpassw
+msgctxt "ufrmmicrocoinwalletconfig.rsinvalidpassw"
+msgid "Invalid password"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rsinvalidpriva
+msgid "Invalid private key"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rsmustselectap
+msgctxt "ufrmmicrocoinwalletconfig.rsmustselectap"
+msgid "Must select a private key"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rspasswordcann
+msgctxt "ufrmmicrocoinwalletconfig.rspasswordcann"
+msgid "Password cannot start or end with a space character"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rspasswordchan
+msgid "Password changed!%s%sPlease note that your new password is \"%s\"%s%s(If you lose this password, you will lose your Wallet forever !)"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rsserverportan
+msgid "Server port and JSON-RPC Server miner port are equal!"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rstwopasswords
+msgctxt "ufrmmicrocoinwalletconfig.rstwopasswords"
+msgid "Two passwords are different!"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rstypenewpassw
+msgid "Type new password"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rstypenewpassw2
+msgid "Type new password again"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rswalletpasswo
+msgctxt "ufrmmicrocoinwalletconfig.rswalletpasswo"
+msgid "Wallet Password"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rswalletpasswo2
+msgid "(Wallet password)"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rswalletwithou
+msgid "Wallet without password, protect it!"
+msgstr ""
+
+#: ufrmmicrocoinwalletconfig.rswalletwithpa
+msgid "Wallet with password, change it!"
+msgstr ""
+
+#: ufrmminecoins.rscurrentblock
+msgid "Current block: %d Wallet Name: \"%s\" Target: %s"
+msgstr ""
+
+#: ufrmminecoins.rshhnnssblockn
+msgid "%s Block:%s NOnce:%s Timestamp:%s Miner:%s"
+msgstr ""
+
+#: ufrmminecoins.rsmining
+msgid "MINING"
+msgstr ""
+
+#: ufrmminecoins.rsnotmining
+msgid "*** Not mining ***"
+msgstr ""
+
+#: ufrmminecoins.rsstarting
+msgid "Starting..."
+msgstr ""
+
+#: ufrmminecoins.rsstopped
+msgid "Stopped"
+msgstr ""
+
+#: ufrmminecoins.rsstopping
+msgid "Stopping..."
+msgstr ""
+
+#: ufrmnodesip.rsalertifische
+msgid "ALERT:%sIf \"%s\" is checked %sand no valid server found, you will be alone!"
+msgstr ""
+
+#: ufrmnodesip.rsnovalidipinl
+msgid "No valid IP in list!"
+msgstr ""
+
+#: ufrmnodesip.rsrestartappli
+msgid "Restart application to take effect"
+msgstr ""
+
+#: ufrmoperation.rsaccount
+msgctxt "ufrmoperation.rsaccount"
+msgid "Account"
+msgstr ""
+
+#: ufrmoperation.rsaccountisloc
+msgid "Account %s is locked until block %s"
+msgstr ""
+
+#: ufrmoperation.rsaccountisnot
+msgid "Account %s is not for sale"
+msgstr ""
+
+#: ufrmoperation.rsaccountnamea
+msgid "Account name and type are the same. Not changed"
+msgstr ""
+
+#: ufrmoperation.rsaccountprice
+msgid "Account price %s"
+msgstr ""
+
+#: ufrmoperation.rsaccounts
+msgctxt "ufrmoperation.rsaccounts"
+msgid "Accounts"
+msgstr ""
+
+#: ufrmoperation.rsaccounts2
+msgid "%s accounts"
+msgstr ""
+
+#: ufrmoperation.rsallbalance
+msgid "ALL BALANCE"
+msgstr ""
+
+#: ufrmoperation.rscanbeupdated
+msgid "%s can be updated"
+msgstr ""
+
+#: ufrmoperation.rscannotbuyacc
+msgid "Cannot buy accounts with multioperations. Use only 1 account"
+msgstr ""
+
+#: ufrmoperation.rscannotchange
+msgid "Cannot change info with multioperations. Use only 1 account"
+msgstr ""
+
+#: ufrmoperation.rschangeprivat
+msgid "Change private key to %s"
+msgstr ""
+
+#: ufrmoperation.rsencryptedwit
+msgid "Encrypted with sender public key"
+msgstr ""
+
+#: ufrmoperation.rsencryptedwit2
+msgid "Encrypted with destination public key"
+msgstr ""
+
+#: ufrmoperation.rsencryptedwit3
+msgctxt "ufrmoperation.rsencryptedwit3"
+msgid "Encrypted with old public key"
+msgstr ""
+
+#: ufrmoperation.rsencryptedwit4
+msgid "Encrypted with new public key"
+msgstr ""
+
+#: ufrmoperation.rsencryptedwit5
+msgid "Encrypted with target public key"
+msgstr ""
+
+#: ufrmoperation.rsencryptedwit6
+msgid "Encrypted with signer public key"
+msgstr ""
+
+#: ufrmoperation.rsencryptedwit7
+msgid "Encrypted with buyer public key"
+msgstr ""
+
+#: ufrmoperation.rsenterwalletp
+msgctxt "ufrmoperation.rsenterwalletp"
+msgid "Enter wallet password"
+msgstr ""
+
+#: ufrmoperation.rserrorencodin
+msgid "Error encoding payload of sender account %s: %s"
+msgstr ""
+
+#: ufrmoperation.rserrorencrypt
+msgid "Error encrypting"
+msgstr ""
+
+#: ufrmoperation.rsexecuteopera
+msgid "Execute %s operations?%sOperation: %s%s%sTotal fee: %s%s%sNote: This operation will be transmitted to the network!"
+msgstr ""
+
+#: ufrmoperation.rsexecutethiso
+msgid "Execute this operation:%s%s%s%s%sNote: This operation will be transmitted to the network!"
+msgstr ""
+
+#: ufrmoperation.rsinsertlockin
+msgid "Insert locking block"
+msgstr ""
+
+#: ufrmoperation.rsinsufficient
+msgid "Insufficient funds"
+msgstr ""
+
+#: ufrmoperation.rsinvalidaccou
+msgid "Invalid account to buy %s"
+msgstr ""
+
+#: ufrmoperation.rsinvalidaccou2
+msgid "Invalid account number"
+msgstr ""
+
+#: ufrmoperation.rsinvalidaccou3
+msgid "Invalid account to buy number"
+msgstr ""
+
+#: ufrmoperation.rsinvalidamoun
+msgid "Invalid amount value"
+msgstr ""
+
+#: ufrmoperation.rsinvalidamoun2
+msgid "Invalid amount (%s)"
+msgstr ""
+
+#: ufrmoperation.rsinvaliddesta
+msgid "Invalid dest. account (%s)"
+msgstr ""
+
+#: ufrmoperation.rsinvaliddesta2
+msgid "Invalid dest account number"
+msgstr ""
+
+#: ufrmoperation.rsinvalidfeeva
+msgid "Invalid fee value \"%s\""
+msgstr ""
+
+#: ufrmoperation.rsinvalidpaylo
+msgid "Invalid payload encrypted account number: %s"
+msgstr ""
+
+#: ufrmoperation.rsinvalidprice
+msgid "Invalid price"
+msgstr ""
+
+#: ufrmoperation.rsinvalidselec
+msgid "Invalid selected key"
+msgstr ""
+
+#: ufrmoperation.rsinvalidselle
+msgid "Invalid seller account"
+msgstr ""
+
+#: ufrmoperation.rsinvalidsigne
+msgid "Invalid signer account"
+msgstr ""
+
+#: ufrmoperation.rsinvalidsigne2
+msgid "Invalid signer account number"
+msgstr ""
+
+#: ufrmoperation.rsinvalidtype
+msgid "Invalid type %s"
+msgstr ""
+
+#: ufrmoperation.rsisnotavalidn
+msgid "\"%s\" is not a valid name: %s"
+msgstr ""
+
+#: ufrmoperation.rsmustselectan
+msgid "Must select a new private key"
+msgstr ""
+
+#: ufrmoperation.rsmustselectan2
+msgid "Must select an operation"
+msgstr ""
+
+#: ufrmoperation.rsmustselectan3
+msgid "Must select an encryption option for payload"
+msgstr ""
+
+#: ufrmoperation.rsmustselectap
+msgctxt "ufrmoperation.rsmustselectap"
+msgid "Must select a private key"
+msgstr ""
+
+#: ufrmoperation.rsmustselectch
+msgid "Must select change type"
+msgstr ""
+
+#: ufrmoperation.rsnameisusedby
+msgid "Name \"%s\" is used by account %s"
+msgstr ""
+
+#: ufrmoperation.rsnewkeytype
+msgid "New key type: %s"
+msgstr ""
+
+#: ufrmoperation.rsnewpublickey
+msgid "New public key is the same public key"
+msgstr ""
+
+#: ufrmoperation.rsnewpublickey2
+msgid "New public key for private sale is the same public key"
+msgstr ""
+
+#: ufrmoperation.rsnooperations
+msgid "No operation selected"
+msgstr ""
+
+#: ufrmoperation.rsnosenderacco
+msgid "No sender account"
+msgstr ""
+
+#: ufrmoperation.rsnovalidopera
+msgid "No valid operation to execute"
+msgstr ""
+
+#: ufrmoperation.rsnowalletkeys
+msgid "No wallet keys"
+msgstr ""
+
+#: ufrmoperation.rsoneormoreofy
+msgid "One or more of your operations has not been executed:%sErrors:%s%s%s%sTotal successfully executed operations: %s"
+msgstr ""
+
+#: ufrmoperation.rsonlypublicke
+msgid "Only public key of account %s found in wallet. You cannot operate with this account"
+msgstr ""
+
+#: ufrmoperation.rspayloadsizei
+msgid "Payload size is bigger than %s (%s)"
+msgstr ""
+
+#: ufrmoperation.rsprivatekeyof
+msgid "Private key of account %s not found in wallet"
+msgstr ""
+
+#: ufrmoperation.rspublickey
+msgid "Public key: %s"
+msgstr ""
+
+#: ufrmoperation.rsselectachang
+msgid "Select a change type"
+msgstr ""
+
+#: ufrmoperation.rsselectasalet
+msgid "Select a sale type"
+msgstr ""
+
+#: ufrmoperation.rsselectedpriv
+msgid "Selected private key is not valid to encode"
+msgstr ""
+
+#: ufrmoperation.rsselleraccoun
+msgid "Seller account does not exists %s"
+msgstr ""
+
+#: ufrmoperation.rssenderaccoun
+msgid "Sender account private key not found in Wallet"
+msgstr ""
+
+#: ufrmoperation.rssenderanddes
+msgid "Sender and dest account are the same"
+msgstr ""
+
+#: ufrmoperation.rssigneraccoun
+msgid "Signer account does not exists %s"
+msgstr ""
+
+#: ufrmoperation.rssigneraccoun2
+msgid "Signer account %s is locked until block %s"
+msgstr ""
+
+#: ufrmoperation.rssigneraccoun3
+msgid "Signer account %s is not ower of account %s"
+msgstr ""
+
+#: ufrmoperation.rssigneraccoun4
+msgid "Signer account %s is not ower of delisted account %s"
+msgstr ""
+
+#: ufrmoperation.rssuccessfully
+msgid "Successfully executed %s operations!%s%s%s"
+msgstr ""
+
+#: ufrmoperation.rsthisoperatio
+msgid "This operation needs PROTOCOL 2 active"
+msgstr ""
+
+#: ufrmoperation.rsthisoperatio2
+msgid "This operation does not allow this kind of payload"
+msgstr ""
+
+#: ufrmoperation.rstotalamountt
+msgid "Total amount that dest will receive: %s%s"
+msgstr ""
+
+#: ufrmoperation.rswalletispass
+msgid "Wallet is password protected. Need password"
+msgstr ""
+
+#: ufrmoperation.rswalletpasswo
+msgctxt "ufrmoperation.rswalletpasswo"
+msgid "Wallet password"
+msgstr ""
+
+#: ufrmpayloaddecoder.rsaccount
+msgctxt "ufrmpayloaddecoder.rsaccount"
+msgid "Account:"
+msgstr ""
+
+#: ufrmpayloaddecoder.rscannotdecryp
+msgid "CANNOT DECRYPT"
+msgstr ""
+
+#: ufrmpayloaddecoder.rsencryptedwit
+msgid "Encrypted with EC %s"
+msgstr ""
+
+#: ufrmpayloaddecoder.rsencryptedwit2
+msgid "Encrypted with pwd:\"%s\""
+msgstr ""
+
+#: ufrmpayloaddecoder.rsinsertoperat
+msgctxt "ufrmpayloaddecoder.rsinsertoperat"
+msgid "Insert Operation Hash value (OpHash)"
+msgstr ""
+
+#: ufrmpayloaddecoder.rsinternalerro
+msgid "Internal error 20161114-1"
+msgstr ""
+
+#: ufrmpayloaddecoder.rsnopayload
+msgid "(No payload)"
+msgstr ""
+
+#: ufrmpayloaddecoder.rsnotencrypted
+msgid "Not encrypted payload"
+msgstr ""
+
+#: ufrmpayloaddecoder.rspendingblock
+msgid "(Pending block)"
+msgstr ""
+
+#: ufrmpayloaddecoder.rspossiblepass
+msgid "Possible passwords: %d"
+msgstr ""
+
+#: ufrmpayloaddecoder.rssavenewdecod
+msgid "Save new decode methods?"
+msgstr ""
+
+#: ufrmpayloaddecoder.rssearchoperat
+msgctxt "ufrmpayloaddecoder.rssearchoperat"
+msgid "Search operation by OpHash"
+msgstr ""
+
+#: ufrmpayloaddecoder.rssender
+msgctxt "ufrmpayloaddecoder.rssender"
+msgid "Sender:"
+msgstr ""
+
+#: ufrmpayloaddecoder.rsvalueisnotan
+msgid "Value is not an hexadecimal string"
+msgstr ""
+
+#: ufrmpayloaddecoder.rsvalueisnotav
+msgid "Value is not a valid OpHash"
+msgstr ""
+
+#: ufrmqrcode.rsconfirmation
+msgid "Confirmation"
+msgstr ""
+
+#: ufrmqrcode.rsdoyoureallys
+msgid "Do you really scanned the code with the mobile app? If not, you may lose your account"
+msgstr ""
+
+#: ufrmqrcode.rspassword
+msgctxt "ufrmqrcode.rspassword"
+msgid "Password"
+msgstr ""
+
+#: ufrmqrcode.rspleasesaveth
+msgid "Please save this QR Code. If you lost your mobile, you can restore the access to your account with this. You only need rescan it with an other mobile. Save it to safe place."
+msgstr ""
+
+#: ufrmqrcode.rssaveqrcode
+msgid "Save QR Code"
+msgstr ""
+
+#: ufrmqrcode.rsyourpassword
+msgid "Your password copied to clipboard. Please put in a safe place, becuse you can restore your account only if you know this. Your password is: %s"
+msgstr ""
+
+#: ufrmwallet.rsaccountinfo
+msgid "Account %s info"
+msgstr ""
+
+#: ufrmwallet.rsactive
+msgid "%s ** ACTIVE **"
+msgstr ""
+
+#: ufrmwallet.rsactiveport
+msgid "Active (Port %s)"
+msgstr ""
+
+#: ufrmwallet.rsallmyprivate
+msgid "(All my private keys)"
+msgstr ""
+
+#: ufrmwallet.rsaloneinthewo
+msgid "Alone in the world..."
+msgstr ""
+
+#: ufrmwallet.rsanerroroccur
+msgid "An error occurred during initialization. Application cannot continue:%s%s%s%s%sApplication will close..."
+msgstr ""
+
+#: ufrmwallet.rsattempts
+msgid "%s (Attempts: %s)"
+msgstr ""
+
+#: ufrmwallet.rsblacklistips
+msgid "Blacklist IP:%s:%d LastConnection:%s Reason: %s"
+msgstr ""
+
+#: ufrmwallet.rsblacklistupd
+msgid "BlackList Updated: %s by TID:%s"
+msgstr ""
+
+#: ufrmwallet.rscannotloadto
+msgid "Cannot load %s%sTo use this software make sure this file is available on you system or reinstall the application"
+msgstr ""
+
+#: ufrmwallet.rscannotopenyo
+msgid "Cannot open your wallet... Perhaps another instance of Micro Coin is active!%s%s%s"
+msgstr ""
+
+#: ufrmwallet.rschangekeynam
+msgctxt "ufrmwallet.rschangekeynam"
+msgid "Change Key name"
+msgstr ""
+
+#: ufrmwallet.rsclientips
+msgid "Client: IP:%s"
+msgstr ""
+
+#: ufrmwallet.rsclientipsblo
+msgid "Client: IP:%s Block:%d Sent/Received:%d/%d Bytes - %s - Time offset %d - Active since %s %s"
+msgstr ""
+
+#: ufrmwallet.rsconnectedjso
+msgid "%s connected JSON-RPC clients"
+msgstr ""
+
+#: ufrmwallet.rsconnectionsd
+msgid "Connections:%d Clients:%d Servers:%d - Rcvd:%d Kb Send:%d Kb"
+msgstr ""
+
+#: ufrmwallet.rsddmmyyyyhhnn
+msgid "dd/mm/yyyy hh:nn:ss"
+msgstr ""
+
+#: ufrmwallet.rsddmmyyyyhhnn2
+msgid "dd/mm/yyyy hh:nn:ss.zzz"
+msgstr ""
+
+#: ufrmwallet.rsdiscoverings
+msgid "Discovering servers"
+msgstr ""
+
+#: ufrmwallet.rsexceptionatt
+msgid "Exception at TimerUpdate %s: %s"
+msgstr ""
+
+#: ufrmwallet.rsinitializing
+msgid "Initializing..."
+msgstr ""
+
+#: ufrmwallet.rsinputnewname
+msgid "Input new name"
+msgstr ""
+
+#: ufrmwallet.rsinsertoperat
+msgctxt "ufrmwallet.rsinsertoperat"
+msgid "Insert Operation Hash value (OpHash)"
+msgstr ""
+
+#: ufrmwallet.rsinternalmess
+msgid "%s Internal message: %s"
+msgstr ""
+
+#: ufrmwallet.rsjsonrpcserve
+msgid "JSON-RPC server not active"
+msgstr ""
+
+#: ufrmwallet.rslast00secopt
+msgid "Last %s: %s sec. (Optimal %ss) Deviation %s"
+msgstr ""
+
+#: ufrmwallet.rslastaccountt
+msgid "Last account time:%s"
+msgstr ""
+
+#: ufrmwallet.rslastattemptt
+msgid "%s Last attempt to connect: %s"
+msgstr ""
+
+#: ufrmwallet.rslastcomunica
+msgid " - Last comunication <10 sec."
+msgstr ""
+
+#: ufrmwallet.rslastcomunica2
+msgid " - Last comunication %.2dm%.2ds"
+msgstr ""
+
+#: ufrmwallet.rslastconnecti
+msgid "%s Last connection: %s"
+msgstr ""
+
+#: ufrmwallet.rslastdssecdss
+msgid "Last %d: %s sec. - %d: %s sec. - %d: %s sec. - %d: %s sec. - %d: %s sec."
+msgstr ""
+
+#: ufrmwallet.rslastserverco
+msgid "%s Last server connection: %s"
+msgstr ""
+
+#: ufrmwallet.rsmessagefroml
+msgid "%s Message from %s%sLength %s bytes%s%s"
+msgstr ""
+
+#: ufrmwallet.rsmessagerecei
+msgid "%s Message received from %s"
+msgstr ""
+
+#: ufrmwallet.rsmessagerecei2
+msgid "%s Message received from %s Length %s bytes"
+msgstr ""
+
+#: ufrmwallet.rsmessagesentt
+msgid "Message sent to %s nodes%sMessage: %s%s"
+msgstr ""
+
+#: ufrmwallet.rsmustselectak
+msgid "Must select a Key"
+msgstr ""
+
+#: ufrmwallet.rsmustselectat
+msgid "Must select at least 1 account"
+msgstr ""
+
+#: ufrmwallet.rsmyselfipssen
+msgid "MySelf IP:%s Sent/Received:%d/%d Bytes - %s - Time offset %d - Active since %s %s"
+msgstr ""
+
+#: ufrmwallet.rsnewnodebuild
+msgid "New Node %s - %s Build:%s"
+msgstr ""
+
+#: ufrmwallet.rsnoaccountsel
+msgid "No account selected"
+msgstr ""
+
+#: ufrmwallet.rsnoblockchain
+msgid "NO BLOCKCHAIN: %s"
+msgstr ""
+
+#: ufrmwallet.rsnodeserversu
+msgid "NodeServers Updated: %s Count: %s"
+msgstr ""
+
+#: ufrmwallet.rsnoinfoavaila
+msgid "No info available"
+msgstr ""
+
+#: ufrmwallet.rsnojsonrpccli
+msgid "No JSON-RPC clients"
+msgstr ""
+
+#: ufrmwallet.rsnone
+msgid "(none)"
+msgstr ""
+
+#: ufrmwallet.rsnorowselecte
+msgid "No row selected"
+msgstr ""
+
+#: ufrmwallet.rsnotfoundanya
+msgid "Not found any account higher than %s with balance higher than %s"
+msgstr ""
+
+#: ufrmwallet.rsnotfoundanya2
+msgid "Not found any account lower than %s with balance higher than %s"
+msgstr ""
+
+#: ufrmwallet.rsnotvalid
+msgid "%s ** NOT VALID ** %s"
+msgstr ""
+
+#: ufrmwallet.rsobtainingnew
+msgid "Obtaining new blockchain"
+msgstr ""
+
+#: ufrmwallet.rsoperationinf
+msgid "Operation info:"
+msgstr ""
+
+#: ufrmwallet.rsoperationinf2
+msgid "Operation info"
+msgstr ""
+
+#: ufrmwallet.rspleasewaitun
+msgid "Please wait until finished: %s"
+msgstr ""
+
+#: ufrmwallet.rsreceived
+msgid "RECEIVED> %s"
+msgstr ""
+
+#: ufrmwallet.rsrestartappli
+msgid "Restart application?"
+msgstr ""
+
+#: ufrmwallet.rsrunning
+msgid "Running"
+msgstr ""
+
+#: ufrmwallet.rssearchoperat
+msgctxt "ufrmwallet.rssearchoperat"
+msgid "Search operation by OpHash"
+msgstr ""
+
+#: ufrmwallet.rsselectanacco
+msgid "Select an account"
+msgstr ""
+
+#: ufrmwallet.rsselectatleas
+msgid "Select at least one connection"
+msgstr ""
+
+#: ufrmwallet.rssendthismess
+msgid "Send this message to %s nodes?%sNOTE: Sending unauthorized messages will be considered spam and you will be banned%s%sMessage: %s%s"
+msgstr ""
+
+#: ufrmwallet.rssentto
+msgid "%s Sent to %s > %s"
+msgstr ""
+
+#: ufrmwallet.rsserverips
+msgid "Server: IP:%s"
+msgstr ""
+
+#: ufrmwallet.rsserveripsd
+msgid "Server IP:%s:%d"
+msgstr ""
+
+#: ufrmwallet.rsserverstoppe
+msgid "Server stopped"
+msgstr ""
+
+#: ufrmwallet.rstotalblackli
+msgid "Total Blacklisted IPs: %d (Total %d)"
+msgstr ""
+
+#: ufrmwallet.rstryingtoconn
+msgid "%s ** TRYING TO CONNECT **"
+msgstr ""
+
+#: ufrmwallet.rsvalueinhexad
+msgid "%sValue in hexadecimal:%s%s"
+msgstr ""
+
+#: ufrmwallet.rsyoucannotadd
+msgid "You cannot add %s account because private key not found in your wallet.%s%sYou're not the owner!"
+msgstr ""
+
+#: ufrmwallet.rsyoucannotdot
+msgid "You cannot do this operation now:%s%s%s"
+msgstr ""
+
+#: ufrmwallet.rsyouhaverecei
+msgid "You have received %d messages"
+msgstr ""
+
+#: ufrmwallet.rsyouhaverecei2
+msgid "You have received 1 message"
+msgstr ""
+
+#: ufrmwallet.rsyouneedresta
+msgid "You need restart Application to apply changes. Close application?"
+msgstr ""
+
+#: ufrmwalletkeys.rsareyousureyo
+msgid "Are you sure you want to delete the selected private key?%s%s%s%sPlease note that this will forever remove access to accounts using this key..."
+msgstr ""
+
+#: ufrmwalletkeys.rsareyousureyo2
+msgid "Are you sure you want to delete?"
+msgstr ""
+
+#: ufrmwalletkeys.rscancelledope
+msgid "Cancelled operation"
+msgstr ""
+
+#: ufrmwalletkeys.rscannotcontin
+msgid "Cannot continue without valid password"
+msgstr ""
+
+#: ufrmwalletkeys.rscannotfindfi
+msgid "Cannot find file %s"
+msgstr ""
+
+#: ufrmwalletkeys.rschangepasswo
+msgctxt "ufrmwalletkeys.rschangepasswo"
+msgid "Change password"
+msgstr ""
+
+#: ufrmwalletkeys.rsdeletekey
+msgid "Delete key"
+msgstr ""
+
+#: ufrmwalletkeys.rsencryptednee
+msgid "%s (Encrypted, need password)"
+msgstr ""
+
+#: ufrmwalletkeys.rsenternewpass
+msgid "Enter new password"
+msgstr ""
+
+#: ufrmwalletkeys.rsenternewpass2
+msgid "Enter new password again"
+msgstr ""
+
+#: ufrmwalletkeys.rsenterthepass
+msgid "Enter the password:"
+msgstr ""
+
+#: ufrmwalletkeys.rsenterthewall
+msgid "Enter the wallet file password:"
+msgstr ""
+
+#: ufrmwalletkeys.rsenterwalletp
+msgctxt "ufrmwalletkeys.rsenterwalletp"
+msgid "Enter wallet password"
+msgstr ""
+
+#: ufrmwalletkeys.rsexportprivat
+msgid "Export private key"
+msgstr ""
+
+#: ufrmwalletkeys.rsimport
+msgid "Import"
+msgstr ""
+
+#: ufrmwalletkeys.rsimported
+msgid "Imported %s"
+msgstr ""
+
+#: ufrmwalletkeys.rsimportedpriv
+msgid "Imported private key"
+msgstr ""
+
+#: ufrmwalletkeys.rsimportedpubl
+msgid "Imported public key %s"
+msgstr ""
+
+#: ufrmwalletkeys.rsimportedpubl2
+msgid "Imported public key"
+msgstr ""
+
+#: ufrmwalletkeys.rsimportprivat
+msgid "Import private key"
+msgstr ""
+
+#: ufrmwalletkeys.rsimportpublic
+msgid "Import publick key"
+msgstr ""
+
+#: ufrmwalletkeys.rsinputpasswor
+msgid "Input password"
+msgstr ""
+
+#: ufrmwalletkeys.rsinsertapassw
+msgid "Insert a password to export"
+msgstr ""
+
+#: ufrmwalletkeys.rsinsertthepas
+msgid "Insert the password protected private key or raw private key"
+msgstr ""
+
+#: ufrmwalletkeys.rsinsertthepub
+msgid "Insert the public key in hexa format or imported format"
+msgstr ""
+
+#: ufrmwalletkeys.rsinvalidlyfor
+msgid "Invalidly formatted private key string. Ensure it is an encrypted private key export or raw private key hexstring."
+msgstr ""
+
+#: ufrmwalletkeys.rsinvalidpassw
+msgid "Invalid password!"
+msgstr ""
+
+#: ufrmwalletkeys.rsinvalidpassw2
+msgid "Invalid password or corrupted data!"
+msgstr ""
+
+#: ufrmwalletkeys.rsinvalidpassw3
+msgid "Invalid password and/or corrupted data!"
+msgstr ""
+
+#: ufrmwalletkeys.rsinvalidpassw4
+msgctxt "ufrmwalletkeys.rsinvalidpassw4"
+msgid "Invalid password"
+msgstr ""
+
+#: ufrmwalletkeys.rsinvalidpubli
+msgid "Invalid public key value (Not hexa or not an imported format)%s%s"
+msgstr ""
+
+#: ufrmwalletkeys.rsinvalidtexty
+msgid "Invalid text... You must enter an hexadecimal value (\"0\"..\"9\" or \"A\"..\"F\")"
+msgstr ""
+
+#: ufrmwalletkeys.rsnameforthisp
+msgid "Name for this private key:"
+msgstr ""
+
+#: ufrmwalletkeys.rsnoname
+msgid "(No name)"
+msgstr ""
+
+#: ufrmwalletkeys.rsnoprivatekey
+msgid "(No private key)"
+msgstr ""
+
+#: ufrmwalletkeys.rsnovalidkey
+msgid "No valid key"
+msgstr ""
+
+#: ufrmwalletkeys.rspasswordcann
+msgctxt "ufrmwalletkeys.rspasswordcann"
+msgid "Password cannot start or end with a space character"
+msgstr ""
+
+#: ufrmwalletkeys.rspasswordchan
+msgid "Password changed!%s%sPlease note that your new password is \"%s\"%s%s(If you lose this password, you will lose your wallet forever!)"
+msgstr ""
+
+#: ufrmwalletkeys.rspasswordente
+msgid "Password entered is not valid, retry?"
+msgstr ""
+
+#: ufrmwalletkeys.rspasswordsdoe
+msgid "Passwords does not match!"
+msgstr ""
+
+#: ufrmwalletkeys.rsrepeatthepas
+msgid "Repeat the password to export"
+msgstr ""
+
+#: ufrmwalletkeys.rssetaname
+msgid "Set a name"
+msgstr ""
+
+#: ufrmwalletkeys.rsthepasswordh
+msgid "The password has been encrypted with your password and copied to the clipboard.%s%sPassword: \"%s\"%s%sEncrypted key value (Copied to the clipboard):%s%s%s%sLength=%s bytes"
+msgstr ""
+
+#: ufrmwalletkeys.rsthepublickey
+msgid "The public key has been copied to the clipboard%s%sPublic key value:%s%s%s%sLength=%s bytes"
+msgstr ""
+
+#: ufrmwalletkeys.rsthisdataisno
+msgid "This data is not a valid public key%s%s"
+msgstr ""
+
+#: ufrmwalletkeys.rsthisfileexis
+msgid "This file exists:%s%s%sOverwrite?"
+msgstr ""
+
+#: ufrmwalletkeys.rsthiskeyexist
+msgid "This key exists on your wallet"
+msgstr ""
+
+#: ufrmwalletkeys.rstwopasswords
+msgctxt "ufrmwalletkeys.rstwopasswords"
+msgid "Two passwords are different!"
+msgstr ""
+
+#: ufrmwalletkeys.rswalletfileha
+msgid "Wallet file has no valid data"
+msgstr ""
+
+#: ufrmwalletkeys.rswalletfileim
+msgid "Wallet file imported successfully%s%sFile:%s%s%sTotal keys in wallet: %s%sImported private keys: %s%sImported public keys only: %s%sDuplicated (not imported): %s"
+msgstr ""
+
+#: ufrmwalletkeys.rswalletfileke
+msgid "Wallet file keys were already in your wallet. Nothing imported%s%sFile:%s%s%sTotal keys in wallet: %s"
+msgstr ""
+
+#: ufrmwalletkeys.rswalletisencr
+msgid "Wallet is encrypted... need password!"
+msgstr ""
+
+#: ufrmwalletkeys.rswalletispass
+msgid "Wallet is password protected"
+msgstr ""
+
+#: ufrmwalletkeys.rswalletkeyexp
+msgid "Wallet key exported to a file:%s%s"
+msgstr ""
+
+#: ufrmwalletkeys.rswalletkeyise
+msgid "Wallet key is encrypted!%s%sYou must enter password to continue..."
+msgstr ""
+
+#: ufrmwalletkeys.rswalletpasswo
+msgctxt "ufrmwalletkeys.rswalletpasswo"
+msgid "Wallet password"
+msgstr ""
+
+#: ufrmwalletkeys.rswalletwithou
+msgid "Wallet without password"
+msgstr ""
+
+#: ufrmwalletkeys.rswithoutkey
+msgid "%s (* without key)"
+msgstr ""
+
+#: ufrmwalletkeys.rsyourwalletha
+msgid "Your wallet has NO PASSWORD%s%sIt is recommend to protect your wallet with a password prior to exporting it!%s%sContinue without password protection?"
+msgstr ""
+
+#: ufrmwalletkeys.rsyourwalletis
+msgid "Your wallet is empty. No keys!"
+msgstr ""
+
+#: ugridutils.rsaccount
+msgctxt "ugridutils.rsaccount"
+msgid "Account"
+msgstr ""
+
+#: ugridutils.rsaccountn
+msgid "Account N."
+msgstr ""
+
+#: ugridutils.rsaccwork
+msgid "Acc.Work"
+msgstr ""
+
+#: ugridutils.rsamount
+msgctxt "ugridutils.rsamount"
+msgid "Amount"
+msgstr ""
+
+#: ugridutils.rsbalance
+msgid "Balance"
+msgstr ""
+
+#: ugridutils.rsblock
+msgid "Block"
+msgstr ""
+
+#: ugridutils.rsblockchainre
+msgctxt "ugridutils.rsblockchainre"
+msgid "Blockchain reward"
+msgstr ""
+
+#: ugridutils.rsblockop
+msgid "Block/Op"
+msgstr ""
+
+#: ugridutils.rsdeviation
+msgid "Deviation"
+msgstr ""
+
+#: ugridutils.rsfee
+msgid "Fee"
+msgstr ""
+
+#: ugridutils.rskey
+msgid "Key"
+msgstr ""
+
+#: ugridutils.rsmhs
+msgid "Mh/s"
+msgstr ""
+
+#: ugridutils.rsminerpayload
+msgid "Miner Payload"
+msgstr ""
+
+#: ugridutils.rsname
+msgid "Name"
+msgstr ""
+
+#: ugridutils.rsnodata
+msgid "(no data)"
+msgstr ""
+
+#: ugridutils.rsnoper
+msgid "N Oper."
+msgstr ""
+
+#: ugridutils.rsoperation
+msgctxt "ugridutils.rsoperation"
+msgid "Operation"
+msgstr ""
+
+#: ugridutils.rsops
+msgid "Ops"
+msgstr ""
+
+#: ugridutils.rspayload
+msgctxt "ugridutils.rspayload"
+msgid "Payload"
+msgstr ""
+
+#: ugridutils.rspending
+msgid "(Pending)"
+msgstr ""
+
+#: ugridutils.rsproofofwork
+msgid "Proof of Work"
+msgstr ""
+
+#: ugridutils.rsprotocol
+msgid "Protocol"
+msgstr ""
+
+#: ugridutils.rsreward
+msgid "Reward"
+msgstr ""
+
+#: ugridutils.rssafeboxhash
+msgid "SafeBox Hash"
+msgstr ""
+
+#: ugridutils.rsstate
+msgid "State"
+msgstr ""
+
+#: ugridutils.rstarget
+msgid "Target"
+msgstr ""
+
+#: ugridutils.rstime
+msgid "Time"
+msgstr ""
+
+#: ugridutils.rstimeaverage
+msgid "Time average"
+msgstr ""
+
+#: ugridutils.rstype
+msgid "Type"
+msgstr ""
+
+#: ugridutils.rsupdated
+msgid "Updated"
+msgstr ""
+
+#: ugridutils.rsvolume
+msgid "Volume"
+msgstr ""
+
+#: unode.rsaccountszero
+msgid "Account %s zero fee operations per block limit:%d"
+msgstr ""
+
+#: unode.rsblockchainre
+msgctxt "unode.rsblockchainre"
+msgid "Blockchain reward"
+msgstr ""
+
+#: utcpip.rscannotconnec
+msgid "Cannot connect to a server at: %s Reason: %s"
+msgstr ""
+
+#: utcpip.rsclosingconne
+msgid "Closing connection from %s (Receiving error): %s %s"
+msgstr ""
+
+#: utcpip.rsclosingconne2
+msgid "Closing connection from %s (Sending error): %s %s"
+msgstr ""
+
+#: utcpip.rserrorconnect
+msgid "Error Connecting to %s: %s"
+msgstr ""
+
+#: utcpip.rserrorwaiting
+msgid "Error WaitingForData from %s: %s"
+msgstr ""
+
+#: utcpip.rsexceptionatt
+msgid "Exception at TNetTcpIpClient.Discconnect step %s - %s"
+msgstr ""
+
+#: utcpip.rsexceptionrec
+msgid "Exception receiving buffer from %s %s (%s):%s"
+msgstr ""
+
+#: utime.rs1hourago
+msgid "1 hour ago"
+msgstr ""
+
+#: utime.rs1minuteago
+msgid "1 minute ago"
+msgstr ""
+
+#: utime.rsdaysago
+msgid "%s days ago"
+msgstr ""
+
+#: utime.rshoursago
+msgid "%s hours ago"
+msgstr ""
+
+#: utime.rsminutesago
+msgid "%s minutes ago"
+msgstr ""
+
+#: utime.rssecondsago
+msgid "%s seconds ago"
+msgstr ""
+
