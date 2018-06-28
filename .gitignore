@@ -105,3 +105,4 @@ lib/
 /Units/Forms/*.lrj
 bin/
 lib/
+build-scripts
