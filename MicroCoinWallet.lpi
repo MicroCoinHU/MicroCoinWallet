@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="9"/>
+    <Version Value="10"/>
     <PathDelim Value="\"/>
     <General>
       <Flags>
@@ -27,18 +27,18 @@
       <StringTable ProductVersion="0.0.0.0"/>
     </VersionInfo>
     <BuildModes Count="7">
-      <Item1 Name="Default" Default="True"/>
-      <Item2 Name="i386">
+      <Item1 Name="Mainnet" Default="True"/>
+      <Item2 Name="Mainneti386">
         <CompilerOptions>
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="bin\$(TargetCPU)-$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+            <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
             <OtherUnitFiles Value="src\MicroCoin\Synapse;src\Forms;src\MicroCoin\Core;src\MicroCoin\Utils;src\barcodes"/>
-            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\$(BuildMode)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)\$(TargetOS)\$(BuildMode)"/>
           </SearchPaths>
           <Parsing>
             <SyntaxOptions>
@@ -47,7 +47,6 @@
           </Parsing>
           <CodeGeneration>
             <TargetCPU Value="i386"/>
-            <TargetOS Value="win32"/>
             <Optimizations>
               <OptimizationLevel Value="3"/>
             </Optimizations>
@@ -73,12 +72,12 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="bin\$(TargetCPU)-$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+            <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
             <OtherUnitFiles Value="src\MicroCoin\Synapse;src\Forms;src\MicroCoin\Core;src\MicroCoin\Utils;src\barcodes"/>
-            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\$(BuildMode)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)\$(TargetOS)\$(BuildMode)"/>
           </SearchPaths>
           <Parsing>
             <SyntaxOptions>
@@ -110,12 +109,12 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="bin\$(TargetCPU)-$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+            <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
             <OtherUnitFiles Value="src\MicroCoin\Synapse;src\Forms;src\MicroCoin\Core;src\MicroCoin\Utils;src\barcodes"/>
-            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\$(BuildMode)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)\$(TargetOS)\$(BuildMode)"/>
           </SearchPaths>
           <Parsing>
             <SyntaxOptions>
@@ -148,12 +147,12 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="bin\$(TargetCPU)-$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+            <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
             <OtherUnitFiles Value="src\MicroCoin\Synapse;src\Forms;src\MicroCoin\Core;src\MicroCoin\Utils;src\barcodes"/>
-            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\$(BuildMode)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)\$(TargetOS)\$(BuildMode)"/>
           </SearchPaths>
           <Parsing>
             <SyntaxOptions>
@@ -162,7 +161,6 @@
           </Parsing>
           <CodeGeneration>
             <TargetCPU Value="i386"/>
-            <TargetOS Value="win32"/>
             <Optimizations>
               <OptimizationLevel Value="0"/>
             </Optimizations>
@@ -195,17 +193,17 @@
           </Other>
         </CompilerOptions>
       </Item5>
-      <Item6 Name="TESTNETx64">
+      <Item6 Name="Testnet">
         <CompilerOptions>
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="bin\$(TargetCPU)-$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+            <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
             <OtherUnitFiles Value="src\MicroCoin\Synapse;src\Forms;src\MicroCoin\Core;src\MicroCoin\Utils;src\barcodes"/>
-            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\$(BuildMode)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)\$(TargetOS)\$(BuildMode)"/>
           </SearchPaths>
           <Parsing>
             <SyntaxOptions>
@@ -213,6 +211,7 @@
             </SyntaxOptions>
           </Parsing>
           <CodeGeneration>
+            <TargetCPU Value="x86_64"/>
             <Optimizations>
               <OptimizationLevel Value="0"/>
             </Optimizations>
@@ -234,12 +233,12 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="bin\$(TargetCPU)-$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+            <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
             <OtherUnitFiles Value="src\MicroCoin\Synapse;src\Forms;src\MicroCoin\Core;src\MicroCoin\Utils;src\barcodes"/>
-            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\$(BuildMode)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)\$(TargetOS)\$(BuildMode)"/>
           </SearchPaths>
           <Parsing>
             <SyntaxOptions>
@@ -496,12 +495,12 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="bin\$(TargetCPU)-$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+      <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
       <OtherUnitFiles Value="src\MicroCoin\Synapse;src\Forms;src\MicroCoin\Core;src\MicroCoin\Utils;src\barcodes"/>
-      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\$(BuildMode)"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)\$(TargetOS)\$(BuildMode)"/>
     </SearchPaths>
     <Parsing>
       <SyntaxOptions>
@@ -509,6 +508,7 @@
       </SyntaxOptions>
     </Parsing>
     <CodeGeneration>
+      <TargetCPU Value="x86_64"/>
       <Optimizations>
         <OptimizationLevel Value="3"/>
       </Optimizations>
