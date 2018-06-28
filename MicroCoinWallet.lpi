@@ -198,7 +198,7 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+            <Filename Value="bin\$(TargetCPU)-$(TargetOS)-$(BuildMode)\MicroCoinWallet"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -499,7 +499,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="bin\$(TargetCPU)\$(TargetOS)\$(BuildMode)\MicroCoinWallet"/>
+      <Filename Value="bin\$(TargetCPU)-$(TargetOS)-$(BuildMode)\MicroCoinWallet"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

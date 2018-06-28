@@ -106,3 +106,4 @@ lib/
 bin/
 lib/
 build-scripts
+/releases
