@@ -1,0 +1,9 @@
+object UpdateForm: TUpdateForm
+  Left = 552
+  Height = 221
+  Top = 212
+  Width = 380
+  Caption = 'Form1'
+  OnCreate = FormCreate
+  LCLVersion = '1.8.0.6'
+end

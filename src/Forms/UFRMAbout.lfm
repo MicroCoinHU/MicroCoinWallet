@@ -20,8 +20,8 @@ object FRMAbout: TFRMAbout
     Left = 32
     Height = 25
     Top = 16
-    Width = 372
-    Caption = 'Micro Coin Wallet, Miner && Explorer'
+    Width = 366
+    Caption = 'MicroCoin Wallet, Miner && Explorer'
     Font.Color = clBlack
     Font.Height = -21
     Font.Name = 'Tahoma'

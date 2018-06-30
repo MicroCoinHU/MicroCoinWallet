@@ -1,11 +1,13 @@
 unit ubasic;
-
-{$mode objfpc}{$H+}
+{$ifdef fpc}
+  {$mode objfpc}
+{$endif}
+{$H+}
 
 interface
 
 uses
-  Classes, SysUtils,zint,uhelper;
+  Classes, SysUtils, zint, uhelper;
 
 function ZBarcode_Create(): PointerTo_zint_symbol;
 procedure ZBarcode_Clear(symbol: PointerTo_zint_symbol);

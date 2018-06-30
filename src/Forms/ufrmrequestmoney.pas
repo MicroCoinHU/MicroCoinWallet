@@ -1,12 +1,13 @@
-unit UFRMRequestMoney;
-
-{$mode delphi}
+﻿unit UFRMRequestMoney;
+{$ifdef fpc}
+  {$mode delphi}
+{$endif}
 
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Buttons, MaskEdit, ubarcodes, unode, UAccounts, UOpTransaction, UBlockChain,
+  Classes, SysUtils, {$ifdef fpc}MaskEdit,FileUtil,{$endif} Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Buttons,  ubarcodes, unode, UAccounts, UOpTransaction, UBlockChain,
   UWalletKeys, UECIES;
 
 type

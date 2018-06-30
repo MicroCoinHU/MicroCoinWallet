@@ -1,11 +1,15 @@
 unit ubarcodes;
 
-{$mode objfpc}{$H+}
+{$ifdef fpc}
+  {$mode objfpc}
+{$endif}
+
+{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, Controls, LResources, Graphics,
+  Classes, SysUtils, Controls, {$ifdef fpc}LResources,{$endif} Graphics,
   ubasic,uqr,zint,urender,uaztec,udatamatrix;
 
 type

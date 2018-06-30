@@ -190,6 +190,7 @@ object FRMPayloadDecoder: TFRMPayloadDecoder
     OnChanging = PageControlChanging
     object tsDecoded: TTabSheet
       Caption = 'Payload'
+      ExplicitLeft = 0
       object Label7: TLabel
         Left = 15
         Top = 94
@@ -317,7 +318,6 @@ object FRMPayloadDecoder: TFRMPayloadDecoder
         Width = 75
         Height = 25
         Caption = 'Save'
-        DoubleBuffered = True
         Glyph.Data = {
           DE010000424DDE01000000000000760000002800000024000000120000000100
           0400000000006801000000000000000000001000000000000000000000000000
@@ -336,7 +336,6 @@ object FRMPayloadDecoder: TFRMPayloadDecoder
           333A333333333333333338330000333333333333333333333333333333333333
           0000}
         NumGlyphs = 2
-        ParentDoubleBuffered = False
         TabOrder = 4
         OnClick = bbSaveMethodsClick
       end
@@ -349,7 +348,6 @@ object FRMPayloadDecoder: TFRMPayloadDecoder
     Height = 25
     Cancel = True
     Caption = 'Close'
-    DoubleBuffered = True
     Glyph.Data = {
       76010000424D7601000000000000760000002800000020000000100000000100
       04000000000000010000120B0000120B00001000000000000000000000000000
@@ -365,7 +363,6 @@ object FRMPayloadDecoder: TFRMPayloadDecoder
       5990555555555555577755555555555555555555555555555555}
     ModalResult = 2
     NumGlyphs = 2
-    ParentDoubleBuffered = False
     TabOrder = 3
   end
   object bbFind: TBitBtn
@@ -374,7 +371,6 @@ object FRMPayloadDecoder: TFRMPayloadDecoder
     Width = 52
     Height = 25
     Caption = '&Find'
-    DoubleBuffered = True
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100
       18000000000000030000120B0000120B00000000000000000000FF00FF4A667C
@@ -402,7 +398,6 @@ object FRMPayloadDecoder: TFRMPayloadDecoder
       FF00FFFF00FFFF00FFFF00FFFF00FFAD827FC9AA9EEFE0B7EFDFB2E7CEACB890
       86B89086FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
       00FFFF00FFBA968ABB988CB79188FF00FFFF00FFFF00FFFF00FF}
-    ParentDoubleBuffered = False
     TabOrder = 1
     TabStop = False
     OnClick = bbFindClick

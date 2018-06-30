@@ -24,7 +24,6 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MajorVersionNr Value="1"/>
-      <StringTable ProductVersion="0.0.0.0"/>
     </VersionInfo>
     <BuildModes Count="7">
       <Item1 Name="Mainnet" Default="True"/>
@@ -296,7 +295,6 @@
       <Unit0>
         <Filename Value="MicroCoinWallet.dpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="MicroCoinWalletLazarus"/>
       </Unit0>
       <Unit1>
         <Filename Value="src\MicroCoin\Core\UBlockChain.pas"/>
@@ -470,28 +468,28 @@
         <IsPartOfProject Value="True"/>
       </Unit36>
       <Unit37>
-        <Filename Value="src\Forms\ufrmqrcode.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="QRForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="UFRMQRCode"/>
-      </Unit37>
-      <Unit38>
         <Filename Value="src\Forms\ufrmrequestmoney.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="RequestMoneyForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFRMRequestMoney"/>
-      </Unit38>
-      <Unit39>
+      </Unit37>
+      <Unit38>
         <Filename Value="src\Forms\ufrmminecoins.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmMineCoins"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFRMMineCoins"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="src\Forms\ufrmupdate.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="UpdateForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFRMUpdate"/>
       </Unit39>
     </Units>
   </ProjectOptions>

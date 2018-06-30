@@ -235,8 +235,8 @@ object FRMOperation: TFRMOperation
         Height = 167
         Top = 11
         Width = 521
-        ActivePage = tsChangeInfo
-        TabIndex = 5
+        ActivePage = tsTransaction
+        TabIndex = 0
         TabOrder = 0
         OnChange = PageControlOpTypeChange
         object tsTransaction: TTabSheet
@@ -254,9 +254,9 @@ object FRMOperation: TFRMOperation
             ParentColor = False
           end
           object lblAmount: TLabel
-            Left = 71
+            Left = 72
             Height = 13
-            Top = 61
+            Top = 64
             Width = 37
             Alignment = taRightJustify
             AutoSize = False
@@ -284,9 +284,9 @@ object FRMOperation: TFRMOperation
             TabOrder = 0
           end
           object ebAmount: TEdit
-            Left = 108
+            Left = 115
             Height = 21
-            Top = 60
+            Top = 61
             Width = 86
             TabOrder = 1
           end
@@ -353,7 +353,7 @@ object FRMOperation: TFRMOperation
             object lblNewOwnerPublicKey: TLabel
               Left = 0
               Height = 13
-              Top = 83
+              Top = 88
               Width = 144
               Alignment = taRightJustify
               AutoSize = False
@@ -361,9 +361,9 @@ object FRMOperation: TFRMOperation
               ParentColor = False
             end
             object lblNewOwnerErrors: TLabel
-              Left = 173
+              Left = 172
               Height = 13
-              Top = 61
+              Top = 64
               Width = 302
               Alignment = taRightJustify
               AutoSize = False
@@ -407,9 +407,9 @@ object FRMOperation: TFRMOperation
               TabOrder = 1
             end
             object ebNewPublicKey: TEdit
-              Left = 144
+              Left = 145
               Height = 21
-              Top = 80
+              Top = 84
               Width = 331
               TabOrder = 4
             end

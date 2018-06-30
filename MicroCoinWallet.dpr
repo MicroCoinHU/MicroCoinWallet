@@ -1,15 +1,19 @@
-program MicroCoinWalletLazarus;
+program MicroCoinWallet;
 
 {$IFDEF FPC}
   {$MODE Delphi}
 {$ENDIF}
 
 uses
-{$IFnDEF FPC}
-{$ELSE}
-  {$IFDEF LINUX}cthreads,{$ENDIF}
+  {$IFnDEF FPC}
+  {$ELSE}
+  LCLTranslator,
+  {$IFDEF LINUX}
+  {$else}
+  windows,
+  {$ENDIF }
   Interfaces,
-{$ENDIF}
+  {$ENDIF }
   Forms,
   UBlockChain in 'src\MicroCoin\Core\UBlockChain.pas',
   UCrypto in 'src\MicroCoin\Core\UCrypto.pas',
@@ -41,15 +45,24 @@ uses
   URPC in 'src\MicroCoin\Core\URPC.pas',
   UPoolMining in 'src\MicroCoin\Core\UPoolMining.pas',
   UOpenSSL in 'src\MicroCoin\Core\UOpenSSL.pas',
-  LCLTranslator,
   UOpenSSLdef in 'src\MicroCoin\Core\UOpenSSLdef.pas',
-  sysutils{$IFDEF WINDOWS},windows{$ENDIF},
-    PropertyStorage, IniPropStorage, IniFiles,lclstrconsts
-
-;
+  {$ifndef FPC}
+  Vcl.Themes,
+  Vcl.Styles,
+  {$endif}
+  {$IFnDEF FPC}
+  System.inifiles
+  {$ELSE}
+  IniFiles,
+  {$IFDEF LINUX}
+  cthreads,
+  {$ENDIF}
+  {$ENDIF}
+  sysutils;
 
 {.$R *.res}
 {$R *.res}
+
 var
   Storage : TIniFile;
   lang : String;
@@ -60,13 +73,18 @@ begin
     lang := ReadString('Localize', 'language','hu');
     Free;
   end;
+  {$ifdef fpc}
   SetDefaultLang(lang);
+  {$endif}
   {$IFDEF WINDOWS}
     GetLocaleFormatSettings(GetUserDefaultLCID, DefaultFormatSettings);
     DefaultFormatSettings.DecimalSeparator := '.';
     DefaultFormatSettings.ThousandSeparator := ',';
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
+  {$ifndef fpc}
+  TStyleManager.TrySetStyle('Turquoise Gray');
+  {$endif}
   Application.Title := 'Micro Coin Wallet, Miner & Explorer';
   Application.CreateForm(TFRMWallet, FRMWallet);
   Application.Run;

@@ -9,12 +9,6 @@ unit UFRMAbout;
   Distributed under the MIT software license, see the accompanying file LICENSE
   or visit http://www.opensource.org/licenses/mit-license.php.
 
-  This unit is a part of Micro Coin, a P2P crypto currency without need of
-  historical operations.
-
-  If you like it, consider a donation using BitCoin:
-  16K3HCZRhFUtM8GdWRcfKeaa6KsuyxZaYk
-
   }
 
 interface
@@ -33,16 +27,11 @@ type
   { TFRMAbout }
 
   TFRMAbout = class(TForm)
-    Image1: TImage;
     Label1: TLabel;
     Memo1: TMemo;
     bbClose: TBitBtn;
     lblBuild: TLabel;
     lblProtocolVersion: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Label4Click(Sender: TObject);
     procedure Label5Click(Sender: TObject);

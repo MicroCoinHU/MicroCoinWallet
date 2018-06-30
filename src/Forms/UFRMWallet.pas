@@ -8,14 +8,7 @@ unit UFRMWallet;
 
   Distributed under the MIT software license, see the accompanying file LICENSE
   or visit http://www.opensource.org/licenses/mit-license.php.
-
-  This unit is a part of Micro Coin, a P2P crypto currency without need of
-  historical operations.
-
-  If you like it, consider a donation using BitCoin:
-  16K3HCZRhFUtM8GdWRcfKeaa6KsuyxZaYk
-
-  }
+}
 
 interface
 
@@ -30,9 +23,8 @@ uses
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs,
   ExtCtrls, ComCtrls, UWalletKeys, StdCtrls, ULog, Grids, UAppParams,
   UBlockChain, UNode, UGridUtils, UAccounts, Menus, ImgList,
-  synautil, UNetProtocol, UCrypto, Buttons, IniPropStorage, UPoolMining, URPC, IniFiles,
-  UFRMAccountSelect, Types, httpsend, UFRMRequestMoney,PropertyStorage,
-  UFRMMineCoins{$IFDEF WINDOWS},windows{$ENDIF};
+  synautil, UNetProtocol, UCrypto, Buttons, UPoolMining, URPC, IniFiles,
+  UFRMAccountSelect, Types, httpsend, UFRMMineCoins{$ifndef fpc}, System.ImageList{$endif}{$IFDEF WINDOWS},windows{$ENDIF};
 
 Const
   CM_PC_WalletKeysChanged = WM_USER + 1;
@@ -48,7 +40,6 @@ type
     bbChangeKeyName: TBitBtn;
     bbSelectedAccountsOperation: TBitBtn;
     bbSendAMessage: TButton;
-    bbRequestMoney: TBitBtn;
     cbExploreMyAccounts: TCheckBox;
     cbFilterAccounts: TCheckBox;
     cbMyPrivateKeys: TComboBox;
@@ -176,7 +167,6 @@ type
     MiClose: TMenuItem;
     MiDecodePayload: TMenuItem;
     ImageListIcons: TImageList;
-    ApplicationEvents: {$IFDEF FPC}TApplicationProperties{$ELSE}TApplicationEvents{$ENDIF};
     IPnodes1: TMenuItem;
     MiOperations: TMenuItem;
     MiAddaccounttoSelected: TMenuItem;
@@ -200,15 +190,11 @@ type
     tsPendingOperations: TTabSheet;
     procedure bbMineCoinsClick(Sender: TObject);
     procedure bbRequestMoneyClick(Sender: TObject);
-    procedure CheckBox1Change(Sender: TObject);
     procedure dgAccountOperationsDblClick(Sender: TObject);
     procedure dgOperationsExplorerDblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure lblCurrentBlockClick(Sender: TObject);
-    procedure lblMinersClientsClick(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
-    procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
@@ -263,8 +249,7 @@ type
     procedure cbFilterAccountsClick(Sender: TObject);
     procedure MiFindOperationbyOpHashClick(Sender: TObject);
     procedure MiAccountInformationClick(Sender: TObject);
-    procedure tsExtraContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: Boolean);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     FBackgroundPanel : TPanel;
     FMinersBlocksFound: Integer;
@@ -744,8 +729,7 @@ end;
 
 procedure TFRMWallet.ConfirmRestart;
 begin
- if MessageDlg(rsRestartAppli, rsYouNeedResta, mtConfirmation, [mbYes, mbNo], ''
-   ) = mrYes
+ if MessageDlg(rsRestartAppli, {$ifdef fpc} rsYouNeedResta, {$endif} mtConfirmation, [mbYes, mbNo], {$ifdef fpc}''{$else}0{$endif}) = mrYes
  then Application.Terminate;
 end;
 
@@ -977,8 +961,14 @@ begin
   Result := false;
 end;
 
+procedure TFRMWallet.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+ Timer1.Enabled:=false
+end;
+
 procedure TFRMWallet.FormCreate(Sender: TObject);
 Var i : Integer;
+    page : integer;
 begin
   FBackgroundPanel := Nil;
   FMustProcessWalletChanged := false;
@@ -1061,15 +1051,12 @@ begin
   FBackgroundPanel.Parent:=Self;
   FBackgroundPanel.Align:=alClient;
   FBackgroundPanel.Font.Size:=15;
-
-
-
-
-end;
-
-procedure TFRMWallet.CheckBox1Change(Sender: TObject);
-begin
-
+{$ifndef fpc}
+  for page := 0 to PageControl.PageCount - 1 do
+  begin
+    PageControl.Pages[page].TabVisible := false;
+  end;
+{$endif}
 end;
 
 function TFRMWallet.ChangeAccountKey(account_signer, account_target: Cardinal;
@@ -1181,7 +1168,7 @@ begin
     raise Exception.Create(Format(rsYouCannotAdd, [
       TAccountComp.AccountNumberToAccountTxtNumber(an),#10, #10]));
   accnumber := TAccountComp.AccountNumberToAccountTxtNumber(an);
-  TRequestMoneyForm.RequestMoney(self, FNode, accnumber, FWalletKeys);
+
 end;
 
 procedure TFRMWallet.bbMineCoinsClick(Sender: TObject);
@@ -1271,16 +1258,6 @@ begin
   Sleep(100);
 end;
 
-procedure TFRMWallet.lblCurrentBlockClick(Sender: TObject);
-begin
-
-end;
-
-procedure TFRMWallet.lblMinersClientsClick(Sender: TObject);
-begin
-
-end;
-
 procedure TFRMWallet.MenuItem13Click(Sender: TObject);
 begin
   with TIniFile.Create('MicroCoinWallet.ini') do
@@ -1288,13 +1265,10 @@ begin
     WriteString('Localize', 'language','hu');
     Free;
   end;
+  {$ifdef fpc}
   SetDefaultLang('hu');
+  {$endif}
   ConfirmRestart;
-end;
-
-procedure TFRMWallet.MenuItem2Click(Sender: TObject);
-begin
-
 end;
 
 procedure TFRMWallet.MenuItem3Click(Sender: TObject);
@@ -1346,7 +1320,9 @@ begin
     WriteString('Localize', 'language','en');
     Free;
   end;
+  {$ifdef fpc}
   SetDefaultLang('en');
+  {$endif}
   ConfirmRestart;
 end;
 
@@ -1507,12 +1483,6 @@ begin
   finally
     strings.free;
   end;
-end;
-
-procedure TFRMWallet.tsExtraContextPopup(Sender: TObject; MousePos: TPoint;
-  var Handled: Boolean);
-begin
-
 end;
 
 procedure TFRMWallet.MiAddaccounttoSelectedClick(Sender: TObject);
@@ -2206,11 +2176,12 @@ procedure TFRMWallet.UpdateConfigChanged;
 Var wa : Boolean;
   i : Integer;
 begin
-  tsLogs.TabVisible := FAppParams.ParamByName[CT_PARAM_ShowLogs].GetAsBoolean(false);
+//  tsLogs.TabVisible := FAppParams.ParamByName[CT_PARAM_ShowLogs].GetAsBoolean(false);
   if (Not tsLogs.TabVisible) then begin
     FLog.OnNewLog := Nil;
     if PageControl.ActivePage = tsLogs then PageControl.ActivePage := tsMyAccounts;
   end else FLog.OnNewLog := OnNewLog;
+  FLog.OnNewLog := OnNewLog;
   if FAppParams.ParamByName[CT_PARAM_SaveLogFiles].GetAsBoolean(false) then begin
     if FAppParams.ParamByName[CT_PARAM_SaveDebugLogs].GetAsBoolean(false) then FLog.SaveTypes := CT_TLogTypes_ALL
     else FLog.SaveTypes := CT_TLogTypes_DEFAULT;

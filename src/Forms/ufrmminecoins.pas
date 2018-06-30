@@ -1,12 +1,13 @@
 unit UFRMMineCoins;
-
-{$mode delphi}
+{$ifdef fpc}
+  {$mode delphi}
+{$endif}
 
 interface
 
 uses
-  Classes, SysUtils, FileUtil, UTF8Process, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, ComCtrls, StdCtrls, Buttons, process,
+  Classes, SysUtils,  Forms, Controls, Graphics, Dialogs,
+  ExtCtrls, ComCtrls, StdCtrls, Buttons,
   UBlockChain, UPoolMinerThreads,
     UPoolMining, ULog, UThread, UAccounts, UCrypto,
     UConst, UTime, UJSONFunctions, UNode, UNetProtocol, USha256,
@@ -21,7 +22,6 @@ type
     BitBtn2: TBitBtn;
     Label1: TLabel;
     mmOutput: TMemo;
-    Process1: TProcess;
     StatusBar1: TStatusBar;
     tbCPUCount: TTrackBar;
     procedure BitBtn1Click(Sender: TObject);

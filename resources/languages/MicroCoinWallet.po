@@ -654,14 +654,6 @@ msgstr ""
 msgid "Send a Message"
 msgstr ""
 
-#: tfrmwallet.button1.caption
-msgid "Send to mobile app"
-msgstr ""
-
-#: tfrmwallet.button2.caption
-msgid "Button2"
-msgstr ""
-
 #: tfrmwallet.caption
 msgid "Micro Coin Wallet, JSON-RPC Miner & Explorer"
 msgstr ""
@@ -1212,6 +1204,10 @@ msgstr ""
 
 #: trequestmoneyform.label2.caption
 msgid "Payload:"
+msgstr ""
+
+#: tupdateform.caption
+msgid "Form1"
 msgstr ""
 
 #: ufrmabout.rsblockchainpr

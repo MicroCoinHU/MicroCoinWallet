@@ -669,14 +669,6 @@ msgstr "Kötegelt művelet"
 msgid "Send a Message"
 msgstr "Üzenet küldése"
 
-#: tfrmwallet.button1.caption
-msgid "Send to mobile app"
-msgstr "Küldés appba"
-
-#: tfrmwallet.button2.caption
-msgid "Button2"
-msgstr ""
-
 #: tfrmwallet.caption
 msgid "Micro Coin Wallet, JSON-RPC Miner & Explorer"
 msgstr "Micro Coin Pénztárca"
@@ -1244,6 +1236,10 @@ msgstr "Teljes összeg:"
 #: trequestmoneyform.label2.caption
 msgid "Payload:"
 msgstr "Közlemény:"
+
+#: tupdateform.caption
+msgid "Form1"
+msgstr ""
 
 #: ufrmabout.rsblockchainpr
 msgid "BlockChain Protocol: %d (%d)  -  Net Protocol: %d (%d)"
