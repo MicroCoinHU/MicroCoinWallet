@@ -121,6 +121,7 @@
         <DCCReference Include="src\MicroCoin\Core\UAES.pas"/>
         <DCCReference Include="src\Forms\UFRMWallet.pas">
             <Form>FRMWallet</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\MicroCoin\Core\UFileStorage.pas"/>
         <DCCReference Include="src\MicroCoin\Utils\UFolderHelper.pas"/>
@@ -128,24 +129,31 @@
         <DCCReference Include="src\MicroCoin\Utils\UGridUtils.pas"/>
         <DCCReference Include="src\Forms\UFRMMicroCoinWalletConfig.pas">
             <Form>FRMMicroCoinWalletConfig</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\UFRMAbout.pas">
             <Form>FRMAbout</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\UFRMOperation.pas">
             <Form>FRMOperation</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\UFRMWalletKeys.pas">
             <Form>FRMWalletKeys</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\UFRMNewPrivateKeyType.pas">
             <Form>FRMNewPrivateKeyType</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\UFRMPayloadDecoder.pas">
             <Form>FRMPayloadDecoder</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\UFRMNodesIp.pas">
             <Form>FRMNodesIp</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\MicroCoin\Core\UTCPIP.pas"/>
         <DCCReference Include="src\MicroCoin\Utils\UJSONFunctions.pas"/>
@@ -179,6 +187,9 @@
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k250.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp250.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
+                <Language>
+                    <Language Name="ProjectLang">$0000040E</Language>
+                </Language>
                 <Resource_DLL_Projects>
                     <Resource_DLL_Projects Name="Item0">magyar (Magyarország)*$0000040E*HUN*HUN</Resource_DLL_Projects>
                 </Resource_DLL_Projects>
@@ -193,9 +204,6 @@
                     <RDP_Source_Files Name="Item7">src\Forms\UFRMNodesIp.dfm</RDP_Source_Files>
                     <RDP_Source_Files Name="Item8">MicroCoinWallet.drc</RDP_Source_Files>
                 </RDP_Source_Files>
-                <Language>
-                    <Language Name="ProjectLang">$0000040E</Language>
-                </Language>
             </Delphi.Personality>
             <Platforms>
                 <Platform value="Linux64">True</Platform>

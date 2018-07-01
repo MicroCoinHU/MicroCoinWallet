@@ -51,7 +51,7 @@ uses
   Vcl.Styles,
   {$endif}
   {$IFnDEF FPC}
-  System.inifiles
+  System.inifiles,
   {$ELSE}
   IniFiles,
   {$IFDEF LINUX}
