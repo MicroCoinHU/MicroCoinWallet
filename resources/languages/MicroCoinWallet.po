@@ -1,6 +1,3 @@
-msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8"
-
 #: tfrmabout.bbclose.caption
 msgctxt "tfrmabout.bbclose.caption"
 msgid "Close"
@@ -11,7 +8,7 @@ msgid "About..."
 msgstr ""
 
 #: tfrmabout.label1.caption
-msgid "Micro Coin Wallet, Miner && Explorer"
+msgid "MicroCoin Wallet, Miner && Explorer"
 msgstr ""
 
 #: tfrmabout.lblbuild.caption
@@ -655,7 +652,7 @@ msgid "Send a Message"
 msgstr ""
 
 #: tfrmwallet.caption
-msgid "Micro Coin Wallet, JSON-RPC Miner & Explorer"
+msgid "MicroCoin Wallet, JSON-RPC Miner & Explorer"
 msgstr ""
 
 #: tfrmwallet.cbexploremyaccounts.caption
@@ -924,7 +921,7 @@ msgid "About"
 msgstr ""
 
 #: tfrmwallet.miaboutmicrocoin.caption
-msgid "About Micro Coin..."
+msgid "About MicroCoin..."
 msgstr ""
 
 #: tfrmwallet.miaccountinformation.caption
@@ -1780,7 +1777,7 @@ msgid "Cannot load %s%sTo use this software make sure this file is available on 
 msgstr ""
 
 #: ufrmwallet.rscannotopenyo
-msgid "Cannot open your wallet... Perhaps another instance of Micro Coin is active!%s%s%s"
+msgid "Cannot open your wallet... Perhaps another instance of MicroCoin is active!%s%s%s"
 msgstr ""
 
 #: ufrmwallet.rschangekeynam

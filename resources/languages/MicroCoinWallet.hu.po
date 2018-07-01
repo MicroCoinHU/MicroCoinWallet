@@ -1,6 +1,3 @@
-msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8"
-
 #: tfrmabout.bbclose.caption
 msgctxt "tfrmabout.bbclose.caption"
 msgid "Close"
@@ -12,7 +9,7 @@ msgstr "Névjegy"
 
 #: tfrmabout.label1.caption
 msgid "Micro Coin Wallet, Miner && Explorer"
-msgstr "Micro Coin Pénztárca"
+msgstr "MicroCoin Pénztárca"
 
 #: tfrmabout.lblbuild.caption
 msgid "Build:"
@@ -670,8 +667,8 @@ msgid "Send a Message"
 msgstr "Üzenet küldése"
 
 #: tfrmwallet.caption
-msgid "Micro Coin Wallet, JSON-RPC Miner & Explorer"
-msgstr "Micro Coin Pénztárca"
+msgid "MicroCoin Wallet, JSON-RPC Miner & Explorer"
+msgstr "MicroCoin Pénztárca"
 
 #: tfrmwallet.cbexploremyaccounts.caption
 msgid "Explore accounts with one of my Wallet Keys"
@@ -951,7 +948,7 @@ msgid "About"
 msgstr "Névjegy"
 
 #: tfrmwallet.miaboutmicrocoin.caption
-msgid "About Micro Coin..."
+msgid "About MicroCoin..."
 msgstr "A MicroCoinról"
 
 #: tfrmwallet.miaccountinformation.caption
@@ -1811,7 +1808,7 @@ msgid "Cannot load %s%sTo use this software make sure this file is available on 
 msgstr ""
 
 #: ufrmwallet.rscannotopenyo
-msgid "Cannot open your wallet... Perhaps another instance of Micro Coin is active!%s%s%s"
+msgid "Cannot open your wallet... Perhaps another instance of MicroCoin is active!%s%s%s"
 msgstr ""
 
 #: ufrmwallet.rschangekeynam
