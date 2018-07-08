@@ -393,6 +393,7 @@ object FRMWallet: TFRMWallet
         0000ABABAB07BEBDBD2FA3A3A3308787870B0000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
+      Visible = False
       OnClick = bbMineCoinsClick
       ParentFont = False
     end
