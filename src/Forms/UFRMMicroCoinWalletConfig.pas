@@ -169,7 +169,7 @@ begin
   if Not FWalletKeys.IsValidPassword then begin
     s := '';
     Repeat
-      if not InputQuery(rsWalletPasswo, rsInsertWallet, s) then exit;
+      if not InputQuery(rsWalletPasswo, rsInsertWallet, true, s) then exit;
       FWalletKeys.WalletPassword := s;
       if not FWalletKeys.IsValidPassword then Application.MessageBox(PChar(
         rsInvalidPassw), PChar(Application.Title), MB_ICONERROR+MB_OK);
@@ -177,9 +177,9 @@ begin
   end;
   if FWalletKeys.IsValidPassword then begin
     s := ''; s2 := '';
-    if not InputQuery(rsChangePasswo, rsTypeNewPassw, s) then exit;
+    if not InputQuery(rsChangePasswo, rsTypeNewPassw, true, s) then exit;
     if trim(s)<>s then raise Exception.Create(rsPasswordCann);
-    if not InputQuery(rsChangePasswo, rsTypeNewPassw2, s2) then exit;
+    if not InputQuery(rsChangePasswo, rsTypeNewPassw2, true, s2) then exit;
     if s<>s2 then raise Exception.Create(rsTwoPasswords);
 
     FWalletKeys.WalletPassword := s;
