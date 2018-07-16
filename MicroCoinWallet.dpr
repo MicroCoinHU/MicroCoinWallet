@@ -7,6 +7,7 @@ program MicroCoinWallet;
 uses
   {$IFnDEF FPC}
   {$ELSE}
+  cthreads,
   LCLTranslator,
   {$IFDEF LINUX}
   {$else}
@@ -55,7 +56,6 @@ uses
   {$ELSE}
   IniFiles,
   {$IFDEF LINUX}
-  cthreads,
   {$ENDIF}
   {$ENDIF}
   sysutils;
