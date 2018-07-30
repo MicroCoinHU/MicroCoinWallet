@@ -17,3 +17,5 @@ git submodule init
 git submodule update
 lazbuild ./MicroCoinWallet.lpi
 ```
+
+This program is based on PascalCoin.
