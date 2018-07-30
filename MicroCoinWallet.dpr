@@ -7,14 +7,16 @@ program MicroCoinWallet;
 uses
   {$IFnDEF FPC}
   {$ELSE}
-  cthreads,
   LCLTranslator,
   {$IFDEF LINUX}
+  {$ifdef FPC}
+  cthreads,
+  {$endif}
   {$else}
   windows,
-  {$ENDIF }
+  {$ENDIF}
   Interfaces,
-  {$ENDIF }
+  {$ENDIF}
   Forms,
   UBlockChain in 'src\MicroCoin\Core\UBlockChain.pas',
   UCrypto in 'src\MicroCoin\Core\UCrypto.pas',
@@ -55,8 +57,6 @@ uses
   System.inifiles,
   {$ELSE}
   IniFiles,
-  {$IFDEF LINUX}
-  {$ENDIF}
   {$ENDIF}
   sysutils;
 
