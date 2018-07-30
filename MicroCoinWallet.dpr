@@ -70,8 +70,11 @@ begin
   Application.Initialize;
   with TIniFile.Create('MicroCoinWallet.ini') do
   begin
-    lang := ReadString('Localize', 'language','hu');
-    Free;
+    try
+      lang := ReadString('Localize', 'language','hu');
+    finally
+      Free;
+    end;
   end;
   {$ifdef fpc}
   SetDefaultLang(lang);
@@ -83,7 +86,7 @@ begin
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
   {$ifndef fpc}
-  TStyleManager.TrySetStyle('Turquoise Gray');
+  TStyleManager.TrySetStyle('Silver');
   {$endif}
   Application.Title := 'Micro Coin Wallet, Miner & Explorer';
   Application.CreateForm(TFRMWallet, FRMWallet);

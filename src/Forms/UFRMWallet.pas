@@ -1054,8 +1054,9 @@ begin
 {$ifndef fpc}
   for page := 0 to PageControl.PageCount - 1 do
   begin
-    PageControl.Pages[page].TabVisible := false;
+    PageControl.Pages[page].TabVisible:=false;
   end;
+  PageControl.ActivePageIndex := 0;
 {$endif}
 end;
 

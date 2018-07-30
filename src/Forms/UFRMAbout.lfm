@@ -62,7 +62,7 @@ object FRMAbout: TFRMAbout
     Width = 478
     BorderStyle = bsNone
     Lines.Strings = (
-      'Copyright (c) 2017 - 2017 Peter Nemeth'
+      'Copyright (c) 2017 - 2018 Peter Nemeth'
       ''
       'Micro Coin is P2P cryptocurrency without the need for historical operations. This software '
       'comprises a node within the Micro Coin network and can be used to Mine and Explore blocks and '
@@ -78,7 +78,9 @@ object FRMAbout: TFRMAbout
       'written by Ladar Levison and Marco Ferrante, and Synapse Socket code copyright of Lukas '
       'Gebauer.'
       ''
+      'This product based on PascalCoin Copyright (c) Albert Molina'
     )
+    OnChange = Memo1Change
     ParentColor = True
     ReadOnly = True
     ScrollBars = ssVertical

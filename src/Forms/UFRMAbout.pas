@@ -35,6 +35,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure Label4Click(Sender: TObject);
     procedure Label5Click(Sender: TObject);
+    procedure Memo1Change(Sender: TObject);
   private
     { Private declarations }
     Procedure OpenURL(Url : String);
@@ -84,6 +85,11 @@ end;
 procedure TFRMAbout.Label5Click(Sender: TObject);
 begin
   OpenURL(TLabel(Sender).Caption);
+end;
+
+procedure TFRMAbout.Memo1Change(Sender: TObject);
+begin
+
 end;
 
 
