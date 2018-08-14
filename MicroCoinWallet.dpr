@@ -7,10 +7,10 @@ program MicroCoinWallet;
 uses
   {$IFnDEF FPC}
   {$ELSE}
+  cthreads,
   LCLTranslator,
   {$IFDEF LINUX}
   {$ifdef FPC}
-  cthreads,
   {$endif}
   {$else}
   windows,
