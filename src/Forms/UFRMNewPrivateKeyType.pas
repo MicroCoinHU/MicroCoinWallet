@@ -11,7 +11,7 @@ unit UFRMNewPrivateKeyType;
   or visit http://www.opensource.org/licenses/mit-license.php.
 
   This unit is a part of Pascal Coin, a P2P crypto currency without need of
-  historical operations.   NOTE TO PETER: THIS IS PART OF LICENSE HEADER AND CANNOT BE REMOVED!
+  historical operations.   
 
   If you like it, consider a donation using BitCoin:
     16K3HCZRhFUtM8GdWRcfKeaa6KsuyxZaYk
