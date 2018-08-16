@@ -18,4 +18,5 @@ git submodule update
 lazbuild ./MicroCoinWallet.lpi
 ```
 
-This program is based on PascalCoin.
+MicroCoin is based on PascalCoin (https://pascalcoin.org/). Copyright (c) Albert Molina
+
