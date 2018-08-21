@@ -29,7 +29,9 @@ uses
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, UNode, UWalletKeys, UCrypto, Buttons, UBlockChain,
-  UAccounts, UFRMAccountSelect, ActnList, ComCtrls, ExtCtrls, Types, UCommon;
+  UAccounts, UFRMAccountSelect, ActnList, ComCtrls, ExtCtrls, Types, UCommon,
+  System.Actions, MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney,
+  MicroCoin.Transaction.ChangeKey;
 
 Const
   CM_PC_WalletKeysChanged = WM_USER + 1;
@@ -279,8 +281,8 @@ Var errors : AnsiString;
   P : PAccount;
   i,iAcc : Integer;
   wk : TWalletKey;
-  ops : TOperationsHashTree;
-  op : TPCOperation;
+  ops : TTransactionHashTree;
+  op : ITransaction;
   account,signerAccount,destAccount,accountToBuy : TAccount;
   operation_to_string, operationstxt, auxs : String;
   _amount,_fee, _totalamount, _totalfee, _totalSignerFee, _salePrice : Int64;
@@ -295,7 +297,7 @@ label loop_start;
 begin
   if Not Assigned(WalletKeys) then raise Exception.Create('No wallet keys');
   If Not UpdateOperationOptions(errors) then raise Exception.Create(errors);
-  ops := TOperationsHashTree.Create;
+  ops := TTransactionHashTree.Create;
   Try
     _V2 := FNode.Bank.SafeBox.CurrentProtocol >= CT_PROTOCOL_2;
     _totalamount := 0;
@@ -343,7 +345,7 @@ loop_start:
         end else begin
         end;
         if dooperation then begin
-          op := TOpTransaction.CreateTransaction(account.account,account.n_operation+1,destAccount.account,wk.PrivateKey,_amount,_fee,FEncodedPayload);
+          op := TTransferMoneyTransaction.CreateTransaction(account.account,account.n_operation+1,destAccount.account,wk.PrivateKey,_amount,_fee,FEncodedPayload);
           inc(_totalamount,_amount);
           inc(_totalfee,_fee);
         end;
@@ -363,11 +365,11 @@ loop_start:
           if uint64(_totalSignerFee) >= signerAccount.balance then _fee := 0
           else if signerAccount.balance - uint64(_totalSignerFee) > uint64(DefaultFee) then _fee := DefaultFee
           else _fee := signerAccount.balance - uint64(_totalSignerFee);
-          op := TOpChangeKeySigned.Create(signerAccount.account,signerAccount.n_operation+_signer_n_ops+1,account.account,wk.PrivateKey,_newOwnerPublicKey,_fee,FEncodedPayload);
+          op := TChangeKeySignedTransaction.Create(signerAccount.account,signerAccount.n_operation+_signer_n_ops+1,account.account,wk.PrivateKey,_newOwnerPublicKey,_fee,FEncodedPayload);
           inc(_signer_n_ops);
           inc(_totalSignerFee, _fee);
         end else begin
-          op := TOpChangeKey.Create(account.account,account.n_operation+1,account.account,wk.PrivateKey,_newOwnerPublicKey,_fee,FEncodedPayload);
+          op := TChangeKeyTransaction.Create(account.account,account.n_operation+1,account.account,wk.PrivateKey,_newOwnerPublicKey,_fee,FEncodedPayload);
         end;
         inc(_totalfee,_fee);
         operationstxt := Format(rsChangePrivat, [TAccountComp.GetECInfoTxt(
@@ -396,7 +398,7 @@ loop_start:
       end else if (PageControlOpType.ActivePage = tsBuyAccount) then begin
         {%region Operation: Buy Account}
         if Not UpdateOpBuyAccount(account,accountToBuy,_amount,_newOwnerPublicKey,errors) then raise Exception.Create(errors);
-        op := TOpBuyAccount.CreateBuy(account.account,account.n_operation+1,accountToBuy.account,accountToBuy.accountInfo.account_to_pay,
+        op := TBuyAccountTransaction.CreateBuy(account.account,account.n_operation+1,accountToBuy.account,accountToBuy.accountInfo.account_to_pay,
           accountToBuy.accountInfo.price,_amount,_fee,_newOwnerPublicKey,wk.PrivateKey,FEncodedPayload);
         {%endregion}
       end else if (PageControlOpType.ActivePage = tsChangeInfo) then begin
@@ -411,7 +413,7 @@ loop_start:
         raise Exception.Create(rsNoOperationS);
       end;
       if Assigned(op) And (dooperation) then begin
-        ops.AddOperationToHashTree(op);
+        ops.AddTransactionToHashTree(op);
         if operation_to_string<>'' then operation_to_string := operation_to_string + #10;
         operation_to_string := operation_to_string + op.ToString;
       end;

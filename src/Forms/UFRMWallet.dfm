@@ -837,7 +837,6 @@ object FRMWallet: TFRMWallet
                 State = cbChecked
                 TabOrder = 0
                 OnClick = cbExploreMyAccountsClick
-                ExplicitLeft = 6
               end
               object cbMyPrivateKeys: TComboBox
                 Left = 258
@@ -904,6 +903,10 @@ object FRMWallet: TFRMWallet
           end
           object TabSheet3: TTabSheet
             Caption = 'Multiple Operations'
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object dgSelectedAccounts: TDrawGrid
               Left = 41
               Top = 0
@@ -1049,6 +1052,10 @@ object FRMWallet: TFRMWallet
     object tsMyAccounts: TTabSheet
       Caption = 'Account Explorer'
       TabVisible = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Splitter1: TSplitter
         Left = 380
         Top = 66
@@ -1183,10 +1190,18 @@ object FRMWallet: TFRMWallet
         TabOrder = 2
         object tsAccountOperations: TTabSheet
           Caption = 'Operations of selected Account'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
         end
         object tsMultiSelectAccounts: TTabSheet
           Caption = 'Selected accounts for massive operations'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object pnlSelectedAccountsTop: TPanel
             Left = 0
             Top = 0
@@ -1262,6 +1277,10 @@ object FRMWallet: TFRMWallet
     object tsPendingOperations: TTabSheet
       Caption = 'Pending Operations'
       ImageIndex = 5
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object dgPendingOperations: TDrawGrid
         Left = 0
         Top = 0
@@ -1287,6 +1306,10 @@ object FRMWallet: TFRMWallet
     object tsBlockChain: TTabSheet
       Caption = 'Block Explorer'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -1347,6 +1370,10 @@ object FRMWallet: TFRMWallet
     object tsOperations: TTabSheet
       Caption = 'Operations Explorer'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -1408,6 +1435,10 @@ object FRMWallet: TFRMWallet
     object tsLogs: TTabSheet
       Caption = 'Logs'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlTopLogs: TPanel
         Left = 0
         Top = 0

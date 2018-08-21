@@ -33,6 +33,7 @@ uses
   ExtCtrls, ComCtrls, UWalletKeys, StdCtrls, ULog, Grids, UAppParams,
   UBlockChain, UNode, UGridUtils, UAccounts, Menus, ImgList,
   synautil, UNetProtocol, UCrypto, Buttons, UPoolMining, URPC, IniFiles,
+  MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney, MicroCoin.Transaction.ChangeKey,
   UFRMAccountSelect, Types, httpsend, UFRMMineCoins{$ifndef fpc}, System.ImageList{$endif}{$IFDEF WINDOWS},windows{$ENDIF};
 
 Const
@@ -266,7 +267,7 @@ type
     Procedure CheckIsReady;
     Procedure FinishedLoadingApp;
     Procedure FillAccountInformation(Const Strings : TStrings; Const AccountNumber : Cardinal);
-    Procedure FillOperationInformation(Const Strings : TStrings; Const OperationResume : TOperationResume);
+    Procedure FillOperationInformation(Const Strings : TStrings; Const OperationResume : TTransactionData);
     Function ChangeAccountKey(account_signer, account_target : Cardinal; const new_pub_key : TAccountKey; fee : UInt64; const RawPayload : TRawBytes; Const Payload_method, EncodePwd : AnsiString) : Boolean;  protected
     { Private declarations }
     FNode : TNode;
@@ -937,7 +938,7 @@ begin
 end;
 
 procedure TFRMWallet.FillOperationInformation(const Strings: TStrings;
-  const OperationResume: TOperationResume);
+  const OperationResume: TTransactionData);
 begin
   If (not OperationResume.valid) then exit;
   If OperationResume.Block<FNode.Bank.BlocksCount then
@@ -1073,7 +1074,7 @@ function TFRMWallet.ChangeAccountKey(account_signer, account_target: Cardinal;
   const new_pub_key: TAccountKey; fee: UInt64; const RawPayload: TRawBytes;
   const Payload_method, EncodePwd: AnsiString): Boolean;
 
-Function CreateOperationChangeKey(account_signer, account_last_n_operation, account_target : Cardinal; const account_pubkey, new_pubkey : TAccountKey; fee : UInt64; RawPayload : TRawBytes; Const Payload_method, EncodePwd : AnsiString) : TOpChangeKey;
+Function CreateOperationChangeKey(account_signer, account_last_n_operation, account_target : Cardinal; const account_pubkey, new_pubkey : TAccountKey; fee : UInt64; RawPayload : TRawBytes; Const Payload_method, EncodePwd : AnsiString) : TChangeKeyTransaction;
 // "payload_method" types: "none","dest"(default),"sender","aes"(must provide "pwd" param)
 var i : Integer;
   errors : AnsiString;
@@ -1118,9 +1119,9 @@ Begin
     end;
   end else f_raw := '';
   If account_signer=account_target then begin
-    Result := TOpChangeKey.Create(account_signer,account_last_n_operation+1,account_target,FWalletKeys.Key[i].PrivateKey,new_pubkey,fee,f_raw);
+    Result := TChangeKeyTransaction.Create(account_signer,account_last_n_operation+1,account_target,FWalletKeys.Key[i].PrivateKey,new_pubkey,fee,f_raw);
   end else begin
-    Result := TOpChangeKeySigned.Create(account_signer,account_last_n_operation+1,account_target,FWalletKeys.Key[i].PrivateKey,new_pubkey,fee,f_raw);
+    Result := TChangeKeySignedTransaction.Create(account_signer,account_last_n_operation+1,account_target,FWalletKeys.Key[i].PrivateKey,new_pubkey,fee,f_raw);
   end;
   if Not Result.HasValidSignature then begin
     FreeAndNil(Result);
@@ -1130,10 +1131,10 @@ Begin
   end;
 End;
 
-  Var opck : TOpChangeKey;
+  Var opck : TChangeKeyTransaction;
     acc_signer : TAccount;
     errors : AnsiString;
-    opr : TOperationResume;
+    opr : TTransactionData;
   begin
     FNode.OperationSequenceLock.Acquire;  // Use lock to prevent N_Operation race-condition on concurrent invocations
     try
@@ -1156,7 +1157,7 @@ End;
           Exit;
           }
         end;
-        TPCOperation.OperationToOperationResume(0,opck,account_signer,opr);
+        opck.GetTransactionData(0,account_signer,opr);
       //  FillOperationResumeToJSONObject(opr,GetResultObject);
         Result := true;
       finally
@@ -1448,22 +1449,22 @@ Var F : TFRMMemoText;
   account : TAccount;
   strings : TStrings;
   i : Integer;
-  opr : TOperationResume;
+  opr : TTransactionData;
 begin
   accn := -1;
   title := '';
   strings := TStringList.Create;
   try
-    opr := CT_TOperationResume_NUL;
+    opr := TTransactionData.Empty;
     if PageControl.ActivePage=tsOperations then begin
       i := FOperationsExplorerGrid.DrawGrid.Row;
       if (i>0) and (i<=FOperationsExplorerGrid.OperationsResume.Count) then begin
-        opr := FOperationsExplorerGrid.OperationsResume.OperationResume[i-1];
+        opr := FOperationsExplorerGrid.OperationsResume.TransactionData[i-1];
       end;
     end else if PageControl.ActivePage=tsPendingOperations then begin
       i := FPendingOperationsGrid.DrawGrid.Row;
       if (i>0) and (i<=FPendingOperationsGrid.OperationsResume.Count) then begin
-        opr := FPendingOperationsGrid.OperationsResume.OperationResume[i-1];
+        opr := FPendingOperationsGrid.OperationsResume.TransactionData[i-1];
       end;
     end else if PageControl.ActivePage=TabSheet1 then begin
       accn := FAccountsGrid.AccountNumber(dgAccounts.Row);
@@ -1473,7 +1474,7 @@ begin
         TAccountComp.AccountNumberToAccountTxtNumber(accn)]);
       i := FOperationsAccountGrid.DrawGrid.Row;
       if (i>0) and (i<=FOperationsAccountGrid.OperationsResume.Count) then begin
-        opr := FOperationsAccountGrid.OperationsResume.OperationResume[i-1];
+        opr := FOperationsAccountGrid.OperationsResume.TransactionData[i-1];
       end;
     end;
     If (opr.valid) then begin
@@ -1558,7 +1559,7 @@ begin
   //
   FRM := TFRMPayloadDecoder.Create(Self);
   try
-    FRM.Init(CT_TOperationResume_NUL,WalletKeys,FAppParams);
+    FRM.Init(TTransactionData.Empty,WalletKeys,FAppParams);
     FRM.DoFind(oph);
     FRM.ShowModal;
   finally

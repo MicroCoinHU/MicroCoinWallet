@@ -120,6 +120,17 @@ resourcestring
   rsWalletWithPa = 'Wallet with password, change it!';
   rsWalletPasswo2 = '(Wallet password)';
 
+{$IFNDEF FPC}
+function InputQuery(a,b: string; c: boolean; var d: string) : boolean;  overload;
+begin
+  Result := Dialogs.InputQuery(a, b, d);
+end;
+function InputQuery(a,b: string; var d: string) : boolean; overload;
+begin
+  Result := Dialogs.InputQuery(a, b, d);
+end;
+{$ENDIF}
+
 procedure TFRMMicroCoinWalletConfig.bbOkClick(Sender: TObject);
 Var df : Int64;
   mpk : TMinerPrivateKey;

@@ -245,9 +245,9 @@ begin
   CheckIsWalletKeyValidPassword;
   if Not GetSelectedWalletKey(wk) then exit;
   if Assigned(wk.PrivateKey) then begin
-    if InputQuery(rsExportPrivat, rsInsertAPassw, true, pwd1)
+    if InputQuery(rsExportPrivat, rsInsertAPassw, {$IFDEF FPC}true,{$ENDIF} pwd1)
       then begin
-      if InputQuery(rsExportPrivat, rsRepeatThePas, true, pwd2)
+      if InputQuery(rsExportPrivat, rsRepeatThePas, {$IFDEF FPC}true,{$ENDIF} pwd2)
         then begin
         if pwd1<>pwd2 then raise Exception.Create(rsPasswordsDoe);
         enc := TCrypto.ToHexaString( TAESComp.EVP_Encrypt_AES256( wk.PrivateKey.ExportToRaw,pwd1) );
@@ -304,7 +304,7 @@ begin
     if wki.Count<=0 then raise Exception.Create(rsWalletFileHa);
     pwd := '';
     While (Not wki.IsValidPassword) do begin
-      if not InputQuery(rsImport, rsEnterTheWall, true, pwd) then exit;
+      if not InputQuery(rsImport, rsEnterTheWall, {$IFDEF FPC}true,{$ENDIF} pwd) then exit;
       wki.WalletPassword := pwd;
       if not wki.IsValidPassword then begin
         if Application.MessageBox(PChar(rsPasswordEnte), PChar(Application.Title
@@ -369,7 +369,7 @@ var s : String;
       Repeat
         s := '';
         desenc := '';
-        if InputQuery(rsImportPrivat, rsEnterThePass, true, s) then begin
+        if InputQuery(rsImportPrivat, rsEnterThePass, {$IFDEF FPC}true,{$ENDIF} s) then begin
           If (TAESComp.EVP_Decrypt_AES256(enc,s,desenc)) then begin
             if (desenc<>'') then begin
               EC := TECPrivateKey.ImportFromRaw(desenc);
@@ -478,9 +478,9 @@ Var s,s2 : String;
 begin
   if FWalletKeys.IsValidPassword then begin
     s := ''; s2 := '';
-    if not InputQuery(rsChangePasswo, rsEnterNewPass, true, s) then exit;
+    if not InputQuery(rsChangePasswo, rsEnterNewPass, {$IFDEF FPC}true,{$ENDIF} s) then exit;
     if trim(s)<>s then raise Exception.Create(rsPasswordCann);
-    if not InputQuery(rsChangePasswo, rsEnterNewPass2, true, s2) then exit;
+    if not InputQuery(rsChangePasswo, rsEnterNewPass2, {$IFDEF FPC}true,{$ENDIF} s2) then exit;
     if s<>s2 then raise Exception.Create(rsTwoPasswords);
 
     FWalletKeys.WalletPassword := s;
@@ -491,7 +491,7 @@ begin
   end else begin
     s := '';
     Repeat
-      if not InputQuery(rsWalletPasswo, rsEnterWalletP, true, s) then exit;
+      if not InputQuery(rsWalletPasswo, rsEnterWalletP, {$IFDEF FPC}true,{$ENDIF} s) then exit;
       FWalletKeys.WalletPassword := s;
       if not FWalletKeys.IsValidPassword then Application.MessageBox(PChar(
         rsInvalidPassw4), PChar(Application.Title), MB_ICONERROR+MB_OK);

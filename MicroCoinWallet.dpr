@@ -8,15 +8,14 @@ uses
   {$IFnDEF FPC}
   {$ELSE}
   cthreads,
-  LCLTranslator,
   {$IFDEF LINUX}
   {$ifdef FPC}
-  {$endif}
+  {$endif }
   {$else}
   windows,
-  {$ENDIF}
+  {$ENDIF }
   Interfaces,
-  {$ENDIF}
+  {$ENDIF }
   Forms,
   UBlockChain in 'src\MicroCoin\Core\UBlockChain.pas',
   UCrypto in 'src\MicroCoin\Core\UCrypto.pas',
@@ -52,13 +51,15 @@ uses
   {$ifndef FPC}
   Vcl.Themes,
   Vcl.Styles,
-  {$endif}
+  {$endif }
   {$IFnDEF FPC}
   System.inifiles,
   {$ELSE}
   IniFiles,
-  {$ENDIF}
-  sysutils;
+  {$ENDIF }
+  sysutils,
+  MicroCoin.Transaction.TransferMoney in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.TransferMoney.pas',
+  MicroCoin.Transaction.ChangeKey in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.ChangeKey.pas';
 
 {.$R *.res}
 {$R *.res}

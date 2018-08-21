@@ -29,7 +29,7 @@ uses
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, UBlockChain, UCrypto, UWalletKeys, Buttons, ComCtrls,
-  UAppParams;
+  UAppParams, MicroCoin.Transaction.Base;
 
 type
 
@@ -81,7 +81,7 @@ type
     procedure ebOphashKeyPress(Sender: TObject; var Key: Char);
     procedure cbShowAsHexadecimalClick(Sender: TObject);
   private
-    FOpResume : TOperationResume;
+    FOpResume : TTransactionData;
     FWalletKeys : TWalletKeys;
     FSavedDecodeMethods : boolean;
     FAppParams : TAppParams;
@@ -89,11 +89,11 @@ type
     { Private declarations }
     Procedure TryToDecode;
     Procedure SaveMethods;
-    procedure SetOpResume(const Value: TOperationResume);
+    procedure SetOpResume(const Value: TTransactionData);
   public
     { Public declarations }
-    Procedure Init(Const AOperationResume : TOperationResume; WalletKeys : TWalletKeys; AppParams : TAppParams);
-    Property OpResume : TOperationResume read FOpResume write SetOpResume;
+    Procedure Init(Const AOperationResume : TTransactionData; WalletKeys : TWalletKeys; AppParams : TAppParams);
+    Property OpResume : TTransactionData read FOpResume write SetOpResume;
     Procedure DoFind(Const OpHash : String);
   end;
 
@@ -160,11 +160,11 @@ Var
   pcops : TPCOperationsComp;
   b : Cardinal;
   opbi : Integer;
-  opr : TOperationResume;
+  opr : TTransactionData;
 begin
   // Search for an operation based on "ophash"
   if (trim(OpHash)='') then begin
-    OpResume := CT_TOperationResume_NUL;
+    OpResume := TTransactionData.Empty;
     exit;
   end;
   try
@@ -177,7 +177,7 @@ begin
       If not TNode.Node.FindOperation(pcops,r,b,opbi) then begin
         raise Exception.Create(rsValueIsNotAV);
       end;
-      If not TPCOperation.OperationToOperationResume(b,pcops.Operation[opbi],pcops.Operation[opbi].SignerAccount,opr) then begin
+      If not pcops.Operation[opbi].GetTransactionData(b,pcops.Operation[opbi].SignerAccount,opr) then begin
         raise Exception.Create(rsInternalErro);
       end;
       opr.NOpInsideBlock:=opbi;
@@ -187,7 +187,7 @@ begin
       pcops.Free;
     end;
   Except
-    OpResume := CT_TOperationResume_NUL;
+    OpResume := TTransactionData.Empty;
     try
       FSemaphor := true;
       ebOphash.Text := trim(ophash);
@@ -217,13 +217,13 @@ begin
     memoDecoded.Lines.Clear;
     memoOriginalPayloadInHexa.Lines.Clear;
     lblPasswordsInfo.Caption := '';
-    OpResume := CT_TOperationResume_NUL;
+    OpResume := TTransactionData.Empty;
   finally
     FSemaphor := false;
   end;
 end;
 
-procedure TFRMPayloadDecoder.Init(Const AOperationResume : TOperationResume; WalletKeys : TWalletKeys; AppParams : TAppParams);
+procedure TFRMPayloadDecoder.Init(Const AOperationResume : TTransactionData; WalletKeys : TWalletKeys; AppParams : TAppParams);
 begin
   FWalletKeys := WalletKeys;
   FAppParams := AppParams;
@@ -271,7 +271,7 @@ begin
   FSavedDecodeMethods := true;
 end;
 
-procedure TFRMPayloadDecoder.SetOpResume(const Value: TOperationResume);
+procedure TFRMPayloadDecoder.SetOpResume(const Value: TTransactionData);
 Var sem : Boolean;
 begin
   sem := FSemaphor;
