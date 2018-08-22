@@ -29,7 +29,8 @@ uses
   LCLIntf, LCLType, LMessages,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, ComCtrls, UAppParams, UWalletKeys;
+  Dialogs, StdCtrls, Buttons, ComCtrls, UAppParams, UWalletKeys,
+  MicroCoin.Account.AccountKey;
 
 type
 
@@ -155,7 +156,7 @@ begin
     i := PtrInt(cbPrivateKeyToMine.Items.Objects[cbPrivateKeyToMine.ItemIndex]);
     if (i<0) Or (i>=FWalletKeys.Count) then raise Exception.Create(
       rsInvalidPriva);
-    AppParams.ParamByName[CT_PARAM_MinerPrivateKeySelectedPublicKey].SetAsString( TAccountComp.AccountKey2RawString( FWalletKeys.Key[i].AccountKey ) );
+    AppParams.ParamByName[CT_PARAM_MinerPrivateKeySelectedPublicKey].SetAsString(  FWalletKeys.Key[i].AccountKey.ToRawString );
   end else mpk := mpk_Random;
 
   AppParams.ParamByName[CT_PARAM_MinerPrivateKeyType].SetAsInteger(integer(mpk));
@@ -291,7 +292,7 @@ begin
     for i := 0 to FWalletKeys.Count - 1 do begin
       wk := FWalletKeys.Key[i];
       if (wk.Name='') then begin
-        s := TCrypto.ToHexaString( TAccountComp.AccountKey2RawString(wk.AccountKey));
+        s := TCrypto.ToHexaString( wk.AccountKey.ToRawString);
       end else begin
         s := wk.Name;
       end;
@@ -302,7 +303,7 @@ begin
     cbPrivateKeyToMine.Sorted := true;
     if Assigned(FAppParams) then begin
       s := FAppParams.ParamByName[CT_PARAM_MinerPrivateKeySelectedPublicKey].GetAsString('');
-      iselected := FWalletKeys.IndexOfAccountKey(TAccountComp.RawString2Accountkey(s));
+      iselected := FWalletKeys.IndexOfAccountKey(TAccountKey.FromRawString(s));
       if iselected>=0 then begin
         iselected :=  cbPrivateKeyToMine.Items.IndexOfObject(TObject(iselected));
         cbPrivateKeyToMine.ItemIndex := iselected;

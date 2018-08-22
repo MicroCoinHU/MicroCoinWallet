@@ -25,7 +25,7 @@ uses
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, UWalletKeys, Buttons,
   {$IFDEF FPC}LMessages,{$ENDIF}
-  clipbrd, UConst;
+  clipbrd, UConst, MicroCoin.Account.AccountKey;
 
 Const
   CM_PC_WalletKeysChanged = {$IFDEF FPC}LM_USER{$ELSE}WM_USER{$ENDIF} + 1;
@@ -266,7 +266,7 @@ Var wk : TWalletKey;
 begin
   CheckIsWalletKeyValidPassword;
   if Not GetSelectedWalletKey(wk) then exit;
-  s := TAccountComp.AccountPublicKeyExport(wk.AccountKey);
+  s := wk.AccountKey.AccountPublicKeyExport();
   Clipboard.AsText := s;
   Application.MessageBox(PChar(Format(rsThePublicKey, [#10, #10, #10, s, #10,
     #10, Inttostr(length(s))])),
@@ -449,13 +449,13 @@ begin
   CheckIsWalletKeyValidPassword;
   if Not Assigned(WalletKeys) then exit;
   if not InputQuery(rsImportPublic, rsInsertThePub, s) then exit;
-  If not TAccountComp.AccountPublicKeyImport(s,account,errors) then begin
+  If not TAccountKey.AccountPublicKeyImport(s,account,errors) then begin
     raw := TCrypto.HexaToRaw(s);
     if trim(raw)='' then raise Exception.Create(Format(rsInvalidPubli, [#10,
       errors]));
-    account := TAccountComp.RawString2Accountkey(raw);
+    account := TAccountKey.FromRawString(raw);
   end;
-  if not TAccountComp.IsValidAccountKey(account, errors)
+  if not account.IsValidAccountKey(errors)
     then raise Exception.Create(Format(rsThisDataIsNo, [#10, errors]));
   if WalletKeys.IndexOfAccountKey(account)>=0 then raise exception.Create(
     rsThisKeyExist);
@@ -587,7 +587,7 @@ begin
     if wk.Name='' then lblKeyName.Caption := rsNoName
     else lblKeyName.Caption := wk.Name;
     if Assigned(wk.PrivateKey) then begin
-      memoPrivateKey.Lines.Text :=  TCrypto.PrivateKey2Hexa(wk.PrivateKey.PrivateKey);
+      memoPrivateKey.Lines.Text :=  TCrypto.PrivateKey2Hexa(wk.PrivateKey);
       memoPrivateKey.Font.Color := clBlack;
     end else begin
       memoPrivateKey.Lines.Text := rsNoPrivateKey;
@@ -640,7 +640,7 @@ begin
     for i := 0 to WalletKeys.Count - 1 do begin
       wk := WalletKeys.Key[i];
       if (wk.Name='') then begin
-        s := 'Sha256='+TCrypto.ToHexaString( TCrypto.DoSha256( TAccountComp.AccountKey2RawString(wk.AccountKey) ) );
+        s := 'Sha256='+TCrypto.ToHexaString( TCrypto.DoSha256( wk.AccountKey.ToRawString ) );
       end else begin
         s := wk.Name;
       end;

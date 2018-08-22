@@ -29,7 +29,7 @@ uses
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, UAccounts, Grids, StdCtrls, Buttons, ExtCtrls, UWalletKeys, UNode,
-  UGridUtils, UConst, UThread;
+  UGridUtils, UConst, UThread, MicroCoin.Account.AccountKey, MicroCoin.Common.Lists;
 
 const
   CT_AS_MyAccounts = $0001;
@@ -48,7 +48,7 @@ type
     searchName : AnsiString;
   end;
 
-  TSearchProcedure = procedure(Const searchFound : TCardinalsArray; const searchValues : TSearchValues) of object;
+  TSearchProcedure = procedure(Const searchFound : TArray<Cardinal>; const searchValues : TSearchValues) of object;
 
   TSearchThread = Class(TPCThread)
   private
@@ -56,7 +56,7 @@ type
     FOnSearchFinished: TSearchProcedure;
     FDoStopSearch : Boolean;
     FStartSearch : Boolean;
-    FAccounts : TCardinalsArray;
+    FAccounts : TArray<Cardinal>;
     FSearchValues : TSearchValues;
     procedure SetIsReadyForSearch(AValue: Boolean);
   protected
@@ -117,7 +117,7 @@ type
     procedure SetWalletKeys(const Value: TWalletKeys);
     Procedure SearchFiltered;
     Procedure UpdateControls;
-    procedure OnSearchFinished(Const searchFound : TCardinalsArray; const searchValues : TSearchValues);
+    procedure OnSearchFinished(Const searchFound : TArray<Cardinal>; const searchValues : TSearchValues);
     procedure OnAccountsGridUpdated(Sender : TObject);
   protected
     FAccounts : TOrderedAccountList;
@@ -162,23 +162,23 @@ procedure TSearchThread.BCExecute;
     SetLength(FAccounts,0);
     c := 0;
     maxC := FSearchValues.SafeBox.AccountsCount-1;
-    validAccKey := TAccountComp.IsValidAccountKey(FSearchValues.inAccountKey,errors);
+    validAccKey := FSearchValues.inAccountKey.IsValidAccountKey(errors);
     while (c<=maxC) And (Not Terminated) And (Not FDoStopSearch) do begin
       account := FSearchValues.SafeBox.Account(c);
       isValid := True;
       If validAccKey then begin
-        isValid := TAccountComp.EqualAccountKeys(account.accountInfo.accountKey,FSearchValues.inAccountKey);
+        isValid := TAccountKey.EqualAccountKeys(account.accountInfo.accountKey, FSearchValues.inAccountKey);
       end else if (Assigned(FSearchValues.inWalletKeys)) then begin
         isValid := FSearchValues.inWalletKeys.IndexOfAccountKey(account.accountInfo.accountKey)>=0;
       end;
       If isValid And (FSearchValues.onlyForSale) then begin
-        isValid := TAccountComp.IsAccountForSale(account.accountInfo);
+        isValid := account.accountInfo.IsAccountForSale;
       end;
       If IsValid and (FSearchValues.onlyForPublicSale) then begin
-        isValid := (TAccountComp.IsAccountForSale(account.accountInfo)) And (Not TAccountComp.IsAccountForSaleAcceptingTransactions(account.accountInfo));
+        isValid := (account.accountInfo.IsAccountForSale) And (Not account.accountInfo.IsAccountForSaleAcceptingTransactions);
       end;
       If IsValid and (FSearchValues.onlyForPrivateSaleToMe) then begin
-        isValid := (TAccountComp.IsAccountForSaleAcceptingTransactions(account.accountInfo)) And
+        isValid := (account.accountInfo.IsAccountForSaleAcceptingTransactions) And
           (Assigned(FSearchValues.inWalletKeys)) And (FSearchValues.inWalletKeys.IndexOfAccountKey(account.accountInfo.new_publicKey)>=0);
       end;
       If IsValid then begin
@@ -432,8 +432,8 @@ begin
   end;
 end;
 
-procedure TFRMAccountSelect.OnSearchFinished(const searchFound: TCardinalsArray; const searchValues: TSearchValues);
-Var l : TOrderedCardinalList;
+procedure TFRMAccountSelect.OnSearchFinished(const searchFound: TArray<Cardinal>; const searchValues: TSearchValues);
+Var l : TOrderedList;
   i, foundpos : Integer;
 begin
   foundpos := -1;
@@ -459,10 +459,10 @@ begin
 end;
 
 function TFRMAccountSelect.GetSelected: Int64;
-Var ocl : TOrderedCardinalList;
+Var ocl : TOrderedList;
 begin
   Result := -1;
-  ocl := TOrderedCardinalList.Create;
+  ocl := TOrderedList.Create;
   try
     If FAccountsGrid.SelectedAccounts(ocl)=1 then Result := ocl.Get(0);
   finally

@@ -4,14 +4,14 @@ unit UFRMWallet;
   {$MODE Delphi}
 {$ENDIF}
 
-{ 
+{
   Copyright (c) Albert Molina 2016 - 2018 original code from PascalCoin https://pascalcoin.org/
 
   Distributed under the MIT software license, see the accompanying file LICENSE
   or visit http://www.opensource.org/licenses/mit-license.php.
 
   This unit is a part of Pascal Coin, a P2P crypto currency without need of
-  historical operations.   
+  historical operations.
 
   If you like it, consider a donation using BitCoin:
     16K3HCZRhFUtM8GdWRcfKeaa6KsuyxZaYk
@@ -34,6 +34,7 @@ uses
   UBlockChain, UNode, UGridUtils, UAccounts, Menus, ImgList,
   synautil, UNetProtocol, UCrypto, Buttons, UPoolMining, URPC, IniFiles,
   MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney, MicroCoin.Transaction.ChangeKey,
+  MicroCoin.Account.AccountKey, MicroCoin.Common.Lists,
   UFRMAccountSelect, Types, httpsend, UFRMMineCoins{$ifndef fpc}, System.ImageList{$endif}{$IFDEF WINDOWS},windows{$ENDIF};
 
 Const
@@ -557,7 +558,7 @@ begin
 end;
 
 procedure TFRMWallet.bbSelectedAccountsOperationClick(Sender: TObject);
-var l : TOrderedCardinalList;
+var l : TOrderedList;
 begin
   CheckIsReady;
   if FSelectedAccountsGrid.AccountsCount<=0 then raise Exception.Create(
@@ -915,18 +916,18 @@ begin
   Strings.Add('');
   Strings.Add(Format('Updated on block: %d  (%d blocks ago)',[account.updated_block,FNode.Bank.BlocksCount-account.updated_block]));
   Strings.Add(Format('Public key type: %s',[TAccountComp.GetECInfoTxt(account.accountInfo.accountKey.EC_OpenSSL_NID)]));
-  Strings.Add(Format('Base58 Public key: %s',[TAccountComp.AccountPublicKeyExport(account.accountInfo.accountKey)]));
-  if TAccountComp.IsAccountForSale(account.accountInfo) then begin
+  Strings.Add(Format('Base58 Public key: %s',[(account.accountInfo.accountKey.AccountPublicKeyExport)]));
+  if account.accountInfo.IsAccountForSale then begin
     Strings.Add('');
     Strings.Add('** Account is for sale: **');
     Strings.Add(Format('Price: %s',[TAccountComp.FormatMoney(account.accountInfo.price)]));
     Strings.Add(Format('Seller account (where to pay): %s',[TAccountComp.AccountNumberToAccountTxtNumber(account.accountInfo.account_to_pay)]));
-    if TAccountComp.IsAccountForSaleAcceptingTransactions(account.accountInfo) then begin
+    if account.accountInfo.IsAccountForSaleAcceptingTransactions then begin
       Strings.Add('');
       Strings.Add('** Private sale **');
-      Strings.Add(Format('New Base58 Public key: %s',[TAccountComp.AccountPublicKeyExport(account.accountInfo.new_publicKey)]));
+      Strings.Add(Format('New Base58 Public key: %s',[account.accountInfo.new_publicKey.AccountPublicKeyExport]));
       Strings.Add('');
-      if TAccountComp.IsAccountLocked(account.accountInfo,FNode.Bank.BlocksCount) then begin
+      if account.accountInfo.IsLocked(FNode.Bank.BlocksCount) then begin
         Strings.Add(Format('PURCHASE IS SECURE UNTIL BLOCK %d (current %d, remains %d)',
           [account.accountInfo.locked_until_block,FNode.Bank.BlocksCount,account.accountInfo.locked_until_block-FNode.Bank.BlocksCount]));
       end else begin
@@ -1367,7 +1368,7 @@ begin
   case FMinerPrivateKeyType of
     mpk_NewEachTime: PublicK := CT_TECDSA_Public_Nul;
     mpk_Selected: begin
-      PublicK := TAccountComp.RawString2Accountkey(FAppParams.ParamByName[CT_PARAM_MinerPrivateKeySelectedPublicKey].GetAsString(''));
+      PublicK := TAccountKey.FromRawString(FAppParams.ParamByName[CT_PARAM_MinerPrivateKeySelectedPublicKey].GetAsString(''));
     end;
   else
     // Random
@@ -1597,12 +1598,12 @@ begin
 end;
 
 procedure TFRMWallet.miNewOperationClick(Sender: TObject);
-var l : TOrderedCardinalList;
+var l : TOrderedList;
 begin
   CheckIsReady;
   With TFRMOperation.Create(Self) do
   Try
-    l := TOrderedCardinalList.Create;
+    l := TOrderedList.Create;
     try
       if FAccountsGrid.SelectedAccounts(l)<1 then raise Exception.Create(
         rsNoRowSelecte);
@@ -1917,7 +1918,7 @@ begin
 end;
 
 procedure TFRMWallet.sbSelectedAccountsAddAllClick(Sender: TObject);
-Var lsource,ltarget : TOrderedCardinalList;
+Var lsource,ltarget : TOrderedList;
   i : Integer;
 begin
   lsource := FAccountsGrid.LockAccountsList;
@@ -1937,7 +1938,7 @@ begin
 end;
 
 procedure TFRMWallet.sbSelectedAccountsAddClick(Sender: TObject);
-Var l, selected : TOrderedCardinalList;
+Var l, selected : TOrderedList;
   an : Int64;
   i : Integer;
 begin
@@ -1948,7 +1949,7 @@ begin
       TAccountComp.AccountNumberToAccountTxtNumber(an),#10, #10]));
   // Add
   l := FSelectedAccountsGrid.LockAccountsList;
-  selected := TOrderedCardinalList.Create;
+  selected := TOrderedList.Create;
   Try
     FAccountsGrid.SelectedAccounts(selected);
     for i := 0 to selected.Count-1 do begin
@@ -1961,7 +1962,7 @@ begin
 end;
 
 procedure TFRMWallet.sbSelectedAccountsDelAllClick(Sender: TObject);
-Var l : TOrderedCardinalList;
+Var l : TOrderedList;
 begin
   l := FSelectedAccountsGrid.LockAccountsList;
   try
@@ -1973,7 +1974,7 @@ end;
 
 procedure TFRMWallet.sbSelectedAccountsDelClick(Sender: TObject);
 Var an : Int64;
-  l : TOrderedCardinalList;
+  l : TOrderedList;
 begin
   l := FSelectedAccountsGrid.LockAccountsList;
   try
@@ -2016,8 +2017,8 @@ begin
 end;
 
 procedure TFRMWallet.UpdateAccounts(RefreshData : Boolean);
-Var accl : TOrderedCardinalList;
-  l : TOrderedCardinalList;
+Var accl : TOrderedList;
+  l : TOrderedList;
   i,j,k : Integer;
   c  : Cardinal;
   applyfilter : Boolean;
@@ -2301,7 +2302,7 @@ begin
         FOrderedAccountsKeyList.AddAccountKey(wk.AccountKey);
       end;
       if (wk.Name='') then begin
-        s := 'Sha256='+TCrypto.ToHexaString( TCrypto.DoSha256( TAccountComp.AccountKey2RawString(wk.AccountKey) ) );
+        s := 'Sha256='+TCrypto.ToHexaString( TCrypto.DoSha256( wk.AccountKey.ToRawString ) );
       end else begin
         s := wk.Name;
       end;

@@ -7,16 +7,17 @@ program MicroCoinWallet;
 uses
   {$IFnDEF FPC}
   {$ELSE}
-  cthreads,
   {$IFDEF LINUX}
   {$ifdef FPC}
-  {$endif }
+  cthreads,
+  {$endif}
   {$else}
   windows,
-  {$ENDIF }
+  {$ENDIF}
   Interfaces,
-  {$ENDIF }
+  {$ENDIF}
   Forms,
+  {$IFDEF FPC}LCLTranslator,{$endif}
   UBlockChain in 'src\MicroCoin\Core\UBlockChain.pas',
   UCrypto in 'src\MicroCoin\Core\UCrypto.pas',
   UTime in 'src\MicroCoin\Core\UTime.pas',
@@ -58,8 +59,19 @@ uses
   IniFiles,
   {$ENDIF }
   sysutils,
+  MicroCoin.Account.AccountKey in 'src\MicroCoin\Core\Account\MicroCoin.Account.AccountKey.pas',
+  MicroCoin.Common.Lists in 'src\MicroCoin\Core\Common\MicroCoin.Common.Lists.pas',
+  MicroCoin.Transaction.TransactionList in 'src\MicroCoin\Core\Transaction\Lists\MicroCoin.Transaction.TransactionList.pas',
+  MicroCoin.Transaction.Base in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.Base.pas',
+  MicroCoin.Transaction.ChangeAccountInfo in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.ChangeAccountInfo.pas',
+  MicroCoin.Transaction.ChangeKey in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.ChangeKey.pas',
+  MicroCoin.Transaction.HashTree in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.HashTree.pas',
+  MicroCoin.Transaction.ListAccount in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.ListAccount.pas',
+  MicroCoin.Transaction.Manager in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.Manager.pas',
+  MicroCoin.Transaction.RecoverFounds in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.RecoverFounds.pas',
+  MicroCoin.Transaction.Transaction in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.Transaction.pas',
   MicroCoin.Transaction.TransferMoney in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.TransferMoney.pas',
-  MicroCoin.Transaction.ChangeKey in 'src\MicroCoin\Core\Transaction\MicroCoin.Transaction.ChangeKey.pas';
+  UCommon in 'src\MicroCoin\Utils\UCommon.pas';
 
 {.$R *.res}
 {$R *.res}

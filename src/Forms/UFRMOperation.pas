@@ -4,14 +4,14 @@ unit UFRMOperation;
   {$MODE Delphi}
 {$ENDIF}
 
-{ 
+{
   Copyright (c) Albert Molina 2016 - 2018 original code from PascalCoin https://pascalcoin.org/
 
   Distributed under the MIT software license, see the accompanying file LICENSE
   or visit http://www.opensource.org/licenses/mit-license.php.
 
   This unit is a part of Pascal Coin, a P2P crypto currency without need of
-  historical operations.   
+  historical operations.
 
   If you like it, consider a donation using BitCoin:
     16K3HCZRhFUtM8GdWRcfKeaa6KsuyxZaYk
@@ -31,7 +31,9 @@ uses
   Dialogs, StdCtrls, UNode, UWalletKeys, UCrypto, Buttons, UBlockChain,
   UAccounts, UFRMAccountSelect, ActnList, ComCtrls, ExtCtrls, Types, UCommon,
   System.Actions, MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney,
-  MicroCoin.Transaction.ChangeKey;
+  MicroCoin.Transaction.ChangeKey, MicroCoin.Common.Lists, MicroCoin.Account.AccountKey,
+  MicroCoin.Transaction.HashTree, MicroCoin.Transaction.ListAccount,
+  MicroCoin.Transaction.ChangeAccountInfo;
 
 Const
   CM_PC_WalletKeysChanged = WM_USER + 1;
@@ -149,7 +151,7 @@ type
     FDefaultFee: Int64;
     FEncodedPayload : TRawBytes;
     FDisabled : Boolean;
-    FSenderAccounts: TOrderedCardinalList; // TODO: TOrderedCardinalList should be replaced with a "TCardinalList" since signer account should be processed last
+    FSenderAccounts: TOrderedList; // TODO: TOrderedCardinalList should be replaced with a "TCardinalList" since signer account should be processed last
     FOldOnChanged : TNotifyEvent;
     procedure SetWalletKeys(const Value: TWalletKeys);
     Procedure UpdateWalletKeys;
@@ -174,7 +176,7 @@ type
     procedure searchAccount(editBox : TCustomEdit);
   public
     { Public declarations }
-    Property SenderAccounts : TOrderedCardinalList read FSenderAccounts;
+    Property SenderAccounts : TOrderedList read FSenderAccounts;
     Property WalletKeys : TWalletKeys read FWalletKeys write SetWalletKeys;
     Property DefaultFee : Int64 read FDefaultFee write SetDefaultFee;
   end;
@@ -292,7 +294,7 @@ Var errors : AnsiString;
   _newName : TRawBytes;
   _newType : Word;
   _changeName, _changeType, _V2, _executeSigner  : Boolean;
-  _senderAccounts : TCardinalsArray;
+  _senderAccounts : TArray<Cardinal>;
 label loop_start;
 begin
   if Not Assigned(WalletKeys) then raise Exception.Create('No wallet keys');
@@ -417,7 +419,7 @@ loop_start:
         if operation_to_string<>'' then operation_to_string := operation_to_string + #10;
         operation_to_string := operation_to_string + op.ToString;
       end;
-      FreeAndNil(op);
+     // FreeAndNil(op);
     end;
 
     if (ops.OperationsCount=0) then raise Exception.Create(rsNoValidOpera);
@@ -570,7 +572,7 @@ procedure TFRMOperation.FormCreate(Sender: TObject);
 begin
   FDisabled := false;
   FWalletKeys := Nil;
-  FSenderAccounts := TOrderedCardinalList.Create;
+  FSenderAccounts := TOrderedList.Create;
   FSenderAccounts.OnListChanged := OnSenderAccountsChanged;
   FDisabled := true;
   FNode := TNode.Node;
@@ -868,7 +870,7 @@ begin
       exit;
     end;
     AccountToBuy := FNode.Operations.SafeBoxTransaction.Account(c);
-    If not TAccountComp.IsAccountForSale(AccountToBuy.accountInfo) then begin
+    If not AccountToBuy.accountInfo.IsAccountForSale then begin
       errors := Format(rsAccountIsNot, [
         TAccountComp.AccountNumberToAccountTxtNumber(c)]);
       exit;
@@ -919,7 +921,7 @@ begin
       errors := rsCannotChange;
       exit;
     end;
-    if (TAccountComp.IsAccountLocked(TargetAccount.accountInfo,FNode.Bank.BlocksCount)) then begin
+    if (TargetAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount)) then begin
       errors := Format(rsAccountIsLoc, [
         TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account),
         IntToStr(TargetAccount.accountInfo.locked_until_block)]);
@@ -936,13 +938,13 @@ begin
       exit;
     end;
     SignerAccount := FNode.Operations.SafeBoxTransaction.Account(auxC);
-    if (TAccountComp.IsAccountLocked(SignerAccount.accountInfo,FNode.Bank.BlocksCount)) then begin
+    if (SignerAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount)) then begin
       errors := Format(rsSignerAccoun2, [
         TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
         IntToStr(SignerAccount.accountInfo.locked_until_block)]);
       exit;
     end;
-    if (Not TAccountComp.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
+    if (Not TAccountKey.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
       errors := Format(rsSignerAccoun3, [
         TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
         TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
@@ -1014,7 +1016,7 @@ begin
         rsInvalidSelec);
       NewPublicKey := WalletKeys.Key[i].AccountKey;
     end else if rbChangeKeyTransferAccountToNewOwner.Checked then begin
-      If Not TAccountComp.AccountKeyFromImport(ebNewPublicKey.Text,NewPublicKey,errors) then begin
+      If Not TAccountKey.AccountKeyFromImport(ebNewPublicKey.Text,NewPublicKey,errors) then begin
         lblNewOwnerErrors.Caption := errors;
         lblNewOwnerErrors.Font.Color := clRed;
         exit;
@@ -1040,20 +1042,20 @@ begin
         exit;
       end;
       SignerAccount := FNode.Operations.SafeBoxTransaction.Account(auxC);
-      if (TAccountComp.IsAccountLocked(SignerAccount.accountInfo,FNode.Bank.BlocksCount)) then begin
+      if (SignerAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount)) then begin
         errors := Format(rsSignerAccoun2, [
           TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
           IntToStr(SignerAccount.accountInfo.locked_until_block)]);
         exit;
       end;
-      if (Not TAccountComp.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
+      if (Not TAccountKey.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
         errors := Format(rsSignerAccoun3, [
           TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
           TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
         exit;
       end;
     end else SignerAccount := TargetAccount;
-    if (TAccountComp.EqualAccountKeys(TargetAccount.accountInfo.accountKey,NewPublicKey)) then begin
+    if (TAccountKey.EqualAccountKeys(TargetAccount.accountInfo.accountKey,NewPublicKey)) then begin
       errors := rsNewPublicKey;
       lblChangeKeyErrors.Caption := errors;
       lblNewOwnerErrors.Caption := errors;
@@ -1072,12 +1074,12 @@ begin
   Result := false;
   if not (PageControlOpType.ActivePage=tsDelist) then exit;
   try
-    if Not TAccountComp.IsAccountForSale(TargetAccount.accountInfo) then begin
+    if Not TargetAccount.accountInfo.IsAccountForSale then begin
       errors := Format(rsAccountIsNot, [
         TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
       exit;
     end;
-    if (TAccountComp.IsAccountLocked(TargetAccount.accountInfo,FNode.Bank.BlocksCount)) then begin
+    if (TargetAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount)) then begin
       errors := Format(rsAccountIsLoc, [
         TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account),
         IntToStr(TargetAccount.accountInfo.locked_until_block)]);
@@ -1094,13 +1096,13 @@ begin
       exit;
     end;
     SignerAccount := FNode.Operations.SafeBoxTransaction.Account(auxC);
-    if (TAccountComp.IsAccountLocked(SignerAccount.accountInfo,FNode.Bank.BlocksCount)) then begin
+    if SignerAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount) then begin
       errors := Format(rsSignerAccoun2, [
         TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
         IntToStr(SignerAccount.accountInfo.locked_until_block)]);
       exit;
     end;
-    if (Not TAccountComp.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
+    if (Not TAccountKey.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
       errors := Format(rsSignerAccoun4, [
         TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
         TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
@@ -1294,7 +1296,7 @@ begin
         ebSaleNewOwnerPublicKey.Enabled := true;
         ebSaleLockedUntilBlock.Enabled := true;
         lblSaleLockedUntilBlock.Enabled := true;
-        If Not TAccountComp.AccountKeyFromImport(ebSaleNewOwnerPublicKey.Text,NewOwnerPublicKey,errors) then begin
+        If Not TAccountKey.AccountKeyFromImport(ebSaleNewOwnerPublicKey.Text,NewOwnerPublicKey,errors) then begin
           errors := Format(rsPublicKey, [errors]);
           exit;
         end else begin
@@ -1302,7 +1304,7 @@ begin
           lblListAccountErrors.Caption := Format(rsNewKeyType, [
             TAccountComp.GetECInfoTxt(NewOwnerPublicKey.EC_OpenSSL_NID)]);
         end;
-        if TAccountComp.EqualAccountKeys(NewOwnerPublicKey,TargetAccount.accountInfo.accountKey) then begin
+        if TAccountKey.EqualAccountKeys(NewOwnerPublicKey,TargetAccount.accountInfo.accountKey) then begin
           errors := rsNewPublicKey2;
           Exit;
         end;
@@ -1449,7 +1451,7 @@ begin
             exit;
           end;
         end else if (rbChangeKeyTransferAccountToNewOwner.Checked) then begin
-          If Not TAccountComp.AccountKeyFromImport(ebNewPublicKey.Text,public_key,errors) then begin
+          If Not TAccountKey.AccountKeyFromImport(ebNewPublicKey.Text,public_key,errors) then begin
             errors := Format(rsPublicKey, [errors]);
             exit;
           end;
@@ -1511,7 +1513,7 @@ begin
     For i:=0 to FWalletKeys.Count-1 do begin
       wk := FWalletKeys.Key[i];
       if (wk.Name='') then begin
-        s := TCrypto.ToHexaString( TAccountComp.AccountKey2RawString(wk.AccountKey));
+        s := TCrypto.ToHexaString( wk.AccountKey.ToRawString);
       end else begin
         s := wk.Name;
       end;
