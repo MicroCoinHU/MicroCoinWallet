@@ -33,7 +33,7 @@ uses
   System.Actions, MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney,
   MicroCoin.Transaction.ChangeKey, MicroCoin.Common.Lists, MicroCoin.Account.AccountKey,
   MicroCoin.Transaction.HashTree, MicroCoin.Transaction.ListAccount,
-  MicroCoin.Transaction.ChangeAccountInfo;
+  MicroCoin.Transaction.ChangeAccountInfo, MicroCoin.Account, MicroCoin.Account.Storage;
 
 Const
   CM_PC_WalletKeysChanged = WM_USER + 1;
@@ -184,7 +184,7 @@ type
 implementation
 
 uses
-  UECIES, UConst, UOpTransaction, UFRMNewPrivateKeyType, UAES, UFRMWalletKeys;
+  UECIES, UConst, UOpTransaction, UFRMNewPrivateKeyType, UAES, UFRMWalletKeys, MicroCoin.Common;
 
 {$IFnDEF FPC}
   {$R *.dfm}
@@ -319,7 +319,7 @@ loop_start:
       account := FNode.Operations.SafeBoxTransaction.Account(_senderAccounts[iAcc]);
       If Not UpdatePayload(account, errors) then
         raise Exception.Create(Format(rsErrorEncodin, [
-          TAccountComp.AccountNumberToAccountTxtNumber(account.account), errors]
+          TAccount.AccountNumberToAccountTxtNumber(account.account), errors]
           ));
       i := WalletKeys.IndexOfAccountKey(account.accountInfo.accountKey);
       if i<0 then begin
@@ -351,7 +351,7 @@ loop_start:
           inc(_totalamount,_amount);
           inc(_totalfee,_fee);
         end;
-        operationstxt := 'Transaction to '+TAccountComp.AccountNumberToAccountTxtNumber(destAccount.account);
+        operationstxt := 'Transaction to '+TAccount.AccountNumberToAccountTxtNumber(destAccount.account);
         {%endregion}
       end else if (PageControlOpType.ActivePage = tsChangePrivateKey) then begin
         {%region Operation: Change Private Key}
@@ -374,7 +374,7 @@ loop_start:
           op := TChangeKeyTransaction.Create(account.account,account.n_operation+1,account.account,wk.PrivateKey,_newOwnerPublicKey,_fee,FEncodedPayload);
         end;
         inc(_totalfee,_fee);
-        operationstxt := Format(rsChangePrivat, [TAccountComp.GetECInfoTxt(
+        operationstxt := Format(rsChangePrivat, [TAccountKey.GetECInfoTxt(
           _newOwnerPublicKey.EC_OpenSSL_NID)]);
         {%endregion}
       end else if (PageControlOpType.ActivePage = tsListForSale) then begin
@@ -426,11 +426,11 @@ loop_start:
 
     if (Length(_senderAccounts)>1) then begin
       if PageControlOpType.ActivePage = tsTransaction then auxs := Format(
-        rsTotalAmountT, [TAccountComp.FormatMoney(_totalamount), #10])
+        rsTotalAmountT, [TCurrencyUtils.FormatMoney(_totalamount), #10])
       else auxs:='';
       if Application.MessageBox(PChar(Format(rsExecuteOpera, [Inttostr(Length(
         _senderAccounts)), #10, operationstxt, #10, auxs,
-        TAccountComp.FormatMoney(_totalfee), #10, #10])),
+        TCurrencyUtils.FormatMoney(_totalfee), #10, #10])),
         PChar(Application.Title),MB_YESNO+MB_ICONINFORMATION+MB_DEFBUTTON2)<>IdYes then exit;
     end else begin
       if Application.MessageBox(PChar(Format(rsExecuteThisO, [#10, #10,
@@ -513,8 +513,8 @@ begin
   if (Not assigned(Sender)) then exit;
   if (Not (Sender is TEdit)) then exit;
   eb := TEdit(Sender);
-  If TAccountComp.AccountTxtNumberToAccountNumber(eb.Text,an) then begin
-    eb.Text := TAccountComp.AccountNumberToAccountTxtNumber(an);
+  If TAccount.AccountTxtNumberToAccountNumber(eb.Text,an) then begin
+    eb.Text := TAccount.AccountNumberToAccountTxtNumber(an);
   end else begin
     eb.Text := '';
   end;
@@ -529,8 +529,8 @@ begin
   if (Not (Sender is TEdit)) then exit;
   eb := TEdit(Sender);
   If Not (eb.ReadOnly) then begin
-    if Not TAccountComp.TxtToMoney(eb.Text,m) then m:=0;
-    eb.Text := TAccountComp.FormatMoney(m);
+    if Not TCurrencyUtils.TxtToMoney(eb.Text,m) then m:=0;
+    eb.Text := TCurrencyUtils.FormatMoney(m);
     updateInfoClick(Nil);
   end;
 end;
@@ -545,7 +545,7 @@ end;
 procedure TFRMOperation.ebSenderAccountExit(Sender: TObject);
 Var an : Cardinal;
 begin
-  If TAccountComp.AccountTxtNumberToAccountNumber(ebSenderAccount.Text,an) then begin
+  If TAccount.AccountTxtNumberToAccountNumber(ebSenderAccount.Text,an) then begin
     SenderAccounts.Disable;
     try
       SenderAccounts.Clear;
@@ -553,10 +553,10 @@ begin
     finally
       SenderAccounts.Enable;
     end;
-    ebSenderAccount.Text := TAccountComp.AccountNumberToAccountTxtNumber(an);
+    ebSenderAccount.Text := TAccount.AccountNumberToAccountTxtNumber(an);
   end else begin
     if SenderAccounts.Count=1 then begin
-      ebSenderAccount.Text := TAccountComp.AccountNumberToAccountTxtNumber(SenderAccounts.Get(0));
+      ebSenderAccount.Text := TAccount.AccountNumberToAccountTxtNumber(SenderAccounts.Get(0));
     end else begin
       ebSenderAccount.Text := '';
     end;
@@ -591,7 +591,7 @@ begin
   ebDestAccount.OnChange := updateInfoClick;
   ebDestAccount.OnExit := ebAccountNumberExit;
   ebDestAccount.OnKeyDown := ebAccountKeyDown;
-  ebAmount.Text := TAccountComp.FormatMoney(0);
+  ebAmount.Text := TCurrencyUtils.FormatMoney(0);
   ebAmount.OnChange := updateInfoClick;
   ebAmount.OnExit := ebCurrencyExit;
   //
@@ -604,7 +604,7 @@ begin
   lblListAccountErrors.Caption := '';
   rbListAccountForPublicSale.OnClick := updateInfoClick;
   rbListAccountForPrivateSale.OnClick := updateInfoClick;
-  ebSalePrice.Text := TAccountComp.FormatMoney(0);
+  ebSalePrice.Text := TCurrencyUtils.FormatMoney(0);
   ebSalePrice.OnChange := updateInfoClick;
   ebSalePrice.OnExit := ebCurrencyExit;
 
@@ -627,7 +627,7 @@ begin
   ebAccountToBuy.OnExit := ebAccountNumberExit;
   ebAccountToBuy.OnKeyDown := ebAccountKeyDown;
   ebAccountToBuy.tag := CT_AS_OnlyForSale;
-  ebBuyAmount.Text := TAccountComp.FormatMoney(0);
+  ebBuyAmount.Text := TCurrencyUtils.FormatMoney(0);
   ebBuyAmount.OnChange :=  updateInfoClick;
   ebBuyAmount.OnExit := ebCurrencyExit;
   //
@@ -638,7 +638,7 @@ begin
   sbSearchListerSellerAccount.OnClick := sbSearchListerSellerAccountClick;
   sbSearchBuyAccount.OnClick := sbSearchBuyAccountClick;
   //
-  ebFee.Text := TAccountComp.FormatMoney(0);
+  ebFee.Text := TCurrencyUtils.FormatMoney(0);
   ebFee.OnExit:= ebCurrencyExit;
   memoAccounts.Lines.Clear;
   PageControlOpType.ActivePage := tsTransaction;
@@ -681,10 +681,10 @@ begin
     F.Node := FNode;
     F.WalletKeys := FWalletKeys;
     F.Filters:=editBox.Tag;
-    If TAccountComp.AccountTxtNumberToAccountNumber(editBox.Text,c) then F.DefaultAccount := c;
+    If TAccount.AccountTxtNumberToAccountNumber(editBox.Text,c) then F.DefaultAccount := c;
     F.AllowSelect:=True;
     If F.ShowModal=MrOk then begin
-      editBox.Text := TAccountComp.AccountNumberToAccountTxtNumber(F.GetSelected);
+      editBox.Text := TAccount.AccountNumberToAccountTxtNumber(F.GetSelected);
     end;
   finally
     F.Free;
@@ -707,12 +707,12 @@ begin
     ebAmount.font.Style := [fsBold];
     ebAmount.ReadOnly := true;
   end else begin
-    ebAmount.Text := TAccountComp.FormatMoney(0);
+    ebAmount.Text := TCurrencyUtils.FormatMoney(0);
     ebAmount.ReadOnly := false;
     ebAmount.Enabled := true;
   end;
   If SenderAccounts.Count>=1 then begin
-    ebSignerAccount.text := TAccountComp.AccountNumberToAccountTxtNumber(SenderAccounts.Get(0));
+    ebSignerAccount.text := TAccount.AccountNumberToAccountTxtNumber(SenderAccounts.Get(0));
     ebChangeName.Text := FNode.Operations.SafeBoxTransaction.Account(SenderAccounts.Get(0)).name;
     ebChangeType.Text := IntToStr(FNode.Operations.SafeBoxTransaction.Account(SenderAccounts.Get(0)).account_type);
   end else begin
@@ -764,7 +764,7 @@ begin
   try
     FDisabled := true;
     FDefaultFee := Value;
-    ebFee.Text := TAccountComp.FormatMoney(value);
+    ebFee.Text := TCurrencyUtils.FormatMoney(value);
   finally
     FDisabled := wd;
   end;
@@ -805,7 +805,7 @@ begin
       memoAccounts.Visible := false;
       ebSenderAccount.Visible := true;
     end else if SenderAccounts.Count=1 then begin
-      ebSenderAccount.Text := TAccountComp.AccountNumberToAccountTxtNumber(SenderAccounts.Get(0));
+      ebSenderAccount.Text := TAccount.AccountNumberToAccountTxtNumber(SenderAccounts.Get(0));
       memoAccounts.Visible := false;
       ebSenderAccount.Visible := true;
       balance := TNode.Node.Operations.SafeBoxTransaction.Account(SenderAccounts.Get(0)).balance;
@@ -819,13 +819,13 @@ begin
          acc := TNode.Node.Operations.SafeBoxTransaction.Account(SenderAccounts.Get(i));
          balance := balance + acc.balance;
          if (accountstext<>'') then accountstext:=accountstext+'; ';
-         accountstext := accountstext+TAccountComp.AccountNumberToAccountTxtNumber(acc.account)+' ('+TAccountComp.FormatMoney(acc.balance)+')';
+         accountstext := accountstext+TAccount.AccountNumberToAccountTxtNumber(acc.account)+' ('+TCurrencyUtils.FormatMoney(acc.balance)+')';
       end;
       memoAccounts.Lines.Text := accountstext;
       memoAccounts.Visible := true;
     end;
     ebSenderAccount.Enabled := ebSenderAccount.Visible;
-    lblAccountBalance.Caption := TAccountComp.FormatMoney(balance);
+    lblAccountBalance.Caption := TCurrencyUtils.FormatMoney(balance);
   Finally
     FDisabled := ld;
   End;
@@ -835,7 +835,7 @@ function TFRMOperation.UpdateFee(var Fee: Int64; errors: AnsiString): Boolean;
 begin
   errors := '';
   if trim(ebFee.Text)<>'' then begin
-    Result := TAccountComp.TxtToMoney(Trim(ebFee.Text),Fee);
+    Result := TCurrencyUtils.TxtToMoney(Trim(ebFee.Text),Fee);
     if not Result then errors := Format(rsInvalidFeeVa, [ebFee.Text]);
   end else begin
     Fee := 0;
@@ -861,7 +861,7 @@ begin
       errors := rsCannotBuyAcc;
       exit;
     end;
-    If (Not TAccountComp.AccountTxtNumberToAccountNumber(ebAccountToBuy.Text,c)) then begin
+    If (Not TAccount.AccountTxtNumberToAccountNumber(ebAccountToBuy.Text,c)) then begin
       errors := Format(rsInvalidAccou, [ebAccountToBuy.Text]);
       exit;
     end;
@@ -872,15 +872,15 @@ begin
     AccountToBuy := FNode.Operations.SafeBoxTransaction.Account(c);
     If not AccountToBuy.accountInfo.IsAccountForSale then begin
       errors := Format(rsAccountIsNot, [
-        TAccountComp.AccountNumberToAccountTxtNumber(c)]);
+        TAccount.AccountNumberToAccountTxtNumber(c)]);
       exit;
     end;
-    If Not TAccountComp.TxtToMoney(ebBuyAmount.Text,amount) then begin
+    If Not TCurrencyUtils.TxtToMoney(ebBuyAmount.Text,amount) then begin
       errors := rsInvalidAmoun;
       exit;
     end;
     if (AccountToBuy.accountInfo.price>amount) then begin
-      errors := Format(rsAccountPrice, [TAccountComp.FormatMoney(
+      errors := Format(rsAccountPrice, [TCurrencyUtils.FormatMoney(
         AccountToBuy.accountInfo.price)]);
       exit;
     end;
@@ -923,31 +923,31 @@ begin
     end;
     if (TargetAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount)) then begin
       errors := Format(rsAccountIsLoc, [
-        TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account),
+        TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account),
         IntToStr(TargetAccount.accountInfo.locked_until_block)]);
       exit;
     end;
     // Signer:
-    If Not TAccountComp.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
+    If Not TAccount.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
       errors := rsInvalidSigne;
       exit;
     end;
     if (auxC<0) Or (auxC >= FNode.Bank.AccountsCount) then begin
       errors := Format(rsSignerAccoun, [
-        TAccountComp.AccountNumberToAccountTxtNumber(auxC)]);
+        TAccount.AccountNumberToAccountTxtNumber(auxC)]);
       exit;
     end;
     SignerAccount := FNode.Operations.SafeBoxTransaction.Account(auxC);
     if (SignerAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount)) then begin
       errors := Format(rsSignerAccoun2, [
-        TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
+        TAccount.AccountNumberToAccountTxtNumber(SignerAccount.account),
         IntToStr(SignerAccount.accountInfo.locked_until_block)]);
       exit;
     end;
     if (Not TAccountKey.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
       errors := Format(rsSignerAccoun3, [
-        TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
-        TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
+        TAccount.AccountNumberToAccountTxtNumber(SignerAccount.account),
+        TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
       exit;
     end;
     If (FNode.Bank.SafeBox.CurrentProtocol=CT_PROTOCOL_1) then begin
@@ -959,14 +959,14 @@ begin
     If newName<>TargetAccount.name then begin
       changeName:=True;
       If newName<>'' then begin
-        if (Not TPCSafeBox.ValidAccountName(newName,errors)) then begin
+        if (Not TAccountStorage.AccountNameIsValid(newName,errors)) then begin
           errors := Format(rsIsNotAValidN, [newName, errors]);
           Exit;
         end;
         i := (FNode.Bank.SafeBox.FindAccountByName(newName));
         if (i>=0) then begin
           errors := Format(rsNameIsUsedBy, [newName,
-            TAccountComp.AccountNumberToAccountTxtNumber(i)]);
+            TAccount.AccountNumberToAccountTxtNumber(i)]);
           Exit;
         end;
       end;
@@ -990,7 +990,7 @@ begin
     end else begin
       lblChangeInfoErrors.Font.Color := clGreen;
       lblChangeInfoErrors.Caption := Format(rsCanBeUpdated, [
-        TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
+        TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
     end;
   end;
 end;
@@ -1022,7 +1022,7 @@ begin
         exit;
       end else begin
         lblNewOwnerErrors.Caption := Format(rsNewKeyType, [
-          TAccountComp.GetECInfoTxt(NewPublicKey.EC_OpenSSL_NID)]);
+          TAccountKey.GetECInfoTxt(NewPublicKey.EC_OpenSSL_NID)]);
         lblNewOwnerErrors.Font.Color := clGreen;
       end;
     end else begin
@@ -1032,26 +1032,26 @@ begin
     end;
     If FNode.Bank.SafeBox.CurrentProtocol>=1 then begin
       // Signer:
-      If Not TAccountComp.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
+      If Not TAccount.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
         errors := rsInvalidSigne;
         exit;
       end;
       if (auxC<0) Or (auxC >= FNode.Bank.AccountsCount) then begin
         errors := Format(rsSignerAccoun, [
-          TAccountComp.AccountNumberToAccountTxtNumber(auxC)]);
+          TAccount.AccountNumberToAccountTxtNumber(auxC)]);
         exit;
       end;
       SignerAccount := FNode.Operations.SafeBoxTransaction.Account(auxC);
       if (SignerAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount)) then begin
         errors := Format(rsSignerAccoun2, [
-          TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
+          TAccount.AccountNumberToAccountTxtNumber(SignerAccount.account),
           IntToStr(SignerAccount.accountInfo.locked_until_block)]);
         exit;
       end;
       if (Not TAccountKey.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
         errors := Format(rsSignerAccoun3, [
-          TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
-          TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
+          TAccount.AccountNumberToAccountTxtNumber(SignerAccount.account),
+          TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
         exit;
       end;
     end else SignerAccount := TargetAccount;
@@ -1076,36 +1076,36 @@ begin
   try
     if Not TargetAccount.accountInfo.IsAccountForSale then begin
       errors := Format(rsAccountIsNot, [
-        TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
+        TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
       exit;
     end;
     if (TargetAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount)) then begin
       errors := Format(rsAccountIsLoc, [
-        TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account),
+        TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account),
         IntToStr(TargetAccount.accountInfo.locked_until_block)]);
       exit;
     end;
     // Signer:
-    If Not TAccountComp.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
+    If Not TAccount.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
       errors := rsInvalidSigne;
       exit;
     end;
     if (auxC<0) Or (auxC >= FNode.Bank.AccountsCount) then begin
       errors := Format(rsSignerAccoun, [
-        TAccountComp.AccountNumberToAccountTxtNumber(auxC)]);
+        TAccount.AccountNumberToAccountTxtNumber(auxC)]);
       exit;
     end;
     SignerAccount := FNode.Operations.SafeBoxTransaction.Account(auxC);
     if SignerAccount.accountInfo.IsLocked(FNode.Bank.BlocksCount) then begin
       errors := Format(rsSignerAccoun2, [
-        TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
+        TAccount.AccountNumberToAccountTxtNumber(SignerAccount.account),
         IntToStr(SignerAccount.accountInfo.locked_until_block)]);
       exit;
     end;
     if (Not TAccountKey.EqualAccountKeys(SignerAccount.accountInfo.accountKey,TargetAccount.accountInfo.accountKey)) then begin
       errors := Format(rsSignerAccoun4, [
-        TAccountComp.AccountNumberToAccountTxtNumber(SignerAccount.account),
-        TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
+        TAccount.AccountNumberToAccountTxtNumber(SignerAccount.account),
+        TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
       exit;
     end;
     If (FNode.Bank.SafeBox.CurrentProtocol=CT_PROTOCOL_1) then begin
@@ -1119,7 +1119,7 @@ begin
       lblDelistErrors.Caption := errors;
     end else begin
       lblDelistErrors.Font.Color := clGreen;
-      lblDelistErrors.Caption := TAccountComp.AccountNumberToAccountTxtNumber(TargetAccount.account)+' can be delisted';
+      lblDelistErrors.Caption := TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account)+' can be delisted';
     end;
   end;
 end;
@@ -1159,7 +1159,7 @@ begin
         iWallet := WalletKeys.IndexOfAccountKey(sender_account.accountInfo.accountKey);
         if (iWallet<0) then begin
           errors := Format(rsPrivateKeyOf, [
-            TAccountComp.AccountNumberToAccountTxtNumber(sender_account.account)
+            TAccount.AccountNumberToAccountTxtNumber(sender_account.account)
             ]);
           lblGlobalErrors.Caption := errors;
           exit;
@@ -1172,7 +1172,7 @@ begin
             bbPassword.Enabled := true;
           end else begin
             errors := Format(rsOnlyPublicKe, [
-              TAccountComp.AccountNumberToAccountTxtNumber(
+              TAccount.AccountNumberToAccountTxtNumber(
               sender_account.account)]);
           end;
           lblGlobalErrors.Caption := errors;
@@ -1260,29 +1260,29 @@ begin
         ebSaleLockedUntilBlock.Enabled := true;
         lblSaleLockedUntilBlock.Enabled := true;
       end;
-      if not TAccountComp.TxtToMoney(ebSalePrice.Text,salePrice) then begin
+      if not TCurrencyUtils.TxtToMoney(ebSalePrice.Text,salePrice) then begin
         errors := rsInvalidPrice;
         exit;
       end;
       // Signer:
-      If Not TAccountComp.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
+      If Not TAccount.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
         errors := rsInvalidSigne;
         exit;
       end;
       if (auxC<0) Or (auxC >= FNode.Bank.AccountsCount) then begin
         errors := Format(rsSignerAccoun, [
-          TAccountComp.AccountNumberToAccountTxtNumber(auxC)]);
+          TAccount.AccountNumberToAccountTxtNumber(auxC)]);
         exit;
       end;
       SignerAccount := FNode.Operations.SafeBoxTransaction.Account(auxC);
       // Seller
-      If Not TAccountComp.AccountTxtNumberToAccountNumber(ebSellerAccount.Text,auxC) then begin
+      If Not TAccount.AccountTxtNumberToAccountNumber(ebSellerAccount.Text,auxC) then begin
         errors := rsInvalidSelle;
         exit;
       end;
       if (auxC<0) Or (auxC >= FNode.Bank.AccountsCount) then begin
         errors := Format(rsSellerAccoun, [
-          TAccountComp.AccountNumberToAccountTxtNumber(auxC)]);
+          TAccount.AccountNumberToAccountTxtNumber(auxC)]);
         exit;
       end;
       if (auxC=TargetAccount.account) then begin
@@ -1302,7 +1302,7 @@ begin
         end else begin
           lblListAccountErrors.Font.Color := clGreen;
           lblListAccountErrors.Caption := Format(rsNewKeyType, [
-            TAccountComp.GetECInfoTxt(NewOwnerPublicKey.EC_OpenSSL_NID)]);
+            TAccountKey.GetECInfoTxt(NewOwnerPublicKey.EC_OpenSSL_NID)]);
         end;
         if TAccountKey.EqualAccountKeys(NewOwnerPublicKey,TargetAccount.accountInfo.accountKey) then begin
           errors := rsNewPublicKey2;
@@ -1342,20 +1342,20 @@ begin
   errors := '';
   lblTransactionErrors.Caption := '';
   if PageControlOpType.ActivePage<>tsTransaction then exit;
-  if not (TAccountComp.AccountTxtNumberToAccountNumber(ebDestAccount.Text,c)) then begin
+  if not (TAccount.AccountTxtNumberToAccountNumber(ebDestAccount.Text,c)) then begin
     errors := Format(rsInvalidDestA, [ebDestAccount.Text]);
     lblTransactionErrors.Caption := errors;
     exit;
   end;
   if (c<0) Or (c>=TNode.Node.Bank.AccountsCount) then begin
     errors := Format(rsInvalidDestA, [
-      TAccountComp.AccountNumberToAccountTxtNumber(c)]);
+      TAccount.AccountNumberToAccountTxtNumber(c)]);
     lblTransactionErrors.Caption := errors;
     exit;
   end;
   DestAccount := TNode.Node.Operations.SafeBoxTransaction.Account(c);
   if SenderAccounts.Count=1 then begin
-    if not TAccountComp.TxtToMoney(ebAmount.Text,amount) then begin
+    if not TCurrencyUtils.TxtToMoney(ebAmount.Text,amount) then begin
       errors := Format(rsInvalidAmoun2, [ebAmount.Text]);
       lblTransactionErrors.Caption := errors;
       exit;
@@ -1409,22 +1409,22 @@ begin
         or (PageControlOpType.ActivePage=tsBuyAccount) then begin
         // With dest public key
         If (PageControlOpType.ActivePage=tsTransaction) then begin
-          If Not TAccountComp.AccountTxtNumberToAccountNumber(ebDestAccount.Text,dest_account_number) then begin
+          If Not TAccount.AccountTxtNumberToAccountNumber(ebDestAccount.Text,dest_account_number) then begin
             errors := rsInvalidDestA2;
             exit;
           end;
         end else if (PageControlOpType.ActivePage=tsListForSale) then begin
-          If Not TAccountComp.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,dest_account_number) then begin
+          If Not TAccount.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,dest_account_number) then begin
             errors := rsInvalidSigne2;
             exit;
           end;
         end else if (PageControlOpType.ActivePage=tsDelist) then begin
-          If Not TAccountComp.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,dest_account_number) then begin
+          If Not TAccount.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,dest_account_number) then begin
             errors := rsInvalidSigne2;
             exit;
           end;
         end else if (PageControlOpType.ActivePage=tsBuyAccount) then begin
-          If Not TAccountComp.AccountTxtNumberToAccountNumber(ebAccountToBuy.Text,dest_account_number) then begin
+          If Not TAccount.AccountTxtNumberToAccountNumber(ebAccountToBuy.Text,dest_account_number) then begin
             errors := rsInvalidAccou3;
             exit;
           end;
@@ -1434,7 +1434,7 @@ begin
         end;
         if (dest_account_number<0) or (dest_account_number>=FNode.Bank.AccountsCount) then begin
           errors := Format(rsInvalidPaylo, [
-            TAccountComp.AccountNumberToAccountTxtNumber(dest_account_number)]);
+            TAccount.AccountNumberToAccountTxtNumber(dest_account_number)]);
           exit;
         end;
         account := FNode.Operations.SafeBoxTransaction.Account(dest_account_number);

@@ -28,7 +28,7 @@ uses
   LCLIntf, LCLType, LMessages,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, ExtCtrls, UWalletKeys,UCrypto;
+  Dialogs, StdCtrls, Buttons, ExtCtrls, UWalletKeys,UCrypto, MicroCoin.Account, MicroCoin.Account.AccountKey;
 
 type
   TFRMNewPrivateKeyType = class(TForm)
@@ -86,9 +86,9 @@ begin
   rgKeyType.Items.Clear;
   l := TList.Create;
   Try
-    TAccountComp.ValidsEC_OpenSSL_NID(l);
+    TAccountKey.ValidsEC_OpenSSL_NID(l);
     for i := 0 to l.Count - 1 do begin
-      rgKeyType.Items.AddObject(TAccountComp.GetECInfoTxt(PtrInt(l[i])),l[i]);
+      rgKeyType.Items.AddObject(TAccountKey.GetECInfoTxt(PtrInt(l[i])),l[i]);
     end;
   Finally
     l.free;

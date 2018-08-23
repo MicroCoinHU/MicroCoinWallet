@@ -29,7 +29,8 @@ uses
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, UAccounts, Grids, StdCtrls, Buttons, ExtCtrls, UWalletKeys, UNode,
-  UGridUtils, UConst, UThread, MicroCoin.Account.AccountKey, MicroCoin.Common.Lists;
+  UGridUtils, UConst, UThread, MicroCoin.Account.AccountKey, MicroCoin.Common.Lists,
+  MicroCoin.Account.Storage, MicroCoin.Account, MicroCoin.Common;
 
 const
   CT_AS_MyAccounts = $0001;
@@ -38,7 +39,7 @@ const
 type
   { TSearchThread }
   TSearchValues = Record
-    SafeBox : TPCSafeBox;
+    SafeBox : TAccountStorage;
     inWalletKeys : TWalletKeys;
     inAccountKey : TAccountKey;
     onlyForSale,
@@ -106,7 +107,7 @@ type
     FFilters: Integer;
     FWalletKeys: TWalletKeys;
     FNode: TNode;
-    FSafeBox : TPCSafeBox;
+    FSafeBox : TAccountStorage;
     FAccountsGrid : TAccountsGrid;
     FSearchThread : TSearchThread;
     { Private declarations }
@@ -371,14 +372,15 @@ begin
   end;
   searchValues.onlyForPublicSale := (cbOnlyForPublicSale.Checked);
   If cbAccountsBalance.Checked then begin
-    If not TAccountComp.TxtToMoney(ebMinBalance.Text,searchValues.minBal) then Raise Exception.Create('Invalid Min Balance');
-    ebMinBalance.Text:=TAccountComp.FormatMoney(searchValues.minBal);
+    If not TCurrencyUtils.TxtToMoney(ebMinBalance.Text,searchValues.minBal)
+    then Raise Exception.Create('Invalid Min Balance');
+    ebMinBalance.Text:=TCurrencyUtils.FormatMoney(searchValues.minBal);
     If Trim(ebMaxBalance.Text)='' then begin
       ebMaxBalance.Text:='';
       searchValues.maxBal:=-1;
     end else begin
-      If not TAccountComp.TxtToMoney(ebMaxBalance.Text,searchValues.maxBal) then Raise Exception.Create('Invalid Max Balance');
-      ebMaxBalance.Text:=TAccountComp.FormatMoney(searchValues.maxBal);
+      If not TCurrencyUtils.TxtToMoney(ebMaxBalance.Text,searchValues.maxBal) then Raise Exception.Create('Invalid Max Balance');
+      ebMaxBalance.Text:=TCurrencyUtils.FormatMoney(searchValues.maxBal);
     end;
     ebMinBalance.ParentFont:=True;
     ebMaxBalance.ParentFont:=True;
@@ -400,7 +402,7 @@ begin
      (searchValues.searchName='') then begin
     FAccountsGrid.ShowAllAccounts:=True;
     lblAccountsCount.Caption := IntToStr(FAccountsGrid.Node.Bank.SafeBox.AccountsCount);
-    lblAccountsBalance.Caption := TAccountComp.FormatMoney(FAccountsGrid.AccountsBalance);
+    lblAccountsBalance.Caption := TCurrencyUtils.FormatMoney(FAccountsGrid.AccountsBalance);
   end else begin
     FAccountsGrid.ShowAllAccounts:=False;
     FSearchThread.DoSearch(searchValues);
@@ -455,7 +457,7 @@ end;
 
 procedure TFRMAccountSelect.OnAccountsGridUpdated(Sender: TObject);
 begin
-  lblAccountsBalance.Caption := TAccountComp.FormatMoney(FAccountsGrid.AccountsBalance);
+  lblAccountsBalance.Caption := TCurrencyUtils.FormatMoney(FAccountsGrid.AccountsBalance);
 end;
 
 function TFRMAccountSelect.GetSelected: Int64;

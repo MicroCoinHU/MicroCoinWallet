@@ -29,7 +29,8 @@ uses
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, UBlockChain, UCrypto, UWalletKeys, Buttons, ComCtrls,
-  UAppParams, MicroCoin.Transaction.Base;
+  MicroCoin.Account.AccountKey,
+  UAppParams, MicroCoin.Transaction.Base, MicroCoin.Common, MicroCoin.Account;
 
 type
 
@@ -302,29 +303,29 @@ begin
       lblDateTime.Font.Color := clRed;
     end;
     lblOperationTxt.Caption := Value.OperationTxt;
-    lblAmount.Caption := TAccountComp.FormatMoney(value.Amount);
+    lblAmount.Caption := TCurrencyUtils.FormatMoney(value.Amount);
     if Value.Amount>0 then lblAmount.Font.Color := clGreen
     else if Value.Amount=0 then lblAmount.Font.Color := clGray
     else lblAmount.Font.Color := clRed;
     If (Value.SignerAccount>=0) And (Value.DestAccount>=0) then begin
       lblSenderCaption.Caption := rsSender;
-      lblSender.Caption := TAccountComp.AccountNumberToAccountTxtNumber(Value.SignerAccount);
+      lblSender.Caption := TAccount.AccountNumberToAccountTxtNumber(Value.SignerAccount);
       lblReceiverCaption.Visible := true;
-      lblReceiver.Caption := TAccountComp.AccountNumberToAccountTxtNumber(Value.DestAccount);
+      lblReceiver.Caption := TAccount.AccountNumberToAccountTxtNumber(Value.DestAccount);
       lblReceiver.Visible := true;
       lblFeeCaption.Visible := Value.AffectedAccount=Value.SignerAccount;
       lblFee.Visible := lblFeeCaption.Visible;
       lblReceiverInfo.Visible := Not lblFee.Visible;
     end else begin
       lblSenderCaption.Caption := rsAccount;
-      lblSender.caption := TAccountComp.AccountNumberToAccountTxtNumber(Value.AffectedAccount);
+      lblSender.caption := TAccount.AccountNumberToAccountTxtNumber(Value.AffectedAccount);
       lblReceiverCaption.Visible := false;
       lblReceiver.Visible := false;
       lblFeeCaption.Visible := true;
       lblFee.Visible := true;
       lblReceiverInfo.Visible := false;
     end;
-    lblFee.Caption := TAccountComp.FormatMoney(value.Fee);
+    lblFee.Caption := TCurrencyUtils.FormatMoney(value.Fee);
     if Value.Fee>0 then lblFee.Font.Color := clGreen
     else if Value.Fee=0 then lblFee.Font.Color := clGray
     else lblFee.Font.Color := clRed;
@@ -403,7 +404,7 @@ begin
         if cbShowAsHexadecimal.Checked then memoDecoded.Lines.Text := TCrypto.ToHexaString(Decrypted)
         else memoDecoded.Lines.Text := Decrypted;
         lblDecodedMethod.Caption := Format(rsEncryptedWit, [
-          TAccountComp.GetECInfoTxt(WalletKey.PrivateKey.EC_OpenSSL_NID)]);
+          TAccountKey.GetECInfoTxt(WalletKey.PrivateKey.EC_OpenSSL_NID)]);
       end else if (cbUsingPasswords.Checked) And (UsePassword(raw,Decrypted,PasswordUsed)) then begin
         if cbShowAsHexadecimal.Checked then memoDecoded.Lines.Text := TCrypto.ToHexaString(Decrypted)
         else memoDecoded.Lines.Text := Decrypted;

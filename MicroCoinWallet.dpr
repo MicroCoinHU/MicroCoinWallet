@@ -13,11 +13,10 @@ uses
   {$endif}
   {$else}
   windows,
-  {$ENDIF}
+  {$ENDIF }
   Interfaces,
-  {$ENDIF}
+  {$ENDIF }
   Forms,
-  {$IFDEF FPC}LCLTranslator,{$endif}
   UBlockChain in 'src\MicroCoin\Core\UBlockChain.pas',
   UCrypto in 'src\MicroCoin\Core\UCrypto.pas',
   UTime in 'src\MicroCoin\Core\UTime.pas',

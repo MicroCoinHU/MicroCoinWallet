@@ -34,7 +34,8 @@ uses
   UBlockChain, UNode, UGridUtils, UAccounts, Menus, ImgList,
   synautil, UNetProtocol, UCrypto, Buttons, UPoolMining, URPC, IniFiles,
   MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney, MicroCoin.Transaction.ChangeKey,
-  MicroCoin.Account.AccountKey, MicroCoin.Common.Lists,
+  MicroCoin.Account.AccountKey, MicroCoin.Common.Lists, MicroCoin.Common,
+  MicroCoin.Account,
   UFRMAccountSelect, Types, httpsend, UFRMMineCoins{$ifndef fpc}, System.ImageList{$endif}{$IFDEF WINDOWS},windows{$ENDIF};
 
 Const
@@ -778,18 +779,18 @@ begin
   if FUpdating then exit;
   FUpdating := true;
   Try
-    If Not TAccountComp.TxtToMoney(ebFilterAccountByBalanceMin.Text,bmin) then bmin := 0;
-    If not TAccountComp.TxtToMoney(ebFilterAccountByBalanceMax.Text,bmax) then bmax := CT_MaxWalletAmount;
+    If Not TCurrencyUtils.TxtToMoney(ebFilterAccountByBalanceMin.Text,bmin) then bmin := 0;
+    If not TCurrencyUtils.TxtToMoney(ebFilterAccountByBalanceMax.Text,bmax) then bmax := CT_MaxWalletAmount;
     if (bmax<bmin) or (bmax=0) then bmax := CT_MaxWalletAmount;
     if bmin>bmax then bmin := 0;
     doupd := (bmin<>FMinAccountBalance) Or (bmax<>FMaxAccountBalance);
     FMinAccountBalance := bmin;
     FMaxAccountBalance := bmax;
     if bmin>0 then
-      ebFilterAccountByBalanceMin.Text:=TAccountComp.FormatMoney(bmin)
+      ebFilterAccountByBalanceMin.Text:=TCurrencyUtils.FormatMoney(bmin)
     else ebFilterAccountByBalanceMin.Text := '';
     if bmax<CT_MaxWalletAmount then
-      ebFilterAccountByBalanceMax.Text := TAccountComp.FormatMoney(bmax)
+      ebFilterAccountByBalanceMax.Text := TCurrencyUtils.FormatMoney(bmax)
     else ebFilterAccountByBalanceMax.Text := '';
     if cbFilterAccounts.Checked then begin
       ebFilterAccountByBalanceMin.ParentFont := true;
@@ -866,7 +867,7 @@ begin
   if Trim(ebFindAccountNumber.Text)='' then begin
     ebFindAccountNumber.Color := clWindow;
     ebFindAccountNumber.Font.Color := clDkGray;
-  end else if TAccountComp.AccountTxtNumberToAccountNumber(ebFindAccountNumber.Text,an) then begin
+  end else if TAccount.AccountTxtNumberToAccountNumber(ebFindAccountNumber.Text,an) then begin
     ebFindAccountNumber.Color := clWindow;
     if FAccountsGrid.MoveRowToAccount(an) then begin
       ebFindAccountNumber.Font.Color := clWindowText;
@@ -910,18 +911,18 @@ begin
   account := FNode.Operations.SafeBoxTransaction.Account(AccountNumber);
   if account.name<>'' then s:='Name: '+account.name
   else s:='';
-  Strings.Add(Format('Account: %s %s Type:%d',[TAccountComp.AccountNumberToAccountTxtNumber(AccountNumber),s,account.account_type]));
+  Strings.Add(Format('Account: %s %s Type:%d',[TAccount.AccountNumberToAccountTxtNumber(AccountNumber),s,account.account_type]));
   Strings.Add('');
-  Strings.Add(Format('Current balance: %s',[TAccountComp.FormatMoney(account.balance)]));
+  Strings.Add(Format('Current balance: %s',[TCurrencyUtils.FormatMoney(account.balance)]));
   Strings.Add('');
   Strings.Add(Format('Updated on block: %d  (%d blocks ago)',[account.updated_block,FNode.Bank.BlocksCount-account.updated_block]));
-  Strings.Add(Format('Public key type: %s',[TAccountComp.GetECInfoTxt(account.accountInfo.accountKey.EC_OpenSSL_NID)]));
+  Strings.Add(Format('Public key type: %s',[TAccountKey.GetECInfoTxt(account.accountInfo.accountKey.EC_OpenSSL_NID)]));
   Strings.Add(Format('Base58 Public key: %s',[(account.accountInfo.accountKey.AccountPublicKeyExport)]));
   if account.accountInfo.IsAccountForSale then begin
     Strings.Add('');
     Strings.Add('** Account is for sale: **');
-    Strings.Add(Format('Price: %s',[TAccountComp.FormatMoney(account.accountInfo.price)]));
-    Strings.Add(Format('Seller account (where to pay): %s',[TAccountComp.AccountNumberToAccountTxtNumber(account.accountInfo.account_to_pay)]));
+    Strings.Add(Format('Price: %s',[TCurrencyUtils.FormatMoney(account.accountInfo.price)]));
+    Strings.Add(Format('Seller account (where to pay): %s',[TAccount.AccountNumberToAccountTxtNumber(account.accountInfo.account_to_pay)]));
     if account.accountInfo.IsAccountForSaleAcceptingTransactions then begin
       Strings.Add('');
       Strings.Add('** Private sale **');
@@ -963,7 +964,7 @@ begin
     Strings.Add(Format('Payload (Hexadecimal): %s',[TCrypto.ToHexaString(OperationResume.OriginalPayload)]));
   end;
   If OperationResume.Balance>=0 then begin
-    Strings.Add(Format('Final balance: %s',[TAccountComp.FormatMoney(OperationResume.Balance)]));
+    Strings.Add(Format('Final balance: %s',[TCurrencyUtils.FormatMoney(OperationResume.Balance)]));
   end;
 end;
 
@@ -1178,8 +1179,8 @@ begin
   if (an<0) then raise Exception.Create(rsNoAccountSel);
   if FWalletKeys.IndexOfAccountKey(FNode.Bank.SafeBox.Account(an).accountInfo.accountkey)<0 then
     raise Exception.Create(Format(rsYouCannotAdd, [
-      TAccountComp.AccountNumberToAccountTxtNumber(an),#10, #10]));
-  accnumber := TAccountComp.AccountNumberToAccountTxtNumber(an);
+      TAccount.AccountNumberToAccountTxtNumber(an),#10, #10]));
+  accnumber := TAccount.AccountNumberToAccountTxtNumber(an);
 
 end;
 
@@ -1472,7 +1473,7 @@ begin
       if accn<0 then raise Exception.Create(rsSelectAnAcco);
       FillAccountInformation(strings,accn);
       title := Format(rsAccountInfo, [
-        TAccountComp.AccountNumberToAccountTxtNumber(accn)]);
+        TAccount.AccountNumberToAccountTxtNumber(accn)]);
       i := FOperationsAccountGrid.DrawGrid.Row;
       if (i>0) and (i<=FOperationsAccountGrid.OperationsResume.Count) then begin
         opr := FOperationsAccountGrid.OperationsResume.TransactionData[i-1];
@@ -1546,8 +1547,8 @@ begin
   end;
   if (an<FNode.Bank.SafeBox.AccountsCount) then FAccountsGrid.MoveRowToAccount(an)
   else raise Exception.Create(Format(rsNotFoundAnyA, [
-    TAccountComp.AccountNumberToAccountTxtNumber(start.account),
-    TAccountComp.FormatMoney(start.balance)]));
+    TAccount.AccountNumberToAccountTxtNumber(start.account),
+    TCurrencyUtils.FormatMoney(start.balance)]));
 end;
 
 procedure TFRMWallet.MiFindOperationbyOpHashClick(Sender: TObject);
@@ -1586,8 +1587,8 @@ begin
   end;
   if (FNode.Bank.SafeBox.Account(an).balance>start.balance) then FAccountsGrid.MoveRowToAccount(an)
   else raise Exception.Create(Format(rsNotFoundAnyA2, [
-    TAccountComp.AccountNumberToAccountTxtNumber(start.account),
-    TAccountComp.FormatMoney(start.balance)]));
+    TAccount.AccountNumberToAccountTxtNumber(start.account),
+    TCurrencyUtils.FormatMoney(start.balance)]));
 end;
 
 procedure TFRMWallet.MiMultiaccountoperationClick(Sender: TObject);
@@ -1863,7 +1864,7 @@ end;
 procedure TFRMWallet.OnSelectedAccountsGridUpdated(Sender: TObject);
 begin
   lblSelectedAccountsCount.Caption := Inttostr(FSelectedAccountsGrid.AccountsCount);
-  lblSelectedAccountsBalance.Caption := TAccountComp.FormatMoney( FSelectedAccountsGrid.AccountsBalance );
+  lblSelectedAccountsBalance.Caption := TCurrencyUtils.FormatMoney( FSelectedAccountsGrid.AccountsBalance );
 end;
 
 procedure TFRMWallet.OnWalletChanged(Sender: TObject);
@@ -1946,7 +1947,7 @@ begin
   if (an<0) then raise Exception.Create(rsNoAccountSel);
   if FWalletKeys.IndexOfAccountKey(FNode.Bank.SafeBox.Account(an).accountInfo.accountkey)<0 then
     raise Exception.Create(Format(rsYouCannotAdd, [
-      TAccountComp.AccountNumberToAccountTxtNumber(an),#10, #10]));
+      TAccount.AccountNumberToAccountTxtNumber(an),#10, #10]));
   // Add
   l := FSelectedAccountsGrid.LockAccountsList;
   selected := TOrderedList.Create;
@@ -2084,7 +2085,7 @@ begin
   end;
   bbChangeKeyName.Enabled := cbExploreMyAccounts.Checked;
   // Show Totals:
-  lblAccountsBalance.Caption := TAccountComp.FormatMoney(FAccountsGrid.AccountsBalance);
+  lblAccountsBalance.Caption := TCurrencyUtils.FormatMoney(FAccountsGrid.AccountsBalance);
   UpdateOperations;
 end;
 

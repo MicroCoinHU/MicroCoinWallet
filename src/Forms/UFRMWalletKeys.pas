@@ -583,7 +583,7 @@ begin
   try
     if Not GetSelectedWalletKey(wk) then exit;
     ok := true;
-    lblEncryptionType.Caption := TAccountComp.GetECInfoTxt( wk.AccountKey.EC_OpenSSL_NID );
+    lblEncryptionType.Caption := TAccountKey.GetECInfoTxt( wk.AccountKey.EC_OpenSSL_NID );
     if wk.Name='' then lblKeyName.Caption := rsNoName
     else lblKeyName.Caption := wk.Name;
     if Assigned(wk.PrivateKey) then begin

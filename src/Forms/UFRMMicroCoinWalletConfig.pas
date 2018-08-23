@@ -91,7 +91,7 @@ type
 
 implementation
 
-uses UConst, UAccounts, ULog, UCrypto, UFolderHelper;
+uses UConst, UAccounts, ULog, UCrypto, UFolderHelper, MicroCoin.Common;
 
 {$IFnDEF FPC}
   {$R *.dfm}
@@ -140,10 +140,10 @@ begin
   if udInternetServerPort.Position = udJSONRPCMinerServerPort.Position
     then raise Exception.Create(rsServerPortAn);
 
-  if TAccountComp.TxtToMoney(ebDefaultFee.Text,df) then begin
+  if TCurrencyUtils.TxtToMoney(ebDefaultFee.Text,df) then begin
     AppParams.ParamByName[CT_PARAM_DefaultFee].SetAsInt64(df);
   end else begin
-    ebDefaultFee.Text := TAccountComp.FormatMoney(AppParams.ParamByName[CT_PARAM_DefaultFee].GetAsInteger(0));
+    ebDefaultFee.Text := TCurrencyUtils.FormatMoney(AppParams.ParamByName[CT_PARAM_DefaultFee].GetAsInteger(0));
     raise Exception.Create(rsInvalidFeeVa);
   end;
   AppParams.ParamByName[CT_PARAM_InternetServerPort].SetAsInteger(udInternetServerPort.Position );
@@ -225,7 +225,7 @@ begin
   lblDefaultInternetServerPort.Caption := Format(rsDefaultD, [CT_NetServer_Port]
     );
   udInternetServerPort.Position := CT_NetServer_Port;
-  ebDefaultFee.Text := TAccountComp.FormatMoney(0);
+  ebDefaultFee.Text := TCurrencyUtils.FormatMoney(0);
   ebMinerName.Text := '';
   bbUpdatePassword.Enabled := false;
   UpdateWalletConfig;
@@ -240,7 +240,7 @@ begin
   if Not Assigned(Value) then exit;
   Try
     udInternetServerPort.Position := AppParams.ParamByName[CT_PARAM_InternetServerPort].GetAsInteger(CT_NetServer_Port);
-    ebDefaultFee.Text := TAccountComp.FormatMoney(AppParams.ParamByName[CT_PARAM_DefaultFee].GetAsInt64(0));
+    ebDefaultFee.Text := TCurrencyUtils.FormatMoney(AppParams.ParamByName[CT_PARAM_DefaultFee].GetAsInt64(0));
     cbJSONRPCMinerServerActive.Checked := AppParams.ParamByName[CT_PARAM_JSONRPCMinerServerActive].GetAsBoolean(true);
     case TMinerPrivateKey(AppParams.ParamByName[CT_PARAM_MinerPrivateKeyType].GetAsInteger(Integer(mpk_Random))) of
       mpk_NewEachTime : rbGenerateANewPrivateKeyEachBlock.Checked := true;
