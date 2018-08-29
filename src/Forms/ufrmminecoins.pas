@@ -8,10 +8,9 @@ interface
 uses
   Classes, SysUtils,  Forms, Controls, Graphics, Dialogs,
   ExtCtrls, ComCtrls, StdCtrls, Buttons,
-  UBlockChain, UPoolMinerThreads,
-    UPoolMining, ULog, UThread, UAccounts, UCrypto,
-    UConst, UTime, UJSONFunctions, UNode, UNetProtocol, USha256,
-    UOpenSSL {$ifdef unix},cthreads{$endif};
+  UPoolMinerThreads, ULog, UThread, UCrypto,
+  UConst, UTime, UJSONFunctions, USha256,
+  UOpenSSL {$ifdef unix},cthreads{$endif}, MicroCoin.Mining.Common;
 
 type
 
@@ -28,7 +27,7 @@ type
     procedure BitBtn2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-   FPoolMinerThread : TPoolMinerThread;
+   FPoolMinerThread : TMinerThread;
    devt:TCPUDeviceThread;
    FPrivateKey : TECPrivateKey;
 
@@ -103,7 +102,7 @@ begin
   FPrivateKey := TECPrivateKey.Create;
   FPrivateKey.GenerateRandomPrivateKey(CT_Default_EC_OpenSSL_NID);
 
-  FPoolMinerThread := TPoolMinerThread.Create('127.0.0.1',CT_JSONRPCMinerServer_Port ,FPrivateKey.PublicKey);
+  FPoolMinerThread := TMinerThread.Create('127.0.0.1',CT_JSONRPCMinerServer_Port ,FPrivateKey.PublicKey);
 
   devt:= TCPUDeviceThread.Create(FPoolMinerThread,CT_TMinerValuesForWork_NULL);
   FPoolMinerThread.FreeOnTerminate:=True;

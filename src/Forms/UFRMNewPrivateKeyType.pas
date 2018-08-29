@@ -28,7 +28,7 @@ uses
   LCLIntf, LCLType, LMessages,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, ExtCtrls, UWalletKeys,UCrypto, MicroCoin.Account, MicroCoin.Account.AccountKey;
+  Dialogs, StdCtrls, Buttons, ExtCtrls, UWalletKeys,UCrypto, MicroCoin.Account.Data, MicroCoin.Account.AccountKey;
 
 type
   TFRMNewPrivateKeyType = class(TForm)
@@ -55,7 +55,7 @@ type
 implementation
 
 uses
-  UAccounts, UConst ;
+  UConst ;
 
 {$IFnDEF FPC}
   {$R *.dfm}

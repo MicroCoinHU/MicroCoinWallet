@@ -40,10 +40,10 @@ type
     bbClose: TBitBtn;
     lblBuild: TLabel;
     lblProtocolVersion: TLabel;
+    Image1: TImage;
     procedure FormCreate(Sender: TObject);
     procedure Label4Click(Sender: TObject);
     procedure Label5Click(Sender: TObject);
-    procedure Memo1Change(Sender: TObject);
   private
     { Private declarations }
     Procedure OpenURL(Url : String);
@@ -58,7 +58,7 @@ uses
   ShellApi,
 {$ELSE}
 {$ENDIF}
-  UFolderHelper, UConst, UNode;
+  UFolderHelper, UConst, MicroCoin.Node.Node;
 
 {$IFnDEF FPC}
   {$R *.dfm}
@@ -81,7 +81,7 @@ begin
   lblBuild.Caption :=  'Build: '+fvi.FileVersion;
   {$ENDIF}
   lblProtocolVersion.Caption := Format(rsBlockChainPr, [
-    TNode.Node.Bank.SafeBox.CurrentProtocol, CT_BlockChain_Protocol_Available,
+    TNode.Node.Bank.AccountStorage.CurrentProtocol, CT_BlockChain_Protocol_Available,
     CT_NetProtocol_Version, CT_NetProtocol_Available]);
 end;
 
@@ -94,12 +94,6 @@ procedure TFRMAbout.Label5Click(Sender: TObject);
 begin
   OpenURL(TLabel(Sender).Caption);
 end;
-
-procedure TFRMAbout.Memo1Change(Sender: TObject);
-begin
-
-end;
-
 
 procedure TFRMAbout.OpenURL(Url: String);
 begin

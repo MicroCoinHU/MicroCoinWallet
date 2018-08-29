@@ -50,7 +50,6 @@ object FRMNewPrivateKeyType: TFRMNewPrivateKeyType
     Height = 25
     Caption = 'OK'
     Default = True
-    DoubleBuffered = True
     Glyph.Data = {
       DE010000424DDE01000000000000760000002800000024000000120000000100
       0400000000006801000000000000000000001000000000000000000000000000
@@ -69,7 +68,6 @@ object FRMNewPrivateKeyType: TFRMNewPrivateKeyType
       333A333333333333333338330000333333333333333333333333333333333333
       0000}
     NumGlyphs = 2
-    ParentDoubleBuffered = False
     TabOrder = 2
     OnClick = bbOkClick
   end
@@ -78,9 +76,8 @@ object FRMNewPrivateKeyType: TFRMNewPrivateKeyType
     Top = 181
     Width = 75
     Height = 25
-    DoubleBuffered = True
     Kind = bkCancel
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     TabOrder = 3
   end
 end

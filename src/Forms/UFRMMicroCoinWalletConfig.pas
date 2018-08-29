@@ -91,7 +91,7 @@ type
 
 implementation
 
-uses UConst, UAccounts, ULog, UCrypto, UFolderHelper, MicroCoin.Common;
+uses UConst, ULog, UCrypto, UFolderHelper, MicroCoin.Common;
 
 {$IFnDEF FPC}
   {$R *.dfm}

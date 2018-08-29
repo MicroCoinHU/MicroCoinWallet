@@ -38,7 +38,7 @@ type
 implementation
 
 uses
-  UNetProtocol, UNode, UConst;
+  MicroCoin.Node.Node, UConst, MicroCoin.Net.NodeServer, MicroCoin.Net.ConnectionManager;
 
 {$IFnDEF FPC}
   {$R *.dfm}
@@ -68,13 +68,13 @@ begin
     FAppParams.ParamByName[CT_PARAM_PeerCache].SetAsString(ips);
     if cbTryOnlyWithThisServers.Checked then Begin
       FAppParams.ParamByName[CT_PARAM_TryToConnectOnlyWithThisFixedServers].SetAsString(ips);
-      TNetData.NetData.DiscoverFixedServersOnly(nsarr);
+      TConnectionManager.NetData.DiscoverFixedServersOnly(nsarr);
       Application.MessageBox(PChar(rsRestartAppli), PChar(Application.Title),
         MB_OK);
     end else begin
       FAppParams.ParamByName[CT_PARAM_TryToConnectOnlyWithThisFixedServers].SetAsString('');
       setlength(nsarr,0);
-      TNetData.NetData.DiscoverFixedServersOnly(nsarr);
+      TConnectionManager.NetData.DiscoverFixedServersOnly(nsarr);
     end;
   end;
   setlength(nsarr,0);
@@ -118,7 +118,7 @@ begin
     TNode.DecodeIpStringToNodeServerAddressArray(ips,nsarr);
   end else begin
     cbTryOnlyWithThisServers.Checked := false;
-    nsarr := TNetData.NetData.GetValidNodeServers(false,0);
+    nsarr := TConnectionManager.NetData.GetValidNodeServers(false,0);
   end;
   for i := low(nsarr) to high(nsarr) do begin
     aux := nsarr[i].ip;

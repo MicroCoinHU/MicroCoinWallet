@@ -28,12 +28,12 @@ uses
   LCLIntf, LCLType, LMessages,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, UNode, UWalletKeys, UCrypto, Buttons, UBlockChain,
-  UAccounts, UFRMAccountSelect, ActnList, ComCtrls, ExtCtrls, Types, UCommon,
+  Dialogs, StdCtrls, MicroCoin.Node.Node, UWalletKeys, UCrypto, Buttons,
+  UFRMAccountSelect, ActnList, ComCtrls, ExtCtrls, Types, UCommon,
   System.Actions, MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney,
   MicroCoin.Transaction.ChangeKey, MicroCoin.Common.Lists, MicroCoin.Account.AccountKey,
   MicroCoin.Transaction.HashTree, MicroCoin.Transaction.ListAccount,
-  MicroCoin.Transaction.ChangeAccountInfo, MicroCoin.Account, MicroCoin.Account.Storage;
+  MicroCoin.Transaction.ChangeAccountInfo, MicroCoin.Account.Data, MicroCoin.Account.Storage;
 
 Const
   CM_PC_WalletKeysChanged = WM_USER + 1;
@@ -184,7 +184,7 @@ type
 implementation
 
 uses
-  UECIES, UConst, UOpTransaction, UFRMNewPrivateKeyType, UAES, UFRMWalletKeys, MicroCoin.Common;
+  UECIES, UConst, UFRMNewPrivateKeyType, UAES, UFRMWalletKeys, MicroCoin.Common;
 
 {$IFnDEF FPC}
   {$R *.dfm}
@@ -301,7 +301,7 @@ begin
   If Not UpdateOperationOptions(errors) then raise Exception.Create(errors);
   ops := TTransactionHashTree.Create;
   Try
-    _V2 := FNode.Bank.SafeBox.CurrentProtocol >= CT_PROTOCOL_2;
+    _V2 := FNode.Bank.AccountStorage.CurrentProtocol >= CT_PROTOCOL_2;
     _totalamount := 0;
     _totalfee := 0;
     _totalSignerFee := 0;
@@ -695,7 +695,7 @@ procedure TFRMOperation.memoPayloadClick(Sender: TObject);
 Var errors : AnsiString;
 begin
   if SenderAccounts.Count>0 then begin
-    UpdatePayload(TNode.Node.Bank.SafeBox.Account(SenderAccounts.Get(0)),errors);
+    UpdatePayload(TNode.Node.Bank.AccountStorage.Account(SenderAccounts.Get(0)),errors);
   end;
 end;
 
@@ -896,7 +896,7 @@ begin
     if (i<0) Or (i>=WalletKeys.Count) then raise Exception.Create(rsInvalidSelec
       );
     NewPublicKey := WalletKeys.Key[i].AccountKey;
-    If (FNode.Bank.SafeBox.CurrentProtocol=CT_PROTOCOL_1) then begin
+    If (FNode.Bank.AccountStorage.CurrentProtocol=CT_PROTOCOL_1) then begin
       errors := rsThisOperatio;
       exit;
     end;
@@ -950,7 +950,7 @@ begin
         TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
       exit;
     end;
-    If (FNode.Bank.SafeBox.CurrentProtocol=CT_PROTOCOL_1) then begin
+    If (FNode.Bank.AccountStorage.CurrentProtocol=CT_PROTOCOL_1) then begin
       errors := rsThisOperatio;
       exit;
     end;
@@ -963,7 +963,7 @@ begin
           errors := Format(rsIsNotAValidN, [newName, errors]);
           Exit;
         end;
-        i := (FNode.Bank.SafeBox.FindAccountByName(newName));
+        i := (FNode.Bank.AccountStorage.FindAccountByName(newName));
         if (i>=0) then begin
           errors := Format(rsNameIsUsedBy, [newName,
             TAccount.AccountNumberToAccountTxtNumber(i)]);
@@ -1030,7 +1030,7 @@ begin
       lblChangeKeyErrors.Caption := errors;
       exit;
     end;
-    If FNode.Bank.SafeBox.CurrentProtocol>=1 then begin
+    If FNode.Bank.AccountStorage.CurrentProtocol>=1 then begin
       // Signer:
       If Not TAccount.AccountTxtNumberToAccountNumber(ebSignerAccount.Text,auxC) then begin
         errors := rsInvalidSigne;
@@ -1108,7 +1108,7 @@ begin
         TAccount.AccountNumberToAccountTxtNumber(TargetAccount.account)]);
       exit;
     end;
-    If (FNode.Bank.SafeBox.CurrentProtocol=CT_PROTOCOL_1) then begin
+    If (FNode.Bank.AccountStorage.CurrentProtocol=CT_PROTOCOL_1) then begin
       errors := rsThisOperatio;
       exit;
     end;
@@ -1155,7 +1155,7 @@ begin
       exit;
     end else begin
       for iAcc := 0 to SenderAccounts.Count - 1 do begin
-        sender_account := TNode.Node.Bank.SafeBox.Account(SenderAccounts.Get(iAcc));
+        sender_account := TNode.Node.Bank.AccountStorage.Account(SenderAccounts.Get(iAcc));
         iWallet := WalletKeys.IndexOfAccountKey(sender_account.accountInfo.accountKey);
         if (iWallet<0) then begin
           errors := Format(rsPrivateKeyOf, [
@@ -1225,7 +1225,7 @@ begin
     rbEncryptedWithOldEC.Caption := rsEncryptedWit7;
     rbEncryptedWithEC.Caption := rsEncryptedWit5;
   end;
-  ebSignerAccount.Enabled:= ((PageControlOpType.ActivePage=tsChangePrivateKey) And (FNode.Bank.SafeBox.CurrentProtocol>=CT_PROTOCOL_2))
+  ebSignerAccount.Enabled:= ((PageControlOpType.ActivePage=tsChangePrivateKey) And (FNode.Bank.AccountStorage.CurrentProtocol>=CT_PROTOCOL_2))
     Or (PageControlOpType.ActivePage=tsChangeInfo)
     Or (PageControlOpType.ActivePage=tsListForSale)
     Or (PageControlOpType.ActivePage=tsDelist);
@@ -1314,7 +1314,7 @@ begin
           exit;
         end;
       end;
-      If (FNode.Bank.SafeBox.CurrentProtocol=CT_PROTOCOL_1) then begin
+      If (FNode.Bank.AccountStorage.CurrentProtocol=CT_PROTOCOL_1) then begin
         errors := rsThisOperatio;
         exit;
       end;

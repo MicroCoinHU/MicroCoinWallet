@@ -28,9 +28,9 @@ uses
   LCLIntf, LCLType, LMessages,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, UAccounts, Grids, StdCtrls, Buttons, ExtCtrls, UWalletKeys, UNode,
+  Dialogs, Grids, StdCtrls, Buttons, ExtCtrls, UWalletKeys, MicroCoin.Node.Node,
   UGridUtils, UConst, UThread, MicroCoin.Account.AccountKey, MicroCoin.Common.Lists,
-  MicroCoin.Account.Storage, MicroCoin.Account, MicroCoin.Common;
+  MicroCoin.Account.Storage, MicroCoin.Account.Data, MicroCoin.Common;
 
 const
   CT_AS_MyAccounts = $0001;
@@ -333,7 +333,7 @@ end;
 procedure TFRMAccountSelect.SetNode(const Value: TNode);
 begin
   FNode := Value;
-  FSafeBox := FNode.Bank.SafeBox;
+  FSafeBox := FNode.Bank.AccountStorage;
   UpdateControls;
 end;
 
@@ -401,7 +401,7 @@ begin
      (Not searchValues.onlyForPrivateSaleToMe) And (Not searchValues.onlyForPublicSale) And (Not searchValues.onlyForSale) And
      (searchValues.searchName='') then begin
     FAccountsGrid.ShowAllAccounts:=True;
-    lblAccountsCount.Caption := IntToStr(FAccountsGrid.Node.Bank.SafeBox.AccountsCount);
+    lblAccountsCount.Caption := IntToStr(FAccountsGrid.Node.Bank.AccountStorage.AccountsCount);
     lblAccountsBalance.Caption := TCurrencyUtils.FormatMoney(FAccountsGrid.AccountsBalance);
   end else begin
     FAccountsGrid.ShowAllAccounts:=False;

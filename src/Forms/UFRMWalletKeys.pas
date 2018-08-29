@@ -93,7 +93,7 @@ uses
 {$ELSE}
   LCLIntf, LCLType,
 {$ENDIF}
-  UCrypto, UAccounts, UFRMNewPrivateKeyType, UAES;
+  UCrypto, UFRMNewPrivateKeyType, UAES;
 
 {$IFnDEF FPC}
   {$R *.dfm}

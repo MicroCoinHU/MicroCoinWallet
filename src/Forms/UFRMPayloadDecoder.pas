@@ -28,9 +28,9 @@ uses
   LCLIntf, LCLType, LMessages,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, UBlockChain, UCrypto, UWalletKeys, Buttons, ComCtrls,
-  MicroCoin.Account.AccountKey,
-  UAppParams, MicroCoin.Transaction.Base, MicroCoin.Common, MicroCoin.Account;
+  Dialogs, StdCtrls, UCrypto, UWalletKeys, Buttons, ComCtrls,
+  MicroCoin.Account.AccountKey, MicroCoin.BlockChain.Block,
+  UAppParams, MicroCoin.Transaction.Base, MicroCoin.Common, MicroCoin.Account.Data;
 
 type
 
@@ -106,7 +106,7 @@ implementation
   {$R *.lfm}
 {$ENDIF}
 
-Uses UNode, UTime, UECIES, UAES, UAccounts;
+Uses MicroCoin.Node.Node, UTime, UECIES, UAES;
 
 resourcestring
   rsSearchOperat = 'Search operation by OpHash';
@@ -158,7 +158,7 @@ end;
 procedure TFRMPayloadDecoder.DoFind(Const OpHash : String);
 Var
   r : TRawBytes;
-  pcops : TPCOperationsComp;
+  pcops : TBlock;
   b : Cardinal;
   opbi : Integer;
   opr : TTransactionData;
@@ -173,7 +173,7 @@ begin
     if (r='') then begin
       raise Exception.Create(rsValueIsNotAn);
     end;
-    pcops := TPCOperationsComp.Create(Nil);
+    pcops := TBlock.Create(Nil);
     try
       If not TNode.Node.FindOperation(pcops,r,b,opbi) then begin
         raise Exception.Create(rsValueIsNotAV);
