@@ -62,9 +62,9 @@ object FRMWalletKeys: TFRMWalletKeys
   end
   object lblKeysEncrypted: TLabel
     Left = 30
-    Top = 15
+    Top = 8
     Width = 274
-    Height = 39
+    Height = 36
     AutoSize = False
     Caption = 'lblKeysEncrypted'
     Font.Charset = DEFAULT_CHARSET
@@ -435,7 +435,7 @@ object FRMWalletKeys: TFRMWalletKeys
   end
   object bbDelete: TBitBtn
     Left = 382
-    Top = 251
+    Top = 254
     Width = 159
     Height = 36
     Caption = 'Delete'
@@ -568,7 +568,7 @@ object FRMWalletKeys: TFRMWalletKeys
     OnClick = bbUpdatePasswordClick
   end
   object bbExportAllWalletKeys: TBitBtn
-    Left = 30
+    Left = 62
     Top = 425
     Width = 201
     Height = 36
@@ -634,9 +634,9 @@ object FRMWalletKeys: TFRMWalletKeys
     OnClick = bbExportAllWalletKeysClick
   end
   object bbImportKeysFile: TBitBtn
-    Left = 247
+    Left = 278
     Top = 425
-    Width = 174
+    Width = 195
     Height = 36
     Caption = 'Import a Wallet Keys File'
     Glyph.Data = {
@@ -765,8 +765,8 @@ object FRMWalletKeys: TFRMWalletKeys
     DefaultExt = 'dat'
     Filter = 'Wallet keys file|*.dat|All files|*.*'
     FilterIndex = 0
-    Left = 150
-    Top = 150
+    Left = 108
+    Top = 154
   end
   object OpenDialog: TOpenDialog
     DefaultExt = 'dat'

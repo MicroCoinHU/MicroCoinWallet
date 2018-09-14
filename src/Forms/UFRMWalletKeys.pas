@@ -617,7 +617,7 @@ end;
 procedure TFRMWalletKeys.UpdateWalletKeys;
 Var lasti,i : Integer;
   selected_wk,wk : TWalletKey;
-  s : AnsiString;
+  s : string;
 begin
   GetSelectedWalletKeyAndIndex(wk,lasti);
   lbWalletKeys.Items.BeginUpdate;
