@@ -1,6 +1,6 @@
-MIT License
+Copyright (c) 2017-2018 MicroCoin Developers
 
-Copyright (c) 2017 MicroCoin Developers
+### MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,12 +20,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-This product includes or uses software or code portions from:
+**This product includes or uses software or code portions from:**
 
 The OpenSSL Project and Denis Grinyuk (https://github.com/Arvur/OpenSSL-Delphi
 Code written by Ladar Levison and Marco Ferrante
 Synapse Socket code copyright of Lukas Gebauer
 PascalCoin copyright Albert Molina
 
-Icons:
+### Icons:
 Oxygene icon set https://github.com/KDE/oxygen-icons
