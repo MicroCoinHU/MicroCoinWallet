@@ -3,7 +3,7 @@ object TransactionExplorer: TTransactionExplorer
   Top = 0
   Caption = 'Transaction explorer'
   ClientHeight = 508
-  ClientWidth = 844
+  ClientWidth = 997
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +19,7 @@ object TransactionExplorer: TTransactionExplorer
   object transactionListView: TVirtualStringTree
     Left = 0
     Top = 41
-    Width = 844
+    Width = 997
     Height = 467
     Align = alClient
     ButtonStyle = bsTriangle
@@ -39,7 +39,7 @@ object TransactionExplorer: TTransactionExplorer
     OnGetCellIsEmpty = transactionListViewGetCellIsEmpty
     OnGetText = transactionListViewGetText
     OnInitNode = transactionListViewInitNode
-    ExplicitHeight = 349
+    ExplicitWidth = 844
     Columns = <
       item
         Position = 0
@@ -86,14 +86,14 @@ object TransactionExplorer: TTransactionExplorer
       item
         Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAutoSpring, coAllowFocus, coEditable]
         Position = 7
-        Width = 219
+        Width = 342
         WideText = 'Payload'
       end>
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 844
+    Width = 997
     Height = 41
     Align = alTop
     Alignment = taLeftJustify
@@ -101,8 +101,9 @@ object TransactionExplorer: TTransactionExplorer
     Caption = 'Panel1'
     ShowCaption = False
     TabOrder = 1
+    ExplicitWidth = 844
     DesignSize = (
-      844
+      997
       41)
     object Label1: TLabel
       Left = 12
@@ -112,13 +113,14 @@ object TransactionExplorer: TTransactionExplorer
       Caption = 'Updated:'
     end
     object PngSpeedButton1: TPngSpeedButton
-      Left = 760
+      Left = 913
       Top = 9
       Width = 77
       Height = 26
       Action = RefreshAction
       Anchors = [akTop, akRight]
       Flat = True
+      ExplicitLeft = 760
     end
   end
   object PngImageList1: TPngImageList

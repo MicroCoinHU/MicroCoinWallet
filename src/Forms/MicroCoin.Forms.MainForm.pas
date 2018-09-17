@@ -49,7 +49,7 @@ uses
   LCLIntf, LCLType, LMessages, fpjson, jsonparser, LResources, LCLTranslator, Translations,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs,
-  ExtCtrls, ComCtrls, UWalletKeys, StdCtrls, ULog, Grids, UAppParams,
+  ExtCtrls, ComCtrls, UWalletKeys, StdCtrls, ULog, Grids, MicroCoin.Application.Settings,
   Menus, ImgList, Styles, Themes,
   synautil, UCrypto, Buttons, IniFiles,  MicroCoin.Keys.KeyManager,
   System.Notification, PngImageList, Actions, ActnList,
@@ -62,15 +62,15 @@ uses
   MicroCoin.Account.Data, Types, httpsend,
   MicroCoin.Node.Node, MicroCoin.Forms.BlockChain.Explorer,
   MicroCoin.Account.Storage, PlatformVclStylesActnCtrls,
-  MicroCoin.RPC.Server, UAES,
+  MicroCoin.RPC.Server, UAES, Math,
   MicroCoin.Mining.Server,  MicroCoin.Forms.ChangeAccountKey, MicroCoin.Node.Events,
   MicroCoin.Forms.Transaction.Explorer, MicroCoin.Forms.Common.Settings,
   MicroCoin.Net.Connection, MicroCoin.Net.Client, MicroCoin.Net.Statistics,
   MicroCoin.Forms.BuyAccount, MicroCoin.Transaction.ListAccount,
   MicroCoin.Forms.Transaction.History, MicroCoin.Forms.Keys.Keymanager, UITypes,
-  SyncObjs,
+  SyncObjs, DelphiZXIngQRCode, ShellApi,
   Tabs, ExtActns, MicroCoin.Forms.SellAccount, MicroCoin.Account.Editors,
-  ToolWin, WinXCtrls
+  ToolWin, WinXCtrls, Vcl.ActnPopup
  {$IFDEF WINDOWS}, Windows{$ENDIF};
 
 const
@@ -149,7 +149,7 @@ type
     btnSendCoins: TPngBitBtn;
     Image1: TImage;
     accountsPanelHeader: THeaderControl;
-    Panel5: TPanel;
+    GeneralInfoPanel: TPanel;
     HeaderControl3: THeaderControl;
     labelAccountsCaption: TLabel;
     labelAccountsCount: TLabel;
@@ -180,6 +180,19 @@ type
     ChangeThemeAction: TAction;
     TransactionHistoryAction: TAction;
     accountListImages: TPngImageList;
+    QRCodeDisplay: TImage;
+    cbForSale: TCheckBox;
+    HomePageAction: TAction;
+    CommunityAction: TAction;
+    PopupActionBar1: TPopupActionBar;
+    ransactionhistory1: TMenuItem;
+    Edit1: TMenuItem;
+    Changekey1: TMenuItem;
+    Sell1: TMenuItem;
+    Revokesell1: TMenuItem;
+    Buy1: TMenuItem;
+    N1: TMenuItem;
+    N2: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -234,17 +247,23 @@ type
     procedure encryptModeSelectChange(Sender: TObject);
     procedure accountVListFreeNode(Sender: TBaseVirtualTree;
       Node: PVirtualNode);
+    procedure accountVListFocusChanged(Sender: TBaseVirtualTree;
+      Node: PVirtualNode; Column: TColumnIndex);
+    procedure cbForSaleClick(Sender: TObject);
+    procedure CommunityActionExecute(Sender: TObject);
+    procedure HomePageActionExecute(Sender: TObject);
   private
     FBackgroundPanel: TPanel;
     FMinersBlocksFound: Integer;
     bShowLogs : TPngSpeedButton;
+    FProgessBar: TProgressBar;
     procedure SetMinersBlocksFound(const Value: Integer);
     procedure FinishedLoadingApp;
   protected
     { Private declarations }
     FIsActivated: Boolean;
     FLog: TLog;
-    FAppParams: TAppParams;
+    FAppSettings: TAppSettings;
     FNodeNotifyEvents: TNodeNotifyEvents;
     FOrderedAccountsKeyList: TOrderedAccountKeysList;
     FMinerPrivateKeyType: TMinerPrivateKey;
@@ -392,7 +411,7 @@ resourcestring
 procedure TThreadActivate.BCExecute;
 begin
   // Read Operations saved from disk
-  TNode.Node.BlockManager.DiskRestoreFromOperations(CT_MaxBlock);
+  TNode.Node.BlockManager.DiskRestoreFromTransactions(CT_MaxBlock);
   TNode.Node.AutoDiscoverNodes(CT_Discover_IPs);
   TNode.Node.NetServer.Active := true;
   Synchronize(MainForm.DoUpdateAccounts);
@@ -496,6 +515,40 @@ begin
   end;
 end;
 
+procedure TMainForm.accountVListFocusChanged(Sender: TBaseVirtualTree;
+  Node: PVirtualNode; Column: TColumnIndex);
+var
+  QRCode: TDelphiZXingQRCode;
+  Row, Col: Integer;
+  QRCodeBitmap: TBitmap;
+begin
+  if Node=nil then exit;
+  QRCode := TDelphiZXingQRCode.Create;
+  try
+    QRCodeBitmap := QRCodeDisplay.Picture.Bitmap;
+    QRCode.Data :='{"account":"'+ TAccount.AccountNumberToAccountTxtNumber(TAccount(Node.GetData^).AccountNumber)+'","amount":"","payload":""}';
+    QRCode.Encoding := TQRCodeEncoding(qrISO88591);
+    QRCode.QuietZone := 1;
+    QRCodeBitmap.SetSize(QRCode.Rows, QRCode.Columns);
+    for Row := 0 to QRCode.Rows - 1 do
+    begin
+      for Col := 0 to QRCode.Columns - 1 do
+      begin
+        if (QRCode.IsBlack[Row, Col]) then
+        begin
+          QRCodeBitmap.Canvas.Pixels[Col, Row] := clBlack;
+        end else
+        begin
+          QRCodeBitmap.Canvas.Pixels[Col, Row] := clWhite;
+        end;
+      end;
+    end;
+    QRCodeDisplay.Picture.Bitmap := QRCodeBitmap;
+  finally
+    QRCode.Free;
+  end;
+end;
+
 procedure TMainForm.accountVListFreeNode(Sender: TBaseVirtualTree; Node: PVirtualNode);
 var
   xAccount: TAccount;
@@ -557,7 +610,7 @@ var
   xAccount: TAccount;
 begin
 
-  if cbExploreMyAccounts.Checked
+  if cbExploreMyAccounts.Checked or cbForSale.Checked
   then xAccountNumber := FAccounts.Get(Node.Index)
   else xAccountNumber := Node.Index;
 
@@ -591,18 +644,18 @@ begin
         raise;
       end;
     end;
-    xIPAddresses := FAppParams.ParamByName[CT_PARAM_TryToConnectOnlyWithThisFixedServers].GetAsString('');
+    xIPAddresses := FAppSettings.Entries[TAppSettingsEntry.apTryToConnectOnlyWithThisFixedServers].GetAsString('');
     TNode.DecodeIpStringToNodeServerAddressArray(xIPAddresses, xNodeServers);
     TConnectionManager.Instance.DiscoverFixedServersOnly(xNodeServers);
     setlength(xNodeServers, 0);
     // Creating Node:
-    TNode.Node.NetServer.Port := FAppParams.ParamByName[CT_PARAM_InternetServerPort].GetAsInteger(CT_NetServer_Port);
-    TNode.Node.PeerCache := FAppParams.ParamByName[CT_PARAM_PeerCache].GetAsString('') + ';' + CT_Discover_IPs;
+    TNode.Node.NetServer.Port := FAppSettings.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(CT_NetServer_Port);
+    TNode.Node.PeerCache := FAppSettings.Entries[TAppSettingsEntry.apPeerCache].GetAsString('') + ';' + CT_Discover_IPs;
     // Create RPC server
     FRPCServer := TRPCServer.Instance;
     FRPCServer.WalletKeys := TNode.Node.KeyManager;
-    FRPCServer.Active := FAppParams.ParamByName[CT_PARAM_JSONRPCEnabled].GetAsBoolean(false);
-    FRPCServer.ValidIPs := FAppParams.ParamByName[CT_PARAM_JSONRPCAllowedIPs].GetAsString('127.0.0.1');
+    FRPCServer.Active := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCEnabled].GetAsBoolean(false);
+    FRPCServer.ValidIPs := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCAllowedIPs].GetAsString('127.0.0.1');
     //    TNode.Node.KeyManager := TNode.Node.KeyManager;
     // Check Database
     TNode.Node.BlockManager.StorageClass := TFileStorage;
@@ -633,9 +686,9 @@ begin
   end;
   UpdatePrivateKeys;
   UpdateAccounts(false);
-  if FAppParams.ParamByName[CT_PARAM_FirstTime].GetAsBoolean(true) then
+  if FAppSettings.Entries[TAppSettingsEntry.apFirstTime].GetAsBoolean(true) then
   begin
-    FAppParams.ParamByName[CT_PARAM_FirstTime].SetAsBoolean(false);
+    FAppSettings.Entries[TAppSettingsEntry.apFirstTime].SetAsBoolean(false);
     AboutAction.Execute;
   end;
 end;
@@ -703,6 +756,11 @@ end;
 procedure TMainForm.cbExploreMyAccountsClick(Sender: TObject);
 begin
   cbMyPrivateKeys.Enabled := cbExploreMyAccounts.Checked;
+  UpdateAccounts(true);
+end;
+
+procedure TMainForm.cbForSaleClick(Sender: TObject);
+begin
   UpdateAccounts(true);
 end;
 
@@ -833,6 +891,11 @@ begin
   end;
 end;
 
+procedure TMainForm.CommunityActionExecute(Sender: TObject);
+begin
+  ShellExecute(0, 'open', 'https://discord.gg/ewQq5A6', nil, nil, SW_SHOWNORMAL);
+end;
+
 procedure TMainForm.ConfirmRestart;
 begin
   if MessageDlg(rsRestartAppli, {$IFDEF fpc} rsYouNeedResta, {$ENDIF} mtConfirmation, [mbYes, mbNo],{$IFDEF fpc}''{$ELSE}0{$ENDIF}) = mrYes then
@@ -889,15 +952,14 @@ var
   i : integer;
 begin
   FPoolMiningServer := TMiningServer.Create;
-  FPoolMiningServer.Port := FAppParams.ParamByName[CT_PARAM_JSONRPCMinerServerPort]
+  FPoolMiningServer.Port := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCMinerServerPort]
     .GetAsInteger(CT_JSONRPCMinerServer_Port);
   FPoolMiningServer.MinerAccountKey := GetAccountKeyForMiner;
-  FPoolMiningServer.MinerPayload := FAppParams.ParamByName[CT_PARAM_MinerName].GetAsString('');
+  FPoolMiningServer.MinerPayload := FAppSettings.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
   TNode.Node.Operations.AccountKey := GetAccountKeyForMiner;
-  FPoolMiningServer.Active := FAppParams.ParamByName[CT_PARAM_JSONRPCMinerServerActive].GetAsBoolean(true);
+  FPoolMiningServer.Active := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCMinerServerActive].GetAsBoolean(true);
   FPoolMiningServer.OnMiningServerNewBlockFound := OnMiningServerNewBlockFound;
-  for i:=0 to MainActions.ActionCount-1 do
-    MainActions[i].Enabled := true;
+  for i:=0 to MainActions.ActionCount-1 do MainActions[i].Enabled := true;
   if Assigned(FBackgroundPanel) then
   begin
     FreeAndNil(FBackgroundPanel);
@@ -969,8 +1031,9 @@ begin
   FLog.SaveTypes := [];
   if not ForceDirectories(TFolderHelper.GetMicroCoinDataFolder) then
     raise Exception.Create('Cannot create dir: ' + TFolderHelper.GetMicroCoinDataFolder);
-  FAppParams := TAppParams.Create(Self);
-  FAppParams.FileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'AppParams.prm';
+  FAppSettings := TAppSettings.Create;
+  FAppSettings.FileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'AppParams.prm';
+  TStyleManager.TrySetStyle(FAppSettings.Entries[TAppSettingsEntry.apTheme].GetAsString('MicroCoin Light'), false);
   FNodeNotifyEvents := TNodeNotifyEvents.Create(Self);
   FNodeNotifyEvents.OnBlocksChanged := OnNewAccount;
   FNodeNotifyEvents.OnNodeMessageEvent := OnNodeMessageEvent;
@@ -996,7 +1059,13 @@ begin
   FBackgroundPanel.BevelInner := bvNone;
   FBackgroundPanel.BevelOuter := bvNone;
   FBackgroundPanel.BorderWidth := 0;
-  FBackgroundPanel.Font.Size := 15;
+  FBackgroundPanel.Font.Size := 12;
+  FBackgroundPanel.Alignment := TAlignment.taCenter;
+  FProgessBar := TProgressBar.Create(FBackgroundPanel);
+  FProgessBar.Parent := FBackgroundPanel;
+  FProgessBar.Width := 250;
+  FProgessBar.Top := 10 + Abs(FBackgroundPanel.Font.Height) + (FBackgroundPanel.Height div 2 - FProgessBar.Height div 2);
+  FProgessBar.Left := FBackgroundPanel.Width div 2 - FProgessBar.Width div 2;
 end;
 
 procedure TMainForm.ChangeKeyActionExecute(Sender: TObject);
@@ -1031,7 +1100,7 @@ begin
     FreeAndNil(FPoolMiningServer);
     step := 'Saving params';
     SaveAppParams;
-    FreeAndNil(FAppParams);
+    FreeAndNil(FAppSettings);
     //
     step := 'Assigning nil events';
 
@@ -1112,14 +1181,14 @@ begin
   Result := CT_TECDSA_Public_Nul;
   if not Assigned(TNode.Node.KeyManager) then
     exit;
-  if not Assigned(FAppParams) then
+  if not Assigned(FAppSettings) then
     exit;
   case FMinerPrivateKeyType of
     mpk_NewEachTime:
       xPublicKey := CT_TECDSA_Public_Nul;
     mpk_Selected:
       begin
-        xPublicKey := TAccountKey.FromRawString(FAppParams.ParamByName[CT_PARAM_MinerPrivateKeySelectedPublicKey]
+        xPublicKey := TAccountKey.FromRawString(FAppSettings.Entries[TAppSettingsEntry.apMinerPrivateKeySelectedPublicKey]
           .GetAsString(''));
       end;
   else
@@ -1148,6 +1217,11 @@ begin
   Result := xPublicKey;
 end;
 
+procedure TMainForm.HomePageActionExecute(Sender: TObject);
+begin
+  ShellExecute(0, 'open', 'https://microcoin.hu', nil, nil, SW_SHOWNORMAL);
+end;
+
 procedure TMainForm.LoadAppParams;
 var
   xMemoryStream: TMemoryStream;
@@ -1156,18 +1230,18 @@ var
 begin
   xMemoryStream := TMemoryStream.Create;
   try
-    s := FAppParams.ParamByName[CT_PARAM_GridAccountsStream].GetAsString('');
+    s := FAppSettings.Entries[TAppSettingsEntry.apGridAccountsStream].GetAsString('');
     xMemoryStream.WriteBuffer(s[1], length(s));
     xMemoryStream.Position := 0;
     // Disabled on V2: FAccountsGrid.LoadFromStream(ms);
   finally
     xMemoryStream.Free;
   end;
-  if FAppParams.FindParam(CT_PARAM_MinerName) = nil then
+  if FAppSettings.Find(TAppSettingsEntry.apMinerName) = nil then
   begin
     // New configuration... assigning a new random value
     xFileVersionInfo := TFolderHelper.GetTFileVersionInfo(Application.ExeName);
-    FAppParams.ParamByName[CT_PARAM_MinerName].SetAsString(Format(rsNewNodeBuild, [DateTimeToStr(now), xFileVersionInfo.InternalName,
+    FAppSettings.Entries[TAppSettingsEntry.apMinerName].SetAsString(Format(rsNewNodeBuild, [DateTimeToStr(now), xFileVersionInfo.InternalName,
       xFileVersionInfo.FileVersion]));
   end;
   UpdateConfigChanged;
@@ -1179,40 +1253,38 @@ begin
 end;
 
 procedure TMainForm.OnNetBlackListUpdated(Sender: TObject);
-const
-  CT_TRUE_FALSE: array [Boolean] of AnsiString = ('FALSE', 'TRUE');
 var
   i, j, n: Integer;
-  P: PNodeServerAddress;
-  l: TList;
-  Strings: TStrings;
+  xNodeServer: PNodeServerAddress;
+  xList: TList;
+  xStrings: TStrings;
 begin
-  l := TConnectionManager.Instance.NodeServersAddresses.LockList;
+  xList := TConnectionManager.Instance.NodeServersAddresses.LockList;
   try
-    Strings := memoNetBlackLists.Lines;
-    Strings.BeginUpdate;
+    xStrings := memoNetBlackLists.Lines;
+    xStrings.BeginUpdate;
     try
-      Strings.Clear;
-      Strings.Add(Format(rsBlackListUpd, [DateTimeToStr(now), IntToHex(TThread.CurrentThread.ThreadID, 8)]));
+      xStrings.Clear;
+      xStrings.Add(Format(rsBlackListUpd, [DateTimeToStr(now), IntToHex(TThread.CurrentThread.ThreadID, 8)]));
       j := 0;
       n := 0;
-      for i := 0 to l.Count - 1 do
+      for i := 0 to xList.Count - 1 do
       begin
-        P := l[i];
-        if (P^.is_blacklisted) then
+        xNodeServer := xList[i];
+        if (xNodeServer^.is_blacklisted) then
         begin
           inc(n);
-          if not P^.its_myself then
+          if not xNodeServer^.its_myself then
           begin
             inc(j);
-            Strings.Add(Format(rsBlacklistIPS, [P^.ip, P^.Port,
-              DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(P^.last_connection))), P^.BlackListText]));
+            xStrings.Add(Format(rsBlacklistIPS, [xNodeServer^.ip, xNodeServer^.Port,
+              DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(xNodeServer^.last_connection))), xNodeServer^.BlackListText]));
           end;
         end;
       end;
-      Strings.Add(Format(rsTotalBlackli, [j, n]));
+      xStrings.Add(Format(rsTotalBlackli, [j, n]));
     finally
-      Strings.EndUpdate;
+      xStrings.EndUpdate;
     end;
   finally
     TConnectionManager.Instance.NodeServersAddresses.UnlockList;
@@ -1339,8 +1411,7 @@ begin
       logDisplay.SelAttributes.Color := clRed;
   end;
   logDisplay.Lines.Add(formatDateTime(FormatSettings.ShortDateFormat + ' ' + FormatSettings.LongTimeFormat, Time)
-    { +s+IntToHex(ThreadID,
-      8) } + ' [' + CT_LogType[logtype] + '] ' + { <'+sender+'> '+ } logtext);
+    + ' [' + CT_LogType[logtype] + '] ' + { <'+sender+'> '+ } logtext);
   if logPanel.Visible and (bottomPageControl.ActivePageIndex = 0) and Visible then
     logDisplay.SetFocus;
   logDisplay.SelStart := logDisplay.GetTextLen;
@@ -1354,20 +1425,23 @@ var
   xIndex: integer;
   xNotification: TNotification;
 begin
-  for i:=0 to TNodeNotifyEvents(Sender).Node.Operations.Count - 1 do begin
-     xTransaction := TNodeNotifyEvents(Sender).Node.Operations.OperationsHashTree.GetOperation(i);
-     if FAccounts.Find(xTransaction.DestinationAccount, xIndex)
-     then begin
-       xNotification := NotificationCenter.CreateNotification;
-       try
-         xNotification.Title := 'New transaction';
-         xNotification.AlertBody := xTransaction.ToString;
-         xNotification.Name := xTransaction.ToString;
-         NotificationCenter.PresentNotification(xNotification);
-       finally
-         xNotification.Free;
+  if FAppSettings.Entries[TAppSettingsEntry.apNotifyOnNewTransaction].GetAsBoolean(true)
+  then begin
+    for i:=0 to TNodeNotifyEvents(Sender).Node.Operations.Count - 1 do begin
+       xTransaction := TNodeNotifyEvents(Sender).Node.Operations.OperationsHashTree.GetOperation(i);
+       if FAccounts.Find(xTransaction.DestinationAccount, xIndex)
+       then begin
+         xNotification := NotificationCenter.CreateNotification;
+         try
+           xNotification.Title := 'New transaction';
+           xNotification.AlertBody := xTransaction.ToString;
+           xNotification.Name := xTransaction.ToString;
+           NotificationCenter.PresentNotification(xNotification);
+         finally
+           xNotification.Free;
+         end;
        end;
-     end;
+    end;
   end;
   UpdateAccounts(true);
 end;
@@ -1392,7 +1466,7 @@ begin
       s := s + ';';
     s := s + nsarr[i].ip + ':' + IntToStr(nsarr[i].Port);
   end;
-  FAppParams.ParamByName[CT_PARAM_PeerCache].SetAsString(s);
+  FAppSettings.Entries[TAppSettingsEntry.apPeerCache].SetAsString(s);
   TNode.Node.PeerCache := s;
 end;
 
@@ -1617,7 +1691,7 @@ end;
 procedure TMainForm.SettingsActionExecute(Sender: TObject);
 begin
   with TSettingsForm.Create(nil) do begin
-    AppParams := FAppParams;
+    AppParams := FAppSettings;
     if ShowModal = mrOk then begin
         UpdateConfigChanged;
     end;
@@ -1635,13 +1709,22 @@ procedure TMainForm.StatusBarDrawPanel(StatusBar: TStatusBar;
 var
   xText : string;
   xIndex: integer;
+  R : TRect;
+  xDetails : TThemedElementDetails;
 begin
+  StatusBar.Canvas.Font.Color := StyleServices.GetSystemColor(clWindowText);
+  xDetails := StyleServices.GetElementDetails(tsPane);
   if Panel.Index = 0 then begin
-    miscIcons.Draw(StatusBar.Canvas, Rect.Left + 3, Rect.Top, 3, TNode.Node.NetServer.Active);
+    R := Rect;
+    R.Left := R.Left + 3;
+    R.Top := R.Top+1;
+    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, R, miscIcons.Handle, 3);
+    R.Left := R.Left + 23;
+    R.Top := R.Top;
     if TNode.Node.NetServer.Active
     then xText := 'Active'
     else xText := 'Stopped';
-    StatusBar.Canvas.TextOut(Rect.Left + 24, 1+(Rect.Height div 2) - (Canvas.TextExtent(xText).Height div 2), xText);
+    StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, R, [tfLeft] , StatusBar.Canvas.Font.Color);
   end;
   if Panel.Index = 1 then begin
 
@@ -1649,15 +1732,26 @@ begin
     then xIndex := 2
     else xIndex := 1;
 
-    miscIcons.Draw(Statusbar.Canvas, Rect.Left+3, Rect.Top, xIndex, True);
+    R := Rect;
+    R.Left := R.Left + 3;
+    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, R, miscIcons.Handle, xIndex);
+    R.Left := R.Left + 23;
+    R.Top := R.Top;
     xText := Format('%d clients | %d servers', [TConnectionManager.Instance.NetStatistics.ClientsConnections, TConnectionManager.Instance.NetStatistics.ServersConnections]);
-    StatusBar.Canvas.TextOut(22 + Rect.Left, 1+(Rect.Height div 2) - (Canvas.TextExtent(xText).Height div 2), xText);
+    StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, R, [tfLeft] , StatusBar.Canvas.Font.Color);
   end;
 
  if Panel.Index = 2 then begin
-    miscIcons.Draw(Statusbar.Canvas, Rect.Left+3, Rect.Top, 6, True);
-    xText := Format('Traffic: %.0n Kb | %.0n Kb',[TConnectionManager.Instance.NetStatistics.BytesReceived/1024, TConnectionManager.Instance.NetStatistics.BytesSend/1024]);
-    StatusBar.Canvas.TextOut(Rect.Left + 23+3, 1+(Rect.Height div 2) - (Canvas.TextExtent(xText).Height div 2), xText);
+
+    R := Rect;
+    R.Left := R.Left + 3;
+    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, R, miscIcons.Handle, 6);
+    R.Left := R.Left + 23;
+    R.Top := R.Top;
+    xText := Format('Traffic: %.0n Kb | %.0n Kb',
+      [TConnectionManager.Instance.NetStatistics.BytesReceived/1024,
+       TConnectionManager.Instance.NetStatistics.BytesSend/1024]);
+       StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, R, [tfLeft] , StatusBar.Canvas.Font.Color);
   end;
   if Panel.Index = 5 then begin
     bShowLogs.Top := Rect.Top;
@@ -1696,15 +1790,28 @@ var
   i, j, k: Integer;
   acc: TAccount;
 begin
+
   if not assigned(FAccounts)
   then FAccounts := TOrderedList.Create
   else FAccounts.Clear;
 
   FTotalAmount := 0;
 
-  if not cbExploreMyAccounts.Checked then begin
-    accountVList.RootNodeCount := TNode.Node.BlockManager.AccountStorage.AccountsCount;
-    FTotalAmount := TNode.Node.Operations.BlockManager.AccountStorage.TotalBalance;
+  if not cbExploreMyAccounts.Checked
+  then begin
+    if not cbForSale.Checked
+    then begin
+      accountVList.RootNodeCount := TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount;
+      FTotalAmount := TNode.Node.Operations.BlockManager.AccountStorage.TotalBalance;
+    end else begin
+      for i := 0 to TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount-1
+      do begin
+        acc := TNode.Node.Operations.AccountTransaction.Account(i);
+        if acc.AccountInfo.state = as_ForSale
+        then FAccounts.Add(acc.AccountNumber);
+      end;
+     accountVList.RootNodeCount := FAccounts.Count;
+    end;
   end else begin
     if cbMyPrivateKeys.ItemIndex<0 then exit;
     if cbMyPrivateKeys.ItemIndex=0 then begin
@@ -1713,8 +1820,10 @@ begin
         if (j>=0) then begin
           l := FOrderedAccountsKeyList.AccountList[j];
           for k := 0 to l.Count - 1 do begin
-            FAccounts.Add(l.Get(k));
             acc := TNode.Node.Operations.AccountTransaction.Account(l.Get(k));
+            if cbForSale.Checked
+            then if acc.AccountInfo.state <> as_ForSale then continue;
+            FAccounts.Add(l.Get(k));
             FTotalAmount := FTotalAmount + acc.balance;
           end;
         end;
@@ -1726,8 +1835,10 @@ begin
         if (j>=0) then begin
           l := FOrderedAccountsKeyList.AccountList[j];
           for k := 0 to l.Count - 1 do begin
-            FAccounts.Add(l.Get(k));
             acc := TNode.Node.Operations.AccountTransaction.Account(l.Get(k));
+            if cbForSale.Checked
+            then if acc.AccountInfo.state <> as_ForSale then continue;
+            FAccounts.Add(l.Get(k));
             FTotalAmount := FTotalAmount + acc.balance;
           end;
         end;
@@ -1756,16 +1867,23 @@ begin
     end
     else lblCurrentBlock.Caption := rsNone;
     lblCurrentAccounts.Caption := IntToStr(TNode.Node.BlockManager.AccountsCount);
-    lblCurrentBlockTime.Caption := UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastOperationBlock.timestamp);
+    lblCurrentBlockTime.Caption := UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
     labelOperationsPending.Caption := IntToStr(TNode.Node.Operations.Count);
     lblCurrentDifficulty.Caption := IntToHex(TNode.Node.Operations.BlockHeader.compact_target, 8);
-    if TConnectionManager.Instance.MaxRemoteOperationBlock.block>TNode.Node.BlockManager.BlocksCount
+    if TConnectionManager.Instance.MaxRemoteOperationBlock.block > TNode.Node.BlockManager.BlocksCount
     then begin
       StatusBar.Panels[3].Text :=
-      Format('Downloading blocks: %.0n / %.0n', [TConnectionManager.Instance.MaxRemoteOperationBlock.block+0.0,
-                                                 TNode.Node.BlockManager.BlocksCount+0.0]);
+      Format('Downloading blocks: %.0n / %.0n', [TNode.Node.BlockManager.BlocksCount+0.0,
+                                                 TConnectionManager.Instance.MaxRemoteOperationBlock.block+0.0
+      ]);
+      if Assigned(FBackgroundPanel) then begin
+        FBackgroundPanel.Caption := StatusBar.Panels[3].Text;
+        FProgessBar.Max := TConnectionManager.Instance.MaxRemoteOperationBlock.block;
+        FProgessBar.Position := TNode.Node.BlockManager.BlocksCount;
+      end;
     end
     else begin
+//      if Assigned(FBackgroundPanel) then FreeAndNil(FBackgroundPanel);
       StatusBar.Panels[3].Text := 'Blocks: ' + Format('%.0n', [TNode.Node.BlockManager.BlocksCount+0.0]) + ' | ' + 'Difficulty: 0x' +
         IntToHex(TNode.Node.Operations.BlockHeader.compact_target, 8);
     end;
@@ -1835,11 +1953,10 @@ var
   wa: Boolean;
   i: Integer;
 begin
-  // tsLogs.TabVisible := FAppParams.ParamByName[CT_PARAM_ShowLogs].GetAsBoolean(false);
   FLog.OnNewLog := OnNewLog;
-  if FAppParams.ParamByName[CT_PARAM_SaveLogFiles].GetAsBoolean(false) then
+  if FAppSettings.Entries[TAppSettingsEntry.apSaveLogFiles].GetAsBoolean(false) then
   begin
-    if FAppParams.ParamByName[CT_PARAM_SaveDebugLogs].GetAsBoolean(false) then
+    if FAppSettings.Entries[TAppSettingsEntry.apSaveDebugLogs].GetAsBoolean(false) then
       FLog.SaveTypes := CT_TLogTypes_ALL
     else
       FLog.SaveTypes := CT_TLogTypes_DEFAULT;
@@ -1851,29 +1968,29 @@ begin
     FLog.FileName := '';
   end;
   wa := TNode.Node.NetServer.Active;
-  TNode.Node.NetServer.Port := FAppParams.ParamByName[CT_PARAM_InternetServerPort].GetAsInteger(CT_NetServer_Port);
+  TNode.Node.NetServer.Port := FAppSettings.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(CT_NetServer_Port);
   TNode.Node.NetServer.Active := wa;
-  TNode.Node.Operations.BlockPayload := FAppParams.ParamByName[CT_PARAM_MinerName].GetAsString('');
+  TNode.Node.Operations.BlockPayload := FAppSettings.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
   TNode.Node.NodeLogFilename := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'blocks.log';
   if Assigned(FPoolMiningServer) then
   begin
-    if FPoolMiningServer.Port <> FAppParams.ParamByName[CT_PARAM_JSONRPCMinerServerPort]
+    if FPoolMiningServer.Port <> FAppSettings.Entries[TAppSettingsEntry.apJSONRPCMinerServerPort]
       .GetAsInteger(CT_JSONRPCMinerServer_Port) then
     begin
       FPoolMiningServer.Active := false;
-      FPoolMiningServer.Port := FAppParams.ParamByName[CT_PARAM_JSONRPCMinerServerPort]
+      FPoolMiningServer.Port := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCMinerServerPort]
         .GetAsInteger(CT_JSONRPCMinerServer_Port);
     end;
-    FPoolMiningServer.Active := FAppParams.ParamByName[CT_PARAM_JSONRPCMinerServerActive].GetAsBoolean(true);
+    FPoolMiningServer.Active := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCMinerServerActive].GetAsBoolean(true);
     FPoolMiningServer.UpdateAccountAndPayload(GetAccountKeyForMiner,
-      FAppParams.ParamByName[CT_PARAM_MinerName].GetAsString(''));
+      FAppSettings.Entries[TAppSettingsEntry.apMinerName].GetAsString(''));
   end;
   if Assigned(FRPCServer) then
   begin
-    FRPCServer.Active := FAppParams.ParamByName[CT_PARAM_JSONRPCEnabled].GetAsBoolean(false);
-    FRPCServer.ValidIPs := FAppParams.ParamByName[CT_PARAM_JSONRPCAllowedIPs].GetAsString('127.0.0.1');
+    FRPCServer.Active := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCEnabled].GetAsBoolean(false);
+    FRPCServer.ValidIPs := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCAllowedIPs].GetAsString('127.0.0.1');
   end;
-  i := FAppParams.ParamByName[CT_PARAM_MinerPrivateKeyType].GetAsInteger(Integer(mpk_Random));
+  i := FAppSettings.Entries[TAppSettingsEntry.apMinerPrivateKeyType].GetAsInteger(Integer(mpk_Random));
   if (i >= Integer(low(TMinerPrivateKey))) and (i <= Integer(high(TMinerPrivateKey))) then
     FMinerPrivateKeyType := TMinerPrivateKey(i)
   else
@@ -1888,11 +2005,11 @@ begin
   OnNetStatisticsChanged(nil);
   if TNode.Node.IsBlockChainValid(errors) then
   begin
-    StatusBar.Panels[4].Text := 'Last block: ' + UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastOperationBlock.timestamp);
+    StatusBar.Panels[4].Text := 'Last block: ' + UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
   end
   else
   begin
-    StatusBar.Panels[4].Text := 'Last block: ' + UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastOperationBlock.timestamp);
+    StatusBar.Panels[4].Text := 'Last block: ' + UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
   end;
 end;
 
@@ -1932,7 +2049,18 @@ begin
   if Assigned(FBackgroundPanel) then
   begin
     FBackgroundPanel.Font.Color := lblNodeStatus.Font.Color;
-    FBackgroundPanel.Caption := Format(rsPleaseWaitUn, [lblNodeStatus.Caption]);
+    FProgessBar.Top := 10 + Abs(FBackgroundPanel.Font.Height) + (FBackgroundPanel.Height div 2 - FProgessBar.Height div 2);
+    FProgessBar.Left := FBackgroundPanel.Width div 2 - FProgessBar.Width div 2;
+    FBackgroundPanel.Caption := Format('%s', [lblNodeStatus.Caption]);
+    if TNode.Node.BlockManager.IsLoadingBlocks
+    then begin
+      FBackgroundPanel.Caption := Format('%s', [lblNodeStatus.Caption]);
+      FProgessBar.Max := Max(1,TNode.Node.BlockManager.Storage.LastBlock mod 100);
+      FProgessBar.Position := TNode.Node.BlockManager.BlocksCount mod 100;
+    end else begin
+      FProgessBar.Max := Max(TNode.Node.BlockManager.Storage.LastBlock,1);
+      FProgessBar.Position := TNode.Node.BlockManager.BlocksCount;
+    end;
   end;
 end;
 

@@ -2,8 +2,8 @@ object MainForm: TMainForm
   Left = 343
   Top = 193
   Caption = 'MicroCoin Wallet'
-  ClientHeight = 604
-  ClientWidth = 940
+  ClientHeight = 609
+  ClientWidth = 915
   Color = clBtnFace
   Constraints.MinHeight = 600
   Constraints.MinWidth = 865
@@ -22,8 +22,8 @@ object MainForm: TMainForm
   TextHeight = 13
   object StatusBar: TStatusBar
     Left = 0
-    Top = 581
-    Width = 940
+    Top = 586
+    Width = 915
     Height = 23
     Panels = <
       item
@@ -56,11 +56,12 @@ object MainForm: TMainForm
         Width = 20
       end>
     OnDrawPanel = StatusBarDrawPanel
+    ExplicitTop = 538
   end
   object MainToolbar: TActionToolBar
     Left = 0
     Top = 0
-    Width = 940
+    Width = 915
     Height = 57
     ActionManager = MainActions
     AllowHiding = False
@@ -86,8 +87,8 @@ object MainForm: TMainForm
   object rootPanel: TPanel
     Left = 0
     Top = 57
-    Width = 940
-    Height = 524
+    Width = 915
+    Height = 529
     Margins.Left = 0
     Margins.Top = 10
     Margins.Right = 0
@@ -96,30 +97,33 @@ object MainForm: TMainForm
     BevelEdges = [beTop]
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitHeight = 481
     object Splitter1: TSplitter
       Left = 0
-      Top = 445
-      Width = 940
+      Top = 450
+      Width = 915
       Height = 3
       Cursor = crVSplit
       Align = alBottom
       Beveled = True
       ExplicitTop = 371
+      ExplicitWidth = 940
     end
     object MainPanel: TPanel
       Left = 0
       Top = 0
-      Width = 940
-      Height = 445
+      Width = 915
+      Height = 450
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitHeight = 402
       object ContentPanel: TPanel
         AlignWithMargins = True
         Left = 0
         Top = 15
-        Width = 940
-        Height = 430
+        Width = 915
+        Height = 435
         Margins.Left = 0
         Margins.Top = 15
         Margins.Right = 0
@@ -130,18 +134,20 @@ object MainForm: TMainForm
         Padding.Right = 10
         Padding.Bottom = 10
         TabOrder = 0
+        ExplicitHeight = 387
         object leftPanel: TPanel
           AlignWithMargins = True
           Left = 13
           Top = 0
           Width = 392
-          Height = 420
+          Height = 425
           Margins.Top = 0
           Margins.Right = 10
           Margins.Bottom = 0
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitHeight = 377
           object Panel2: TPanel
             AlignWithMargins = True
             Left = 0
@@ -847,7 +853,7 @@ object MainForm: TMainForm
                 E4E1AECBFBD30000000049454E44AE426082}
             end
           end
-          object Panel5: TPanel
+          object GeneralInfoPanel: TPanel
             Left = 0
             Top = 0
             Width = 392
@@ -988,6 +994,27 @@ object MainForm: TMainForm
               Color = clBtnFace
               ParentColor = False
             end
+            object QRCodeDisplay: TImage
+              AlignWithMargins = True
+              Left = 273
+              Top = 25
+              Width = 110
+              Height = 104
+              Hint = 'To receive coins scan this QR code'#13#10'with your mobile application'
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 5
+              Margins.Bottom = 5
+              Align = alRight
+              Center = True
+              ParentShowHint = False
+              Proportional = True
+              ShowHint = True
+              Stretch = True
+              ExplicitLeft = 268
+              ExplicitTop = 30
+              ExplicitHeight = 94
+            end
             object HeaderControl3: THeaderControl
               Left = 0
               Top = 0
@@ -1009,18 +1036,19 @@ object MainForm: TMainForm
         object rightPanel: TPanel
           Left = 415
           Top = 0
-          Width = 515
-          Height = 420
+          Width = 490
+          Height = 425
           Align = alClient
           AutoSize = True
           BevelKind = bkSoft
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitHeight = 377
           object accountVList: TVirtualStringTree
             Left = 0
             Top = 90
-            Width = 511
-            Height = 326
+            Width = 486
+            Height = 331
             Align = alClient
             BevelInner = bvNone
             BevelOuter = bvNone
@@ -1037,17 +1065,20 @@ object MainForm: TMainForm
             Header.Font.Style = []
             Header.Options = [hoAutoResize, hoColumnResize, hoDrag, hoShowImages, hoShowSortGlyphs, hoVisible]
             Images = accountListImages
+            PopupMenu = PopupActionBar1
             TabOrder = 0
             TreeOptions.AutoOptions = [toAutoDropExpand, toAutoScrollOnExpand, toAutoSort, toAutoTristateTracking, toAutoDeleteMovedNodes, toAutoChangeScale, toDisableAutoscrollOnEdit]
             TreeOptions.MiscOptions = [toAcceptOLEDrop, toCheckSupport, toFullRepaintOnResize, toInitOnSave, toToggleOnDblClick, toWheelPanning]
             TreeOptions.PaintOptions = [toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages, toStaticBackground]
             TreeOptions.SelectionOptions = [toFullRowSelect]
             OnChecked = accountVListChecked
+            OnFocusChanged = accountVListFocusChanged
             OnFreeNode = accountVListFreeNode
             OnGetText = accountVListGetText
             OnGetImageIndex = accountVListGetImageIndex
             OnInitNode = accountVListInitNode
             OnNodeDblClick = accountVListNodeDblClick
+            ExplicitHeight = 283
             Columns = <
               item
                 Alignment = taRightJustify
@@ -1069,14 +1100,14 @@ object MainForm: TMainForm
               item
                 Alignment = taRightJustify
                 Position = 3
-                Width = 161
+                Width = 136
                 WideText = 'Transactions'
               end>
           end
           object accountsFilterPanel: TPanel
             Left = 0
             Top = 20
-            Width = 511
+            Width = 486
             Height = 70
             Align = alTop
             AutoSize = True
@@ -1086,23 +1117,23 @@ object MainForm: TMainForm
               AlignWithMargins = True
               Left = 10
               Top = 0
-              Width = 501
+              Width = 476
               Height = 44
               Margins.Left = 10
               Margins.Top = 0
               Margins.Right = 0
               Margins.Bottom = 0
               Align = alTop
-              Caption = 'Explore accounts with one of my Wallet Keys'
+              Caption = 'Just my accounts'
               Checked = True
               State = cbChecked
               TabOrder = 0
               OnClick = cbExploreMyAccountsClick
             end
             object cbMyPrivateKeys: TComboBox
-              Left = 252
+              Left = 120
               Top = 11
-              Width = 125
+              Width = 145
               Height = 21
               Style = csDropDownList
               TabOrder = 1
@@ -1111,7 +1142,7 @@ object MainForm: TMainForm
             object AccountsListToolbar: TActionToolBar
               Left = 0
               Top = 44
-              Width = 511
+              Width = 486
               Height = 26
               ActionManager = AccountListActions
               Caption = 'AccountsListToolbar'
@@ -1132,11 +1163,20 @@ object MainForm: TMainForm
               ShowHint = True
               Spacing = 0
             end
+            object cbForSale: TCheckBox
+              Left = 279
+              Top = 12
+              Width = 106
+              Height = 17
+              Caption = 'Accounts for sale'
+              TabOrder = 3
+              OnClick = cbForSaleClick
+            end
           end
           object accountsPanelHeader: THeaderControl
             Left = 0
             Top = 0
-            Width = 511
+            Width = 486
             Height = 20
             DragReorder = True
             Enabled = False
@@ -1154,18 +1194,19 @@ object MainForm: TMainForm
     end
     object logPanel: TPanel
       Left = 0
-      Top = 448
-      Width = 940
+      Top = 453
+      Width = 915
       Height = 76
       Align = alBottom
       BevelOuter = bvNone
       Caption = 'logPanel'
       TabOrder = 1
       Visible = False
+      ExplicitTop = 405
       object bottomPageControl: TPageControl
         Left = 0
         Top = 0
-        Width = 940
+        Width = 915
         Height = 76
         ActivePage = logSheet
         Align = alClient
@@ -1177,12 +1218,12 @@ object MainForm: TMainForm
           object logDisplay: TRichEdit
             Left = 0
             Top = 0
-            Width = 932
+            Width = 907
             Height = 47
             Align = alClient
             BevelOuter = bvNone
             BorderStyle = bsNone
-            Font.Charset = ANSI_CHARSET
+            Font.Charset = EASTEUROPE_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
@@ -1202,7 +1243,7 @@ object MainForm: TMainForm
           object memoNetConnections: TMemo
             Left = 0
             Top = 0
-            Width = 932
+            Width = 907
             Height = 47
             Align = alClient
             BevelOuter = bvNone
@@ -1219,7 +1260,7 @@ object MainForm: TMainForm
           object memoNetBlackLists: TMemo
             Left = 0
             Top = 0
-            Width = 932
+            Width = 907
             Height = 47
             Align = alClient
             BorderStyle = bsNone
@@ -1235,7 +1276,7 @@ object MainForm: TMainForm
           object memoNetServers: TMemo
             Left = 0
             Top = 0
-            Width = 932
+            Width = 907
             Height = 47
             Align = alClient
             BorderStyle = bsNone
@@ -4538,6 +4579,7 @@ object MainForm: TMainForm
   object MainActions: TActionManager
     ActionBars = <
       item
+        ChangesAllowed = []
         Items.CaptionOptions = coAll
         Items.SmallIcons = False
         Items = <
@@ -4577,6 +4619,18 @@ object MainForm: TMainForm
             ShowCaption = False
           end
           item
+            Items.SmallIcons = False
+            Items = <
+              item
+                Action = HomePageAction
+                Caption = '&Website'
+                ImageIndex = 7
+              end
+              item
+                Action = CommunityAction
+                Caption = '&Community'
+                ImageIndex = 8
+              end>
             Action = AboutAction
             Caption = '&About MicroCoin'
             ImageIndex = 1
@@ -4587,8 +4641,8 @@ object MainForm: TMainForm
       end>
     LargeImages = MainActionImages
     Images = MainActionImages
-    Left = 388
-    Top = 157
+    Left = 676
+    Top = 385
     StyleName = 'Platform Default'
     object PrivateKeysAction: TAction
       Category = 'Wallet'
@@ -4639,6 +4693,18 @@ object MainForm: TMainForm
     object ChangeThemeAction: TAction
       Caption = 'Change theme'
       ImageIndex = 6
+    end
+    object HomePageAction: TAction
+      Category = 'Wallet'
+      Caption = 'Website'
+      ImageIndex = 7
+      OnExecute = HomePageActionExecute
+    end
+    object CommunityAction: TAction
+      Category = 'Wallet'
+      Caption = 'Community'
+      ImageIndex = 8
+      OnExecute = CommunityActionExecute
     end
   end
   object AccountListActions: TActionManager
@@ -5167,6 +5233,174 @@ object MainForm: TMainForm
           33DE8989471016DE34293D3D3D172FCFC9D6D6D67EBE250CB01F304221F85330
           10F9C14F30FBC6D36BBB360F1BCCF0DEDEDE9B42D5768B7F00BB3F178B5BF64B
           2F0000000049454E44AE426082}
+      end
+      item
+        Background = clWindow
+        Name = 'applications-internet'
+        PngImage.Data = {
+          89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+          F40000000473424954080808087C086488000000097048597300000376000003
+          76017DD582CC0000001974455874536F667477617265007777772E696E6B7363
+          6170652E6F72679BEE3C1A00000AB84944415478DA9D577B8C5C651D3DF7CEDC
+          79CFEECCECCEEECEBE77BBAF3E966D69B72D0523A4D696968021948AD504350A
+          42624A130C26124A8808065B418CFCE13F4642088D8A2450620C1A6BE983D63E
+          60BBEFDDEE6B7676DEEF993BF7E5B9833656291626B9D99DDD7BBFDFF9CEEF9C
+          F3FBAE6018066EF423084F8B5BB65907B239E1CB168BD066C068A8F57BFCA228
+          A6E3F1EC92AAA853B974EA8F91A523D11B5EF346006CDCF478AD600D3E7AD350
+          C7FE9EFEC6018B451425AB804A5981CEC77541443451C0C27C1C994CB1924AE4
+          CFC423E95F2FCE4EBE6A186F689F1B00776C1DDEE27CA4B9B5EEB10D1B5A3BBB
+          5605914A95B014CEA050AA205FA8405134148A0AC806ACA2C067005FB006AAAE
+          E1C2C9998BB148E287E1B9E78E7D66007BF61C093434D7BDD6D61EDCB9666D0B
+          9ADBFCBCDB8277DFFD08D9BC8C74B68CB9700E1649445B5B1D8A9902AC820155
+          D5501FF241B259A1EB3A264716B5B10B53CF2FCEBA9F348CA7F41B0250173C18
+          DABE63EDB13B6E1F18AA68DC9964C5F0D66E142B1A2E5D5A4286004E9D9D432A
+          2BA3A32388A6563F99C9233CB3029F4782208AB03AEC9008C8E575211E4DE2EC
+          5FC77FB730830794CA21E55301F47B9E70B67DA1F9D857F76DF9623A5386ACEA
+          E8EC0EA27B55230AB28278AA88D18928CE8D4450E77721164961CBD6555590E9
+          48129AA6231ACBB32D32600808D4D7C0E6B06266641E23E7665E599AFDC923C6
+          7F14BD0680C0CFAE3B5F7A75FB8EC1AF796B1D584914A170C13D77DDC49E0225
+          5985A21AF8DBE9198497B36821F527CECC2014F223471D4C8E2D41A4089C9280
+          7CBE0297D38AC1751DE8EF09E0CCA969841792C6E2E8CC8168F8C84B9F0860C7
+          970EDFBB716BDFEB2C2E796A9C98994F63787327FAFA9BAA022B10C0F9D1287E
+          F99B53D8B2A91345BA201ACBA2A7B516318A73623681069F03A5928A64B2087F
+          C005AFC789969017D1C504D47C1985543A3D3BBE38108BBCB8720D00417848DA
+          73F7FAF78637AFBACDE1B621962EA3AD23809DDBFB51560C44F9DDD4439ACA7F
+          E7BD09F474D7C3E37562623A86B9F91864828BC48B18ECF6E3C3C938B48A0A8D
+          B4F96BECF0BAEC989F5A819C2F6168430BA6CF2FBC3239F2E4F7AE01D0DCFAF8
+          3DF7EDDBF67BA7C72E5AA960B3D883DFD80CD646A9ACA1C216E81030BF922708
+          99A6131166AF63F4FFA5B16558049DF7B1450422B338141D364185A7C60D5FAD
+          0B2B0B69822AA3B9D987622451084F46BAE6669F8D5D05B06BF72F5E5DBDAE7D
+          BF4E057B6A1C08043DD8B5630DCAECB94C6B95641D391628CA1AD7369061CFC7
+          48F9994B8B0C2303C5620586994AFC5DD409C444CCE7CCA40A04BCF053531606
+          965E2E2013C92031BD7860E2F2332F560108C2371DEB37F69DECE809ADEFEE0D
+          A2C86D9B6DF8FABE4DDC2905C5A22AEFCB97344681000719BA4827BC7372B62A
+          BE0AA9160D9DF5CCCB8085FE5768598321454A50E375A3BD2D0055A633488E48
+          6017FF7CEAEDF9E99FDE5505D0DB7BB0DF51133CAD4BB6DABED54DA086B07EA8
+          19B7D25E0D0D1E8A4F67B058AA4EE0FA985A48E1F215F6995FC2498A8FC968BA
+          C32682F46B64408761EE9E800C5AD74746DB98153D4D5E8CCFB015A522A64F7F
+          343D76FE506F15C0ADB73EB32B53948E05D89FE5940CD12951E5EDB8ED962EDC
+          3CD882F3E331EEC20E8FC78104C367742ECED698A12640B288988B1770713675
+          1580C1FF59745307644EAEA0B5B1160DF57EEC1E6EC41FFE32073997C6DCF9D9
+          74726EA4B50A6070E8D001B7CF7FA4C835152E98630BB66DE9C42A66FF9E3BFA
+          F0F2D1F3E86CF3C1669328282712B9125BCBD0A735391531BA98C55484B1CC86
+          55084067610B6741992D332A0A5671F77E9F1BF56E094B0B090EB10A66CE8E1B
+          0B23B39D5500EB6F3EF498C31B381C4E97E027DA347BEE6FF460F38676ECBF7B
+          10BF7D770CBD9D0C1BFEDDC154BB42BB258B2A63D786068AEBEF1389AA3D6D82
+          09E063FAAD9A4A002A74B6A091D9D0DFD5884C3A4FFA65CE0C2BC6DFBFA0CF5C
+          58EAAA02686D3BB8ABABB7EB5838234326032EBF1B6E5E7D3DF52868021EDE3B
+          8438A91F67AFB3B4D7E872913F35C8ECB1DB2E7146A855073000AB1634C527AA
+          CC011637CCCD38440CF6352093D5109D8FA291113E76E2426A6962AAA30AC0EB
+          7D78CD86E1FE93919C5E93A7C86C4C4177C083500B2720C56771DAB06F7B1FCE
+          CE2471612907330504ABB59A0D765695D58FED27511515E6804E062C0A819465
+          7ABF8216AE974A1618D11212B36174B5D462E4FDD1A9B9B11FF7FDCB86DFB70F
+          DDDCF081E1F60EA665FAD8638793E121B3C8F0500B46A305D433177A39924756
+          0AE868F2204E7A53BC6C92A56A4393012BD55F964DF1A9ECB309A08C0E6AE60A
+          5D53C9E561F07E6B298F3A8F0753FF187D3B3AFFC25D578368EB2DCF1E8D97C4
+          FBA41A17013861B86CF092051F4344735810A1423D5CEC8B834DD8B2AA1E153E
+          6686D4250EA5E37480CE7608BCB4AAF7493FE744C801E4D9BA28052A940AA864
+          4AE6444357BD13974E8C3D91881C7EFE2A804D1B9F7E54B63A7F9E5298C42CE4
+          6DA825BF3634B6FA10A27F2F464AB0BAEDF8CEF61E84FCCE2AFD65E680C2E773
+          651E3C68C5D34C46338A4DE5D75090018B81A92B09681C424AAEC061A4A256E0
+          312E9BCECD7D141EC8665E0E5F338C06D6359D306AFCC325C6B19322D41D8EEA
+          4F3B55BC61A011CB65030777F5A360C6339FE38860383186F93DC9445CC91491
+          663127D72B66392326CC014421F26CA064B204A2A1DD6BE0F2C9B1D7E34B871F
+          F89F71EC0F3CFA60A8BBFD65D4FBDC22775F6476DBA8581BDBE2ADF3A08B5970
+          CF703B6A5D1201507C2CAEE8020168D5838B19427E8A36C5B3C06BC727514EE6
+          B9EB0A34EE1EC53CF4920E4736139BFB30BC35973932F3890792B5EB9E3C267B
+          033B7D5D0D20B3A8D0964E6A41E511ABB7BB0E21E6C3EEC166CE030B381960E6
+          61A93AB06849523E1D97717232C6C88D51000528E902C5275745AA2CAE68F9E9
+          F0732B8B2FFCE8BA47B240E0A1DAA18DFDC75376EF60B9C60B89B1ECF13A50A6
+          DFAD14670FCF08DB06EAB1916C98673F13809D89481F629E313E1E2BE2CD33B3
+          A8A48B045044B9484B6A0A94E504521727DE8A2DFCEC2BD73D92FDFBD3D97960
+          F5BA9B7ADE2AF8EB7A62766602E92F73B7E0147411CCC6FE20BEBDB5056EB260
+          9E1112A4CA9C0D4B3C2FC6A9F4D393094C2D66A0339474DA4F0F4711FB60FCB8
+          34ABEC5C300E976EE858EEF57E2B38B469E0EDA6C1DE4DAE8EA020BA9C10694D
+          3B0752377360475F1DEC560BA84BAC1040242773C365A69F8A37CF87514CE6A0
+          F214652C2C2B9173136F2E4F75EE378CEF2AFF5DE7FFBC98DC6FEB5DD3FB92C5
+          5BB3DBB3BAB3CD68AC47B0B916776F0AA1BBB10612432843E1690C20F37DA05C
+          52F0E14206A72E4721C512C88F4C4F2F4FADFC2A3CFBFC61C37C73F9A41A9F0E
+          80FCEE3D2AFACE9E6BAEB1598F789BEBD68BCD8DADCDFDCDF69E2E3F3A433C8C
+          D2668BDC6986D4E7F96E20253272F64A78797932F227C9EDF9C14C7777DE7863
+          EF755FCF3E15C0BAFB8FDA3275CEA0A80A4DDC6648108C96F2DCC22D423A396C
+          40AF350CCD295A2D92AE698A285A8B862124C586D0FBF6D6E0054EE330570F6B
+          257D65A9F7DEB0F114F4CF0CC06420F8C851B7ABE20852828DAAAE8738FE43BA
+          22D7E94AD1A7ABB2C73074AB20882A2CB6824572A545C91E81C5081B8AB122DA
+          B038B7E04C1AEFDC297F2E06AEB6E1F6A72D6B836BC40C609183B0B88B92B55C
+          484976BB64D5554E7721AF296AAD62434A2B383A55A7C5A6B90B317D64ED5E15
+          87CC12D72FF24FF446119A744DBA5F0000000049454E44AE426082}
+      end
+      item
+        Background = clWindow
+        Name = 'telepathy-kde'
+        PngImage.Data = {
+          89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+          F4000000017352474200AECE1CE900000006624B474400FF00FF00FFA0BDA793
+          00000009704859730000375D0000375D011980465D0000000774494D4507DB05
+          1616323633DEDF55000007F14944415478DAC5967B7054571DC77FE7BEF6EEE3
+          EE6E7697BCC9A64A232033AD2DB4C3B4A3584682B121336D2922D412A9F82C2A
+          743AE388D619A7336A95E9E0ABAD4AEB1F2A536A4B4AEBC0B490680909A40D58
+          926A9F1B421EE4B121D9CDEEDDDDFB38FECEB9BB37A04CA4D2D19B397BCF6E76
+          EFF7F3FBFE7EE7770E81FFF3453EE80756DEF91538FFA75F7DB000E52DDB60BC
+          ED093E0FACD9BC6AF5A76FBF351A2B5FA6A89E3A42C4A085575ED79353C9C977
+          FA5F3FD5F3DE91975E84A1DE91AB0688357F01260FEE0558D9F2F10DF7B4EEAC
+          FBF0A275D72E5E0C22FE8C52006A53B0A90D16B5F04EF1337CB12819389B8037
+          FBFB073AFFDAF1A30B6D8F3D16DFB403CEFE7EF79503C45ABE08936DBF06F8D8
+          A76E5CBB7ED31F5637353504348DDAB64D0891100040200212208880103642F0
+          618165996058EC6E513D9325875F783EDD77BAB72573E8A9F6CABBB7C3F9A7F7
+          CC0F10BB1DA37E612F44D7DDF7F8C6D6FBB6352C594A2D9B1226280A0217460A
+          677027100078F418BC0361228069228861201CA5AF757791CE8EA38F4C3DF7CB
+          07ABD6DF0FA3FB7F767980C867B680D7C811C317ECDBB6E3C1A5183510410449
+          1241407191885C9847CF7E4C1C00FE8729E1E9B04B103618A6C121D8387DB207
+          4E7577FE7C6CFF9EFB2FEB40B4A915927F7E12828DF7BEB3F59B3B3E148E4451
+          9B894B282E8228B2E889EB007007300BE0BC301F509B43982508D372000A06CE
+          0B70A8ED205C181BB97364DFEE672FEB4068ED9603B7AC59DB72FDF215405098
+          894B2213171D08A1683D73007F2970ED920B38A70C0253C1C75C2A0A0890CFE7
+          616C789876B51F35077FF7B0720940ECB6CF82A5A88DB2163C74EF97BF8AB545
+          409465901180898B282E3007FEA5068A79E000EC2AAE04A7164CC705035D6000
+          0504307239F8CB91A390191FDDBAC013D8DBFBD443730E449AB60E2D597173F5
+          752B6E26A22C818C00CC01B1E80217C781D578290471E2E0CBB2580FCC011B6B
+          E062070A850258387A4EF6D2D9B1C197DF7AE27B6B5C07228DAD37109FFADA4D
+          B73542554D358A2B2031074A10183D738208CE4A2082530FC05D9873C34907A6
+          0161AC4B000A90CFE5414FCF4262F01CE42646675EFDF1D7C32E4065F3977E60
+          07B45DCB6FFD04944522202932288AEC8014D3205C9C0AE240F0C139848BD2E1
+          38C101B0184D83E5BF0014EF89C131B04D1DF4895178E5FBADC405A85DFF8D03
+          D4A7B5C4172F859A9A1A2EA6284AD109892F435164E960A2929B0E06C42080AF
+          0E46E2803008960616BD8D8DC9C4DC8F4EA640CF65C1830E4D8F0C648EEEBA27
+          E002D46FDCD94E7DC1557228021F59DC00AAAAF2AA2F01B03A6005C95D104B8E
+          08FC3B0E8CE83AC2EB01079B590890C9E62095D17901E6F42C8455910EFCBDEF
+          44C7435B56BA00F18D0F3C2D85CAEE12FC21E25103505111857038E444CBF32F
+          B905E916A5580262A9715C92599D60B3B2F1B1058B4201014C9E7F269E018235
+          E1250538D375FCDB277EBAFD872EC0C23BB63FA055573D62483E50B52028B2CA
+          53A06901EE86C28A11075B1D923807227208E7CE3A26151C50D643D016B4DFE2
+          91E7B319C863F411BF0C89FE3390F85B9FFFCC93BBB22E40D9AACDB18A864513
+          D4AB811C088347F582E261101E2E2C4972310D3208F85E61EF8B50326F58B2FB
+          3D8189E3DC6683399041F1CC2C6812164621073D475EDE7DFC275FDB797123E2
+          1DB5FEEE6FED0BD5C537148802AA5F43081F42B055A0141F2EB9228EA054049B
+          9B97002C4C45A1E8809DD34123260425424FB6B78F1FFECEE7AA205243606AD8
+          9E03A85924432EEB6B686E1DF49757064C49255E3FA6029D904B0E9420DC6825
+          479CD7040311F9FF6C14CF63DDE4D88311202652887904DA7BBCD3EA39B06FC9
+          F03F5E198602C9C3E43917008F3C352C893E351A8FD7AF5CFDAABFA252B64595
+          A81C42752376055D71991721BBE3044C2E8ED1B3AD1BD7429547848844E9EB5D
+          DD7AF7C17DABC64E77BC8DDFCBC0F89059DAC71C00E22550115570010765FF82
+          DAFA5BD61E0ED62E5C403C01507C1AAF0789372556F5B2BB348920F38263C286
+          E088536CD501EC17958A40EDD43479ABA7E774E7FE5F6C36A746277089A4607A
+          0697C5AC7DE96EC85EBD610102010FDB14213DA5D5AED9F268595DBCC91329A7
+          AA162132AE0A96068A154F1182B2AA477183458E736029C0A0346253AFA19399
+          77DF9B4D9C3AF170E29947FF08E5D53AD2A6213D9B87ECB42BFEEF27221F4204
+          35E644086626B5E8F2E6CF975F77E377835575A0603A6C51015D60E2ACD00907
+          01DE116D9070B9D9C92464C746FA26DE7E63FFF0E1DF3C03E1CA1CB6C869149F
+          85E969ECC9693AFF9990BD93FD04C265F8644C871AFDE8C24F367704EB1681AC
+          8521A7F8208F1B3E193E9BF6D2FC047EDBC0757E219F9A3E9B3E3FD437D67FEC
+          18A4C693E00FEBF8BF14C265713FCE4172D482B9E3CBFC6742F7F3F21A6F387E
+          D386D0B2657BBDD5F5781E0F8341446A0D26CC81636D9B60E054028FC526E6C5
+          C2DD0B05048C9662731159D43944332139899F9B14E6B92E0F20787011E7D558
+          E3D697D46BAE592945AB08C5166B9E1B4C8FBDD1B5CD1C7DB307FBEB14466861
+          61B19CB273B9C54F2179C382D9E4BCA2FF01003B99C7F4846EB86B93375EF35B
+          2914C50E06343B3AF4DCD4BB27F740369D80823ECE37F814735ABF62B12B7540
+          0C5CDFBC0E24F2B86D6707F054D59D4B9D7B16F7D77130F2E3B8D1CFC0C48401
+          B47035BAF300C46A7191E74358F241DEDE045147F10C0AEB78B0332095B4FF0B
+          9DF7E5008105D5023F5D10CAF6540A296C1C76F6AAAC7E3F00FFD3EB9F04CD9D
+          4E34541B7B0000000049454E44AE426082}
       end>
     PngOptions = [pngBlendOnDisabled, pngGrayscaleOnDisabled]
     Left = 595
@@ -6224,8 +6458,8 @@ object MainForm: TMainForm
   object MiscActions: TActionManager
     LargeImages = MiscImages
     Images = MiscImages
-    Left = 243
-    Top = 122
+    Left = 739
+    Top = 310
     StyleName = 'Platform Default'
     object Send: TAction
       Category = 'Wallet'
@@ -6500,8 +6734,8 @@ object MainForm: TMainForm
           FD53FA631603118091D2EC0C00FA5B07F02F040CB00000000049454E44AE4260
           82}
       end>
-    Left = 305
-    Top = 124
+    Left = 853
+    Top = 340
     Bitmap = {}
   end
   object accountListImages: TPngImageList
@@ -6740,5 +6974,34 @@ object MainForm: TMainForm
     Left = 427
     Top = 270
     Bitmap = {}
+  end
+  object PopupActionBar1: TPopupActionBar
+    Images = AccountListActionImages
+    Left = 459
+    Top = 408
+    object ransactionhistory1: TMenuItem
+      Action = TransactionHistoryAction
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object Edit1: TMenuItem
+      Action = EditAccountAction
+    end
+    object Changekey1: TMenuItem
+      Action = ChangeKeyAction
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object Sell1: TMenuItem
+      Action = SellAccountAction
+    end
+    object Revokesell1: TMenuItem
+      Action = RevokeSellAction
+    end
+    object Buy1: TMenuItem
+      Action = BuyAction
+    end
   end
 end

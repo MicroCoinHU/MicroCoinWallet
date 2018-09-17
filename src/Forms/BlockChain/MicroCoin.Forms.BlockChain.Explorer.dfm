@@ -3,7 +3,7 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
   Top = 0
   Caption = 'Block explorer'
   ClientHeight = 545
-  ClientWidth = 893
+  ClientWidth = 957
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +20,7 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
   object blockListView: TVirtualStringTree
     Left = 0
     Top = 41
-    Width = 893
+    Width = 957
     Height = 504
     Align = alClient
     Header.AutoSizeIndex = 10
@@ -38,8 +38,7 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
     OnFreeNode = blockListViewFreeNode
     OnGetText = blockListViewGetText
     OnInitNode = blockListViewInitNode
-    ExplicitWidth = 758
-    ExplicitHeight = 371
+    ExplicitWidth = 1117
     Columns = <
       item
         Alignment = taRightJustify
@@ -99,27 +98,27 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
       end
       item
         Position = 9
-        Width = 150
+        Width = 137
         WideText = 'Miner Payload'
       end
       item
         Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAutoSpring, coAllowFocus, coEditable]
         Position = 10
-        Width = 335
+        Width = 200
         WideText = 'Proof Of Work'
       end>
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 893
+    Width = 957
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitWidth = 758
+    ExplicitWidth = 893
     DesignSize = (
-      893
+      957
       41)
     object labelUpdated: TLabel
       Left = 20
@@ -129,7 +128,7 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
       Caption = 'labelUpdated'
     end
     object btnRefresh: TPngSpeedButton
-      Left = 820
+      Left = 884
       Top = 8
       Width = 63
       Height = 22
@@ -168,6 +167,7 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
         01B9F3313545DE2D3C647E68F531CB7DA448C37D29EA4E0CED16C59D99BA14BF
         6541B0954C28DC478A1CB7780F78CEDD2ABDA9E2B046C981A6C14CCACBEA7B5A
         C5178A787327FE7F06D57A57397C47CE0000000049454E44AE426082}
+      ExplicitLeft = 820
     end
   end
 end

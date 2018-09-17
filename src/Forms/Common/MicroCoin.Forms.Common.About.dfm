@@ -896,43 +896,58 @@ object AboutForm: TAboutForm
     Stretch = True
     Transparent = True
   end
-  object Memo1: TMemo
+  object Label2: TLabel
     Left = 32
-    Top = 71
+    Top = 76
     Width = 535
-    Height = 266
-    BorderStyle = bsNone
-    Color = clBtnFace
-    Lines.Strings = (
-      'Copyright (c) 2017 - 2018 MicroCoin Developers'
-      ''
-      
-        'Distributed under the MIT software license, see the accompanying' +
-        ' file LICENSE  or visit '
-      'http://www.opensource.org/licenses/mit-license.php.'
-      ''
-      'THIS IS EXPERIMENTAL SOFTWARE.'
-      ''
-      
-        'This product includes software developed by the OpenSSL Project ' +
-        'and Denis Grinyuk '
-      
-        '(https://github.com/Arvur/OpenSSL-Delphi), some cryptographic fu' +
-        'nctions inspirated in code '
-      
-        'written by Ladar Levison and Marco Ferrante, and Synapse Socket ' +
-        'code copyright of Lukas '
-      'Gebauer.'
-      ''
-      'Logo design: Istvan Kiss'
-      'Icons: Oxygene icon set https://github.com/KDE/oxygen-icons'
-      ''
-      
-        'This program based on PascalCoin Copyright (c) 2016-2017 Albert ' +
-        'Molina')
-    ReadOnly = True
-    TabOrder = 0
-    WordWrap = False
+    Height = 238
+    AutoSize = False
+    Caption = 
+      'Copyright (c) 2017 - 2018 MicroCoin Developers'#13#10#13#10'Permission is ' +
+      'hereby granted, free of charge, to any person obtaining a copy o' +
+      'f this software and associated documentation files (the "Softwar' +
+      'e"), to deal in the Software without restriction, including with' +
+      'out limitation the rights to use, copy, modify, merge, publish, ' +
+      'distribute, sublicense, and/or sell copies of the Software, and ' +
+      'to permit persons to whom the Software is furnished to do so, su' +
+      'bject to the following conditions:'#13#10#13#10'THIS IS EXPERIMENTAL SOFTW' +
+      'ARE.'#13#10#13#10'This product includes or uses software or code portions ' +
+      'from:'#13#10#13#10'The OpenSSL Project and Denis Grinyuk (https://github.c' +
+      'om/Arvur/OpenSSL-Delphi'#13#10'Code written by Ladar Levison and Marco' +
+      ' Ferrante'#13#10'Synapse Socket code copyright of Lukas Gebauer'#13#10'Pasca' +
+      'lCoin copyright Albert Molina'#13#10#13#10'Icons'#13#10'Oxygene icon set https:/' +
+      '/github.com/KDE/oxygen-icons'
+    WordWrap = True
+  end
+  object LinkLabel2: TLabel
+    Left = 32
+    Top = 328
+    Width = 143
+    Height = 13
+    Cursor = crHandPoint
+    Caption = 'Website: https://microcoin.hu'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHotLight
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = LinkLabel2Click
+  end
+  object LinkLabel1: TLabel
+    Left = 212
+    Top = 328
+    Width = 198
+    Height = 13
+    Cursor = crHandPoint
+    Caption = 'Community: https://discord.gg/ewQq5A6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHotLight
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = LinkLabel1Click
   end
   object bbClose: TBitBtn
     Left = 456
@@ -942,6 +957,6 @@ object AboutForm: TAboutForm
     Caption = 'Close'
     Kind = bkOK
     NumGlyphs = 2
-    TabOrder = 1
+    TabOrder = 0
   end
 end

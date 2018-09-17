@@ -136,7 +136,7 @@ begin
    if xTransactionData.time = 0
    then TargetCanvas.Font.Color := clGrayText;
    if (xTransactionData.OpType = 0) and (xTransactionData.OpSubtype = 0)
-   then TargetCanvas.Font.Color := clBlue;
+   then TargetCanvas.Font.Color := clGreen;
    {else if xTransactionData.Amount<0
         then TargetCanvas.Font.Color := clRed
         else if xTransactionData.Amount>0

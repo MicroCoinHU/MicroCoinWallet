@@ -32,8 +32,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs, StdCtrls, Buttons, PngBitBtn,
-  ExtCtrls, ComCtrls, UAppParams, UCrypto, UITypes,
-  Vcl.Samples.Spin;
+  ExtCtrls, ComCtrls, MicroCoin.Application.Settings, UCrypto, UITypes,
+  Vcl.Samples.Spin, Vcl.WinXCtrls, Styles, Themes;
 
 type
   TSettingsForm = class(TForm)
@@ -58,18 +58,36 @@ type
     Label3: TLabel;
     memoAllowedIPs: TMemo;
     Label4: TLabel;
+    TabSheet1: TTabSheet;
+    Label5: TLabel;
+    cbSkin: TComboBox;
+    swNewTransaction: TToggleSwitch;
+    Label6: TLabel;
+    Label7: TLabel;
+    ToggleSwitch2: TToggleSwitch;
+    Label8: TLabel;
+    ToggleSwitch3: TToggleSwitch;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    ToggleSwitch4: TToggleSwitch;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
+    Label12: TLabel;
     procedure radiousethiskeyClick(Sender: TObject);
     procedure radioRandomkeyClick(Sender: TObject);
     procedure radionewKeyClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
+    procedure cbSkinChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
-    FAppParams: TAppParams;
-    procedure SetAppParams(const Value: TAppParams);
+    FAppSettings: TAppSettings;
+    procedure SetAppParams(const Value: TAppSettings);
     { Private declarations }
   public
-    property AppParams : TAppParams read FAppParams write SetAppParams;
+    property AppParams : TAppSettings read FAppSettings write SetAppParams;
   end;
 
 var
@@ -106,22 +124,35 @@ begin
             then xMiningMode := 0;
 
   if radiousethiskey.Checked
-  then AppParams.ParamByName[CT_PARAM_MinerPrivateKeySelectedPublicKey].SetAsString(TNode.Node.KeyManager[cbMyKeys.ItemIndex].AccountKey.ToRawString );
+  then AppParams.Entries[TAppSettingsEntry.apMinerPrivateKeySelectedPublicKey].SetAsString(TNode.Node.KeyManager[cbMyKeys.ItemIndex].AccountKey.ToRawString );
 
-  AppParams.ParamByName[CT_PARAM_InternetServerPort].SetAsInteger(editServerPort.Value);
-  AppParams.ParamByName[CT_PARAM_MinerPrivateKeyType].SetAsInteger(xMiningMode);
-  AppParams.ParamByName[CT_PARAM_JSONRPCMinerServerActive].SetAsBoolean(true);
-  AppParams.ParamByName[CT_PARAM_MinerName].SetAsString(editMinerName.Text);
-  AppParams.ParamByName[CT_PARAM_JSONRPCMinerServerPort].SetAsInteger(editMinerServerPort.Value);
-  AppParams.ParamByName[CT_PARAM_JSONRPCEnabled].SetAsBoolean(checkEnableRPC.Checked);
-  AppParams.ParamByName[CT_PARAM_JSONRPCAllowedIPs].SetAsString(memoAllowedIPs.Text);
+  AppParams.Entries[TAppSettingsEntry.apInternetServerPort].SetAsInteger(editServerPort.Value);
+  AppParams.Entries[TAppSettingsEntry.apMinerPrivateKeyType].SetAsInteger(xMiningMode);
+  AppParams.Entries[TAppSettingsEntry.apJSONRPCMinerServerActive].SetAsBoolean(true);
+  AppParams.Entries[TAppSettingsEntry.apMinerName].SetAsString(editMinerName.Text);
+  AppParams.Entries[TAppSettingsEntry.apJSONRPCMinerServerPort].SetAsInteger(editMinerServerPort.Value);
+  AppParams.Entries[TAppSettingsEntry.apJSONRPCEnabled].SetAsBoolean(checkEnableRPC.Checked);
+  AppParams.Entries[TAppSettingsEntry.apJSONRPCAllowedIPs].SetAsString(memoAllowedIPs.Text);
+  AppParams.Entries[TAppSettingsEntry.apTheme].SetAsString(cbSkin.Text);
+  AppParams.Entries[TAppSettingsEntry.apNotifyOnNewTransaction].SetAsBoolean(swNewTransaction.State = TToggleSwitchState.tssOn);
   ModalResult := mrOk;
   CloseModal;
+end;
+
+procedure TSettingsForm.cbSkinChange(Sender: TObject);
+begin
+  TStylemanager.TrySetStyle(cbSkin.Text);
 end;
 
 procedure TSettingsForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := caFree;
+end;
+
+procedure TSettingsForm.FormCreate(Sender: TObject);
+begin
+  cbSkin.Clear;
+  cbSkin.Items.AddStrings(TStyleManager.StyleNames);
 end;
 
 procedure TSettingsForm.radionewKeyClick(Sender: TObject);
@@ -139,26 +170,30 @@ begin
   cbMyKeys.Enabled := radiousethiskey.Checked;
 end;
 
-procedure TSettingsForm.SetAppParams(const Value: TAppParams);
+procedure TSettingsForm.SetAppParams(const Value: TAppSettings);
 var
   i: integer;
   xSelectedKey: AnsiString;
 begin
-  FAppParams := Value;
-  editMinerName.Text := AppParams.ParamByName[CT_PARAM_MinerName].GetAsString('');
-  editMinerServerPort.Value := AppParams.ParamByName[CT_PARAM_JSONRPCMinerServerPort].GetAsInteger(CT_JSONRPCMinerServer_Port);
-  checkEnableRPC.Checked := AppParams.ParamByName[CT_PARAM_JSONRPCEnabled].GetAsBoolean(false);
-  memoAllowedIPs.Text := AppParams.ParamByName[CT_PARAM_JSONRPCAllowedIPs].GetAsString('127.0.0.1;');
-  editServerPort.Value := AppParams.ParamByName[CT_PARAM_InternetServerPort].GetAsInteger(CT_NetServer_Port);
+  FAppSettings := Value;
+  cbSkin.ItemIndex := cbSkin.Items.IndexOf(AppParams.Entries[TAppSettingsEntry.apTheme].GetAsString('MicroCoin Light'));
+  editMinerName.Text := AppParams.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
+  editMinerServerPort.Value := AppParams.Entries[TAppSettingsEntry.apJSONRPCMinerServerPort].GetAsInteger(CT_JSONRPCMinerServer_Port);
+  checkEnableRPC.Checked := AppParams.Entries[TAppSettingsEntry.apJSONRPCEnabled].GetAsBoolean(false);
+  memoAllowedIPs.Text := AppParams.Entries[TAppSettingsEntry.apJSONRPCAllowedIPs].GetAsString('127.0.0.1;');
+  editServerPort.Value := AppParams.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(CT_NetServer_Port);
+  if AppParams.Entries[TAppSettingsEntry.apNotifyOnNewTransaction].GetAsBoolean(true)
+  then swNewTransaction.State := TToggleSwitchState.tssOn
+  else swNewTransaction.State := TToggleSwitchState.tssOff;
 
-  case AppParams.ParamByName[CT_PARAM_MinerPrivateKeyType].GetAsInteger(Integer(1)) of
+  case AppParams.Entries[TAppSettingsEntry.apMinerPrivateKeyType].GetAsInteger(Integer(1)) of
     0 : radionewKey.Checked := true;
     1 : radioRandomkey.Checked := true;
     2 : radiousethiskey.Checked := true;
     else radioRandomkey.Checked := true;
   end;
 
-  xSelectedKey := FAppParams.ParamByName[CT_PARAM_MinerPrivateKeySelectedPublicKey].GetAsString('');
+  xSelectedKey := FAppSettings.Entries[TAppSettingsEntry.apMinerPrivateKeySelectedPublicKey].GetAsString('');
 
   for i := 0 to TNode.Node.KeyManager.Count-1 do begin
     cbMyKeys.AddItem(TNode.Node.KeyManager[i].Name, TNode.Node.KeyManager[i].PrivateKey);

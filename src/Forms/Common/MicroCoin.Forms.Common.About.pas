@@ -44,19 +44,31 @@ type
 
   TAboutForm = class(TForm)
     Label1: TLabel;
-    Memo1: TMemo;
     bbClose: TBitBtn;
     Image1: TImage;
+    Label2: TLabel;
+    LinkLabel2: TLabel;
+    LinkLabel1: TLabel;
+    procedure LinkLabel1Click(Sender: TObject);
+    procedure LinkLabel2Click(Sender: TObject);
   private
   public
   end;
 
 implementation
 
-{$IFnDEF FPC}
-  {$R *.dfm}
-{$ELSE}
-  {$R *.lfm}
-{$ENDIF}
+{$R *.dfm}
+
+uses ShellApi;
+
+procedure TAboutForm.LinkLabel1Click(Sender: TObject);
+begin
+  ShellExecute(0, 'open', 'https://discord.gg/ewQq5A6', nil, nil, SW_SHOWNORMAL);
+end;
+
+procedure TAboutForm.LinkLabel2Click(Sender: TObject);
+begin
+  ShellExecute(0, 'open', 'https://microcoin.hu', nil, nil, SW_SHOWNORMAL);
+end;
 
 end.

@@ -4,14 +4,12 @@ program MicroCoinWallet;
   {$MODE Delphi}
 {$ENDIF}
 uses
+  {$IFDEF DEBUG}
   FastMM4,
+  {$ENDIF}
   windows,
   Forms,
   Classes,
-  Vcl.Themes,
-  Vcl.Styles,
-  Threading,
-  System.inifiles,
   MicroCoin.Forms.MainForm,
   sysutils;
 
@@ -65,7 +63,6 @@ begin
     DefaultFormatSettings.ThousandSeparator := ',';
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Slate Classico');
   Application.Title := 'MicroCoin Wallet - '+GetBuildInfoAsString{$IFDEF TESTNET}+' - TESTNET'{$ENDIF};
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;

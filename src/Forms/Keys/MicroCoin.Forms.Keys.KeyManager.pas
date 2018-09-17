@@ -34,7 +34,10 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, System.ImageList,
   Vcl.ImgList, PngImageList, Vcl.PlatformDefaultStyleActnCtrls, System.Actions,
   Vcl.ActnList, Vcl.ActnMan, VirtualTrees, Vcl.Menus, Vcl.ActnPopup,
-  Vcl.ToolWin, Vcl.ActnCtrls, UCrypto, UITypes;
+  Vcl.ToolWin, Vcl.ActnCtrls, UCrypto, UITypes, Vcl.StdCtrls, Vcl.Buttons,
+  PngBitBtn, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Printers,
+  DelphiZXIngQRCode;
 
 type
   TWalletKeysForm = class(TForm)
@@ -65,6 +68,14 @@ type
     SaveKeysDialog: TSaveDialog;
     ChangePasswordAction: TAction;
     OpenWalletDialog: TOpenDialog;
+    Panel1: TPanel;
+    qrPrivate: TImage;
+    Label1: TLabel;
+    qrPublic: TImage;
+    btnPrint: TPngBitBtn;
+    Image1: TImage;
+    cbShowPrivate: TCheckBox;
+    PrintDialog1: TPrintDialog;
     procedure FormCreate(Sender: TObject);
     procedure keyListInitNode(Sender: TBaseVirtualTree; ParentNode,
       Node: PVirtualNode; var InitialStates: TVirtualNodeInitStates);
@@ -90,7 +101,12 @@ type
     procedure ImportAllExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ChangePasswordActionExecute(Sender: TObject);
+    procedure keyListFocusChanged(Sender: TBaseVirtualTree; Node: PVirtualNode;
+      Column: TColumnIndex);
+    procedure cbShowPrivateClick(Sender: TObject);
+    procedure btnPrintClick(Sender: TObject);
   private
+    procedure ShowPrivateKey;
     function UnlockWallet : Boolean;
     function ParseRawKey(AEC_OpenSSL_NID : Word; AEncodedKey : string) : TECPrivateKey;
     function ParseEncryptedKey(APassword, AKey: AnsiString) : TECPrivateKey;
@@ -127,6 +143,82 @@ end;
 procedure TWalletKeysForm.AddNewKeyUpdate(Sender: TObject);
 begin
   AddNewKey.Enabled := true;
+end;
+
+procedure TWalletKeysForm.btnPrintClick(Sender: TObject);
+var
+  xRect: TRect;
+  xText: string;
+  printerPixelsPerInch_X,  printerPixelsPerInch_Y,
+  printerLeftMargin, printerTopMargin: integer;
+  xMargin: integer;
+  xTop : Integer;
+begin
+  if not UnlockWallet then exit;
+  if not Assigned( TWalletKey(keyList.FocusedNode.GetData^).PrivateKey) then exit;
+  ShowPrivateKey;
+  if PrintDialog1.Execute(Self.Handle) then begin
+
+    Printer.BeginDoc;
+
+    printerPixelsPerInch_X := GetDeviceCaps(Printer.Handle, LOGPIXELSX);
+    printerPixelsPerInch_Y := GetDeviceCaps(Printer.Handle, LOGPIXELSY);
+
+    xMargin := printerPixelsPerInch_Y div 2;
+
+    Printer.Canvas.Font.Size := 20;
+
+    xText:=Format('MicroCoin Paper Wallet (%s)', [ UTF8ToString( TWalletKey(keyList.FocusedNode.GetData^).Name )]);
+
+    xRect.Left := 0;
+    xRect.Top := Printer.Canvas.TextExtent(xText).Height + xMargin;
+    xRect.Height := Printer.Canvas.TextExtent(xText).Height;
+    xRect.Width := Printer.PageWidth;
+    Printer.Canvas.TextRect(xRect, xText, [TTextFormats.tfCenter]);
+
+    xRect.Bottom := xRect.Top+Printer.Canvas.TextExtent(xText).Height;
+    Printer.Canvas.MoveTo(xMargin, xRect.Bottom + printerPixelsPerInch_Y div 5);
+    Printer.Canvas.LineTo( Printer.PageWidth - xMargin, xRect.Bottom+printerPixelsPerInch_Y div 5);
+    Printer.Canvas.Font.Size := 15;
+    xRect.Top := xRect.Bottom + printerPixelsPerInch_Y div 2;
+    xRect.Left := 0;
+    xText := 'Public key';
+    xRect.Width := (Printer.PageWidth) div 2;
+    xRect.Height := Printer.Canvas.TextExtent(xText).Height;
+    xTop := xRect.Top;
+    Printer.Canvas.TextRect(xRect, xText ,[TTextFormats.tfCenter]);
+
+    xRect.Top := xRect.Bottom + Printer.Canvas.TextExtent(xText).Height;
+    xRect.Left := ((Printer.PageWidth div 2) div 2) - printerPixelsPerInch_X;
+    xRect.Width := printerPixelsPerInch_X*2;
+    xRect.Height := printerPixelsPerInch_Y*2;
+    Printer.Canvas.StretchDraw(xRect, qrPublic.Picture.Bitmap);
+
+    xRect.Top := xTop;
+    xRect.Left := Printer.PageWidth div 2;
+    xText := 'Private key';
+    xRect.Width := (Printer.PageWidth) div 2;
+    xRect.Height := Printer.Canvas.TextExtent(xText).Height;
+    Printer.Canvas.TextRect(xRect, xText ,[TTextFormats.tfCenter]);
+    xRect.Top :=  Printer.Canvas.TextExtent(xText).Height + xRect.Bottom;
+    xRect.Left := (Printer.PageWidth div 2) + ((Printer.PageWidth div 2) div 2) - printerPixelsPerInch_X;
+  //  xRect.Left := xRect.Right + xMargin;
+    xRect.Width := printerPixelsPerInch_X*2;
+    xRect.Height := printerPixelsPerInch_Y*2;
+    Printer.Canvas.StretchDraw(xRect, qrPrivate.Picture.Bitmap);
+    xRect.Left := xMargin;
+    xRect.Top := printerPixelsPerInch_Y*2 + xRect.Top + printerPixelsPerInch_Y div 2;
+    Printer.Canvas.MoveTo(xMargin, xRect.Top);
+    Printer.Canvas.LineTo( Printer.PageWidth - xMargin, xRect.Top);
+    xRect.Top := xRect.Top + printerPixelsPerInch_Y div 5;
+    Printer.Canvas.Font.Size := 10;
+    xText := 'Private key: '+TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey)
+    +sLineBreak+sLineBreak+'Printed at: '+FormatDateTime('c', Now);
+    xRect.Height := printerPixelsPerInch_Y;
+    xRect.Width := Printer.PageWidth - xMargin;
+    DrawText(Printer.Canvas.Handle, xText, -1, xRect, DT_NOPREFIX or DT_WORDBREAK);
+    Printer.EndDoc;
+  end;
 end;
 
 procedure TWalletKeysForm.ChangePasswordActionExecute(Sender: TObject);
@@ -373,6 +465,42 @@ begin
   ImportPublicKey.Enabled := true;
 end;
 
+procedure TWalletKeysForm.keyListFocusChanged(Sender: TBaseVirtualTree;
+  Node: PVirtualNode; Column: TColumnIndex);
+var
+  QRCode: TDelphiZXingQRCode;
+  Row, Col: Integer;
+  QRCodeBitmap: TBitmap;
+begin
+  if Node = nil then exit;
+  qrPrivate.Picture := Image1.Picture;
+  QRCode := TDelphiZXingQRCode.Create;
+  try
+    QRCodeBitmap := qrPublic.Picture.Bitmap;
+    QRCode.Data := TWalletKey(Node.GetData^).AccountKey.AccountPublicKeyExport;
+    QRCode.Encoding := TQRCodeEncoding(qrISO88591);
+    QRCode.QuietZone := 1;
+    QRCodeBitmap.SetSize(QRCode.Rows, QRCode.Columns);
+    for Row := 0 to QRCode.Rows - 1 do
+    begin
+      for Col := 0 to QRCode.Columns - 1 do
+      begin
+        if (QRCode.IsBlack[Row, Col]) then
+        begin
+          QRCodeBitmap.Canvas.Pixels[Col, Row] := clBlack;
+        end else
+        begin
+          QRCodeBitmap.Canvas.Pixels[Col, Row] := clWhite;
+        end;
+      end;
+    end;
+    QRPublic.Picture.Bitmap := QRCodeBitmap;
+  finally
+    QRCode.Free;
+  end;
+  ShowPrivateKey;
+end;
+
 procedure TWalletKeysForm.keyListGetText(Sender: TBaseVirtualTree;
   Node: PVirtualNode; Column: TColumnIndex; TextType: TVSTTextType;
   var CellText: string);
@@ -391,6 +519,47 @@ procedure TWalletKeysForm.keyListInitNode(Sender: TBaseVirtualTree; ParentNode,
   Node: PVirtualNode; var InitialStates: TVirtualNodeInitStates);
 begin
   Sender.SetNodeData(Node, TNode.Node.KeyManager[Node.Index]);
+end;
+
+procedure TWalletKeysForm.ShowPrivateKey;
+var
+  QRCode: TDelphiZXingQRCode;
+  Row, Col: Integer;
+  QRCodeBitmap: TBitmap;
+begin
+  if keyList.FocusedNode = nil then exit;
+  if not Assigned( TWalletKey(keyList.FocusedNode.GetData^).PrivateKey) then exit;
+  QRCode := TDelphiZXingQRCode.Create;
+  try
+    QRCodeBitmap := qrPrivate.Picture.Bitmap;
+    QRCode.Data := TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey);
+    QRCode.Encoding := TQRCodeEncoding(qrISO88591);
+    QRCode.QuietZone := 1;
+    QRCodeBitmap.SetSize(QRCode.Rows, QRCode.Columns);
+    for Row := 0 to QRCode.Rows - 1 do
+    begin
+      for Col := 0 to QRCode.Columns - 1 do
+      begin
+        if (QRCode.IsBlack[Row, Col]) then
+        begin
+          QRCodeBitmap.Canvas.Pixels[Col, Row] := clBlack;
+        end else
+        begin
+          QRCodeBitmap.Canvas.Pixels[Col, Row] := clWhite;
+        end;
+      end;
+    end;
+    qrPrivate.Picture.Bitmap := QRCodeBitmap;
+  finally
+    QRCode.Free;
+  end;
+end;
+
+
+procedure TWalletKeysForm.cbShowPrivateClick(Sender: TObject);
+begin
+  qrPrivate.Visible := cbShowPrivate.Checked;
+  ShowPrivateKey;
 end;
 
 procedure TWalletKeysForm.SaveAllExecute(Sender: TObject);

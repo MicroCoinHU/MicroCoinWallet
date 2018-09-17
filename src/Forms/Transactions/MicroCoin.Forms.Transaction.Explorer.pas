@@ -261,7 +261,7 @@ begin
     xData^.PrintablePayload := xBlock.block_payload;
     xNode.Transactions.Add(xData);
     xBlockTr := TBlock.Create(nil);
-    if TNode.Node.BlockManager.LoadOperations(xBlockTr, xBlock.Block) then
+    if TNode.Node.BlockManager.LoadTransactions(xBlockTr, xBlock.Block) then
     begin
       for i := 0 to xBlockTr.Count - 1 do
       begin

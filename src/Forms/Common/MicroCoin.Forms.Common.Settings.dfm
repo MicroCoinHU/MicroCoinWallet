@@ -1,6 +1,7 @@
 object SettingsForm: TSettingsForm
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'MicroCoin settings'
   ClientHeight = 335
@@ -14,22 +15,167 @@ object SettingsForm: TSettingsForm
   OldCreateOrder = False
   Position = poMainFormCenter
   OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label7: TLabel
+    Left = 26
+    Top = 191
+    Width = 78
+    Height = 13
+    Caption = 'New transaction'
+  end
   object PageControl1: TPageControl
-    Left = 0
-    Top = 0
-    Width = 480
-    Height = 294
-    ActivePage = MiningTab
+    AlignWithMargins = True
+    Left = 10
+    Top = 10
+    Width = 460
+    Height = 281
+    Margins.Left = 10
+    Margins.Top = 10
+    Margins.Right = 10
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 470
-    ExplicitHeight = 284
+    object TabSheet1: TTabSheet
+      Caption = 'Application options'
+      ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 25
+      object Label5: TLabel
+        Left = 12
+        Top = 6
+        Width = 27
+        Height = 13
+        Caption = 'Skin:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label6: TLabel
+        Left = 12
+        Top = 147
+        Width = 78
+        Height = 13
+        Caption = 'New transaction'
+      end
+      object Label8: TLabel
+        Left = 212
+        Top = 147
+        Width = 48
+        Height = 13
+        Caption = 'New block'
+      end
+      object Label9: TLabel
+        Left = 12
+        Top = 186
+        Width = 80
+        Height = 13
+        Caption = 'System message'
+      end
+      object Label10: TLabel
+        Left = 12
+        Top = 116
+        Width = 116
+        Height = 13
+        Caption = 'Notification settings:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label11: TLabel
+        Left = 212
+        Top = 186
+        Width = 59
+        Height = 13
+        Caption = 'New version'
+      end
+      object Label12: TLabel
+        Left = 12
+        Top = 65
+        Width = 100
+        Height = 13
+        Caption = 'Software updates'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object cbSkin: TComboBox
+        Left = 12
+        Top = 25
+        Width = 164
+        Height = 21
+        Style = csDropDownList
+        ItemIndex = 0
+        TabOrder = 0
+        Text = 'Native'
+        OnChange = cbSkinChange
+        Items.Strings = (
+          'Native'
+          'Light'
+          'Dark')
+      end
+      object swNewTransaction: TToggleSwitch
+        Left = 104
+        Top = 143
+        Width = 72
+        Height = 20
+        TabOrder = 1
+      end
+      object ToggleSwitch2: TToggleSwitch
+        Left = 304
+        Top = 143
+        Width = 72
+        Height = 20
+        Enabled = False
+        TabOrder = 2
+      end
+      object ToggleSwitch3: TToggleSwitch
+        Left = 104
+        Top = 182
+        Width = 72
+        Height = 20
+        Enabled = False
+        TabOrder = 3
+      end
+      object ToggleSwitch4: TToggleSwitch
+        Left = 304
+        Top = 182
+        Width = 72
+        Height = 20
+        Enabled = False
+        TabOrder = 4
+      end
+      object CheckBox1: TCheckBox
+        Left = 12
+        Top = 84
+        Width = 116
+        Height = 17
+        Caption = 'Auto check updates'
+        Enabled = False
+        TabOrder = 5
+      end
+      object CheckBox2: TCheckBox
+        Left = 144
+        Top = 84
+        Width = 97
+        Height = 17
+        Caption = 'Auto update'
+        Enabled = False
+        TabOrder = 6
+      end
+    end
     object MiningTab: TTabSheet
       Caption = 'Mining options'
-      ExplicitWidth = 462
-      ExplicitHeight = 256
       object Label1: TLabel
         Left = 12
         Top = 69
@@ -105,8 +251,6 @@ object SettingsForm: TSettingsForm
     object NetOptions: TTabSheet
       Caption = 'Server options'
       ImageIndex = 1
-      ExplicitWidth = 462
-      ExplicitHeight = 256
       object Label2: TLabel
         Left = 12
         Top = 21
@@ -160,7 +304,7 @@ object SettingsForm: TSettingsForm
       object memoAllowedIPs: TMemo
         Left = 152
         Top = 128
-        Width = 297
+        Width = 261
         Height = 89
         TabOrder = 3
       end
@@ -174,8 +318,6 @@ object SettingsForm: TSettingsForm
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitTop = 284
-    ExplicitWidth = 470
     object btnSave: TPngBitBtn
       Left = 380
       Top = 9
