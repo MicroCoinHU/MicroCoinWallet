@@ -3,7 +3,7 @@
         <ProjectGuid>{F3B2E6AD-6E4B-4736-A714-EEAE47C178BC}</ProjectGuid>
         <MainSource>MicroCoinWallet.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -70,7 +70,7 @@
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.3.3.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
-        <DCC_UnitSearchPath>src\MicroCoin\Account;src\MicroCoin\Transaction;src\MicroCoin\Application;src\MicroCoin\BlockChain;src\MicroCoin\Common;src\MicroCoin\Keys;src\MicroCoin\Mining;src\MicroCoin\Net;src\MicroCoin\Node;src\MicroCoin\Rpc;src\MicroCoin\Utils;src\MicroCoin\Transaction\Lists;src\MicroCoin\Transaction\Plugins;src\Forms;src\Forms\BlockChain;src\Forms\Transactions;src\MicroCoin;src\MicroCoin\Account;src\MicroCoin\3rdParty;src\MicroCoin\3rdParty\Synapse;src\MicroCoin\3rdParty\OpenSSL;src\Forms\Common;src\MicroCoin\Deprecated;src\Forms\Keys;src\MicroCoin\3rdParty\fastmm;src\MicroCoin\3rdParty\DelphiZXingQRCode\Source;src\MicroCoin\3rdParty\fastcode;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>src\MicroCoin\Account;src\MicroCoin\Transaction;src\MicroCoin\Application;src\MicroCoin\BlockChain;src\MicroCoin\Common;src\MicroCoin\Keys;src\MicroCoin\Mining;src\MicroCoin\Net;src\MicroCoin\Node;src\MicroCoin\Rpc;src\MicroCoin\Utils;src\MicroCoin\Transaction\Lists;src\MicroCoin\Transaction\Plugins;src\Forms;src\Forms\BlockChain;src\Forms\Transactions;src\MicroCoin;src\MicroCoin\Account;src\MicroCoin\3rdParty;src\MicroCoin\3rdParty\Synapse;src\MicroCoin\3rdParty\OpenSSL;src\Forms\Common;src\MicroCoin\Deprecated;src\Forms\Keys;src\MicroCoin\3rdParty\fastmm;src\MicroCoin\3rdParty\DelphiZXingQRCode;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <Custom_Styles>&quot;MicroCoin Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\MicroCoinDark.vsf&quot;;&quot;MicroCoin Light|VCLSTYLE|$(BDSCOMMONDIR)\Styles\MicroCoinLight.vsf&quot;</Custom_Styles>
         <DCC_MapFile>3</DCC_MapFile>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -112,8 +112,8 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Build>2</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.2;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>4</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.4;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <VerInfo_Release>2</VerInfo_Release>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
@@ -130,8 +130,8 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.46;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>46</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.47;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>47</VerInfo_Build>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
         <VerInfo_Release>2</VerInfo_Release>
