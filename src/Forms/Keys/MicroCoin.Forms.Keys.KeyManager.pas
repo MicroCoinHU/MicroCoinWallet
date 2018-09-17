@@ -155,7 +155,7 @@ var
   xTop : Integer;
 begin
   if not UnlockWallet then exit;
-  if not Assigned( TWalletKey(keyList.FocusedNode.GetData^).PrivateKey) then exit;
+  if not Assigned( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey) then exit;
   ShowPrivateKey;
   if PrintDialog1.Execute(Self.Handle) then begin
 
@@ -528,7 +528,7 @@ var
   QRCodeBitmap: TBitmap;
 begin
   if keyList.FocusedNode = nil then exit;
-  if not Assigned( TWalletKey(keyList.FocusedNode.GetData^).PrivateKey) then exit;
+  if not Assigned( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey ) then exit;
   QRCode := TDelphiZXingQRCode.Create;
   try
     QRCodeBitmap := qrPrivate.Picture.Bitmap;
@@ -558,6 +558,7 @@ end;
 
 procedure TWalletKeysForm.cbShowPrivateClick(Sender: TObject);
 begin
+  UnlockWallet;
   qrPrivate.Visible := cbShowPrivate.Checked;
   ShowPrivateKey;
 end;

@@ -181,7 +181,6 @@ object WalletKeysForm: TWalletKeysForm
     OnFocusChanged = keyListFocusChanged
     OnGetText = keyListGetText
     OnInitNode = keyListInitNode
-    ExplicitLeft = -1
     Columns = <
       item
         Position = 0
@@ -232,8 +231,6 @@ object WalletKeysForm: TWalletKeysForm
     Caption = 'Panel1'
     ShowCaption = False
     TabOrder = 2
-    ExplicitLeft = 722
-    ExplicitTop = 49
     object qrPrivate: TImage
       AlignWithMargins = True
       Left = 10
@@ -324,9 +321,6 @@ object WalletKeysForm: TWalletKeysForm
       Caption = 'Show private key'
       TabOrder = 1
       OnClick = cbShowPrivateClick
-      ExplicitLeft = 3
-      ExplicitTop = 211
-      ExplicitWidth = 181
     end
   end
   object WalletKeyActions: TActionManager
