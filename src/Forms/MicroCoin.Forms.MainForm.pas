@@ -1033,7 +1033,9 @@ begin
     raise Exception.Create('Cannot create dir: ' + TFolderHelper.GetMicroCoinDataFolder);
   FAppSettings := TAppSettings.Create;
   FAppSettings.FileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'AppParams.prm';
+{$IFNDEF TESTNET}
   TStyleManager.TrySetStyle(FAppSettings.Entries[TAppSettingsEntry.apTheme].GetAsString('MicroCoin Light'), false);
+{$ENDIF}
   FNodeNotifyEvents := TNodeNotifyEvents.Create(Self);
   FNodeNotifyEvents.OnBlocksChanged := OnNewAccount;
   FNodeNotifyEvents.OnNodeMessageEvent := OnNodeMessageEvent;
@@ -1098,64 +1100,33 @@ begin
   try
     FreeAndNil(FRPCServer);
     FreeAndNil(FPoolMiningServer);
-    step := 'Saving params';
     SaveAppParams;
     FreeAndNil(FAppSettings);
-    //
-    step := 'Assigning nil events';
-
     FLog.OnNewLog := nil;
-    // FNodeNotifyEvents.Node := Nil;
-    // FOperationsAccountGrid.Node := Nil;
-    // FPendingOperationsGrid.Node := Nil;
-    // FAccountsGrid.Node := Nil;
-    // FSelectedAccountsGrid.Node := Nil;
     TConnectionManager.Instance.OnReceivedHelloMessage := nil;
     TConnectionManager.Instance.OnStatisticsChanged := nil;
     TConnectionManager.Instance.OnNetConnectionsUpdated := nil;
     TConnectionManager.Instance.OnNodeServersUpdated := nil;
     TConnectionManager.Instance.OnBlackListUpdated := nil;
-    //
-
-    step := 'Destroying NodeNotifyEvents';
     FreeAndNil(FNodeNotifyEvents);
-    //
-    step := 'Assigning Nil to TNetData';
     TConnectionManager.Instance.OnReceivedHelloMessage := nil;
     TConnectionManager.Instance.OnStatisticsChanged := nil;
-
-    step := 'Ordered Accounts Key list';
     FreeAndNil(FOrderedAccountsKeyList);
-
-    step := 'Desactivating Node';
-    // TNode.Node.NetServer.Active := false;
- 
-//    TConnectionManager.Instance.Free;
-
-    step := 'Processing messages 1';
     Application.ProcessMessages;
-
-    step := 'Destroying Node';
     TNode.FreeNode;
-    step := 'Destroying Wallet';
-//    FreeAndNil(TNode.Node.KeyManager);
-    step := 'Processing messages 2';
     Application.ProcessMessages;
-    step := 'Destroying stringslist';
     if Assigned(FAccounts)
     then FreeAndNil(FAccounts);
     TConnectionManager.ReleaseInstance;
-
   except
     on E: Exception do
     begin
-      TLog.NewLog(lterror, Classname, 'Error destroying Form step: ' + step + ' Errors (' + E.Classname + '): ' +
+      TLog.NewLog(lterror, Classname, 'Error destroying form. Errors (' + E.Classname + '): ' +
         E.Message);
     end;
   end;
   TLog.NewLog(ltinfo, Classname, 'Destroying form - END');
   FreeAndNil(FLog);
-  Sleep(100);
 end;
 
 procedure TMainForm.MultipleTransactionActionExecute(Sender: TObject);

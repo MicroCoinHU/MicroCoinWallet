@@ -56,7 +56,6 @@ object MainForm: TMainForm
         Width = 20
       end>
     OnDrawPanel = StatusBarDrawPanel
-    ExplicitTop = 538
   end
   object MainToolbar: TActionToolBar
     Left = 0
@@ -97,7 +96,6 @@ object MainForm: TMainForm
     BevelEdges = [beTop]
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitHeight = 481
     object Splitter1: TSplitter
       Left = 0
       Top = 450
@@ -117,7 +115,6 @@ object MainForm: TMainForm
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 402
       object ContentPanel: TPanel
         AlignWithMargins = True
         Left = 0
@@ -134,7 +131,6 @@ object MainForm: TMainForm
         Padding.Right = 10
         Padding.Bottom = 10
         TabOrder = 0
-        ExplicitHeight = 387
         object leftPanel: TPanel
           AlignWithMargins = True
           Left = 13
@@ -147,7 +143,6 @@ object MainForm: TMainForm
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitHeight = 377
           object Panel2: TPanel
             AlignWithMargins = True
             Left = 0
@@ -1043,7 +1038,6 @@ object MainForm: TMainForm
           BevelKind = bkSoft
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitHeight = 377
           object accountVList: TVirtualStringTree
             Left = 0
             Top = 90
@@ -1078,7 +1072,6 @@ object MainForm: TMainForm
             OnGetImageIndex = accountVListGetImageIndex
             OnInitNode = accountVListInitNode
             OnNodeDblClick = accountVListNodeDblClick
-            ExplicitHeight = 283
             Columns = <
               item
                 Alignment = taRightJustify
@@ -1202,7 +1195,6 @@ object MainForm: TMainForm
       Caption = 'logPanel'
       TabOrder = 1
       Visible = False
-      ExplicitTop = 405
       object bottomPageControl: TPageControl
         Left = 0
         Top = 0
@@ -1240,6 +1232,10 @@ object MainForm: TMainForm
         object activeConnectionsSheet: TTabSheet
           Caption = 'Active connections'
           ImageIndex = 4
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetConnections: TMemo
             Left = 0
             Top = 0
@@ -1257,6 +1253,10 @@ object MainForm: TMainForm
         object blackListedIPsSheet: TTabSheet
           Caption = 'Blacklisted IPs'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetBlackLists: TMemo
             Left = 0
             Top = 0
@@ -1273,6 +1273,10 @@ object MainForm: TMainForm
         object serversSheet: TTabSheet
           Caption = 'Servers'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetServers: TMemo
             Left = 0
             Top = 0
@@ -1289,6 +1293,10 @@ object MainForm: TMainForm
         object miscInfoSheet: TTabSheet
           Caption = 'Misc info'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object labelBlocksCountCaption: TLabel
             Left = 9
             Top = 5
