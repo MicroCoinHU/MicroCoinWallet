@@ -3,15 +3,18 @@ program MicroCoinWallet;
 {$IFDEF FPC}
   {$MODE Delphi}
 {$ENDIF}
+
 uses
   {$IFDEF DEBUG}
   FastMM4,
-  {$ENDIF}
+  {$ENDIF }
   windows,
   Forms,
   Classes,
   MicroCoin.Forms.MainForm,
-  sysutils;
+  sysutils,
+  Vcl.Themes,
+  Vcl.Styles;
 
 procedure GetBuildInfo(var V1, V2, V3, V4: word);
 var
@@ -63,6 +66,7 @@ begin
     DefaultFormatSettings.ThousandSeparator := ',';
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Ruby Graphite');
   Application.Title := 'MicroCoin Wallet - '+GetBuildInfoAsString{$IFDEF TESTNET}+' - TESTNET'{$ENDIF};
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
