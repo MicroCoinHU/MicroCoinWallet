@@ -129,7 +129,7 @@ begin
  if not TNode.Node.AddOperation(nil, xTransaction, xErrors) then begin
    MessageDlg(xErrors, mtError, [mbOK], 0);
  end else begin
-   MessageDlg(xErrors, mtInformation, [mbOK], 0);
+   MessageDlg('Transaction executed', mtInformation, [mbOK], 0);
  end;
 end;
 
