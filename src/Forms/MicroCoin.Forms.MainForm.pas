@@ -67,6 +67,7 @@ uses
   MicroCoin.Forms.Transaction.Explorer, MicroCoin.Forms.Common.Settings,
   MicroCoin.Net.Connection, MicroCoin.Net.Client, MicroCoin.Net.Statistics,
   MicroCoin.Forms.BuyAccount, MicroCoin.Transaction.ListAccount,
+  MicroCoin.Transaction.CreateSubAccount,
   MicroCoin.Forms.Transaction.History, MicroCoin.Forms.Keys.Keymanager, UITypes,
   SyncObjs, DelphiZXIngQRCode, ShellApi,
   Tabs, ExtActns, MicroCoin.Forms.SellAccount, MicroCoin.Account.Editors,
@@ -193,6 +194,7 @@ type
     Buy1: TMenuItem;
     N1: TMenuItem;
     N2: TMenuItem;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -252,6 +254,9 @@ type
     procedure cbForSaleClick(Sender: TObject);
     procedure CommunityActionExecute(Sender: TObject);
     procedure HomePageActionExecute(Sender: TObject);
+    procedure accountVListInitChildren(Sender: TBaseVirtualTree;
+      Node: PVirtualNode; var ChildCount: Cardinal);
+    procedure Button1Click(Sender: TObject);
   private
     FBackgroundPanel: TPanel;
     FMinersBlocksFound: Integer;
@@ -592,7 +597,7 @@ begin
     xPAccount := TAccount(Sender.GetNodeData(Node)^);
     case Column of
       0: CellText := TAccount.AccountNumberToAccountTxtNumber(xPAccount.AccountNumber);
-      1: CellText := xPAccount.name;
+      1: CellText := xPAccount.name {$IFDEF EXTENDEDACCOUNT} +' ' +IntToStr(xPAccount.ExtraData.DataType)+' '+BoolToStr(xPaccount.hasExtraData, true){$ENDIF};
       2: begin
            CellText := TCurrencyUtils.CurrencyToString(xPAccount.balance);
            if xPAccount.AccountInfo.state = as_ForSale then
@@ -600,7 +605,26 @@ begin
         end;
       3: CellText := xPAccount.n_operation.ToString;
     end;
+  end else begin
+  {$IFDEF EXTENDEDACCOUNT}
+    xPAccount := TAccount(Sender.GetNodeData(Node.Parent)^);
+    case Column of
+      0: CellText := TAccount.AccountNumberToAccountTxtNumber(xPAccount.AccountNumber) + '/' +IntToStr(Node.Index);
+      1: CellText := '';
+      2: CellText := TCurrencyUtils.CurrencyToString(xPAccount.SubAccounts[Node.Index].Balance);
+    end;
+  {$ENDIF}
   end;
+end;
+
+procedure TMainForm.accountVListInitChildren(Sender: TBaseVirtualTree;
+  Node: PVirtualNode; var ChildCount: Cardinal);
+begin
+  {$IFDEF EXTENDEDACCOUNT}
+  ChildCount := Length(TAccount(Node.GetData^).SubAccounts);
+  {$ELSE}
+  ChildCount := 0;
+  {$ENDIF}
 end;
 
 procedure TMainForm.accountVListInitNode(Sender: TBaseVirtualTree; ParentNode,
@@ -614,10 +638,18 @@ begin
   then xAccountNumber := FAccounts.Get(Node.Index)
   else xAccountNumber := Node.Index;
 
-  Node.CheckType := TCheckType.ctCheckBox;
+  if Sender.GetNodeLevel(Node) = 0
+  then Node.CheckType := TCheckType.ctCheckBox
+  else Node.CheckType := TCheckType.ctNone;
 
   xAccount := TNode.Node.Operations.AccountTransaction.Account(xAccountNumber);
+  {$IFDEF EXTENDEDACCOUNT}
+  if Sender.GetNodeLevel(Node) = 0 then begin
+    Sender.ChildCount[Node] := Length(xAccount.SubAccounts);
+  end else Sender.ChildCount[Node] := 0;
+  {$ENDIF}
   Sender.SetNodeData(Node, xAccount);
+
 end;
 
 procedure TMainForm.accountVListNodeDblClick(Sender: TBaseVirtualTree; const HitInfo: THitInfo);
@@ -729,6 +761,29 @@ end;
 procedure TMainForm.BlockExplorerActionExecute(Sender: TObject);
 begin
  TBlockChainExplorerForm.Create(nil).Show;
+end;
+
+procedure TMainForm.Button1Click(Sender: TObject);
+var
+  i: integer;
+  xErrors: AnsiString;
+  xTransaction: ITransaction;
+begin
+  i := TNode.Node.KeyManager.IndexOfAccountKey(
+      TAccount(accountVList.FocusedNode.GetData^).AccountInfo.AccountKey
+  );
+  xTransaction := TCreateSubAccountTransaction.Create(
+    TAccount(accountVList.FocusedNode.GetData^).AccountNumber,
+    0,
+    TAccount(accountVList.FocusedNode.GetData^).n_operation+1,
+    TNode.Node.KeyManager[i].PrivateKey,
+    TAccount(accountVList.FocusedNode.GetData^).AccountInfo.AccountKey,
+    10
+  );
+  if not TNode.Node.AddOperation(nil, xTransaction, xErrors) then begin
+    MessageDlg(xErrors, TMsgDlgType.mtError, [mbOK],0);
+    exit;
+  end;
 end;
 
 procedure TMainForm.BuyActionExecute(Sender: TObject);

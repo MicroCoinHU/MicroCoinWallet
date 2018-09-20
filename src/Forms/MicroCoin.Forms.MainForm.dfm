@@ -1026,6 +1026,15 @@ object MainForm: TMainForm
                 end>
               NoSizing = True
             end
+            object Button1: TButton
+              Left = 190
+              Top = 104
+              Width = 75
+              Height = 25
+              Caption = 'Button1'
+              TabOrder = 1
+              OnClick = Button1Click
+            end
           end
         end
         object rightPanel: TPanel
@@ -1063,13 +1072,14 @@ object MainForm: TMainForm
             TabOrder = 0
             TreeOptions.AutoOptions = [toAutoDropExpand, toAutoScrollOnExpand, toAutoSort, toAutoTristateTracking, toAutoDeleteMovedNodes, toAutoChangeScale, toDisableAutoscrollOnEdit]
             TreeOptions.MiscOptions = [toAcceptOLEDrop, toCheckSupport, toFullRepaintOnResize, toInitOnSave, toToggleOnDblClick, toWheelPanning]
-            TreeOptions.PaintOptions = [toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages, toStaticBackground]
+            TreeOptions.PaintOptions = [toHideFocusRect, toShowButtons, toShowDropmark, toShowHorzGridLines, toShowRoot, toShowTreeLines, toShowVertGridLines, toThemeAware, toUseBlendedImages, toStaticBackground]
             TreeOptions.SelectionOptions = [toFullRowSelect]
             OnChecked = accountVListChecked
             OnFocusChanged = accountVListFocusChanged
             OnFreeNode = accountVListFreeNode
             OnGetText = accountVListGetText
             OnGetImageIndex = accountVListGetImageIndex
+            OnInitChildren = accountVListInitChildren
             OnInitNode = accountVListInitNode
             OnNodeDblClick = accountVListNodeDblClick
             Columns = <
@@ -1232,10 +1242,6 @@ object MainForm: TMainForm
         object activeConnectionsSheet: TTabSheet
           Caption = 'Active connections'
           ImageIndex = 4
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetConnections: TMemo
             Left = 0
             Top = 0
@@ -1253,10 +1259,6 @@ object MainForm: TMainForm
         object blackListedIPsSheet: TTabSheet
           Caption = 'Blacklisted IPs'
           ImageIndex = 3
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetBlackLists: TMemo
             Left = 0
             Top = 0
@@ -1273,10 +1275,6 @@ object MainForm: TMainForm
         object serversSheet: TTabSheet
           Caption = 'Servers'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetServers: TMemo
             Left = 0
             Top = 0
@@ -1293,10 +1291,6 @@ object MainForm: TMainForm
         object miscInfoSheet: TTabSheet
           Caption = 'Misc info'
           ImageIndex = 2
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object labelBlocksCountCaption: TLabel
             Left = 9
             Top = 5

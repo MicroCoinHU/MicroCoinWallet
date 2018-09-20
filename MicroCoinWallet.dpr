@@ -14,7 +14,8 @@ uses
   MicroCoin.Forms.MainForm,
   sysutils,
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  MicroCoin.Transaction.CreateSubAccount in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.CreateSubAccount.pas';
 
 procedure GetBuildInfo(var V1, V2, V3, V4: word);
 var
@@ -66,7 +67,7 @@ begin
     DefaultFormatSettings.ThousandSeparator := ',';
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Ruby Graphite');
+  TStyleManager.TrySetStyle('MicroCoin Light');
   Application.Title := 'MicroCoin Wallet - '+GetBuildInfoAsString{$IFDEF TESTNET}+' - TESTNET'{$ENDIF};
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
