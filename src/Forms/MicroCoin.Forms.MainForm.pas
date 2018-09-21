@@ -292,14 +292,12 @@ type
     procedure OnNetNodeServersUpdated(Sender: TObject);
     procedure OnNetBlackListUpdated(Sender: TObject);
     procedure OnNodeMessageEvent(NetConnection: TNetConnection; MessageData: TRawBytes);
-    procedure OnSelectedAccountsGridUpdated(Sender: TObject);
     procedure OnMiningServerNewBlockFound(Sender: TObject);
     procedure UpdateConnectionStatus;
     procedure UpdateAccounts(RefreshData: Boolean);
     procedure UpdateBlockChainState;
     procedure UpdatePrivateKeys;
     procedure LoadAppParams;
-    procedure SaveAppParams;
     procedure UpdateConfigChanged;
     procedure UpdateNodeStatus;
     procedure Activate; override;
@@ -523,34 +521,34 @@ end;
 procedure TMainForm.accountVListFocusChanged(Sender: TBaseVirtualTree;
   Node: PVirtualNode; Column: TColumnIndex);
 var
-  QRCode: TDelphiZXingQRCode;
-  Row, Col: Integer;
-  QRCodeBitmap: TBitmap;
+  xQRCode: TDelphiZXingQRCode;
+  xRow, xCol: Integer;
+  xQRCodeBitmap: TBitmap;
 begin
   if Node=nil then exit;
-  QRCode := TDelphiZXingQRCode.Create;
+  xQRCode := TDelphiZXingQRCode.Create;
   try
-    QRCodeBitmap := QRCodeDisplay.Picture.Bitmap;
-    QRCode.Data :='{"account":"'+ TAccount.AccountNumberToAccountTxtNumber(TAccount(Node.GetData^).AccountNumber)+'","amount":"","payload":""}';
-    QRCode.Encoding := TQRCodeEncoding(qrISO88591);
-    QRCode.QuietZone := 1;
-    QRCodeBitmap.SetSize(QRCode.Rows, QRCode.Columns);
-    for Row := 0 to QRCode.Rows - 1 do
+    xQRCodeBitmap := QRCodeDisplay.Picture.Bitmap;
+    xQRCode.Data :='{"account":"'+ TAccount.AccountNumberToAccountTxtNumber(TAccount(Node.GetData^).AccountNumber)+'","amount":"","payload":""}';
+    xQRCode.Encoding := TQRCodeEncoding(qrISO88591);
+    xQRCode.QuietZone := 1;
+    xQRCodeBitmap.SetSize(xQRCode.Rows, xQRCode.Columns);
+    for xRow := 0 to xQRCode.Rows - 1 do
     begin
-      for Col := 0 to QRCode.Columns - 1 do
+      for xCol := 0 to xQRCode.Columns - 1 do
       begin
-        if (QRCode.IsBlack[Row, Col]) then
+        if (xQRCode.IsBlack[xRow, xCol]) then
         begin
-          QRCodeBitmap.Canvas.Pixels[Col, Row] := clBlack;
+          xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clBlack;
         end else
         begin
-          QRCodeBitmap.Canvas.Pixels[Col, Row] := clWhite;
+          xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clWhite;
         end;
       end;
     end;
-    QRCodeDisplay.Picture.Bitmap := QRCodeBitmap;
+    QRCodeDisplay.Picture.Bitmap := xQRCodeBitmap;
   finally
-    QRCode.Free;
+    xQRCode.Free;
   end;
 end;
 
@@ -1146,8 +1144,6 @@ begin
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
-var
-  step: string;
 begin
   Self.Hide;
   Application.ProcessMessages;
@@ -1155,7 +1151,6 @@ begin
   try
     FreeAndNil(FRPCServer);
     FreeAndNil(FPoolMiningServer);
-    SaveAppParams;
     FreeAndNil(FAppSettings);
     FLog.OnNewLog := nil;
     TConnectionManager.Instance.OnReceivedHelloMessage := nil;
@@ -1328,59 +1323,59 @@ end;
 procedure TMainForm.OnNetNodeServersUpdated(Sender: TObject);
 var
   i: Integer;
-  P: PNodeServerAddress;
+  xPNodeServerAddress: PNodeServerAddress;
   l: TList;
-  Strings: TStrings;
+  xStrings: TStrings;
   s: string;
 begin
   l := TConnectionManager.Instance.NodeServersAddresses.LockList;
   try
-    Strings := memoNetServers.Lines;
-    Strings.BeginUpdate;
+    xStrings := memoNetServers.Lines;
+    xStrings.BeginUpdate;
     try
-      Strings.Clear;
-      Strings.Add(Format(rsNodeServersU, [DateTimeToStr(now), IntToStr(l.Count)]));
+      xStrings.Clear;
+      xStrings.Add(Format(rsNodeServersU, [DateTimeToStr(now), IntToStr(l.Count)]));
       for i := 0 to l.Count - 1 do
       begin
-        P := l[i];
-        if not(P^.is_blacklisted) then
+        xPNodeServerAddress := l[i];
+        if not(xPNodeServerAddress^.is_blacklisted) then
         begin
-          s := Format(rsServerIPSD, [P^.ip, P^.Port]);
-          if Assigned(P.NetConnection) then
+          s := Format(rsServerIPSD, [xPNodeServerAddress^.ip, xPNodeServerAddress^.Port]);
+          if Assigned(xPNodeServerAddress.NetConnection) then
           begin
-            if P.last_connection > 0 then
+            if xPNodeServerAddress.last_connection > 0 then
               s := Format(rsACTIVE, [s])
             else
               s := Format(rsTRYINGTOCONN, [s]);
           end;
-          if P.its_myself then
+          if xPNodeServerAddress.its_myself then
           begin
-            s := Format(rsNOTVALID, [s, P.BlackListText]);
+            s := Format(rsNOTVALID, [s, xPNodeServerAddress.BlackListText]);
           end;
-          if P.last_connection > 0 then
+          if xPNodeServerAddress.last_connection > 0 then
           begin
             s := Format(rsLastConnecti,
-              [s, DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(P^.last_connection)))]);
+              [s, DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(xPNodeServerAddress^.last_connection)))]);
           end;
-          if P.last_connection_by_server > 0 then
+          if xPNodeServerAddress.last_connection_by_server > 0 then
           begin
             s := Format(rsLastServerCo,
-              [s, DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(P^.last_connection_by_server)))]);
+              [s, DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(xPNodeServerAddress^.last_connection_by_server)))]);
           end;
-          if (P.last_attempt_to_connect > 0) then
+          if (xPNodeServerAddress.last_attempt_to_connect > 0) then
           begin
-            s := Format(rsLastAttemptT, [s, DateTimeToStr(P^.last_attempt_to_connect)]);
+            s := Format(rsLastAttemptT, [s, DateTimeToStr(xPNodeServerAddress^.last_attempt_to_connect)]);
           end;
-          if (P.total_failed_attemps_to_connect > 0) then
+          if (xPNodeServerAddress.total_failed_attemps_to_connect > 0) then
           begin
-            s := Format(rsAttempts, [s, IntToStr(P^.total_failed_attemps_to_connect)]);
+            s := Format(rsAttempts, [s, IntToStr(xPNodeServerAddress^.total_failed_attemps_to_connect)]);
           end;
 
-          Strings.Add(s);
+          xStrings.Add(s);
         end;
       end;
     finally
-      Strings.EndUpdate;
+      xStrings.EndUpdate;
     end;
   finally
     TConnectionManager.Instance.NodeServersAddresses.UnlockList;
@@ -1409,13 +1404,13 @@ end;
 procedure TMainForm.OnNewLog(logtype: TLogType; Time: TDateTime; ThreadID: Cardinal;
   const Sender, logtext: AnsiString);
 var
-  s: AnsiString;
+  xThreadId: AnsiString;
 begin
    if (logtype=ltdebug) then exit;
   if ThreadID = MainThreadID then
-    s := ' MAIN:'
+    xThreadId := ' MAIN:'
   else
-    s := ' TID:';
+    xThreadId := ' TID:';
   if logDisplay.Lines.Count > 300 then
   begin
     logDisplay.Lines.BeginUpdate;
@@ -1478,26 +1473,22 @@ end;
 
 procedure TMainForm.OnReceivedHelloMessage(Sender: TObject);
 var
-  nsarr: TNodeServerAddressArray;
+  xNodeServerArray: TNodeServerAddressArray;
   i: Integer;
   s: AnsiString;
 begin
   // CheckMining;
   // Update node servers Peer Cache
-  nsarr := TConnectionManager.Instance.GetValidNodeServers(true, 0);
+  xNodeServerArray := TConnectionManager.Instance.GetValidNodeServers(true, 0);
   s := '';
-  for i := low(nsarr) to high(nsarr) do
+  for i := low(xNodeServerArray) to high(xNodeServerArray) do
   begin
     if (s <> '') then
       s := s + ';';
-    s := s + nsarr[i].ip + ':' + IntToStr(nsarr[i].Port);
+    s := s + xNodeServerArray[i].ip + ':' + IntToStr(xNodeServerArray[i].Port);
   end;
   FAppSettings.Entries[TAppSettingsEntry.apPeerCache].SetAsString(s);
   TNode.Node.PeerCache := s;
-end;
-
-procedure TMainForm.OnSelectedAccountsGridUpdated(Sender: TObject);
-begin
 end;
 
 procedure TMainForm.OnWalletChanged(Sender: TObject);
@@ -1525,7 +1516,6 @@ end;
 
 procedure TMainForm.TransactionsActionExecute(Sender: TObject);
 begin
-//  TTransactionHistory.Create(Self, TNode.Node, FWalletKeys, FAppParams).Show;
   TTransactionExplorer.Create(nil).Show;
 end;
 
@@ -1536,32 +1526,28 @@ begin
   end;
 end;
 
-procedure TMainForm.SaveAppParams;
-begin
-end;
-
 procedure TMainForm.SelectAllActionExecute(Sender: TObject);
 var
-  Node: PVirtualNode;
-  allAmount : UInt64;
+  xNode: PVirtualNode;
+  xAllAmount : UInt64;
 begin
-  allAmount := 0;
+  xAllAmount := 0;
   accountVList.BeginUpdate;
   try
-    Node := accountVList.GetFirst;
-    while Assigned(Node) do
+    xNode := accountVList.GetFirst;
+    while Assigned(xNode) do
     begin
       if SelectAllAction.Checked
       then begin
-         Node.CheckState := TCheckState.csCheckedNormal;
-         allAmount := allAmount + TAccount(Node.GetData()^).balance;
+         xNode.CheckState := TCheckState.csCheckedNormal;
+         xAllAmount := xAllAmount + TAccount(xNode.GetData()^).balance;
       end
-      else Node.CheckState := TCheckState.csUncheckedNormal;
-      Node := accountVList.GetNextSibling(Node);
+      else xNode.CheckState := TCheckState.csUncheckedNormal;
+      xNode := accountVList.GetNextSibling(xNode);
     end;
     if SelectAllAction.Checked then begin
       amountEdit.ReadOnly := true;
-      amountEdit.Text := TCurrencyUtils.CurrencyToString(allAmount);
+      amountEdit.Text := TCurrencyUtils.CurrencyToString(xAllAmount);
       amountEdit.readOnly := True;
     end else begin
       amountEdit.Clear;
@@ -1735,22 +1721,22 @@ procedure TMainForm.StatusBarDrawPanel(StatusBar: TStatusBar;
 var
   xText : string;
   xIndex: integer;
-  R : TRect;
+  xRect : TRect;
   xDetails : TThemedElementDetails;
 begin
   StatusBar.Canvas.Font.Color := StyleServices.GetSystemColor(clWindowText);
   xDetails := StyleServices.GetElementDetails(tsPane);
   if Panel.Index = 0 then begin
-    R := Rect;
-    R.Left := R.Left + 3;
-    R.Top := R.Top+1;
-    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, R, miscIcons.Handle, 3);
-    R.Left := R.Left + 23;
-    R.Top := R.Top;
+    xRect := Rect;
+    xRect.Left := xRect.Left + 3;
+    xRect.Top := xRect.Top+1;
+    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, xRect, miscIcons.Handle, 3);
+    xRect.Left := xRect.Left + 23;
+    xRect.Top := xRect.Top;
     if TNode.Node.NetServer.Active
     then xText := 'Active'
     else xText := 'Stopped';
-    StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, R, [tfLeft] , StatusBar.Canvas.Font.Color);
+    StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, xRect, [tfLeft] , StatusBar.Canvas.Font.Color);
   end;
   if Panel.Index = 1 then begin
 
@@ -1758,26 +1744,26 @@ begin
     then xIndex := 2
     else xIndex := 1;
 
-    R := Rect;
-    R.Left := R.Left + 3;
-    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, R, miscIcons.Handle, xIndex);
-    R.Left := R.Left + 23;
-    R.Top := R.Top;
+    xRect := Rect;
+    xRect.Left := xRect.Left + 3;
+    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, xRect, miscIcons.Handle, xIndex);
+    xRect.Left := xRect.Left + 23;
+    xRect.Top := xRect.Top;
     xText := Format('%d clients | %d servers', [TConnectionManager.Instance.NetStatistics.ClientsConnections, TConnectionManager.Instance.NetStatistics.ServersConnections]);
-    StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, R, [tfLeft] , StatusBar.Canvas.Font.Color);
+    StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, xRect, [tfLeft] , StatusBar.Canvas.Font.Color);
   end;
 
  if Panel.Index = 2 then begin
 
-    R := Rect;
-    R.Left := R.Left + 3;
-    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, R, miscIcons.Handle, 6);
-    R.Left := R.Left + 23;
-    R.Top := R.Top;
+    xRect := Rect;
+    xRect.Left := xRect.Left + 3;
+    StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, xRect, miscIcons.Handle, 6);
+    xRect.Left := xRect.Left + 23;
+    xRect.Top := xRect.Top;
     xText := Format('Traffic: %.0n Kb | %.0n Kb',
       [TConnectionManager.Instance.NetStatistics.BytesReceived/1024,
        TConnectionManager.Instance.NetStatistics.BytesSend/1024]);
-       StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, R, [tfLeft] , StatusBar.Canvas.Font.Color);
+       StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, xRect, [tfLeft] , StatusBar.Canvas.Font.Color);
   end;
   if Panel.Index = 5 then begin
     bShowLogs.Top := Rect.Top;
@@ -1814,7 +1800,7 @@ procedure TMainForm.UpdateAccounts(RefreshData: Boolean);
 var
   l: TOrderedList;
   i, j, k: Integer;
-  acc: TAccount;
+  xAccount: TAccount;
 begin
 
   if not assigned(FAccounts)
@@ -1832,9 +1818,9 @@ begin
     end else begin
       for i := 0 to TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount-1
       do begin
-        acc := TNode.Node.Operations.AccountTransaction.Account(i);
-        if acc.AccountInfo.state = as_ForSale
-        then FAccounts.Add(acc.AccountNumber);
+        xAccount := TNode.Node.Operations.AccountTransaction.Account(i);
+        if xAccount.AccountInfo.state = as_ForSale
+        then FAccounts.Add(xAccount.AccountNumber);
       end;
      accountVList.RootNodeCount := FAccounts.Count;
     end;
@@ -1846,11 +1832,11 @@ begin
         if (j>=0) then begin
           l := FOrderedAccountsKeyList.AccountList[j];
           for k := 0 to l.Count - 1 do begin
-            acc := TNode.Node.Operations.AccountTransaction.Account(l.Get(k));
+            xAccount := TNode.Node.Operations.AccountTransaction.Account(l.Get(k));
             if cbForSale.Checked
-            then if acc.AccountInfo.state <> as_ForSale then continue;
+            then if xAccount.AccountInfo.state <> as_ForSale then continue;
             FAccounts.Add(l.Get(k));
-            FTotalAmount := FTotalAmount + acc.balance;
+            FTotalAmount := FTotalAmount + xAccount.balance;
           end;
         end;
       end;
@@ -1861,11 +1847,11 @@ begin
         if (j>=0) then begin
           l := FOrderedAccountsKeyList.AccountList[j];
           for k := 0 to l.Count - 1 do begin
-            acc := TNode.Node.Operations.AccountTransaction.Account(l.Get(k));
+            xAccount := TNode.Node.Operations.AccountTransaction.Account(l.Get(k));
             if cbForSale.Checked
-            then if acc.AccountInfo.state <> as_ForSale then continue;
+            then if xAccount.AccountInfo.state <> as_ForSale then continue;
             FAccounts.Add(l.Get(k));
-            FTotalAmount := FTotalAmount + acc.balance;
+            FTotalAmount := FTotalAmount + xAccount.balance;
           end;
         end;
       end;
@@ -1881,7 +1867,7 @@ end;
 procedure TMainForm.UpdateBlockChainState;
 var
   F, favg: real;
-  isMining: boolean;
+  xIsMining: boolean;
 begin
   UpdateNodeStatus;
   if true then
@@ -1938,7 +1924,7 @@ begin
   end
   else
   begin
-    isMining := false;
+    xIsMining := false;
     StatusBar.Panels[3].Text := '';
     lblCurrentBlock.Caption := '';
     lblCurrentAccounts.Caption := '';
@@ -1976,7 +1962,7 @@ end;
 
 procedure TMainForm.UpdateConfigChanged;
 var
-  wa: Boolean;
+  xIsNetServerActive: Boolean;
   i: Integer;
 begin
   FLog.OnNewLog := OnNewLog;
@@ -1993,9 +1979,9 @@ begin
     FLog.SaveTypes := [];
     FLog.FileName := '';
   end;
-  wa := TNode.Node.NetServer.Active;
+  xIsNetServerActive := TNode.Node.NetServer.Active;
   TNode.Node.NetServer.Port := FAppSettings.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(CT_NetServer_Port);
-  TNode.Node.NetServer.Active := wa;
+  TNode.Node.NetServer.Active := xIsNetServerActive;
   TNode.Node.Operations.BlockPayload := FAppSettings.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
   TNode.Node.NodeLogFilename := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'blocks.log';
   if Assigned(FPoolMiningServer) then
@@ -2025,11 +2011,11 @@ end;
 
 procedure TMainForm.UpdateConnectionStatus;
 var
-  errors: AnsiString;
+  xErrors: AnsiString;
 begin
   UpdateNodeStatus;
   OnNetStatisticsChanged(nil);
-  if TNode.Node.IsBlockChainValid(errors) then
+  if TNode.Node.IsBlockChainValid(xErrors) then
   begin
     StatusBar.Panels[4].Text := 'Last block: ' + UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
   end
@@ -2041,9 +2027,9 @@ end;
 
 procedure TMainForm.UpdateNodeStatus;
 var
-  status: AnsiString;
+  xStatus: AnsiString;
 begin
-  if TNode.Node.isready(status) then
+  if TNode.Node.isready(xStatus) then
   begin
     if TConnectionManager.Instance.NetStatistics.ActiveConnections > 0 then
     begin
@@ -2070,7 +2056,7 @@ begin
   else
   begin
     lblNodeStatus.Font.Color := clRed;
-    lblNodeStatus.Caption := status;
+    lblNodeStatus.Caption := xStatus;
   end;
   if Assigned(FBackgroundPanel) then
   begin
@@ -2093,7 +2079,7 @@ end;
 procedure TMainForm.UpdatePrivateKeys;
 var
   i, last_i: Integer;
-  wk: TWalletKey;
+  xWalletKey: TWalletKey;
   s: AnsiString;
 begin
   if (not Assigned(FOrderedAccountsKeyList)) then
@@ -2109,20 +2095,20 @@ begin
     cbMyPrivateKeys.Items.Clear;
     for i := 0 to TNode.Node.KeyManager.Count - 1 do
     begin
-      wk := TNode.Node.KeyManager.Key[i];
+      xWalletKey := TNode.Node.KeyManager.Key[i];
       if Assigned(FOrderedAccountsKeyList) then
       begin
-        FOrderedAccountsKeyList.AddAccountKey(wk.AccountKey);
+        FOrderedAccountsKeyList.AddAccountKey(xWalletKey.AccountKey);
       end;
-      if (wk.name = '') then
+      if (xWalletKey.name = '') then
       begin
-        s := 'Sha256=' + TCrypto.ToHexaString(TCrypto.DoSha256(wk.AccountKey.ToRawString));
+        s := 'Sha256=' + TCrypto.ToHexaString(TCrypto.DoSha256(xWalletKey.AccountKey.ToRawString));
       end
       else
       begin
-        s := wk.name;
+        s := xWalletKey.name;
       end;
-      if not Assigned(wk.PrivateKey) then
+      if not Assigned(xWalletKey.PrivateKey) then
         s := s + '(*)';
       cbMyPrivateKeys.Items.AddObject(s, TObject(i));
     end;
@@ -2143,15 +2129,15 @@ end;
 
 procedure TMainForm.SendUpdate(Sender: TObject);
 var
-  temp : Cardinal;
-  temp2: Int64;
+  xTemp : Cardinal;
+  xTemp2: Int64;
   xIsReady: AnsiString;
 begin
   Send.Enabled := (accountVList.FocusedNode <> nil)
     and TNode.Node.IsReady(xIsReady)
-    and TAccount.AccountTxtNumberToAccountNumber(targetAccountEdit.AccountNumber, temp)
-    and TCurrencyUtils.ParseValue(amountEdit.Text, temp2)
-    and TCurrencyUtils.ParseValue(feeEdit.Text, temp2);
+    and TAccount.AccountTxtNumberToAccountNumber(targetAccountEdit.AccountNumber, xTemp)
+    and TCurrencyUtils.ParseValue(amountEdit.Text, xTemp2)
+    and TCurrencyUtils.ParseValue(feeEdit.Text, xTemp2);
 end;
 
 initialization

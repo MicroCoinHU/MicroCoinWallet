@@ -91,15 +91,15 @@ procedure TAccountSelectDialog.accountVListGetText(Sender: TBaseVirtualTree;
   Node: PVirtualNode; Column: TColumnIndex; TextType: TVSTTextType;
   var CellText: string);
 var
-  Pa : PAccount;
+  xPa : PAccount;
 begin
   if Sender.GetNodeLevel(Node) = 0 then begin
-    Pa := Sender.GetNodeData(Node);
+    xPa := Sender.GetNodeData(Node);
     case Column of
-      0: CellText := string(TAccount.AccountNumberToAccountTxtNumber(pa.AccountNumber));
-      1: CellText := string(Pa.name);
-      2: CellText := string(TCurrencyUtils.CurrencyToString(Pa.balance));
-      3: CellText := Pa.n_operation.ToString;
+      0: CellText := string(TAccount.AccountNumberToAccountTxtNumber(xPa.AccountNumber));
+      1: CellText := string(xPa.name);
+      2: CellText := string(TCurrencyUtils.CurrencyToString(xPa.balance));
+      3: CellText := xPa.n_operation.ToString;
     end;
   end;
 end;
@@ -107,16 +107,16 @@ end;
 procedure TAccountSelectDialog.accountVListInitNode(Sender: TBaseVirtualTree;
   ParentNode, Node: PVirtualNode; var InitialStates: TVirtualNodeInitStates);
 var
-  account : TAccount;
+  xAccount : TAccount;
 begin
   if cbMyAccounts.Checked or cbForSale.Checked then
   begin
-    account := TNode.Node.Operations.BlockManager.AccountStorage.Account(FAccounts.Get(Node.Index));
+    xAccount := TNode.Node.Operations.BlockManager.AccountStorage.Account(FAccounts.Get(Node.Index));
   end
   else begin
-    account := TNode.Node.Operations.BlockManager.AccountStorage.Account(Node.Index);
+    xAccount := TNode.Node.Operations.BlockManager.AccountStorage.Account(Node.Index);
   end;
-  Sender.SetNodeData(Node, account);
+  Sender.SetNodeData(Node, xAccount);
 end;
 
 procedure TAccountSelectDialog.accountVListNodeDblClick(

@@ -1225,7 +1225,7 @@ object MainForm: TMainForm
             Align = alClient
             BevelOuter = bvNone
             BorderStyle = bsNone
-            Font.Charset = EASTEUROPE_CHARSET
+            Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
@@ -1242,6 +1242,10 @@ object MainForm: TMainForm
         object activeConnectionsSheet: TTabSheet
           Caption = 'Active connections'
           ImageIndex = 4
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetConnections: TMemo
             Left = 0
             Top = 0
@@ -1259,6 +1263,10 @@ object MainForm: TMainForm
         object blackListedIPsSheet: TTabSheet
           Caption = 'Blacklisted IPs'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetBlackLists: TMemo
             Left = 0
             Top = 0
@@ -1275,6 +1283,10 @@ object MainForm: TMainForm
         object serversSheet: TTabSheet
           Caption = 'Servers'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetServers: TMemo
             Left = 0
             Top = 0
@@ -1291,6 +1303,10 @@ object MainForm: TMainForm
         object miscInfoSheet: TTabSheet
           Caption = 'Misc info'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object labelBlocksCountCaption: TLabel
             Left = 9
             Top = 5
