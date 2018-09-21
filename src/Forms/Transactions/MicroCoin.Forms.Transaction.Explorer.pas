@@ -29,11 +29,11 @@ unit MicroCoin.Forms.Transaction.Explorer;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, System.Actions,
-  Vcl.ActnList, Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan,
-  System.ImageList, Vcl.ImgList, PngImageList, Vcl.StdCtrls, Vcl.Buttons,
-  PngBitBtn, Vcl.ExtCtrls, PngSpeedButton;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, VirtualTrees, System.Actions,
+  ActnList, PlatformDefaultStyleActnCtrls, ActnMan,
+  System.ImageList, ImgList, PngImageList, StdCtrls, Buttons,
+  PngBitBtn, ExtCtrls, PngSpeedButton;
 type
   TTransactionExplorer = class(TForm)
     transactionListView: TVirtualStringTree;

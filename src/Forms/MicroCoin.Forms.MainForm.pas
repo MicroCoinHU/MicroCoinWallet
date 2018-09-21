@@ -28,7 +28,7 @@
 |==============================================================================|
 | File:       MicroCoin.Forms.MainForm.pas                                     |
 | Created at: 2018-09-11                                                       |
-| Purpose:    Wallet Main form                                                 |
+| Purpose:    Wallet Main Form                                                 |
 |==============================================================================}
 
 unit MicroCoin.Forms.MainForm;
@@ -517,11 +517,11 @@ begin
     xPAccount := TAccount(Sender.GetNodeData(Node)^);
     case Column of
       0: CellText := TAccount.AccountNumberToAccountTxtNumber(xPAccount.AccountNumber);
-      1: CellText := xPAccount.name {$IFDEF EXTENDEDACCOUNT} +' ' +IntToStr(xPAccount.ExtraData.DataType)+' '+BoolToStr(xPaccount.hasExtraData, true){$ENDIF};
+      1: CellText := xPAccount.name;
       2: begin
            CellText := TCurrencyUtils.CurrencyToString(xPAccount.balance);
-           if xPAccount.AccountInfo.state = as_ForSale then
-           CellText := CellText + ' ('+TCurrencyUtils.CurrencyToString(xPAccount.AccountInfo.price)+')';
+           if xPAccount.AccountInfo.state = as_ForSale
+           then CellText := CellText + ' ('+TCurrencyUtils.CurrencyToString(xPAccount.AccountInfo.price)+')';
         end;
       3: CellText := xPAccount.numberOfTransactions.ToString;
     end;

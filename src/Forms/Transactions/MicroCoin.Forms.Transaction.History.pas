@@ -30,9 +30,10 @@ unit MicroCoin.Forms.Transaction.History;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees,
-  MicroCoin.Account.Data, MicroCoin.Transaction.Base, MicroCoin.Transaction.TransactionList,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, VirtualTrees,
+  MicroCoin.Account.Data, MicroCoin.Transaction.Base,
+  MicroCoin.Transaction.TransactionList,
   MicroCoin.Node.Events;
 
 type

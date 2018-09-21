@@ -30,12 +30,12 @@ unit MicroCoin.Forms.ChangeAccountKey;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, PngBitBtn,
-  Vcl.ExtCtrls, MicroCoin.Account.Editors, MicroCoin.Account.AccountKey, UCrypto,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, StdCtrls, Buttons, PngBitBtn,
+  ExtCtrls, MicroCoin.Account.Editors, MicroCoin.Account.AccountKey, UCrypto,
   MicroCoin.Common, MicroCoin.Account.Data, MicroCoin.Transaction.ChangeKey,
-  MicroCoin.Node.Node,
-  MicroCoin.Transaction.Base, MicroCoin.Transaction.ITransaction, MicroCoin.Transaction.Transaction;
+  MicroCoin.Node.Node, MicroCoin.Transaction.Base,
+  MicroCoin.Transaction.ITransaction, MicroCoin.Transaction.Transaction;
 
 type
   TChangeAccountKeyForm = class(TForm)
@@ -87,30 +87,30 @@ begin
 
   while not TNode.Node.KeyManager.IsValidPassword
   do begin
-   if not InputQuery('Unlock wallet', [#30+'Password:'], xPassword) then exit;
-   TNode.Node.KeyManager.WalletPassword := xPassword;
+    if not InputQuery('Unlock wallet', [#30+'Password:'], xPassword) then exit;
+    TNode.Node.KeyManager.WalletPassword := xPassword;
   end;
 
- if not TAccountKey.AccountKeyFromImport(edNewPublicKey.Text, xNewkey, xErrors) then
- begin
-   MessageDlg('Invalid key: ' + xErrors, mtError, [mbOK],0);
-   exit;
- end;
+  if not TAccountKey.AccountKeyFromImport(edNewPublicKey.Text, xNewkey, xErrors) then
+  begin
+    MessageDlg('Invalid key: ' + xErrors, mtError, [mbOK],0);
+    exit;
+  end;
 
- if not TCurrencyUtils.ParseValue(edFee.Text, xFee) then begin
+  if not TCurrencyUtils.ParseValue(edFee.Text, xFee) then begin
    MessageDlg('Invalid fee', mtError, [mbOk], 0);
    exit;
- end;
+  end;
 
- xIndex := TNode.Node.KeyManager.IndexOfAccountKey(Account.AccountInfo.AccountKey);
- if xIndex<0 then begin
+  xIndex := TNode.Node.KeyManager.IndexOfAccountKey(Account.AccountInfo.AccountKey);
+  if xIndex<0 then begin
    MessageDlg('Key not found', mtError, [mbOk], 0);
    exit;
- end;
+  end;
 
- xSignerAccount := edSignerAccount.Account;
+  xSignerAccount := edSignerAccount.Account;
 
- if Trim(edPayload.Text)<>'' then begin
+  if Trim(edPayload.Text)<>'' then begin
     case cbEncryptMode.ItemIndex of
       0: xPayload := edPayload.Text;
       1: xPayload := ECIESEncrypt(account.AccountInfo.AccountKey, xPayload);
@@ -119,18 +119,19 @@ begin
     end;
   end else xPayload := '';
 
- xTransaction := TChangeKeyTransaction.Create(xSignerAccount.AccountNumber, xSignerAccount.numberOfTransactions+1, Account.AccountNumber,
+  xTransaction := TChangeKeyTransaction.Create(xSignerAccount.AccountNumber, xSignerAccount.numberOfTransactions+1, Account.AccountNumber,
          TNode.Node.KeyManager.Key[xIndex].PrivateKey,
          xNewkey, xFee, xPayload);
 
- if MessageDlg('Do you want execute this transaction: '+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
- then exit;
+  if MessageDlg('Do you want execute this transaction: '+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
+  then exit;
 
- if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
-   MessageDlg(xErrors, mtError, [mbOK], 0);
- end else begin
-   MessageDlg('Transaction executed', mtInformation, [mbOK], 0);
- end;
+  if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
+    MessageDlg(xErrors, mtError, [mbOK], 0);
+  end else begin
+    MessageDlg('Transaction executed', mtInformation, [mbOK], 0);
+  end;
+
 end;
 
 procedure TChangeAccountKeyForm.cbEncryptModeChange(Sender: TObject);

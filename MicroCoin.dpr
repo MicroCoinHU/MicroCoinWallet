@@ -35,7 +35,7 @@ program MicroCoin;
 {$R *.res}
 
 uses
-  FastCode, SysUtils, MicroCoin.Console.Application;
+  SysUtils, MicroCoin.Console.Application;
 
   var
     C: Char;

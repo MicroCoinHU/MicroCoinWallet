@@ -30,9 +30,9 @@ unit MicroCoin.Forms.BuyAccount;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, PngBitBtn,
-  Vcl.ExtCtrls, MicroCoin.Account.Editors, MicroCoin.Common, MicroCoin.Account.Data,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, StdCtrls, Buttons, PngBitBtn,
+  ExtCtrls, MicroCoin.Account.Editors, MicroCoin.Common, MicroCoin.Account.Data,
   MicroCoin.Account.AccountKey, UCrypto, MicroCoin.Transaction.ITransaction,
   MicroCoin.Keys.KeyManager, UWalletKeys,
   MicroCoin.Transaction.TransferMoney, MicroCoin.Node.Node;

@@ -20,9 +20,9 @@
 | FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER          |
 | DEALINGS IN THE SOFTWARE.                                                    |
 |==============================================================================|
-| File:       MicroCoin.Forms.Keys.KeyManager.pas
-| Created at: 2018-09-11
-| Purpose:    Wallet key manager dialog
+| File:       MicroCoin.Forms.Keys.KeyManager.pas                              |
+| Created at: 2018-09-11                                                       |
+| Purpose:    Wallet key manager dialog                                        |
 |==============================================================================}
 
 unit MicroCoin.Forms.Keys.KeyManager;

@@ -30,8 +30,8 @@ unit MicroCoin.Forms.SellAccount;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, StdCtrls, ExtCtrls, Buttons,
   PngBitBtn, MicroCoin.Forms.AccountSelectDialog,
   MicroCoin.Node.Node, MicroCoin.Account.AccountKey,
   MicroCoin.Account.Data, MicroCoin.Common, UCrypto,
