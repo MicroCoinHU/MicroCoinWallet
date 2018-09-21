@@ -99,7 +99,7 @@ begin
       0: CellText := string(TAccount.AccountNumberToAccountTxtNumber(xPa.AccountNumber));
       1: CellText := string(xPa.name);
       2: CellText := string(TCurrencyUtils.CurrencyToString(xPa.balance));
-      3: CellText := xPa.n_operation.ToString;
+      3: CellText := xPa.numberOfTransactions.ToString;
     end;
   end;
 end;

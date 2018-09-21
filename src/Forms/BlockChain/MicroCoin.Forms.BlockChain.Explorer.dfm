@@ -38,7 +38,6 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
     OnFreeNode = blockListViewFreeNode
     OnGetText = blockListViewGetText
     OnInitNode = blockListViewInitNode
-    ExplicitWidth = 1117
     Columns = <
       item
         Alignment = taRightJustify
@@ -116,7 +115,6 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitWidth = 893
     DesignSize = (
       957
       41)

@@ -385,15 +385,25 @@ var
   xData: array[0..2] of string;
   xResult: TECPrivateKey;
 begin
-  if not UnlockWallet then exit;
+  if not UnlockWallet
+  then exit;
+
   if not InputQuery('Import private key', ['Name', 'Private key', #30+'Password'], xData )
   then exit;
+
   xData[0] := trim(xData[0]);
   xData[1] := trim(xData[1]);
   xData[2] := trim(xData[2]);
-  if xData[1] = '' then exit;
+
+  if xData[1] = ''
+  then exit;
+
+  if xData[0] = ''
+  then xData[0] := DateTimeToStr(Now);
+
   xEncodedKey := TCrypto.HexaToRaw(xData[1]);
-  if xEncodedKey = '' then begin
+  if xEncodedKey = ''
+  then begin
     MessageDlg('Invalid key', mtError, [mbOk], 0);
     exit;
   end;
@@ -404,16 +414,15 @@ begin
        65,66: xResult := ParseRawKey(CT_NID_secp521r1, xEncodedKey);
        64, 80, 96: xResult := ParseEncryptedKey(xData[2], xEncodedKey);
        else begin
-          MessageDlg('Invalid key', mtError, [mbOk], 0);
-          exit;
+         MessageDlg('Invalid key', mtError, [mbOk], 0);
+         exit;
        end;
   end;
-  if xResult = nil then begin
+  if xResult = nil
+  then begin
     MessageDlg('Invalid key or password', mtError, [mbOk], 0);
     exit;
   end;
-  if xData[0] = ''
-  then xData[0] := DateTimeToStr(Now);
   TNode.Node.KeyManager.AddPrivateKey(xData[0], xResult);
   keyList.RootNodeCount := TNode.Node.KeyManager.Count;
   keyList.ReinitNode(nil, true);
@@ -527,8 +536,10 @@ var
   xRow, xCol: Integer;
   xQRCodeBitmap: TBitmap;
 begin
-  if keyList.FocusedNode = nil then exit;
-  if not Assigned( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey ) then exit;
+  if keyList.FocusedNode = nil
+  then exit;
+  if not Assigned( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey )
+  then exit;
   xQRCode := TDelphiZXingQRCode.Create;
   try
     xQRCodeBitmap := qrPrivate.Picture.Bitmap;

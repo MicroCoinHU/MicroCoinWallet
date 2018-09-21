@@ -190,9 +190,9 @@ begin
          exit;
        end;
 
-  xTransaction := TOpListAccountForSale.CreateListAccountForSale(
+  xTransaction := TListAccountForSaleTransaction.CreateListAccountForSale(
           edSignerAccount.Account.AccountNumber,
-          edSignerAccount.Account.n_operation+1,
+          edSignerAccount.Account.numberOfTransactions+1,
           FAccount.AccountNumber, xPrice, xFee, edSellerAccount.Account.AccountNumber,
           xNewkey, xBlock, xPrivateKey, xPayload);
 

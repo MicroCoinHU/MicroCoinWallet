@@ -111,7 +111,7 @@ begin
   xNewkey := TNode.Node.KeyManager[Integer(cbKey.Items.Objects[cbKey.ItemIndex])].AccountKey;
   xTransaction := TBuyAccountTransaction.CreateBuy(
           edSignerAccount.Account.AccountNumber,
-          edSignerAccount.Account.n_operation+1,
+          edSignerAccount.Account.numberOfTransactions+1,
           Account.AccountNumber,
           Account.AccountInfo.account_to_pay,
           Account.AccountInfo.price,

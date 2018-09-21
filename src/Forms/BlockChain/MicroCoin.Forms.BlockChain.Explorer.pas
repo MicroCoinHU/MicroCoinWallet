@@ -152,8 +152,8 @@ begin
     xData^.Reward := xBlock.BlockHeader.reward;
     for i := 0 to xBlock.Count - 1
     do begin
-     xData^.Amount := xData.Amount + Abs(xBlock.Operation[i].Amount);
-     xData^.Fee := xData.Fee + Abs(xBlock.Operation[i].Fee);
+     xData^.Amount := xData.Amount + Abs(xBlock.Transaction[i].Amount);
+     xData^.Fee := xData.Fee + Abs(xBlock.Transaction[i].Fee);
     end;
     xData^.Total := xData.Amount + xData.Fee;
     xData^.Difficulty := xBlock.BlockHeader.compact_target;

@@ -83,7 +83,7 @@ end;
 procedure TTransactionHistoryForm.FormCreate(Sender: TObject);
 begin
   transactionListView.NodeDataSize := sizeof(TTransactionData);
-  transactionListView.RootNodeCount := TNode.Node.Operations.OperationsHashTree.OperationsCount;
+  transactionListView.RootNodeCount := TNode.Node.Operations.TransactionHashTree.TransactionCount;
   FNodenotifyEvent := TNodeNotifyEvents.Create(self);
   FNodenotifyEvent.OnOperationsChanged := Refresh;
 end;
@@ -100,7 +100,7 @@ end;
 
 procedure TTransactionHistoryForm.Refresh(Sender: TObject);
 begin
-  transactionListView.RootNodeCount := TNode.Node.Operations.OperationsHashTree.OperationsCount;
+  transactionListView.RootNodeCount := TNode.Node.Operations.TransactionHashTree.TransactionCount;
   transactionListView.ReinitNode(nil, true);
 end;
 
@@ -109,7 +109,7 @@ begin
   FAccount := Value;
   if Assigned(FAccountTransactionList) then FreeAndNil(FAccountTransactionList);
   FAccountTransactionList := TList.Create;
-  TNode.Node.Operations.OperationsHashTree.GetTransactionsAffectingAccount(Faccount.AccountNumber, FAccountTransactionList);
+  TNode.Node.Operations.TransactionHashTree.GetTransactionsAffectingAccount(Faccount.AccountNumber, FAccountTransactionList);
   transactionListView.RootNodeCount := 0;
   transactionListView.Clear;
   if Assigned(FTrList) then FreeAndNil(FTrList);
@@ -135,7 +135,7 @@ begin
    xTransactionData := TTransactionData(Node.GetData^);
    if xTransactionData.time = 0
    then TargetCanvas.Font.Color := clGrayText;
-   if (xTransactionData.OpType = 0) and (xTransactionData.OpSubtype = 0)
+   if (xTransactionData.transactionType = 0) and (xTransactionData.transactionSubtype = 0)
    then TargetCanvas.Font.Color := clGreen;
    {else if xTransactionData.Amount<0
         then TargetCanvas.Font.Color := clRed
@@ -176,14 +176,14 @@ begin
     if Node.Index > FAccountTransactionList.Count - 1 then begin
       xData := FTrList.TransactionData[Node.Index-FAccountTransactionList.Count];
     end else begin
-     xTransaction := TNode.Node.Operations.OperationsHashTree.GetOperation(Integer(FAccountTransactionList[Node.Index]));
+     xTransaction := TNode.Node.Operations.TransactionHashTree.GetTransaction(Integer(FAccountTransactionList[Node.Index]));
      xTransaction.GetTransactionData(0, xTransaction.SignerAccount, xData);
      xData.NOpInsideBlock := Node.Index;
      xData.Block := TNode.Node.Operations.BlockHeader.block;
      xData.Balance := TNode.Node.Operations.AccountTransaction.Account(Account.AccountNumber).balance;
     end;
   end else begin
-    xTransaction := TNode.Node.Operations.OperationsHashTree.GetOperation(Node.Index);
+    xTransaction := TNode.Node.Operations.TransactionHashTree.GetTransaction(Node.Index);
     if xTransaction.GetTransactionData(0, xTransaction.SignerAccount, xData) then
     begin
       xData.NOpInsideBlock := Node.Index;

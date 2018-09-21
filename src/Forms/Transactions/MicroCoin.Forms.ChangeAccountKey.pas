@@ -119,7 +119,7 @@ begin
     end;
   end else xPayload := '';
 
- xTransaction := TChangeKeyTransaction.Create(xSignerAccount.AccountNumber, xSignerAccount.n_operation+1, Account.AccountNumber,
+ xTransaction := TChangeKeyTransaction.Create(xSignerAccount.AccountNumber, xSignerAccount.numberOfTransactions+1, Account.AccountNumber,
          TNode.Node.KeyManager.Key[xIndex].PrivateKey,
          xNewkey, xFee, xPayload);
 

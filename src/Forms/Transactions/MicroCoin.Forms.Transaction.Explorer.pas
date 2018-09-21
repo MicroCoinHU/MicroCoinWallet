@@ -113,7 +113,7 @@ begin
     if xP = nil then
       exit;
     xNode := TTreeNode(xP^);
-    if TTransactionData(Pointer(xNode.Transactions[Node.Index])^).OpType = 0
+    if TTransactionData(Pointer(xNode.Transactions[Node.Index])^).transactionType = 0
     then TargetCanvas.Font.Color := clGreen;
   end;
 end;
@@ -179,17 +179,15 @@ begin
       6: CellText :=  TCurrencyUtils.CurrencyToString(Abs(xFee)+Abs(xAmount));
       else CellText:='';
     end;
-  end
-  else
-  begin
+  end else begin
     xP := Node.Parent.GetData;
-    if xP = nil then
-      exit;
+    if xP = nil
+    then exit;
     xNode := TTreeNode(xP^);
-    if xNode.Timestamp = 0 then
-      exit;
-    if not Assigned(xNode.Transactions) then
-      exit;
+    if xNode.Timestamp = 0
+    then exit;
+    if not Assigned(xNode.Transactions)
+    then exit;
     xData := TTransactionData(Pointer(xNode.Transactions[Node.Index])^);
     case Column of
       0: CellText := xData.OperationTxt;
@@ -222,7 +220,7 @@ begin
       for i := 0 to xBlock.Count - 1 do
       begin
         new(xData);
-        xBlock.Operation[i].GetTransactionData(xBlockNumber, xBlock.Operation[i].SignerAccount, xData^);
+        xBlock.Transaction[i].GetTransactionData(xBlockNumber, xBlock.Transaction[i].SignerAccount, xData^);
         TTreeNode(Node.GetData^).Transactions.Add(xData);
       end;
     end;
@@ -261,12 +259,12 @@ begin
     xData^.PrintablePayload := xBlock.block_payload;
     xNode.Transactions.Add(xData);
     xBlockTr := TBlock.Create(nil);
-    if TNode.Node.BlockManager.LoadTransactions(xBlockTr, xBlock.Block) then
-    begin
-      for i := 0 to xBlockTr.Count - 1 do
-      begin
+    if TNode.Node.BlockManager.LoadTransactions(xBlockTr, xBlock.Block)
+    then begin
+      for i := 0 to xBlockTr.Count - 1
+      do begin
         new(xData);
-        xBlockTr.Operation[i].GetTransactionData(xBlockNumber, xBlockTr.Operation[i].SignerAccount, xData^);
+        xBlockTr.Transaction[i].GetTransactionData(xBlockNumber, xBlockTr.Transaction[i].SignerAccount, xData^);
         xNode.Transactions.Add(xData);
       end;
     end;
@@ -275,10 +273,7 @@ begin
     Include(InitialStates, ivsExpanded);
     Sender.SetNodeData(Node, xNode);
   end
-  else
-  begin
-    Sender.SetNodeData(Node, xNode);
-  end;
+  else Sender.SetNodeData(Node, xNode);
 end;
 
 end.

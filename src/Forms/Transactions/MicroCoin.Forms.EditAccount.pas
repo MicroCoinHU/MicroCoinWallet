@@ -125,8 +125,8 @@ begin
      end;
   end else xPayload := '';
 
-  xTransaction := TOpChangeAccountInfo.CreateChangeAccountInfo(
-     xSignerAccount.AccountNumber, xSignerAccount.n_operation+1,
+  xTransaction := TChangeAccountInfoTransaction.CreateChangeAccountInfo(
+     xSignerAccount.AccountNumber, xSignerAccount.numberOfTransactions+1,
      xAccount.AccountNumber,
      xWalletKey.PrivateKey,
      not xWalletKey.AccountKey.Equals(xAccount.AccountInfo.AccountKey),

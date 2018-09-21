@@ -54,7 +54,7 @@ uses
   synautil, UCrypto, Buttons, IniFiles,  MicroCoin.Keys.KeyManager,
   System.Notification, PngImageList, Actions, ActnList,
   PlatformDefaultStyleActnCtrls, ActnMan, ImageList,
-  VirtualTrees, PngBitBtn, PngSpeedButton, Vcl.ActnCtrls,
+  VirtualTrees, PngBitBtn, PngSpeedButton, ActnCtrls,
   MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney, MicroCoin.Transaction.ChangeKey,
   MicroCoin.Forms.EditAccount,
   MicroCoin.Account.AccountKey, MicroCoin.Common.Lists, MicroCoin.Common,
@@ -71,7 +71,7 @@ uses
   MicroCoin.Forms.Transaction.History, MicroCoin.Forms.Keys.Keymanager, UITypes,
   SyncObjs, DelphiZXIngQRCode, ShellApi,
   Tabs, ExtActns, MicroCoin.Forms.SellAccount, MicroCoin.Account.Editors,
-  ToolWin, WinXCtrls, Vcl.ActnPopup
+  ToolWin, WinXCtrls, ActnPopup
  {$IFDEF WINDOWS}, Windows{$ENDIF};
 
 const
@@ -186,15 +186,14 @@ type
     HomePageAction: TAction;
     CommunityAction: TAction;
     PopupActionBar1: TPopupActionBar;
-    ransactionhistory1: TMenuItem;
-    Edit1: TMenuItem;
-    Changekey1: TMenuItem;
-    Sell1: TMenuItem;
-    Revokesell1: TMenuItem;
-    Buy1: TMenuItem;
+    menuItemTransactionHistory: TMenuItem;
+    menuItemEdit: TMenuItem;
+    menuItemChangekey: TMenuItem;
+    menuItemSell: TMenuItem;
+    menuItemRevokeSell: TMenuItem;
+    menuItemBuy: TMenuItem;
     N1: TMenuItem;
     N2: TMenuItem;
-    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -256,7 +255,6 @@ type
     procedure HomePageActionExecute(Sender: TObject);
     procedure accountVListInitChildren(Sender: TBaseVirtualTree;
       Node: PVirtualNode; var ChildCount: Cardinal);
-    procedure Button1Click(Sender: TObject);
   private
     FBackgroundPanel: TPanel;
     FMinersBlocksFound: Integer;
@@ -334,86 +332,10 @@ type
     procedure BCExecute; override;
   end;
 
-resourcestring
-  rsConnectedJSO = '%s connected JSON-RPC clients';
-  rsNoJSONRPCCli = 'No JSON-RPC clients';
-  rsJSONRPCServe = 'JSON-RPC server not active';
-  rsDiscoveringS = 'Discovering servers';
-  rsObtainingNew = 'Obtaining new blockchain';
-  rsRunning = 'Running';
-  rsAloneInTheWo = 'Alone in the world...';
-  rsPleaseWaitUn = 'Please wait until finished: %s';
-  rsAllMyPrivate = '(All my private keys)';
-  rsNone = '(none)';
-  rsLastDSSecDSS = 'Last %d: %s sec. - %d: %s sec. - %d: %s sec. - %d: %s sec.' + ' - %d: %s sec.';
-  rsLast00SecOpt = 'Last %s: %s sec. (Optimal %ss) Deviation %s';
-  rsConnectionsD = 'Connections: %d Clients: %d Servers: %d - Rcvd: %d Kb Send: %d Kb';
-  rsActivePort = 'Active (Port %s)';
-  rsServerStoppe = 'Server stopped';
-  rsNodeServersU = 'NodeServers Updated: %s Count: %s';
-  rsServerIPSD = 'Server IP:%s:%d';
-  rsTRYINGTOCONN = '%s ** TRYING TO CONNECT **';
-  rsACTIVE = '%s ** ACTIVE **';
-  rsNOTVALID = '%s ** NOT VALID ** %s';
-  rsLastConnecti = '%s Last connection: %s';
-  rsLastServerCo = '%s Last server connection: %s';
-  rsLastAttemptT = '%s Last attempt to connect: %s';
-  rsAttempts = '%s (Attempts: %s)';
-  rsTotalBlackli = 'Total Blacklisted IPs: %d (Total %d)';
-  rsOperationInf = 'Operation info:';
-  rsOperationInf2 = 'Operation info';
-  rsSelectAnAcco = 'Select an account';
-  rsAccountInfo = 'Account %s info';
-  rsNewNodeBuild = 'New Node %s - %s Build:%s';
-  rsNoInfoAvaila = 'No info available';
-  rsNotFoundAnyA = 'Not found any account higher than %s with balance higher ' + 'than %s';
-  rsSearchOperat = 'Search operation by OpHash';
-  rsInsertOperat = 'Insert Operation Hash value (OpHash)';
-  rsNotFoundAnyA2 = 'Not found any account lower than %s with balance higher ' + 'than %s';
-  rsNoRowSelecte = 'No row selected';
-  rsBlackListUpd = 'BlackList Updated: %s by TID:%s';
-  rsBlacklistIPS = 'Blacklist IP:%s:%d LastConnection:%s Reason: %s';
-  rsDdMmYyyyHhNn2 = 'dd/mm/yyyy hh:nn:ss';
-  rsMessageRecei = '%s Message received from %s';
-  rsMessageRecei2 = '%s Message received from %s Length %s bytes';
-  rsRECEIVED = 'RECEIVED> %s';
-  rsMessageFromL = '%s Message from %s%sLength %s bytes%s%s';
-  rsValueInHexad = '%sValue in hexadecimal:%s%s';
-  rsInternalMess = '%s Internal message: %s';
-  rsYouHaveRecei = 'You have received %d messages';
-  rsYouHaveRecei2 = 'You have received 1 message';
-  rsNoAccountSel = 'No account selected';
-  rsYouCannotAdd = 'You cannot add %s account because private key not found in' +
-    ' your wallet.%s%sYou''re not the owner!';
-  rsExceptionAtT = 'Exception at TimerUpdate %s: %s';
-  rsClientIPS = 'Client: IP:%s';
-  rsServerIPS = 'Server: IP:%s';
-  rsCannotLoadTo = 'Cannot load %s%sTo use this software make sure this file ' +
-    'is available on you system or reinstall the application';
-  rsCannotOpenYo = 'Cannot open your wallet... Perhaps another instance of ' + 'Micro Coin is active!%s%s%s';
-  rsAnErrorOccur = 'An error occurred during initialization. Application ' +
-    'cannot continue:%s%s%s%s%sApplication will close...';
-  rsChangeKeyNam = 'Change Key name';
-  rsInputNewName = 'Input new name';
-  rsMustSelectAK = 'Must select a Key';
-  rsMustSelectAt = 'Must select at least 1 account';
-  rsSendThisMess = 'Send this message to %s nodes?%sNOTE: Sending unauthorized' +
-    ' messages will be considered spam and you will be banned%s%sMessage: %s%s';
-  rsSelectAtLeas = 'Select at least one connection';
-  rsSentTo = '%s Sent to %s > %s';
-  rsYouCannotDoT = 'You cannot do this operation now:%s%s%s';
-  rsLastComunica = ' - Last comunication <10 sec.';
-  rsLastComunica2 = ' - Last comunication %.2dm%.2ds';
-  rsClientIPSBlo = 'Client: IP:%s Block:%d Sent/Received:%d/%d Bytes - %s - ' + 'Time offset %d - Active since %s %s';
-  rsMySelfIPSSen = 'MySelf IP:%s Sent/Received:%d/%d Bytes - %s - Time offset ' + '%d - Active since %s %s';
-  rsRestartAppli = 'Restart application?';
-  rsYouNeedResta = 'You need restart Application to apply changes. Close ' + 'application?';
-
   { TThreadActivate }
 
 procedure TThreadActivate.BCExecute;
 begin
-  // Read Operations saved from disk
   TNode.Node.BlockManager.DiskRestoreFromTransactions(CT_MaxBlock);
   TNode.Node.AutoDiscoverNodes(CT_Discover_IPs);
   TNode.Node.NetServer.Active := true;
@@ -447,14 +369,16 @@ begin
   xAccount := TAccount(accountVList.FocusedNode.GetData()^);
   xIndex := TNode.Node.KeyManager.IndexOfAccountKey(xAccount.AccountInfo.AccountKey);
 
-  if xIndex<0 then exit;
+  if xIndex < 0
+  then exit;
+
   if MessageDlg('Really want to revoke sell?',mtConfirmation,[mbYes, mbNo],0) <> mrYes
   then exit;
 
   xPrivateKey := TNode.Node.KeyManager[xIndex].PrivateKey;
-  xTransaction:=TOpDelistAccountForSale.CreateDelistAccountForSale(
+  xTransaction:=TDelistAccountTransaction.CreateDelistAccountForSale(
     xAccount.AccountNumber,
-    xAccount.n_operation+1,
+    xAccount.numberOfTransactions+1,
     xAccount.AccountNumber,
     0,
     xPrivateKey,
@@ -553,8 +477,6 @@ begin
 end;
 
 procedure TMainForm.accountVListFreeNode(Sender: TBaseVirtualTree; Node: PVirtualNode);
-var
-  xAccount: TAccount;
 begin
   TAccount(Node.GetData()^).AccountInfo.AccountKey.x := '';
   TAccount(Node.GetData()^).AccountInfo.AccountKey.y := '';
@@ -601,7 +523,7 @@ begin
            if xPAccount.AccountInfo.state = as_ForSale then
            CellText := CellText + ' ('+TCurrencyUtils.CurrencyToString(xPAccount.AccountInfo.price)+')';
         end;
-      3: CellText := xPAccount.n_operation.ToString;
+      3: CellText := xPAccount.numberOfTransactions.ToString;
     end;
   end else begin
   {$IFDEF EXTENDEDACCOUNT}
@@ -670,7 +592,7 @@ begin
     except
       on E: Exception do
       begin
-        E.Message := Format(rsCannotOpenYo, [#10, #10, E.Message]);
+        E.Message := Format('Can not open wallet file: %s', [E.Message]);
         raise;
       end;
     end;
@@ -709,7 +631,7 @@ begin
   except
     on E: Exception do
     begin
-      E.Message := Format(rsAnErrorOccur, [#10, #10, E.Message, #10, #10]);
+      E.Message := Format('An error occoured: %s', [E.Message]);
       Application.MessageBox(PChar(E.Message), PChar(Application.Title), MB_ICONERROR + MB_OK);
       Halt;
     end;
@@ -760,7 +682,7 @@ procedure TMainForm.BlockExplorerActionExecute(Sender: TObject);
 begin
  TBlockChainExplorerForm.Create(nil).Show;
 end;
-
+{
 procedure TMainForm.Button1Click(Sender: TObject);
 var
   i: integer;
@@ -783,7 +705,7 @@ begin
     exit;
   end;
 end;
-
+}
 procedure TMainForm.BuyActionExecute(Sender: TObject);
 begin
   with TBuyAccountForm.Create(self) do begin
@@ -869,11 +791,11 @@ begin
               DecodeTime(now - xNetConnection.Client.LastCommunicationTime, hh, nn, ss, ms);
               if (hh = 0) and (nn = 0) and (ss < 10) then
               begin
-                xLastConnTime := rsLastComunica;
+                xLastConnTime := ' - Last comunication <10 sec.';
               end
               else
               begin
-                xLastConnTime := Format(rsLastComunica2, [(hh * 60) + nn, ss]);
+                xLastConnTime := Format(' - Last comunication %.2dm%.2ds', [(hh * 60) + nn, ss]);
               end;
             end
             else
@@ -882,14 +804,15 @@ begin
             end;
             if xNetConnection is TNetServerClient then
             begin
-              xNSC.Add(Format(rsClientIPSBlo, [xNetConnection.ClientRemoteAddr, xNetConnection.RemoteOperationBlock.block, xNetConnection.Client.BytesSent,
+              xNSC.Add(Format('Client: IP:%s Block:%d Sent/Received:%d/%d Bytes - %s - ' + 'Time offset %d - Active since %s %s',
+                [xNetConnection.ClientRemoteAddr, xNetConnection.RemoteOperationBlock.block, xNetConnection.Client.BytesSent,
                 xNetConnection.Client.BytesReceived, xClientApp, xNetConnection.TimestampDiff, DateTimeElapsedTime(xNetConnection.CreatedTime),
                 xLastConnTime]));
             end
             else
             begin
               if xNetConnection.IsMyselfServer then
-                xNSC.Add(Format(rsMySelfIPSSen, [xNetConnection.ClientRemoteAddr, xNetConnection.Client.BytesSent, xNetConnection.Client.BytesReceived,
+                xNSC.Add(Format('MySelf IP:%s Sent/Received:%d/%d Bytes - %s - Time offset ' + '%d - Active since %s %s', [xNetConnection.ClientRemoteAddr, xNetConnection.Client.BytesSent, xNetConnection.Client.BytesReceived,
                   xClientApp, xNetConnection.TimestampDiff, DateTimeElapsedTime(xNetConnection.CreatedTime), xLastConnTime]))
               else
               begin
@@ -951,7 +874,7 @@ end;
 
 procedure TMainForm.ConfirmRestart;
 begin
-  if MessageDlg(rsRestartAppli, {$IFDEF fpc} rsYouNeedResta, {$ENDIF} mtConfirmation, [mbYes, mbNo],{$IFDEF fpc}''{$ELSE}0{$ENDIF}) = mrYes then
+  if MessageDlg('Restart application?', {$IFDEF fpc} rsYouNeedResta, {$ENDIF} mtConfirmation, [mbYes, mbNo],{$IFDEF fpc}''{$ELSE}0{$ENDIF}) = mrYes then
     Application.Terminate;
 end;
 
@@ -1036,7 +959,7 @@ var
 begin
   Caption := Application.Title;
   if not LoadSSLCrypt then begin
-    MessageDlg(Format(rsCannotLoadTo, [SSL_C_LIB, #10]), mtError, [mbOk], 0);
+    MessageDlg(Format('Can not load required library: %s', [SSL_C_LIB]), mtError, [mbOk], 0);
     Free;
     Exit;
   end;
@@ -1262,7 +1185,7 @@ begin
   begin
     // New configuration... assigning a new random value
     xFileVersionInfo := TFolderHelper.GetTFileVersionInfo(Application.ExeName);
-    FAppSettings.Entries[TAppSettingsEntry.apMinerName].SetAsString(Format(rsNewNodeBuild, [DateTimeToStr(now), xFileVersionInfo.InternalName,
+    FAppSettings.Entries[TAppSettingsEntry.apMinerName].SetAsString(Format('New Node %s - %s Build: %s', [DateTimeToStr(now), xFileVersionInfo.InternalName,
       xFileVersionInfo.FileVersion]));
   end;
   UpdateConfigChanged;
@@ -1286,7 +1209,7 @@ begin
     xStrings.BeginUpdate;
     try
       xStrings.Clear;
-      xStrings.Add(Format(rsBlackListUpd, [DateTimeToStr(now), IntToHex(TThread.CurrentThread.ThreadID, 8)]));
+      xStrings.Add(Format('BlackList Updated: %s by TID: %s', [DateTimeToStr(now), IntToHex(TThread.CurrentThread.ThreadID, 8)]));
       j := 0;
       n := 0;
       for i := 0 to xList.Count - 1 do
@@ -1298,12 +1221,12 @@ begin
           if not xNodeServer^.its_myself then
           begin
             inc(j);
-            xStrings.Add(Format(rsBlacklistIPS, [xNodeServer^.ip, xNodeServer^.Port,
+            xStrings.Add(Format('Blacklist IP: %s:%d LastConnection: %s Reason: %s', [xNodeServer^.ip, xNodeServer^.Port,
               DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(xNodeServer^.last_connection))), xNodeServer^.BlackListText]));
           end;
         end;
       end;
-      xStrings.Add(Format(rsTotalBlackli, [j, n]));
+      xStrings.Add(Format('Total Blacklisted IPs: %d (Total %d)', [j, n]));
     finally
       xStrings.EndUpdate;
     end;
@@ -1334,41 +1257,41 @@ begin
     xStrings.BeginUpdate;
     try
       xStrings.Clear;
-      xStrings.Add(Format(rsNodeServersU, [DateTimeToStr(now), IntToStr(l.Count)]));
+      xStrings.Add(Format('NodeServers Updated: %s Count: %s', [DateTimeToStr(now), IntToStr(l.Count)]));
       for i := 0 to l.Count - 1 do
       begin
         xPNodeServerAddress := l[i];
         if not(xPNodeServerAddress^.is_blacklisted) then
         begin
-          s := Format(rsServerIPSD, [xPNodeServerAddress^.ip, xPNodeServerAddress^.Port]);
+          s := Format('Server IP: %s:%d', [xPNodeServerAddress^.ip, xPNodeServerAddress^.Port]);
           if Assigned(xPNodeServerAddress.NetConnection) then
           begin
             if xPNodeServerAddress.last_connection > 0 then
-              s := Format(rsACTIVE, [s])
+              s := Format('%s ** ACTIVE **', [s])
             else
-              s := Format(rsTRYINGTOCONN, [s]);
+              s := Format('%s ** TRYING TO CONNECT **', [s]);
           end;
           if xPNodeServerAddress.its_myself then
           begin
-            s := Format(rsNOTVALID, [s, xPNodeServerAddress.BlackListText]);
+            s := Format('%s ** NOT VALID ** %s', [s, xPNodeServerAddress.BlackListText]);
           end;
           if xPNodeServerAddress.last_connection > 0 then
           begin
-            s := Format(rsLastConnecti,
+            s := Format('%s Last connection: %s',
               [s, DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(xPNodeServerAddress^.last_connection)))]);
           end;
           if xPNodeServerAddress.last_connection_by_server > 0 then
           begin
-            s := Format(rsLastServerCo,
+            s := Format('%s Last server connection: %s',
               [s, DateTimeToStr(UnivDateTime2LocalDateTime(UnixToUnivDateTime(xPNodeServerAddress^.last_connection_by_server)))]);
           end;
           if (xPNodeServerAddress.last_attempt_to_connect > 0) then
           begin
-            s := Format(rsLastAttemptT, [s, DateTimeToStr(xPNodeServerAddress^.last_attempt_to_connect)]);
+            s := Format('%s Last attempt to connect: %s', [s, DateTimeToStr(xPNodeServerAddress^.last_attempt_to_connect)]);
           end;
           if (xPNodeServerAddress.total_failed_attemps_to_connect > 0) then
           begin
-            s := Format(rsAttempts, [s, IntToStr(xPNodeServerAddress^.total_failed_attemps_to_connect)]);
+            s := Format('%s (Attempts: %s)', [s, IntToStr(xPNodeServerAddress^.total_failed_attemps_to_connect)]);
           end;
 
           xStrings.Add(s);
@@ -1449,7 +1372,7 @@ begin
   if FAppSettings.Entries[TAppSettingsEntry.apNotifyOnNewTransaction].GetAsBoolean(true)
   then begin
     for i:=0 to TNodeNotifyEvents(Sender).Node.Operations.Count - 1 do begin
-       xTransaction := TNodeNotifyEvents(Sender).Node.Operations.OperationsHashTree.GetOperation(i);
+       xTransaction := TNodeNotifyEvents(Sender).Node.Operations.TransactionHashTree.GetTransaction(i);
        if FAccounts.Find(xTransaction.DestinationAccount, xIndex)
        then begin
          xNotification := NotificationCenter.CreateNotification;
@@ -1671,7 +1594,7 @@ begin
 
   xWalletKey := TNode.Node.KeyManager.Key[i];
   xTransaction := TTransferMoneyTransaction.CreateTransaction(xSenderAccount.AccountNumber,
-    xSenderAccount.n_operation + 1,
+    xSenderAccount.numberOfTransactions + 1,
     xTargetAccount.AccountNumber, xWalletKey.PrivateKey, xAmount, xFee, xPayload);
 
   if MessageDlg('Execute transaction? '+xTransaction.ToString, mtConfirmation, [mbYes, mbNo], 0)<>mrYes
@@ -1782,7 +1705,7 @@ begin
   except
     on E: Exception do
     begin
-      E.Message := Format(rsExceptionAtT, [E.Classname, E.Message]);
+      E.Message := Format('Exception at TimerUpdate %s: %s', [E.Classname, E.Message]);
       TLog.NewLog(lterror, Classname, E.Message);
     end;
   end;
@@ -1877,7 +1800,7 @@ begin
       lblCurrentBlock.Caption := IntToStr(TNode.Node.BlockManager.BlocksCount) + ' (0..' +
         IntToStr(TNode.Node.BlockManager.BlocksCount - 1) + ')';;
     end
-    else lblCurrentBlock.Caption := rsNone;
+    else lblCurrentBlock.Caption := '(none)';
     lblCurrentAccounts.Caption := IntToStr(TNode.Node.BlockManager.AccountsCount);
     lblCurrentBlockTime.Caption := UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
     labelOperationsPending.Caption := IntToStr(TNode.Node.Operations.Count);
@@ -1901,7 +1824,7 @@ begin
     end;
     favg := TNode.Node.BlockManager.GetActualTargetSecondsAverage(CT_CalcNewTargetBlocksAverage);
     F := (CT_NewLineSecondsAvg - favg) / CT_NewLineSecondsAvg;
-    lblTimeAverage.Caption := Format(rsLast00SecOpt, [IntToStr(CT_CalcNewTargetBlocksAverage), FormatFloat('0.0', favg),
+    lblTimeAverage.Caption := Format('Last %s: %s sec. (Optimal %ss) Deviation %s', [IntToStr(CT_CalcNewTargetBlocksAverage), FormatFloat('0.0', favg),
       IntToStr(CT_NewLineSecondsAvg), FormatFloat('0.00%', F * 100)]);
     if favg >= CT_NewLineSecondsAvg then
     begin
@@ -1911,7 +1834,7 @@ begin
     begin
       lblTimeAverage.Font.Color := clOlive;
     end;
-    lblTimeAverageAux.Caption := Format(rsLastDSSecDSS, [CT_CalcNewTargetBlocksAverage * 2,
+    lblTimeAverageAux.Caption := Format('Last %d: %s sec. - %d: %s sec. - %d: %s sec. - %d: %s sec.' + ' - %d: %s sec.', [CT_CalcNewTargetBlocksAverage * 2,
       FormatFloat('0.0', TNode.Node.BlockManager.GetActualTargetSecondsAverage(CT_CalcNewTargetBlocksAverage * 2)),
       ((CT_CalcNewTargetBlocksAverage * 3) div 2), FormatFloat('0.0',
       TNode.Node.BlockManager.GetActualTargetSecondsAverage((CT_CalcNewTargetBlocksAverage * 3) div 2)),
@@ -1938,12 +1861,12 @@ begin
   begin
     if FPoolMiningServer.ClientsCount > 0 then
     begin
-      labelMinersClients.Caption := Format(rsConnectedJSO, [IntToStr(FPoolMiningServer.ClientsCount)]);
+      labelMinersClients.Caption := Format('%s connected JSON-RPC clients', [IntToStr(FPoolMiningServer.ClientsCount)]);
       labelMinersClients.Font.Color := clNavy;
     end
     else
     begin
-      labelMinersClients.Caption := rsNoJSONRPCCli;
+      labelMinersClients.Caption := 'No JSON-RPC clients';
       labelMinersClients.Font.Color := clDkGray;
     end;
     MinersBlocksFound := FPoolMiningServer.ClientsWins;
@@ -1951,7 +1874,7 @@ begin
   else
   begin
     MinersBlocksFound := 0;
-    labelMinersClients.Caption := rsJSONRPCServe;
+    labelMinersClients.Caption := 'JSON-RPC server not active';
     labelMinersClients.Font.Color := clRed;
   end;
   //if TConnectionManager.Instance.IsGettingNewBlockChainFromClient then begin
@@ -2036,21 +1959,21 @@ begin
       lblNodeStatus.Font.Color := clGreen;
       if TConnectionManager.Instance.IsDiscoveringServers then
       begin
-        lblNodeStatus.Caption := rsDiscoveringS;
+        lblNodeStatus.Caption := 'Discovering servers';
       end
       else if TConnectionManager.Instance.IsGettingNewBlockChainFromClient then
       begin
-        lblNodeStatus.Caption := rsObtainingNew;
+        lblNodeStatus.Caption := 'Obtaining new blockchain';
       end
       else
       begin
-        lblNodeStatus.Caption := rsRunning;
+        lblNodeStatus.Caption := 'Running';
       end;
     end
     else
     begin
       lblNodeStatus.Font.Color := clRed;
-      lblNodeStatus.Caption := rsAloneInTheWo;
+      lblNodeStatus.Caption := 'Alone in the world...';
     end;
   end
   else
@@ -2114,7 +2037,7 @@ begin
     end;
     cbMyPrivateKeys.Sorted := true;
     cbMyPrivateKeys.Sorted := false;
-    cbMyPrivateKeys.Items.InsertObject(0, rsAllMyPrivate, TObject(-1));
+    cbMyPrivateKeys.Items.InsertObject(0, '(All my private keys)', TObject(-1));
   finally
     cbMyPrivateKeys.Items.EndUpdate;
   end;

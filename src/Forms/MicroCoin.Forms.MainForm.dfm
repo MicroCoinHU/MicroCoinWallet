@@ -1026,15 +1026,6 @@ object MainForm: TMainForm
                 end>
               NoSizing = True
             end
-            object Button1: TButton
-              Left = 190
-              Top = 104
-              Width = 75
-              Height = 25
-              Caption = 'Button1'
-              TabOrder = 1
-              OnClick = Button1Click
-            end
           end
         end
         object rightPanel: TPanel
@@ -6997,28 +6988,28 @@ object MainForm: TMainForm
     Images = AccountListActionImages
     Left = 459
     Top = 408
-    object ransactionhistory1: TMenuItem
+    object menuItemTransactionHistory: TMenuItem
       Action = TransactionHistoryAction
     end
     object N1: TMenuItem
       Caption = '-'
     end
-    object Edit1: TMenuItem
+    object menuItemEdit: TMenuItem
       Action = EditAccountAction
     end
-    object Changekey1: TMenuItem
+    object menuItemChangekey: TMenuItem
       Action = ChangeKeyAction
     end
     object N2: TMenuItem
       Caption = '-'
     end
-    object Sell1: TMenuItem
+    object menuItemSell: TMenuItem
       Action = SellAccountAction
     end
-    object Revokesell1: TMenuItem
+    object menuItemRevokeSell: TMenuItem
       Action = RevokeSellAction
     end
-    object Buy1: TMenuItem
+    object menuItemBuy: TMenuItem
       Action = BuyAction
     end
   end
