@@ -111,10 +111,10 @@ var
 begin
   if cbMyAccounts.Checked or cbForSale.Checked then
   begin
-    xAccount := TNode.Node.Operations.BlockManager.AccountStorage.Account(FAccounts.Get(Node.Index));
+    xAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(Node.Index));
   end
   else begin
-    xAccount := TNode.Node.Operations.BlockManager.AccountStorage.Account(Node.Index);
+    xAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(Node.Index);
   end;
   Sender.SetNodeData(Node, xAccount);
 end;
@@ -155,7 +155,7 @@ end;
 procedure TAccountSelectDialog.FormCreate(Sender: TObject);
 begin
   accountVList.NodeDataSize := sizeof(TAccount);
-  accountVList.RootNodeCount := TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount;
+  accountVList.RootNodeCount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount;
 end;
 
 procedure TAccountSelectDialog.FormDestroy(Sender: TObject);
@@ -187,15 +187,15 @@ begin
     else FAccounts.Clear;
       if cbMyAccounts.Checked then begin
         for i := 0 to FAccounts.Count - 1 do begin
-           if TNode.Node.Operations.BlockManager.AccountStorage.Account(FAccounts.Get(i)).AccountInfo.state <> as_ForSale
+           if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(i)).AccountInfo.state <> as_ForSale
            then FAccounts.Delete(i);
         end;
       end else begin
         FAccounts.Clear;
-        for i := 0 to TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount - 1 do
+        for i := 0 to TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount - 1 do
         begin
-          if TNode.Node.Operations.BlockManager.AccountStorage.Account(i).AccountInfo.state = as_ForSale
-          then FAccounts.Add(TNode.Node.Operations.BlockManager.AccountStorage.Account(i).AccountNumber);
+          if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountInfo.state = as_ForSale
+          then FAccounts.Add(TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountNumber);
         end;
       end;
     accountVList.RootNodeCount := FAccounts.Count;
@@ -210,7 +210,7 @@ begin
     end;
     accountVList.RootNodeCount := FAccounts.Count;
   end else begin
-    accountVList.RootNodeCount := TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount;
+    accountVList.RootNodeCount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount;
     FreeAndNil(FAccounts);
   end;
   end;

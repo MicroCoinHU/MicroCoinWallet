@@ -138,7 +138,7 @@ begin
      xFee, xPayload);
     if MessageDlg('Do you want execute this transaction: '+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
     then exit;
-    if not TNode.Node.AddOperation(nil, xTransaction, xErrors)
+    if not TNode.Node.AddTransaction(nil, xTransaction, xErrors)
     then MessageDlg(xErrors, mtError, [mbOk], 0)
     else begin
       MessageDlg('Transaction successfully executed', mtInformation, [mbOK], 0);

@@ -83,9 +83,9 @@ end;
 procedure TTransactionHistoryForm.FormCreate(Sender: TObject);
 begin
   transactionListView.NodeDataSize := sizeof(TTransactionData);
-  transactionListView.RootNodeCount := TNode.Node.Operations.TransactionHashTree.TransactionCount;
+  transactionListView.RootNodeCount := TNode.Node.TransactionStorage.TransactionHashTree.TransactionCount;
   FNodenotifyEvent := TNodeNotifyEvents.Create(self);
-  FNodenotifyEvent.OnOperationsChanged := Refresh;
+  FNodenotifyEvent.OnTransactionsChanged := Refresh;
 end;
 
 procedure TTransactionHistoryForm.FormDestroy(Sender: TObject);
@@ -100,7 +100,7 @@ end;
 
 procedure TTransactionHistoryForm.Refresh(Sender: TObject);
 begin
-  transactionListView.RootNodeCount := TNode.Node.Operations.TransactionHashTree.TransactionCount;
+  transactionListView.RootNodeCount := TNode.Node.TransactionStorage.TransactionHashTree.TransactionCount;
   transactionListView.ReinitNode(nil, true);
 end;
 
@@ -109,13 +109,13 @@ begin
   FAccount := Value;
   if Assigned(FAccountTransactionList) then FreeAndNil(FAccountTransactionList);
   FAccountTransactionList := TList.Create;
-  TNode.Node.Operations.TransactionHashTree.GetTransactionsAffectingAccount(Faccount.AccountNumber, FAccountTransactionList);
+  TNode.Node.TransactionStorage.TransactionHashTree.GetTransactionsAffectingAccount(Faccount.AccountNumber, FAccountTransactionList);
   transactionListView.RootNodeCount := 0;
   transactionListView.Clear;
   if Assigned(FTrList) then FreeAndNil(FTrList);
 
   FTrList := TTransactionList.Create;
-  TNode.Node.GetStoredOperationsFromAccount(FTrList, Account.AccountNumber, 500, 0, 10000);
+  TNode.Node.GetStoredTransactionsFromAccount(FTrList, Account.AccountNumber, 500, 0, 10000);
   transactionListView.RootNodeCount := FAccountTransactionList.Count + FTrList.Count;
   transactionListView.ReinitNode(nil, true);
 end;
@@ -158,7 +158,7 @@ begin
         else CellText := 'Pending';
      1: CellText := IntToStr(xData.Block);
      2: CellText := TAccount.AccountNumberToAccountTxtNumber(xData.AffectedAccount);
-     3: CellText := xData.OperationTxt;
+     3: CellText := xData.TransactionAsString;
      4: CellText := TCurrencyUtils.CurrencyToString(xData.Amount);
      5: CellText := TCurrencyUtils.CurrencyToString(xData.Fee);
      6: CellText := TCurrencyUtils.CurrencyToString(xData.Balance);
@@ -176,19 +176,19 @@ begin
     if Node.Index > FAccountTransactionList.Count - 1 then begin
       xData := FTrList.TransactionData[Node.Index-FAccountTransactionList.Count];
     end else begin
-     xTransaction := TNode.Node.Operations.TransactionHashTree.GetTransaction(Integer(FAccountTransactionList[Node.Index]));
+     xTransaction := TNode.Node.TransactionStorage.TransactionHashTree.GetTransaction(Integer(FAccountTransactionList[Node.Index]));
      xTransaction.GetTransactionData(0, xTransaction.SignerAccount, xData);
      xData.NOpInsideBlock := Node.Index;
-     xData.Block := TNode.Node.Operations.BlockHeader.block;
-     xData.Balance := TNode.Node.Operations.AccountTransaction.Account(Account.AccountNumber).balance;
+     xData.Block := TNode.Node.TransactionStorage.BlockHeader.block;
+     xData.Balance := TNode.Node.TransactionStorage.AccountTransaction.Account(Account.AccountNumber).balance;
     end;
   end else begin
-    xTransaction := TNode.Node.Operations.TransactionHashTree.GetTransaction(Node.Index);
+    xTransaction := TNode.Node.TransactionStorage.TransactionHashTree.GetTransaction(Node.Index);
     if xTransaction.GetTransactionData(0, xTransaction.SignerAccount, xData) then
     begin
       xData.NOpInsideBlock := Node.Index;
       xData.Block := TNode.Node.BlockManager.BlocksCount;
-      xData.Balance := TNode.Node.Operations.AccountTransaction.Account(xTransaction.SignerAccount).balance;
+      xData.Balance := TNode.Node.TransactionStorage.AccountTransaction.Account(xTransaction.SignerAccount).balance;
     end;
   end;
   Sender.SetNodeData(Node, xData);

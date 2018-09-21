@@ -384,7 +384,7 @@ begin
     xPrivateKey,
     ''
   );
-  if not TNode.Node.AddOperation(nil, xTransaction, xErrors) then begin
+  if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
      MessageDlg(xErrors, mtError, [mbOk],0);
   end else begin
      MessageDlg('Transaction executed sucessfully', mtInformation, [mbOk], 0);
@@ -562,7 +562,7 @@ begin
   then Node.CheckType := TCheckType.ctCheckBox
   else Node.CheckType := TCheckType.ctNone;
 
-  xAccount := TNode.Node.Operations.AccountTransaction.Account(xAccountNumber);
+  xAccount := TNode.Node.TransactionStorage.AccountTransaction.Account(xAccountNumber);
   {$IFDEF EXTENDEDACCOUNT}
   if Sender.GetNodeLevel(Node) = 0 then begin
     Sender.ChildCount[Node] := Length(xAccount.SubAccounts);
@@ -932,7 +932,7 @@ begin
     .GetAsInteger(CT_JSONRPCMinerServer_Port);
   FPoolMiningServer.MinerAccountKey := GetAccountKeyForMiner;
   FPoolMiningServer.MinerPayload := FAppSettings.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
-  TNode.Node.Operations.AccountKey := GetAccountKeyForMiner;
+  TNode.Node.TransactionStorage.AccountKey := GetAccountKeyForMiner;
   FPoolMiningServer.Active := FAppSettings.Entries[TAppSettingsEntry.apJSONRPCMinerServerActive].GetAsBoolean(true);
   FPoolMiningServer.OnMiningServerNewBlockFound := OnMiningServerNewBlockFound;
   for i:=0 to MainActions.ActionCount-1 do MainActions[i].Enabled := true;
@@ -1015,7 +1015,7 @@ begin
   FNodeNotifyEvents := TNodeNotifyEvents.Create(Self);
   FNodeNotifyEvents.OnBlocksChanged := OnNewAccount;
   FNodeNotifyEvents.OnNodeMessageEvent := OnNodeMessageEvent;
-  FNodeNotifyEvents.OnOperationsChanged:= OnNewOperation;
+  FNodeNotifyEvents.OnTransactionsChanged:= OnNewOperation;
   TNode.Node.KeyManager := TKeyManager.Create(self);
   TNode.Node.KeyManager.OnChanged := OnWalletChanged;
   LoadAppParams;
@@ -1371,8 +1371,8 @@ var
 begin
   if FAppSettings.Entries[TAppSettingsEntry.apNotifyOnNewTransaction].GetAsBoolean(true)
   then begin
-    for i:=0 to TNodeNotifyEvents(Sender).Node.Operations.Count - 1 do begin
-       xTransaction := TNodeNotifyEvents(Sender).Node.Operations.TransactionHashTree.GetTransaction(i);
+    for i:=0 to TNodeNotifyEvents(Sender).Node.TransactionStorage.Count - 1 do begin
+       xTransaction := TNodeNotifyEvents(Sender).Node.TransactionStorage.TransactionHashTree.GetTransaction(i);
        if FAccounts.Find(xTransaction.DestinationAccount, xIndex)
        then begin
          xNotification := NotificationCenter.CreateNotification;
@@ -1563,7 +1563,7 @@ begin
   end;
 
   try
-    xTargetAccount := TNode.Node.Operations.BlockManager.AccountStorage.Account(xTargetAccountNumber);
+    xTargetAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(xTargetAccountNumber);
   except on E:Exception do
     begin
       MessageDlg('Invalid target account, account does not exists', TMsgDlgType.mtError, [mbOK],0);
@@ -1600,7 +1600,7 @@ begin
   if MessageDlg('Execute transaction? '+xTransaction.ToString, mtConfirmation, [mbYes, mbNo], 0)<>mrYes
   then exit;
 
-  if not TNode.Node.AddOperation(nil, xTransaction, xErrors) then begin
+  if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
     MessageDlg(xErrors, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end else begin
@@ -1736,12 +1736,12 @@ begin
   then begin
     if not cbForSale.Checked
     then begin
-      accountVList.RootNodeCount := TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount;
-      FTotalAmount := TNode.Node.Operations.BlockManager.AccountStorage.TotalBalance;
+      accountVList.RootNodeCount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount;
+      FTotalAmount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.TotalBalance;
     end else begin
-      for i := 0 to TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount-1
+      for i := 0 to TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount-1
       do begin
-        xAccount := TNode.Node.Operations.AccountTransaction.Account(i);
+        xAccount := TNode.Node.TransactionStorage.AccountTransaction.Account(i);
         if xAccount.AccountInfo.state = as_ForSale
         then FAccounts.Add(xAccount.AccountNumber);
       end;
@@ -1755,7 +1755,7 @@ begin
         if (j>=0) then begin
           l := FOrderedAccountsKeyList.AccountList[j];
           for k := 0 to l.Count - 1 do begin
-            xAccount := TNode.Node.Operations.AccountTransaction.Account(l.Get(k));
+            xAccount := TNode.Node.TransactionStorage.AccountTransaction.Account(l.Get(k));
             if cbForSale.Checked
             then if xAccount.AccountInfo.state <> as_ForSale then continue;
             FAccounts.Add(l.Get(k));
@@ -1770,7 +1770,7 @@ begin
         if (j>=0) then begin
           l := FOrderedAccountsKeyList.AccountList[j];
           for k := 0 to l.Count - 1 do begin
-            xAccount := TNode.Node.Operations.AccountTransaction.Account(l.Get(k));
+            xAccount := TNode.Node.TransactionStorage.AccountTransaction.Account(l.Get(k));
             if cbForSale.Checked
             then if xAccount.AccountInfo.state <> as_ForSale then continue;
             FAccounts.Add(l.Get(k));
@@ -1803,8 +1803,8 @@ begin
     else lblCurrentBlock.Caption := '(none)';
     lblCurrentAccounts.Caption := IntToStr(TNode.Node.BlockManager.AccountsCount);
     lblCurrentBlockTime.Caption := UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
-    labelOperationsPending.Caption := IntToStr(TNode.Node.Operations.Count);
-    lblCurrentDifficulty.Caption := IntToHex(TNode.Node.Operations.BlockHeader.compact_target, 8);
+    labelOperationsPending.Caption := IntToStr(TNode.Node.TransactionStorage.Count);
+    lblCurrentDifficulty.Caption := IntToHex(TNode.Node.TransactionStorage.BlockHeader.compact_target, 8);
     if TConnectionManager.Instance.MaxRemoteOperationBlock.block > TNode.Node.BlockManager.BlocksCount
     then begin
       StatusBar.Panels[3].Text :=
@@ -1820,7 +1820,7 @@ begin
     else begin
 //      if Assigned(FBackgroundPanel) then FreeAndNil(FBackgroundPanel);
       StatusBar.Panels[3].Text := 'Blocks: ' + Format('%.0n', [TNode.Node.BlockManager.BlocksCount+0.0]) + ' | ' + 'Difficulty: 0x' +
-        IntToHex(TNode.Node.Operations.BlockHeader.compact_target, 8);
+        IntToHex(TNode.Node.TransactionStorage.BlockHeader.compact_target, 8);
     end;
     favg := TNode.Node.BlockManager.GetActualTargetSecondsAverage(CT_CalcNewTargetBlocksAverage);
     F := (CT_NewLineSecondsAvg - favg) / CT_NewLineSecondsAvg;
@@ -1905,7 +1905,7 @@ begin
   xIsNetServerActive := TNode.Node.NetServer.Active;
   TNode.Node.NetServer.Port := FAppSettings.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(CT_NetServer_Port);
   TNode.Node.NetServer.Active := xIsNetServerActive;
-  TNode.Node.Operations.BlockPayload := FAppSettings.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
+  TNode.Node.TransactionStorage.BlockPayload := FAppSettings.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
   TNode.Node.NodeLogFilename := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'blocks.log';
   if Assigned(FPoolMiningServer) then
   begin

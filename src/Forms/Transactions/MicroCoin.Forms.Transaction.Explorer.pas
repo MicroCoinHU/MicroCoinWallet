@@ -190,7 +190,7 @@ begin
     then exit;
     xData := TTransactionData(Pointer(xNode.Transactions[Node.Index])^);
     case Column of
-      0: CellText := xData.OperationTxt;
+      0: CellText := xData.TransactionAsString;
       4: CellText := TCurrencyUtils.CurrencyToString(xData.Amount);
       5: CellText := TCurrencyUtils.CurrencyToString(xData.Fee);
       6: CellText := TCurrencyUtils.CurrencyToString(xData.Balance);
@@ -252,7 +252,7 @@ begin
     xData^.Block := xBlock.Block;
     xData^.time := xBlock.Timestamp;
     xData^.AffectedAccount := xBlock.Block * CT_AccountsPerBlock;
-    xData^.OperationTxt := 'Blockchain reward';
+    xData^.TransactionAsString := 'Blockchain reward';
     xData^.Amount := xBlock.reward;
     xData^.Fee := xBlock.Fee;
     xData^.Balance := xBlock.reward + xBlock.Fee;

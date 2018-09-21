@@ -196,7 +196,7 @@ begin
           FAccount.AccountNumber, xPrice, xFee, edSellerAccount.Account.AccountNumber,
           xNewkey, xBlock, xPrivateKey, xPayload);
 
-  if not TNode.Node.AddOperation(nil, xTransaction, xErrors) then begin
+  if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
      MessageDlg(xErrors, mtError, [mbOk], 0);
   end else begin
      MessageDlg('Transaction sucessfully executed', mtInformation, [mbOk], 0);

@@ -121,7 +121,7 @@ begin
           xPrivateKey,
           xPayload
         );
-  if not TNode.Node.AddOperation(nil, xTransaction, xErrors)
+  if not TNode.Node.AddTransaction(nil, xTransaction, xErrors)
   then MessageDlg(xErrors, mtError, [mbOk], 0)
   else begin
     MessageDlg('Account purchased', mtInformation, [mbOk], 0);
