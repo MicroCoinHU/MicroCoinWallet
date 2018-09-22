@@ -126,14 +126,14 @@ begin
   end else xPayload := '';
 
   xTransaction := TChangeAccountInfoTransaction.CreateChangeAccountInfo(
-     xSignerAccount.AccountNumber, xSignerAccount.numberOfTransactions+1,
+     xSignerAccount.AccountNumber, xSignerAccount.NumberOfTransactions+1,
      xAccount.AccountNumber,
      xWalletKey.PrivateKey,
      not xWalletKey.AccountKey.Equals(xAccount.AccountInfo.AccountKey),
      xWalletKey.AccountKey,
-     (edAccountName.Text<>xAccount.name),
+     (edAccountName.Text<>xAccount.Name),
      edAccountName.Text,
-     edAccountType.Text<>IntToStr(xAccount.account_type),
+     edAccountType.Text<>IntToStr(xAccount.AccountType),
      StrToUInt(edAccountType.Text),
      xFee, xPayload);
     if MessageDlg('Do you want execute this transaction: '+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
@@ -159,9 +159,9 @@ var
 begin
   FAccountNumber := Value;
   xAccount := TNode.Node.BlockManager.AccountStorage.Account(FAccountNumber);
-  edAccountName.Text := xAccount.name;
-  edAccountType.Text := IntToStr(xAccount.account_type);
-  Caption := Caption + ' - ' +TAccount.AccountNumberToAccountTxtNumber(Value);
+  edAccountName.Text := xAccount.Name;
+  edAccountType.Text := IntToStr(xAccount.AccountType);
+  Caption := Caption + ' - ' +TAccount.AccountNumberToString(Value);
   xAccount := TNode.Node.BlockManager.AccountStorage.Account(FAccountNumber);
   for i:=0 to TNode.Node.KeyManager.Count-1 do begin
     xWalletKey:=TNode.Node.KeyManager[i];

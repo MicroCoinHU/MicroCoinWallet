@@ -96,10 +96,10 @@ begin
   if Sender.GetNodeLevel(Node) = 0 then begin
     xPa := Sender.GetNodeData(Node);
     case Column of
-      0: CellText := string(TAccount.AccountNumberToAccountTxtNumber(xPa.AccountNumber));
-      1: CellText := string(xPa.name);
-      2: CellText := string(TCurrencyUtils.CurrencyToString(xPa.balance));
-      3: CellText := xPa.numberOfTransactions.ToString;
+      0: CellText := string(TAccount.AccountNumberToString(xPa.AccountNumber));
+      1: CellText := string(xPa.Name);
+      2: CellText := string(TCurrencyUtils.CurrencyToString(xPa.Balance));
+      3: CellText := xPa.NumberOfTransactions.ToString;
     end;
   end;
 end;
@@ -187,14 +187,14 @@ begin
     else FAccounts.Clear;
       if cbMyAccounts.Checked then begin
         for i := 0 to FAccounts.Count - 1 do begin
-           if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(i)).AccountInfo.state <> as_ForSale
+           if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(i)).AccountInfo.State <> as_ForSale
            then FAccounts.Delete(i);
         end;
       end else begin
         FAccounts.Clear;
         for i := 0 to TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount - 1 do
         begin
-          if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountInfo.state = as_ForSale
+          if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountInfo.State = as_ForSale
           then FAccounts.Add(TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountNumber);
         end;
       end;

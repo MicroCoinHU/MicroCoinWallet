@@ -378,7 +378,7 @@ begin
   xPrivateKey := TNode.Node.KeyManager[xIndex].PrivateKey;
   xTransaction:=TDelistAccountTransaction.CreateDelistAccountForSale(
     xAccount.AccountNumber,
-    xAccount.numberOfTransactions+1,
+    xAccount.NumberOfTransactions+1,
     xAccount.AccountNumber,
     0,
     xPrivateKey,
@@ -404,7 +404,7 @@ begin
      (TNode.Node.KeyManager.IndexOfAccountKey(
     xAccount.AccountInfo.AccountKey) > -1)
     and (xIndex >= 0)
-    and (xAccount.AccountInfo.state = as_ForSale);
+    and (xAccount.AccountInfo.State = as_ForSale);
   end
   else RevokeSellAction.Enabled := false;
 end;
@@ -431,7 +431,7 @@ var
 begin
   xAllAmount := 0;
   for xPCheckedNode in accountVList.CheckedNodes(TCheckState.csCheckedNormal) do begin
-    xAllAmount := xAllAmount + TAccount(xPCheckedNode.GetData()^).balance;
+    xAllAmount := xAllAmount + TAccount(xPCheckedNode.GetData()^).Balance;
   end;
   if xAllAmount>0 then begin
     amountEdit.Text := TCurrencyUtils.CurrencyToString(xAllAmount);
@@ -453,7 +453,7 @@ begin
   xQRCode := TDelphiZXingQRCode.Create;
   try
     xQRCodeBitmap := QRCodeDisplay.Picture.Bitmap;
-    xQRCode.Data :='{"account":"'+ TAccount.AccountNumberToAccountTxtNumber(TAccount(Node.GetData^).AccountNumber)+'","amount":"","payload":""}';
+    xQRCode.Data :='{"account":"'+ TAccount.AccountNumberToString(TAccount(Node.GetData^).AccountNumber)+'","amount":"","payload":""}';
     xQRCode.Encoding := TQRCodeEncoding(qrISO88591);
     xQRCode.QuietZone := 1;
     xQRCodeBitmap.SetSize(xQRCode.Rows, xQRCode.Columns);
@@ -480,8 +480,8 @@ procedure TMainForm.accountVListFreeNode(Sender: TBaseVirtualTree; Node: PVirtua
 begin
   TAccount(Node.GetData()^).AccountInfo.AccountKey.x := '';
   TAccount(Node.GetData()^).AccountInfo.AccountKey.y := '';
-  TAccount(Node.GetData()^).AccountInfo.new_publicKey.x := '';
-  TAccount(Node.GetData()^).AccountInfo.new_publicKey.y := '';
+  TAccount(Node.GetData()^).AccountInfo.NewPublicKey.x := '';
+  TAccount(Node.GetData()^).AccountInfo.NewPublicKey.y := '';
   TAccount(Node.GetData()^) := Default(TAccount);
 end;
 
@@ -493,9 +493,9 @@ var
   xAccount: TAccount;
 begin
   xAccount := TAccount(Sender.GetNodeData(Node)^);
-  xBlockDifference := TNode.Node.BlockManager.BlocksCount - xAccount.updated_block;
+  xBlockDifference := TNode.Node.BlockManager.BlocksCount - xAccount.UpdatedBlock;
  if (Kind in [ikNormal, ikSelected]) and (Column = 0) then begin
-   case xAccount.AccountInfo.state of
+   case xAccount.AccountInfo.State of
     as_Unknown: ImageIndex := 2;
     as_Normal:
       if TAccount.IsAccountBlockedByProtocol(xAccount.AccountNumber, TNode.Node.BlockManager.BlocksCount)
@@ -516,20 +516,20 @@ begin
   if Sender.GetNodeLevel(Node) = 0 then begin
     xPAccount := TAccount(Sender.GetNodeData(Node)^);
     case Column of
-      0: CellText := TAccount.AccountNumberToAccountTxtNumber(xPAccount.AccountNumber);
-      1: CellText := xPAccount.name;
+      0: CellText := TAccount.AccountNumberToString(xPAccount.AccountNumber);
+      1: CellText := xPAccount.Name;
       2: begin
-           CellText := TCurrencyUtils.CurrencyToString(xPAccount.balance);
-           if xPAccount.AccountInfo.state = as_ForSale
-           then CellText := CellText + ' ('+TCurrencyUtils.CurrencyToString(xPAccount.AccountInfo.price)+')';
+           CellText := TCurrencyUtils.CurrencyToString(xPAccount.Balance);
+           if xPAccount.AccountInfo.State = as_ForSale
+           then CellText := CellText + ' ('+TCurrencyUtils.CurrencyToString(xPAccount.AccountInfo.Price)+')';
         end;
-      3: CellText := xPAccount.numberOfTransactions.ToString;
+      3: CellText := xPAccount.NumberOfTransactions.ToString;
     end;
   end else begin
   {$IFDEF EXTENDEDACCOUNT}
     xPAccount := TAccount(Sender.GetNodeData(Node.Parent)^);
     case Column of
-      0: CellText := TAccount.AccountNumberToAccountTxtNumber(xPAccount.AccountNumber) + '/' +IntToStr(Node.Index);
+      0: CellText := TAccount.AccountNumberToString(xPAccount.AccountNumber) + '/' +IntToStr(Node.Index);
       1: CellText := '';
       2: CellText := TCurrencyUtils.CurrencyToString(xPAccount.SubAccounts[Node.Index].Balance);
     end;
@@ -723,7 +723,7 @@ begin
     BuyAction.Enabled := (TNode.Node.KeyManager.IndexOfAccountKey(
     TAccount(accountVList.FocusedNode.GetData()^).AccountInfo.AccountKey) < 0)
     and TNode.Node.IsReady(xIsReady)
-    and (TAccount(accountVList.FocusedNode.GetData()^).AccountInfo.state = as_ForSale)
+    and (TAccount(accountVList.FocusedNode.GetData()^).AccountInfo.State = as_ForSale)
  else BuyAction.Enabled := false;
 
 end;
@@ -1463,7 +1463,7 @@ begin
       if SelectAllAction.Checked
       then begin
          xNode.CheckState := TCheckState.csCheckedNormal;
-         xAllAmount := xAllAmount + TAccount(xNode.GetData()^).balance;
+         xAllAmount := xAllAmount + TAccount(xNode.GetData()^).Balance;
       end
       else xNode.CheckState := TCheckState.csUncheckedNormal;
       xNode := accountVList.GetNextSibling(xNode);
@@ -1503,7 +1503,7 @@ begin
     SellAccountAction.Enabled := (TNode.Node.KeyManager.IndexOfAccountKey(
     TAccount(accountVList.FocusedNode.GetData()^).AccountInfo.AccountKey) > -1)
     and TNode.Node.IsReady(xIsReady)
-    and (TAccount(accountVList.FocusedNode.GetData()^).AccountInfo.state = as_Normal)
+    and (TAccount(accountVList.FocusedNode.GetData()^).AccountInfo.State = as_Normal)
  else SellAccountAction.Enabled := false;
 end;
 
@@ -1539,7 +1539,7 @@ begin
     exit;
   end;
 
-  if not TAccount.AccountTxtNumberToAccountNumber(targetAccountEdit.AccountNumber, xTargetAccountNumber) then
+  if not TAccount.ParseAccountNumber(targetAccountEdit.AccountNumber, xTargetAccountNumber) then
   begin
     MessageDlg('Invalid account number', TMsgDlgType.mtError, [mbOK],0);
     exit;
@@ -1557,7 +1557,7 @@ begin
     exit;
   end;
 
-  if (xAmount + xFee) > xSenderAccount.balance then begin
+  if (xAmount + xFee) > xSenderAccount.Balance then begin
     MessageDlg('Not enough money', TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
@@ -1594,7 +1594,7 @@ begin
 
   xWalletKey := TNode.Node.KeyManager.Key[i];
   xTransaction := TTransferMoneyTransaction.CreateTransaction(xSenderAccount.AccountNumber,
-    xSenderAccount.numberOfTransactions + 1,
+    xSenderAccount.NumberOfTransactions + 1,
     xTargetAccount.AccountNumber, xWalletKey.PrivateKey, xAmount, xFee, xPayload);
 
   if MessageDlg('Execute transaction? '+xTransaction.ToString, mtConfirmation, [mbYes, mbNo], 0)<>mrYes
@@ -1742,7 +1742,7 @@ begin
       for i := 0 to TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount-1
       do begin
         xAccount := TNode.Node.TransactionStorage.AccountTransaction.Account(i);
-        if xAccount.AccountInfo.state = as_ForSale
+        if xAccount.AccountInfo.State = as_ForSale
         then FAccounts.Add(xAccount.AccountNumber);
       end;
      accountVList.RootNodeCount := FAccounts.Count;
@@ -1757,9 +1757,9 @@ begin
           for k := 0 to l.Count - 1 do begin
             xAccount := TNode.Node.TransactionStorage.AccountTransaction.Account(l.Get(k));
             if cbForSale.Checked
-            then if xAccount.AccountInfo.state <> as_ForSale then continue;
+            then if xAccount.AccountInfo.State <> as_ForSale then continue;
             FAccounts.Add(l.Get(k));
-            FTotalAmount := FTotalAmount + xAccount.balance;
+            FTotalAmount := FTotalAmount + xAccount.Balance;
           end;
         end;
       end;
@@ -1772,9 +1772,9 @@ begin
           for k := 0 to l.Count - 1 do begin
             xAccount := TNode.Node.TransactionStorage.AccountTransaction.Account(l.Get(k));
             if cbForSale.Checked
-            then if xAccount.AccountInfo.state <> as_ForSale then continue;
+            then if xAccount.AccountInfo.State <> as_ForSale then continue;
             FAccounts.Add(l.Get(k));
-            FTotalAmount := FTotalAmount + xAccount.balance;
+            FTotalAmount := FTotalAmount + xAccount.Balance;
           end;
         end;
       end;
@@ -2058,7 +2058,7 @@ var
 begin
   Send.Enabled := (accountVList.FocusedNode <> nil)
     and TNode.Node.IsReady(xIsReady)
-    and TAccount.AccountTxtNumberToAccountNumber(targetAccountEdit.AccountNumber, xTemp)
+    and TAccount.ParseAccountNumber(targetAccountEdit.AccountNumber, xTemp)
     and TCurrencyUtils.ParseValue(amountEdit.Text, xTemp2)
     and TCurrencyUtils.ParseValue(feeEdit.Text, xTemp2);
 end;

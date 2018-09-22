@@ -111,11 +111,11 @@ begin
   xNewkey := TNode.Node.KeyManager[Integer(cbKey.Items.Objects[cbKey.ItemIndex])].AccountKey;
   xTransaction := TBuyAccountTransaction.CreateBuy(
           edSignerAccount.Account.AccountNumber,
-          edSignerAccount.Account.numberOfTransactions+1,
+          edSignerAccount.Account.NumberOfTransactions+1,
           Account.AccountNumber,
-          Account.AccountInfo.account_to_pay,
-          Account.AccountInfo.price,
-          Account.AccountInfo.price,
+          Account.AccountInfo.AccountToPay,
+          Account.AccountInfo.Price,
+          Account.AccountInfo.Price,
           xFee,
           xNewkey,
           xPrivateKey,
@@ -145,7 +145,7 @@ end;
 procedure TBuyAccountForm.SetAccount(const Value: TAccount);
 begin
   FAccount := Value;
-  Caption := Format('Buy account: %s', [ TAccount.AccountNumberToAccountTxtNumber(Account.AccountNumber) ]);
+  Caption := Format('Buy account: %s', [ TAccount.AccountNumberToString(Account.AccountNumber) ]);
 end;
 
 end.

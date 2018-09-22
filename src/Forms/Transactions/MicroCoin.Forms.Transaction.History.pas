@@ -158,7 +158,7 @@ begin
         then CellText := FormatDateTime('c', DateUtils.UnixToDateTime(xData.time, false))
         else CellText := 'Pending';
      1: CellText := IntToStr(xData.Block);
-     2: CellText := TAccount.AccountNumberToAccountTxtNumber(xData.AffectedAccount);
+     2: CellText := TAccount.AccountNumberToString(xData.AffectedAccount);
      3: CellText := xData.TransactionAsString;
      4: CellText := TCurrencyUtils.CurrencyToString(xData.Amount);
      5: CellText := TCurrencyUtils.CurrencyToString(xData.Fee);
@@ -181,7 +181,7 @@ begin
      xTransaction.GetTransactionData(0, xTransaction.SignerAccount, xData);
      xData.NOpInsideBlock := Node.Index;
      xData.Block := TNode.Node.TransactionStorage.BlockHeader.block;
-     xData.Balance := TNode.Node.TransactionStorage.AccountTransaction.Account(Account.AccountNumber).balance;
+     xData.Balance := TNode.Node.TransactionStorage.AccountTransaction.Account(Account.AccountNumber).Balance;
     end;
   end else begin
     xTransaction := TNode.Node.TransactionStorage.TransactionHashTree.GetTransaction(Node.Index);
@@ -189,7 +189,7 @@ begin
     begin
       xData.NOpInsideBlock := Node.Index;
       xData.Block := TNode.Node.BlockManager.BlocksCount;
-      xData.Balance := TNode.Node.TransactionStorage.AccountTransaction.Account(xTransaction.SignerAccount).balance;
+      xData.Balance := TNode.Node.TransactionStorage.AccountTransaction.Account(xTransaction.SignerAccount).Balance;
     end;
   end;
   Sender.SetNodeData(Node, xData);

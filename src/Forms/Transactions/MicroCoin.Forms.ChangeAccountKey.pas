@@ -119,7 +119,7 @@ begin
     end;
   end else xPayload := '';
 
-  xTransaction := TChangeKeyTransaction.Create(xSignerAccount.AccountNumber, xSignerAccount.numberOfTransactions+1, Account.AccountNumber,
+  xTransaction := TChangeKeyTransaction.Create(xSignerAccount.AccountNumber, xSignerAccount.NumberOfTransactions+1, Account.AccountNumber,
          TNode.Node.KeyManager.Key[xIndex].PrivateKey,
          xNewkey, xFee, xPayload);
 
@@ -142,7 +142,7 @@ end;
 procedure TChangeAccountKeyForm.SetAccount(const Value: TAccount);
 begin
   FAccount := Value;
-  edSignerAccount.AccountNumber := TAccount.AccountNumberToAccountTxtNumber(account.AccountNumber);
+  edSignerAccount.AccountNumber := TAccount.AccountNumberToString(account.AccountNumber);
 end;
 
 end.

@@ -137,7 +137,7 @@ end;
 procedure TSellAccountForm.SetAccount(const Value: TAccount);
 begin
   FAccount := Value;
-  edSignerAccount.AccountNumber := TAccount.AccountNumberToAccountTxtNumber(Value.AccountNumber);
+  edSignerAccount.AccountNumber := TAccount.AccountNumberToString(Value.AccountNumber);
 end;
 
 procedure TSellAccountForm.bbSaveClick(Sender: TObject);
@@ -192,7 +192,7 @@ begin
 
   xTransaction := TListAccountForSaleTransaction.CreateListAccountForSale(
           edSignerAccount.Account.AccountNumber,
-          edSignerAccount.Account.numberOfTransactions+1,
+          edSignerAccount.Account.NumberOfTransactions+1,
           FAccount.AccountNumber, xPrice, xFee, edSellerAccount.Account.AccountNumber,
           xNewkey, xBlock, xPrivateKey, xPayload);
 
