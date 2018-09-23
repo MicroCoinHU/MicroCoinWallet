@@ -56,7 +56,7 @@ object TransactionHistoryForm: TTransactionHistoryForm
       end
       item
         Position = 3
-        Width = 250
+        Width = 275
         WideText = 'Transaction'
       end
       item
@@ -79,7 +79,7 @@ object TransactionHistoryForm: TTransactionHistoryForm
       end
       item
         Position = 7
-        Width = 162
+        Width = 133
         WideText = 'Payload'
       end>
   end

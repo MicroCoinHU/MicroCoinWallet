@@ -34,7 +34,7 @@ uses
   Controls, Forms, Dialogs, VirtualTrees,
   MicroCoin.Account.Data, MicroCoin.Transaction.Base,
   MicroCoin.Transaction.TransactionList,
-  MicroCoin.Node.Events;
+  MicroCoin.Node.Events, Vcl.Grids, Vcl.ValEdit, Vcl.ExtCtrls;
 
 type
   TTransactionHistoryForm = class(TForm)
@@ -137,12 +137,12 @@ begin
    if xTransactionData.time = 0
    then TargetCanvas.Font.Color := clGrayText;
    if (xTransactionData.transactionType = 0) and (xTransactionData.transactionSubtype = 0)
-   then TargetCanvas.Font.Color := clGreen;
-   {else if xTransactionData.Amount<0
-        then TargetCanvas.Font.Color := clRed
-        else if xTransactionData.Amount>0
-             then TargetCanvas.Font.Color := clGreen;
-             }
+   then TargetCanvas.Font.Color := clGreen
+   else if Column = 4
+        then if xTransactionData.Amount<0
+             then TargetCanvas.Font.Color := clRed
+             else if xTransactionData.Amount>0
+                  then TargetCanvas.Font.Color := clGreen;
    DefaultDraw := true;
 end;
 
@@ -157,7 +157,7 @@ begin
      0: if xData.time>0
         then CellText := FormatDateTime('c', DateUtils.UnixToDateTime(xData.time, false))
         else CellText := 'Pending';
-     1: CellText := IntToStr(xData.Block);
+     1: CellText := Format('%.0n',[xData.Block+0.0]);
      2: CellText := TAccount.AccountNumberToString(xData.AffectedAccount);
      3: CellText := xData.TransactionAsString;
      4: CellText := TCurrencyUtils.CurrencyToString(xData.Amount);

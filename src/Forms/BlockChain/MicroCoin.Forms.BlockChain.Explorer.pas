@@ -81,6 +81,7 @@ type
     Total: Int64;
     Difficulty: Cardinal;
     Hashrate: UInt64;
+    Hashrateprev: UInt64;
     Pow: string;
     MinerPayload: string;
     Reward: UInt64;
@@ -90,9 +91,32 @@ procedure TBlockChainExplorerForm.blockListViewDrawText(
   Sender: TBaseVirtualTree; TargetCanvas: TCanvas; Node: PVirtualNode;
   Column: TColumnIndex; const Text: string; const CellRect: TRect;
   var DefaultDraw: Boolean);
+var
+  xData : PBlockData;
 begin
+  xData := PBlockData(Node.GetData^);
+
   if (Column = 10) or (Column = 7)
   then TargetCanvas.Font.Name := 'Courier New';
+
+  if (Column = 2) and (xData.Transcations = 0)
+  then TargetCanvas.Font.Color := clLtGray;
+
+  if (Column = 4) and (xData.Amount = 0)
+  then TargetCanvas.Font.Color := clLtGray;
+
+  if (Column = 5) and (xData.Fee = 0)
+  then TargetCanvas.Font.Color := clLtGray;
+
+  if (Column = 6) and (xData.Total = 0)
+  then TargetCanvas.Font.Color := clLtGray;
+
+  if (Column=8)
+  then begin
+    if (xData.Hashrate >= xData.Hashrateprev)
+    then TargetCanvas.Font.Color := clGreen
+    else TargetCanvas.Font.Color := clRed;
+  end;
 end;
 
 procedure TBlockChainExplorerForm.blockListViewFreeNode(
@@ -111,18 +135,28 @@ procedure TBlockChainExplorerForm.blockListViewGetText(Sender: TBaseVirtualTree;
   var CellText: string);
 var
   xBlock: PBlockData;
+  xHash: double;
+  xMu : string;
 begin
   xBlock := PBlockData(Node.GetData^);
+  if xBlock.Hashrate>1000000000
+  then begin xHash := xBlock.Hashrate / 1000000000; xMu := 'TH/s'; end
+  else if xBlock.Hashrate>1000000
+       then begin xHash := xBlock.Hashrate / 1000000; ; xMu := 'GH/s'; end
+       else if xBlock.Hashrate>1000
+            then begin xHash := xBlock.Hashrate / 1000; ; xMu := 'MH/s'; end
+            else begin xHash := xBlock.Hashrate; xMu := 'kH/s'; end;
+
   case Column of
     0: CellText := Format('%.0n', [xBlock.BlockNumber+0.0]);
     1: CellText := FormatDateTime('c', UnixToDateTime(xBlock.time, false));
     2: CellText := Format('%.0n', [xBlock.Transcations+0.0]);
-    3: CellText := TCurrencyUtils.CurrencyToString(xBlock.Reward);
+    3: CellText := TCurrencyUtils.CurrencyToString(xBlock.Reward+xBlock.Fee);
     4: CellText := TCurrencyUtils.CurrencyToString(xBlock.Amount);
     5: CellText := TCurrencyUtils.CurrencyToString(xBlock.Fee);
     6: CellText := TCurrencyUtils.CurrencyToString(xBlock.Total);
     7: CellText := Format('0x%X', [xBlock.Difficulty]);
-    8: CellText := Format('%.2n MH/s',[ xBlock.Hashrate/1000 ]);
+    8: CellText := Format('%.4n %s',[ xHash, xMu ]);
     9: CellText := xBlock.MinerPayload;
     10: CellText := xBlock.Pow;
   end;
@@ -158,6 +192,10 @@ begin
     xData^.Total := xData.Amount + xData.Fee;
     xData^.Difficulty := xBlock.BlockHeader.compact_target;
     xData^.Hashrate := TNode.Node.BlockManager.AccountStorage.CalcBlockHashRateInKhs(xBlockNumber, 50);
+    if xBlockNumber > 0
+    then xData^.HashratePrev := TNode.Node.BlockManager.AccountStorage.CalcBlockHashRateInKhs(xBlockNumber-1, 50)
+    else xData^.HashratePrev := 0;
+
     xData^.Pow := TCrypto.ToHexaString(xBlock.BlockHeader.proof_of_work);
     xData^.MinerPayload := UTF8ToString( xBlock.BlockPayload );
     Sender.SetNodeData(Node, xData);

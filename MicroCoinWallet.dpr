@@ -123,7 +123,8 @@ uses
   MicroCoin.Forms.SellAccount in 'src\Forms\Transactions\MicroCoin.Forms.SellAccount.pas' {SellAccountForm},
   MicroCoin.Forms.Transaction.Explorer in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.pas' {TransactionExplorer},
   MicroCoin.Forms.Transaction.History in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.History.pas' {TransactionHistoryForm},
-  MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm};
+  MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm},
+  MicroCoin.Exchange.MapleChange in 'src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas' {MapleChangeForm};
 
 procedure GetBuildInfo(var V1, V2, V3, V4: word);
 var

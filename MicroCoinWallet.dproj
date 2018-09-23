@@ -3,7 +3,7 @@
         <ProjectGuid>{F3B2E6AD-6E4B-4736-A714-EEAE47C178BC}</ProjectGuid>
         <MainSource>MicroCoinWallet.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Testnet</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -81,7 +81,7 @@
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.3.3.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
-        <DCC_UnitSearchPath>src\MicroCoin\Account;src\MicroCoin\Transaction;src\MicroCoin\Application;src\MicroCoin\BlockChain;src\MicroCoin\Common;src\MicroCoin\Keys;src\MicroCoin\Mining;src\MicroCoin\Net;src\MicroCoin\Node;src\MicroCoin\Rpc;src\MicroCoin\Utils;src\MicroCoin\Transaction\Lists;src\MicroCoin\Transaction\Plugins;src\Forms;src\Forms\BlockChain;src\Forms\Transactions;src\MicroCoin;src\MicroCoin\Account;src\MicroCoin\3rdParty;src\MicroCoin\3rdParty\Synapse;src\MicroCoin\3rdParty\OpenSSL;src\Forms\Common;src\MicroCoin\Deprecated;src\Forms\Keys;src\MicroCoin\3rdParty\fastmm;src\MicroCoin\3rdParty\DelphiZXingQRCode;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>src\MicroCoin\Account;src\MicroCoin\Transaction;src\MicroCoin\Application;src\MicroCoin\BlockChain;src\MicroCoin\Common;src\MicroCoin\Keys;src\MicroCoin\Mining;src\MicroCoin\Net;src\MicroCoin\Node;src\MicroCoin\Rpc;src\MicroCoin\Utils;src\MicroCoin\Transaction\Lists;src\MicroCoin\Transaction\Plugins;src\Forms;src\Forms\BlockChain;src\Forms\Transactions;src\MicroCoin;src\MicroCoin\Account;src\MicroCoin\3rdParty;src\MicroCoin\3rdParty\Synapse;src\MicroCoin\3rdParty\OpenSSL;src\Forms\Common;src\MicroCoin\Deprecated;src\Forms\Keys;src\MicroCoin\3rdParty\fastmm;src\MicroCoin\3rdParty\DelphiZXingQRCode;src\MicroCoin\3rdParty\UCL;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <Custom_Styles>&quot;Cobalt XEMedia|VCLSTYLE|$(BDSCOMMONDIR)\Styles\CobaltXEMedia.vsf&quot;;&quot;Green Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\GreenGraphite.vsf&quot;;&quot;Light Green|VCLSTYLE|$(BDSCOMMONDIR)\Styles\LightGreen.vsf&quot;;&quot;MicroCoin Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\MicroCoinDark.vsf&quot;;&quot;MicroCoin Light|VCLSTYLE|$(BDSCOMMONDIR)\Styles\MicroCoinLight.vsf&quot;;&quot;Ruby Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\RubyGraphite.vsf&quot;</Custom_Styles>
         <DCC_MapFile>3</DCC_MapFile>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -123,9 +123,11 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Build>5</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.5;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>14</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.14;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <VerInfo_Release>2</VerInfo_Release>
+        <DCC_IOChecking>false</DCC_IOChecking>
+        <DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -141,8 +143,8 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.47;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>47</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.49;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>49</VerInfo_Build>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
         <VerInfo_Release>2</VerInfo_Release>
@@ -157,11 +159,11 @@
         <DCC_Define>TESTNET;DEBUG;EXTENDEDACCOUNT;$(DCC_Define)</DCC_Define>
         <VerInfo_Release>2</VerInfo_Release>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.39;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.40;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
-        <VerInfo_Build>39</VerInfo_Build>
+        <VerInfo_Build>40</VerInfo_Build>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -286,6 +288,10 @@
             <Form>MainForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas">
+            <Form>MapleChangeForm</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -320,13 +326,19 @@
                 <Platform value="Win64">True</Platform>
             </Platforms>
             <Deployment Version="3">
+                <DeployFile LocalName="..\bin\Win32\Release\MicroCoinWallet.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>MicroCoinWallet.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\bin\Win32\Testnet\MicroCoinWallet.exe" Configuration="Testnet" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>MicroCoinWallet.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="bin\MicroCoinWallet.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Win32\Debug\MicroCoinWallet.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>MicroCoinWallet.exe</RemoteName>
                         <Overwrite>true</Overwrite>

@@ -56,7 +56,7 @@ uses
   PlatformDefaultStyleActnCtrls, ActnMan, ImageList,
   VirtualTrees, PngBitBtn, PngSpeedButton, ActnCtrls,
   MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney, MicroCoin.Transaction.ChangeKey,
-  MicroCoin.Forms.EditAccount,
+  MicroCoin.Forms.EditAccount, MicroCoin.Exchange.MapleChange,
   MicroCoin.Account.AccountKey, MicroCoin.Common.Lists, MicroCoin.Common,
   MicroCoin.Transaction.ITransaction,
   MicroCoin.Account.Data, Types, httpsend,
@@ -194,6 +194,7 @@ type
     menuItemBuy: TMenuItem;
     N1: TMenuItem;
     N2: TMenuItem;
+    ExchangeAction: TAction;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -255,6 +256,7 @@ type
     procedure HomePageActionExecute(Sender: TObject);
     procedure accountVListInitChildren(Sender: TBaseVirtualTree;
       Node: PVirtualNode; var ChildCount: Cardinal);
+    procedure ExchangeActionExecute(Sender: TObject);
   private
     FBackgroundPanel: TPanel;
     FMinersBlocksFound: Integer;
@@ -348,6 +350,8 @@ end;
 procedure TMainForm.PrivateKeysActionExecute(Sender: TObject);
 begin
   TWalletKeysForm.Create(nil).ShowModal;
+  UpdatePrivateKeys;
+  UpdateAccounts(true);
 end;
 
 procedure TMainForm.RefreshActionExecute(Sender: TObject);
@@ -921,6 +925,11 @@ begin
   encryptionPassword.Enabled := encryptModeSelect.ItemIndex = 3;
   if encryptionPassword.Enabled then encryptionPassword.SetFocus
   else encryptionPassword.Text := '';
+end;
+
+procedure TMainForm.ExchangeActionExecute(Sender: TObject);
+begin
+  TMapleChangeForm.Create(nil).ShowModal;
 end;
 
 procedure TMainForm.FinishedLoadingApp;
@@ -1583,11 +1592,25 @@ begin
     exit;
   end;
 
+  if xTargetAccount.AccountNumber = 528
+  then begin
+    if Trim(payloadEdit.Text)='' then begin
+      MessageDlg('Please specify your MapleChange Payload!', mtError, [mbOK], 0);
+      exit;
+    end;
+    if encryptModeSelect.ItemIndex<>1
+    then begin
+     if MessageDlg('You MUST encrypt your payload for deposit! Encrypt it?',  mtConfirmation, [mbYes, mbNo], 0) = mrYes
+     then encryptModeSelect.ItemIndex := 1
+     else exit;
+    end;
+  end;
+
   if Trim(payloadEdit.Text)<>'' then begin
      case encryptModeSelect.ItemIndex of
       0: xPayload := payloadEdit.Text;
-      1: xPayload := ECIESEncrypt(xTargetAccount.AccountInfo.AccountKey, xPayload);
-      2: xPayload := ECIESEncrypt(xSenderAccount.AccountInfo.AccountKey, xPayload);
+      1: xPayload := ECIESEncrypt(xTargetAccount.AccountInfo.AccountKey, payloadEdit.Text);
+      2: xPayload := ECIESEncrypt(xSenderAccount.AccountInfo.AccountKey, payloadEdit.Text);
       3: xPayload := TAESComp.EVP_Encrypt_AES256(xPayload, encryptionPassword.Text);
      end;
   end else xPayload := '';
@@ -1818,7 +1841,6 @@ begin
       end;
     end
     else begin
-//      if Assigned(FBackgroundPanel) then FreeAndNil(FBackgroundPanel);
       StatusBar.Panels[3].Text := 'Blocks: ' + Format('%.0n', [TNode.Node.BlockManager.BlocksCount+0.0]) + ' | ' + 'Difficulty: 0x' +
         IntToHex(TNode.Node.TransactionStorage.BlockHeader.compact_target, 8);
     end;
@@ -2005,34 +2027,27 @@ var
   xWalletKey: TWalletKey;
   s: AnsiString;
 begin
-  if (not Assigned(FOrderedAccountsKeyList)) then
-  begin
-    FOrderedAccountsKeyList := TOrderedAccountKeysList.Create(TNode.Node.BlockManager.AccountStorage, false);
-  end;
-  if (cbMyPrivateKeys.ItemIndex >= 0) then
-    last_i := PtrInt(cbMyPrivateKeys.Items.Objects[cbMyPrivateKeys.ItemIndex])
-  else
-    last_i := -1;
+  if (not Assigned(FOrderedAccountsKeyList))
+  then FOrderedAccountsKeyList := TOrderedAccountKeysList.Create(TNode.Node.BlockManager.AccountStorage, false);
+  if (cbMyPrivateKeys.ItemIndex >= 0)
+  then last_i := PtrInt(cbMyPrivateKeys.Items.Objects[cbMyPrivateKeys.ItemIndex])
+  else last_i := -1;
   cbMyPrivateKeys.Items.BeginUpdate;
   try
     cbMyPrivateKeys.Items.Clear;
     for i := 0 to TNode.Node.KeyManager.Count - 1 do
     begin
       xWalletKey := TNode.Node.KeyManager.Key[i];
-      if Assigned(FOrderedAccountsKeyList) then
-      begin
-        FOrderedAccountsKeyList.AddAccountKey(xWalletKey.AccountKey);
-      end;
-      if (xWalletKey.name = '') then
-      begin
+      if Assigned(FOrderedAccountsKeyList)
+      then FOrderedAccountsKeyList.AddAccountKey(xWalletKey.AccountKey);
+      if (xWalletKey.name = '')
+      then begin
         s := 'Sha256=' + TCrypto.ToHexaString(TCrypto.DoSha256(xWalletKey.AccountKey.ToRawString));
-      end
-      else
-      begin
+      end else begin
         s := xWalletKey.name;
       end;
-      if not Assigned(xWalletKey.PrivateKey) then
-        s := s + '(*)';
+      if not Assigned(xWalletKey.PrivateKey)
+      then s := s + '(*)';
       cbMyPrivateKeys.Items.AddObject(s, TObject(i));
     end;
     cbMyPrivateKeys.Sorted := true;
@@ -2042,12 +2057,12 @@ begin
     cbMyPrivateKeys.Items.EndUpdate;
   end;
   last_i := cbMyPrivateKeys.Items.IndexOfObject(TObject(last_i));
-  if last_i < 0 then
-    last_i := 0;
-  if cbMyPrivateKeys.Items.Count > last_i then
-    cbMyPrivateKeys.ItemIndex := last_i
-  else if cbMyPrivateKeys.Items.Count >= 0 then
-    cbMyPrivateKeys.ItemIndex := 0;
+  if last_i < 0
+  then last_i := 0;
+  if cbMyPrivateKeys.Items.Count > last_i
+  then cbMyPrivateKeys.ItemIndex := last_i
+  else if cbMyPrivateKeys.Items.Count >= 0
+       then cbMyPrivateKeys.ItemIndex := 0;
 end;
 
 procedure TMainForm.SendUpdate(Sender: TObject);
