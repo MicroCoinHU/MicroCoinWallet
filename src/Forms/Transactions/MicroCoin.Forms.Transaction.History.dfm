@@ -34,6 +34,7 @@ object TransactionHistoryForm: TTransactionHistoryForm
     TreeOptions.PaintOptions = [toHideFocusRect, toShowButtons, toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages]
     TreeOptions.SelectionOptions = [toFullRowSelect]
     OnDrawText = transactionListViewDrawText
+    OnFreeNode = transactionListViewFreeNode
     OnGetText = transactionListViewGetText
     OnInitNode = transactionListViewInitNode
     Columns = <

@@ -179,6 +179,7 @@ object WalletKeysForm: TWalletKeysForm
     TreeOptions.PaintOptions = [toHideFocusRect, toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages]
     TreeOptions.SelectionOptions = [toFullRowSelect, toRightClickSelect, toAlwaysSelectNode]
     OnFocusChanged = keyListFocusChanged
+    OnFreeNode = keyListFreeNode
     OnGetText = keyListGetText
     OnInitNode = keyListInitNode
     Columns = <

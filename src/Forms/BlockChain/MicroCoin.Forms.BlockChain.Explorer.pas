@@ -33,7 +33,9 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   MicroCoin.Node.Node,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, Vcl.Buttons,
-  PngSpeedButton, Vcl.StdCtrls, Vcl.ExtCtrls, MicroCoin.Node.Events;
+  PngSpeedButton, Vcl.StdCtrls, Vcl.ExtCtrls, MicroCoin.Node.Events,
+  VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs,
+  VCLTee.Chart, Threading;
 
 type
   TBlockChainExplorerForm = class(TForm)
@@ -41,6 +43,8 @@ type
     Panel1: TPanel;
     labelUpdated: TLabel;
     btnRefresh: TPngSpeedButton;
+    Chart1: TChart;
+    Series1: TLineSeries;
     procedure FormCreate(Sender: TObject);
     procedure blockListViewInitNode(Sender: TBaseVirtualTree; ParentNode,
       Node: PVirtualNode; var InitialStates: TVirtualNodeInitStates);
@@ -224,6 +228,28 @@ begin
   labelUpdated.Caption := Format('Updated: %s',[FormatDateTime('c', Now)]);
   FNotifyEvents := TNodeNotifyEvents.Create(self);
   FNotifyEvents.OnBlocksChanged := btnRefreshClick;
+  Chart1.Series[0].Clear;
+  TTask.Create(procedure
+var
+  i: integer;
+  xBlock: TBlock;
+
+  begin
+  xBlock := TBlock.Create(self);
+  for i:=TNode.Node.BlockManager.BlocksCount-1001 to TNode.Node.BlockManager.BlocksCount - 1
+  do begin
+    TNode.Node.BlockManager.Storage.LoadBlockChainBlock(xBlock, i);
+{     TThread.Synchronize(nil, procedure begin}
+     if assigned(Chart1) then
+        Chart1.Series[0].Add(
+          TNode.Node.BlockManager.AccountStorage.CalcBlockHashRateInKhs(xBlock.BlockHeader.block, 50) / (1000*1000)
+          ,FormatDateTime('c', UnixToDateTime(xBlock.timestamp, false)))
+      else exit;
+{     end);}
+  end;
+  Chart1.Update;
+  xBlock.Free;
+  end).Start;
 end;
 
 procedure TBlockChainExplorerForm.FormDestroy(Sender: TObject);

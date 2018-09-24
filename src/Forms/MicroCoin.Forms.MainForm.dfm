@@ -911,9 +911,9 @@ object MainForm: TMainForm
             object labelPendingCaption: TLabel
               Left = 6
               Top = 68
-              Width = 113
+              Width = 122
               Height = 13
-              Caption = 'Pending Operations:'
+              Caption = 'Pending transactions:'
               Color = clBtnFace
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
@@ -924,7 +924,7 @@ object MainForm: TMainForm
               ParentFont = False
             end
             object labelOperationsPending: TLabel
-              Left = 125
+              Left = 134
               Top = 68
               Width = 6
               Height = 13
@@ -1073,6 +1073,8 @@ object MainForm: TMainForm
             OnInitChildren = accountVListInitChildren
             OnInitNode = accountVListInitNode
             OnNodeDblClick = accountVListNodeDblClick
+            ExplicitLeft = 1
+            ExplicitTop = 87
             Columns = <
               item
                 Alignment = taRightJustify

@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, HttpSend, UJsonFunctions,
   ssl_openssl, ssl_openssl_lib, DateUtils, Vcl.StdCtrls, Vcl.Imaging.pngimage,
   ShellApi,
-  Vcl.ExtCtrls, Vcl.Buttons, PngBitBtn;
+  Vcl.ExtCtrls, Vcl.Buttons, PngBitBtn, PngSpeedButton;
 
 type
   TEntry = record
@@ -22,7 +22,7 @@ type
   TMapleChangeForm = class(TForm)
     bidList: TVirtualStringTree;
     Image1: TImage;
-    PngBitBtn1: TPngBitBtn;
+    PngBitBtn1: TPngSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure bidListInitNode(Sender: TBaseVirtualTree; ParentNode,
       Node: PVirtualNode; var InitialStates: TVirtualNodeInitStates);
@@ -49,6 +49,8 @@ var
 
 implementation
 
+uses Threading;
+
 {$R *.dfm}
 
 procedure TMapleChangeForm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -57,6 +59,8 @@ begin
 end;
 
 procedure TMapleChangeForm.FormCreate(Sender: TObject);
+begin
+TTask.Create(procedure
 var
   xStrings : TStringList;
   xHttp: THTTPSend;
@@ -91,12 +95,15 @@ begin
       FItems[i+FBids.GetAsArray('bids').Count].Remaining := FBids.GetAsArray('asks').GetAsObject(i).GetAsVariant('remaining_volume').AsString('');
       FItems[i+FBids.GetAsArray('bids').Count].Side := FBids.GetAsArray('asks').GetAsObject(i).GetAsVariant('side').AsString('');
     end;
-    bidList.NodeDataSize := sizeof(TEntry);
-    bidList.RootNodeCount := Length(FItems);
+    TThread.Synchronize(nil, procedure begin
+      bidList.NodeDataSize := sizeof(TEntry);
+      bidList.RootNodeCount := Length(FItems);
+    end);
   finally
     xHttp.Free;
     xStrings.Free;
   end;
+end).Start;
 
 end;
 

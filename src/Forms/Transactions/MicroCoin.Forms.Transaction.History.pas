@@ -50,6 +50,8 @@ type
       const Text: string; const CellRect: TRect; var DefaultDraw: Boolean);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
+    procedure transactionListViewFreeNode(Sender: TBaseVirtualTree;
+      Node: PVirtualNode);
   private
     FAccount: TAccount;
     FAccountTransactionList : TList;
@@ -144,6 +146,12 @@ begin
              else if xTransactionData.Amount>0
                   then TargetCanvas.Font.Color := clGreen;
    DefaultDraw := true;
+end;
+
+procedure TTransactionHistoryForm.transactionListViewFreeNode(
+  Sender: TBaseVirtualTree; Node: PVirtualNode);
+begin
+  TTransactionData(Node.GetData^) := Default(TTransactionData);
 end;
 
 procedure TTransactionHistoryForm.transactionListViewGetText(Sender: TBaseVirtualTree;

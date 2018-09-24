@@ -105,6 +105,7 @@ type
       Column: TColumnIndex);
     procedure cbShowPrivateClick(Sender: TObject);
     procedure btnPrintClick(Sender: TObject);
+    procedure keyListFreeNode(Sender: TBaseVirtualTree; Node: PVirtualNode);
   private
     procedure ShowPrivateKey;
     function UnlockWallet : Boolean;
@@ -508,6 +509,12 @@ begin
     xQRCode.Free;
   end;
   ShowPrivateKey;
+end;
+
+procedure TWalletKeysForm.keyListFreeNode(Sender: TBaseVirtualTree;
+  Node: PVirtualNode);
+begin
+ TWalletKey(Node.GetData^) := Default(TWalletKey);
 end;
 
 procedure TWalletKeysForm.keyListGetText(Sender: TBaseVirtualTree;
