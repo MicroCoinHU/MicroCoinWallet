@@ -123,8 +123,9 @@ uses
   MicroCoin.Forms.SellAccount in 'src\Forms\Transactions\MicroCoin.Forms.SellAccount.pas' {SellAccountForm},
   MicroCoin.Forms.Transaction.Explorer in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.pas' {TransactionExplorer},
   MicroCoin.Forms.Transaction.History in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.History.pas' {TransactionHistoryForm},
+  MicroCoin.Exchange.MapleChange in 'src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas',
   MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm},
-  MicroCoin.Exchange.MapleChange in 'src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas' {MapleChangeForm};
+  MicroCoin.Transaction.TransaferMoneyExtended in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransaferMoneyExtended.pas';
 
 procedure GetBuildInfo(var V1, V2, V3, V4: word);
 var
@@ -177,7 +178,7 @@ begin
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('MicroCoin Light');
-  Application.Title := 'MicroCoin Wallet - '+GetBuildInfoAsString{$IFDEF TESTNET}+' - TESTNET'{$ENDIF};
+  Application.Title := 'MicroCoin Wallet - '+GetBuildInfoAsString{$IFDEF TESTNET}+' - TESTNET'{$ENDIF}{$IFDEF DEVNET}+' - DEVNET'{$ENDIF};
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.

@@ -3,7 +3,7 @@
         <ProjectGuid>{F3B2E6AD-6E4B-4736-A714-EEAE47C178BC}</ProjectGuid>
         <MainSource>MicroCoinWallet.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Devnet</Config>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -68,6 +68,17 @@
         <Cfg_3>true</Cfg_3>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Devnet' or '$(Cfg_4)'!=''">
+        <Cfg_4>true</Cfg_4>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_4)'=='true') or '$(Cfg_4_Win32)'!=''">
+        <Cfg_4_Win32>true</Cfg_4_Win32>
+        <CfgParent>Cfg_4</CfgParent>
+        <Cfg_4>true</Cfg_4>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_E>false</DCC_E>
         <DCC_F>false</DCC_F>
@@ -81,7 +92,7 @@
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.3.3.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
-        <DCC_UnitSearchPath>src\MicroCoin\Account;src\MicroCoin\Transaction;src\MicroCoin\Application;src\MicroCoin\BlockChain;src\MicroCoin\Common;src\MicroCoin\Keys;src\MicroCoin\Mining;src\MicroCoin\Net;src\MicroCoin\Node;src\MicroCoin\Rpc;src\MicroCoin\Utils;src\MicroCoin\Transaction\Lists;src\MicroCoin\Transaction\Plugins;src\Forms;src\Forms\BlockChain;src\Forms\Transactions;src\MicroCoin;src\MicroCoin\Account;src\MicroCoin\3rdParty;src\MicroCoin\3rdParty\Synapse;src\MicroCoin\3rdParty\OpenSSL;src\Forms\Common;src\MicroCoin\Deprecated;src\Forms\Keys;src\MicroCoin\3rdParty\fastmm;src\MicroCoin\3rdParty\DelphiZXingQRCode;src\MicroCoin\3rdParty\UCL;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>src\MicroCoin\Account;src\MicroCoin\Transaction;src\MicroCoin\Application;src\MicroCoin\BlockChain;src\MicroCoin\Common;src\MicroCoin\Keys;src\MicroCoin\Mining;src\MicroCoin\Net;src\MicroCoin\Node;src\MicroCoin\Rpc;src\MicroCoin\Utils;src\MicroCoin\Transaction\Lists;src\MicroCoin\Transaction\Plugins;src\Forms;src\Forms\BlockChain;src\Forms\Transactions;src\MicroCoin;src\MicroCoin\Account;src\MicroCoin\3rdParty;src\MicroCoin\3rdParty\Synapse;src\MicroCoin\3rdParty\OpenSSL;src\Forms\Common;src\MicroCoin\Deprecated;src\Forms\Keys;src\MicroCoin\3rdParty\fastmm;src\MicroCoin\3rdParty\DelphiZXingQRCode;C:\Source\MCCWallet\MicroCoinWallet\src\Forms\Exchange;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <Custom_Styles>&quot;Cobalt XEMedia|VCLSTYLE|$(BDSCOMMONDIR)\Styles\CobaltXEMedia.vsf&quot;;&quot;Green Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\GreenGraphite.vsf&quot;;&quot;Light Green|VCLSTYLE|$(BDSCOMMONDIR)\Styles\LightGreen.vsf&quot;;&quot;MicroCoin Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\MicroCoinDark.vsf&quot;;&quot;MicroCoin Light|VCLSTYLE|$(BDSCOMMONDIR)\Styles\MicroCoinLight.vsf&quot;;&quot;Ruby Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\RubyGraphite.vsf&quot;</Custom_Styles>
         <DCC_MapFile>3</DCC_MapFile>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -123,8 +134,8 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Build>14</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.14;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>39</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=MicroCoin;FileDescription=MicroCoin Desktop Wallet;FileVersion=1.3.2.39;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
         <VerInfo_Release>2</VerInfo_Release>
         <DCC_IOChecking>false</DCC_IOChecking>
         <DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
@@ -143,27 +154,43 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.49;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>49</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.65;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>65</VerInfo_Build>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
         <VerInfo_Release>2</VerInfo_Release>
+        <DCC_Define>OpenSSL11;$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Release>2</VerInfo_Release>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.1;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Build>1</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_3_Win32)'!=''">
         <DCC_Define>TESTNET;DEBUG;EXTENDEDACCOUNT;$(DCC_Define)</DCC_Define>
         <VerInfo_Release>2</VerInfo_Release>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.40;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.44;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
-        <VerInfo_Build>40</VerInfo_Build>
+        <VerInfo_Build>44</VerInfo_Build>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_4)'!=''">
+        <DCC_Define>DEVNET;DEBUG;EXTENDEDACCOUNT;$(DCC_Define)</DCC_Define>
+        <VerInfo_Release>2</VerInfo_Release>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.42;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <VerInfo_Build>42</VerInfo_Build>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_4_Win32)'!=''">
+        <VerInfo_Build>60</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.60;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -243,57 +270,48 @@
         <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransferMoney.pas"/>
         <DCCReference Include="src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.pas">
             <Form>AccountSelectDialog</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.pas">
             <Form>BlockChainExplorerForm</Form>
         </DCCReference>
         <DCCReference Include="src\Forms\Common\MicroCoin.Forms.Common.About.pas">
             <Form>AboutForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\Common\MicroCoin.Forms.Common.Settings.pas">
             <Form>SettingsForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.pas">
             <Form>WalletKeysForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\Transactions\MicroCoin.Forms.BuyAccount.pas">
             <Form>BuyAccountForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.pas">
             <Form>ChangeAccountKeyForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\Transactions\MicroCoin.Forms.EditAccount.pas">
             <Form>EditAccountForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\Transactions\MicroCoin.Forms.SellAccount.pas">
             <Form>SellAccountForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.pas">
             <Form>TransactionExplorer</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\Forms\Transactions\MicroCoin.Forms.Transaction.History.pas">
             <Form>TransactionHistoryForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas"/>
         <DCCReference Include="src\Forms\MicroCoin.Forms.MainForm.pas">
             <Form>MainForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas">
-            <Form>MapleChangeForm</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
+        <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransaferMoneyExtended.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Devnet">
+            <Key>Cfg_4</Key>
+            <CfgParent>Base</CfgParent>
         </BuildConfiguration>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
@@ -326,19 +344,25 @@
                 <Platform value="Win64">True</Platform>
             </Platforms>
             <Deployment Version="3">
+                <DeployFile LocalName="..\bin\Win32\Devnet\MicroCoinWallet.exe" Configuration="Devnet" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>MicroCoinWallet.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\bin\Win32\Release\MicroCoinWallet.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>MicroCoinWallet.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\bin\Win32\Testnet\MicroCoinWallet.exe" Configuration="Testnet" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Win32\Debug\MicroCoinWallet.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>MicroCoinWallet.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\bin\Win32\Debug\MicroCoinWallet.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Win32\Testnet\MicroCoinWallet.exe" Configuration="Testnet" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>MicroCoinWallet.exe</RemoteName>
                         <Overwrite>true</Overwrite>

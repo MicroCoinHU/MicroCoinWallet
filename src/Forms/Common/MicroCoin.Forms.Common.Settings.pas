@@ -178,10 +178,10 @@ begin
   FAppSettings := Value;
   cbSkin.ItemIndex := cbSkin.Items.IndexOf(AppParams.Entries[TAppSettingsEntry.apTheme].GetAsString('MicroCoin Light'));
   editMinerName.Text := AppParams.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
-  editMinerServerPort.Value := AppParams.Entries[TAppSettingsEntry.apJSONRPCMinerServerPort].GetAsInteger(CT_JSONRPCMinerServer_Port);
+  editMinerServerPort.Value := AppParams.Entries[TAppSettingsEntry.apJSONRPCMinerServerPort].GetAsInteger(cMinerServerPort);
   checkEnableRPC.Checked := AppParams.Entries[TAppSettingsEntry.apJSONRPCEnabled].GetAsBoolean(false);
   memoAllowedIPs.Text := AppParams.Entries[TAppSettingsEntry.apJSONRPCAllowedIPs].GetAsString('127.0.0.1;');
-  editServerPort.Value := AppParams.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(CT_NetServer_Port);
+  editServerPort.Value := AppParams.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(cNetServerPort);
   if AppParams.Entries[TAppSettingsEntry.apNotifyOnNewTransaction].GetAsBoolean(true)
   then swNewTransaction.State := TToggleSwitchState.tssOn
   else swNewTransaction.State := TToggleSwitchState.tssOff;

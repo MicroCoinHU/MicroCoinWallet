@@ -84,6 +84,7 @@ var
   xTransaction : ITransaction;
   xAccount : TAccount;
   xWalletKey: TWalletKey;
+  xSignerKey: TWalletKey;
   xFee: int64;
   xPayload, xErrors: AnsiString;
   xSignerAccount: TAccount;
@@ -105,6 +106,9 @@ begin
   xIndex := Integer(cbPrivateKey.Items.Objects[cbPrivateKey.ItemIndex]);
   xWalletKey := TNode.Node.KeyManager.Key[xIndex];
 
+  xIndex := TNode.Node.KeyManager.IndexOfAccountKey(xAccount.AccountInfo.AccountKey);
+  xSignerKey := TNode.Node.KeyManager[xIndex];
+
   if not TCurrencyUtils.ParseValue(edFee.Text, xFee) then begin
     MessageDlg('Invalid fee', mtError, [mbOk], 0);
     exit;
@@ -119,16 +123,16 @@ begin
   if Trim(edPayload.Text)<>'' then begin
      case cbEncryptMode.ItemIndex of
       0: xPayload := edPayload.Text;
-      1: xPayload := ECIESEncrypt(xAccount.AccountInfo.AccountKey, xPayload);
-      2: xPayload := ECIESEncrypt(xSignerAccount.AccountInfo.AccountKey, xPayload);
-      3: xPayload := TAESComp.EVP_Encrypt_AES256(xPayload, edPassword.Text);
+      1: xPayload := ECIESEncrypt(xAccount.AccountInfo.AccountKey, edPayload.Text);
+      2: xPayload := ECIESEncrypt(xSignerAccount.AccountInfo.AccountKey, edPayload.Text);
+      3: xPayload := TAESComp.EVP_Encrypt_AES256(edPayload.Text, edPassword.Text);
      end;
   end else xPayload := '';
 
   xTransaction := TChangeAccountInfoTransaction.CreateChangeAccountInfo(
      xSignerAccount.AccountNumber, xSignerAccount.NumberOfTransactions+1,
      xAccount.AccountNumber,
-     xWalletKey.PrivateKey,
+     xSignerKey.PrivateKey,
      not xWalletKey.AccountKey.Equals(xAccount.AccountInfo.AccountKey),
      xWalletKey.AccountKey,
      (edAccountName.Text<>xAccount.Name),

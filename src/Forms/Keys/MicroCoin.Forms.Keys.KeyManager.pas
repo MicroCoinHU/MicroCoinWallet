@@ -409,10 +409,10 @@ begin
     exit;
   end;
   case Length(xEncodedKey) of
-       32: xResult := ParseRawKey(CT_NID_secp256k1, xEncodedKey);
-       35,36: xResult := ParseRawKey(CT_NID_sect283k1, xEncodedKey);
-       48: xResult := ParseRawKey(CT_NID_secp384r1, xEncodedKey);
-       65,66: xResult := ParseRawKey(CT_NID_secp521r1, xEncodedKey);
+       32: xResult := ParseRawKey(cNID_secp256k1, xEncodedKey);
+       35,36: xResult := ParseRawKey(cNID_sect283k1, xEncodedKey);
+       48: xResult := ParseRawKey(cNID_secp384r1, xEncodedKey);
+       65,66: xResult := ParseRawKey(cNID_secp521r1, xEncodedKey);
        64, 80, 96: xResult := ParseEncryptedKey(xData[2], xEncodedKey);
        else begin
          MessageDlg('Invalid key', mtError, [mbOk], 0);

@@ -251,7 +251,7 @@ begin
     xData^.valid := true;
     xData^.Block := xBlock.Block;
     xData^.time := xBlock.Timestamp;
-    xData^.AffectedAccount := xBlock.Block * CT_AccountsPerBlock;
+    xData^.AffectedAccount := xBlock.Block * cAccountsPerBlock;
     xData^.TransactionAsString := 'Blockchain reward';
     xData^.Amount := xBlock.reward;
     xData^.Fee := xBlock.Fee;

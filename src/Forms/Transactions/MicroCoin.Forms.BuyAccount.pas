@@ -102,9 +102,9 @@ begin
  if Trim(edPayload.Text)<>'' then begin
     case cbEncryptMode.ItemIndex of
       0: xPayload := edPayload.Text;
-      1: xPayload := ECIESEncrypt(account.AccountInfo.AccountKey, xPayload);
-      2: xPayload := ECIESEncrypt(edSignerAccount.Account.AccountInfo.AccountKey, xPayload);
-      3: xPayload := TAESComp.EVP_Encrypt_AES256(xPayload, edPassword.Text);
+      1: xPayload := ECIESEncrypt(account.AccountInfo.AccountKey, edPayload.Text);
+      2: xPayload := ECIESEncrypt(edSignerAccount.Account.AccountInfo.AccountKey, edPayload.Text);
+      3: xPayload := TAESComp.EVP_Encrypt_AES256(edPayload.Text, edPassword.Text);
     end;
   end else xPayload := '';
 
