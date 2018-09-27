@@ -1,10 +1,9 @@
 object MapleChangeForm: TMapleChangeForm
   Left = 0
   Top = 0
-  BorderStyle = bsSingle
   Caption = 'MapleChange informations'
-  ClientHeight = 558
-  ClientWidth = 778
+  ClientHeight = 548
+  ClientWidth = 1063
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,15 +16,15 @@ object MapleChangeForm: TMapleChangeForm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignSize = (
-    778
-    558)
+    1063
+    548)
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
     AlignWithMargins = True
     Left = 10
     Top = 0
-    Width = 758
+    Width = 1043
     Height = 53
     Margins.Left = 10
     Margins.Top = 0
@@ -4681,7 +4680,7 @@ object MapleChangeForm: TMapleChangeForm
     ExplicitWidth = 778
   end
   object PngBitBtn1: TPngSpeedButton
-    Left = 584
+    Left = 869
     Top = 16
     Width = 174
     Height = 25
@@ -4715,66 +4714,174 @@ object MapleChangeForm: TMapleChangeForm
       A4EC6C66C3B3BBBC58F9E687809F0F5943399A6B4B21E453BF1569646484215A
       AD7650229130078003653207387075FE53FB80C5C5450DF9EFDF7848634E3F01
       67C630D852D58D100000000049454E44AE426082}
+    ExplicitLeft = 584
   end
-  object bidList: TVirtualStringTree
+  object PageControl1: TPageControl
     Left = 0
     Top = 63
-    Width = 778
-    Height = 495
+    Width = 1063
+    Height = 485
+    ActivePage = TabSheet1
     Align = alClient
-    Header.AutoSizeIndex = -1
-    Header.Font.Charset = DEFAULT_CHARSET
-    Header.Font.Color = clWindowText
-    Header.Font.Height = -11
-    Header.Font.Name = 'Tahoma'
-    Header.Font.Style = []
-    Header.Height = 14
-    Header.Options = [hoColumnResize, hoDrag, hoShowSortGlyphs, hoVisible, hoAutoSpring]
     TabOrder = 0
-    TreeOptions.PaintOptions = [toHideFocusRect, toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages]
-    TreeOptions.SelectionOptions = [toFullRowSelect]
-    OnDrawText = bidListDrawText
-    OnFreeNode = bidListFreeNode
-    OnGetText = bidListGetText
-    OnInitNode = bidListInitNode
-    ExplicitTop = 49
-    ExplicitHeight = 509
-    Columns = <
-      item
-        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
-        Position = 0
-        Width = 195
-        WideText = 'Date'
+    ExplicitTop = 66
+    object TabSheet1: TTabSheet
+      Caption = 'Bids'
+      ExplicitWidth = 281
+      ExplicitHeight = 165
+      object bidList: TVirtualStringTree
+        Left = 0
+        Top = 0
+        Width = 1055
+        Height = 457
+        Align = alClient
+        Header.AutoSizeIndex = -1
+        Header.Font.Charset = DEFAULT_CHARSET
+        Header.Font.Color = clWindowText
+        Header.Font.Height = -11
+        Header.Font.Name = 'Tahoma'
+        Header.Font.Style = []
+        Header.Options = [hoColumnResize, hoDrag, hoShowSortGlyphs, hoVisible, hoAutoSpring]
+        TabOrder = 0
+        TreeOptions.PaintOptions = [toHideFocusRect, toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages]
+        TreeOptions.SelectionOptions = [toFullRowSelect]
+        OnDrawText = bidListDrawText
+        OnFreeNode = bidListFreeNode
+        OnGetText = bidListGetText
+        OnInitNode = bidListInitNode
+        ExplicitWidth = 907
+        Columns = <
+          item
+            Position = 0
+            Width = 145
+            WideText = 'Date'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 1
+            Width = 108
+            WideText = 'Volume'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 2
+            Width = 141
+            WideText = 'Price'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 3
+            Width = 131
+            WideText = 'Price HUF'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 4
+            Width = 124
+            WideText = 'Executed volume'
+          end
+          item
+            Alignment = taRightJustify
+            BiDiMode = bdLeftToRight
+            CaptionAlignment = taRightJustify
+            Options = [coAllowClick, coDraggable, coEnabled, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
+            Position = 5
+            Tag = -1
+            Width = 100
+            WideText = 'Remaining value'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 6
+            Width = 116
+            WideText = 'Value'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 7
+            Width = 107
+            WideText = 'Value in HUF'
+          end>
       end
-      item
-        Alignment = taRightJustify
-        Position = 2
-        Width = 123
-        WideText = 'Volume'
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Asks'
+      ImageIndex = 1
+      ExplicitWidth = 281
+      ExplicitHeight = 165
+      object askList: TVirtualStringTree
+        Left = 0
+        Top = 0
+        Width = 1055
+        Height = 457
+        Align = alClient
+        Header.AutoSizeIndex = -1
+        Header.Font.Charset = DEFAULT_CHARSET
+        Header.Font.Color = clWindowText
+        Header.Font.Height = -11
+        Header.Font.Name = 'Tahoma'
+        Header.Font.Style = []
+        Header.Options = [hoColumnResize, hoDrag, hoShowSortGlyphs, hoVisible, hoAutoSpring]
+        TabOrder = 0
+        TreeOptions.PaintOptions = [toHideFocusRect, toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages]
+        TreeOptions.SelectionOptions = [toFullRowSelect]
+        OnDrawText = bidListDrawText
+        OnFreeNode = bidListFreeNode
+        OnGetText = bidListGetText
+        OnInitNode = askListInitNode
+        Columns = <
+          item
+            Position = 0
+            Width = 145
+            WideText = 'Date'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 1
+            Width = 108
+            WideText = 'Volume'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 2
+            Width = 141
+            WideText = 'Price'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 3
+            Width = 131
+            WideText = 'Price HUF'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 4
+            Width = 124
+            WideText = 'Executed volume'
+          end
+          item
+            Alignment = taRightJustify
+            BiDiMode = bdLeftToRight
+            CaptionAlignment = taRightJustify
+            Options = [coAllowClick, coDraggable, coEnabled, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
+            Position = 5
+            Tag = -1
+            Width = 100
+            WideText = 'Remaining value'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 6
+            Width = 116
+            WideText = 'Value'
+          end
+          item
+            Alignment = taRightJustify
+            Position = 7
+            Width = 107
+            WideText = 'Value in HUF'
+          end>
       end
-      item
-        Alignment = taRightJustify
-        Position = 3
-        Width = 103
-        WideText = 'Price'
-      end
-      item
-        Alignment = taRightJustify
-        Position = 4
-        Width = 139
-        WideText = 'Executed volume'
-      end
-      item
-        Alignment = taRightJustify
-        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAutoSpring, coAllowFocus, coEditable]
-        Position = 5
-        Width = 125
-        WideText = 'Remaining volume'
-      end
-      item
-        Position = 1
-        Width = 76
-        WideText = 'Side'
-      end>
+    end
   end
 end

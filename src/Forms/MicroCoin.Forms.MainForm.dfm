@@ -160,10 +160,9 @@ object MainForm: TMainForm
             ParentCtl3D = False
             ShowCaption = False
             TabOrder = 0
-            ExplicitTop = 151
             object Label1: TLabel
               Left = 29
-              Top = 33
+              Top = 32
               Width = 77
               Height = 13
               Alignment = taRightJustify
@@ -735,17 +734,18 @@ object MainForm: TMainForm
             end
             object Label9: TLabel
               Left = 56
-              Top = 204
+              Top = 203
               Width = 50
               Height = 13
               Alignment = taRightJustify
               Caption = 'Password:'
             end
-            object PngSpeedButton1: TPngSpeedButton
+            object btnSelectAccount: TPngSpeedButton
               Left = 214
-              Top = 32
+              Top = 28
               Width = 23
               Height = 20
+              OnClick = btnSelectAccountClick
               PngImage.Data = {
                 89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
                 610000000473424954080808087C086488000000097048597300000AF000000A
@@ -850,7 +850,7 @@ object MainForm: TMainForm
             end
             object edTargetAccount: TEdit
               Left = 112
-              Top = 32
+              Top = 29
               Width = 100
               Height = 19
               Alignment = taRightJustify
