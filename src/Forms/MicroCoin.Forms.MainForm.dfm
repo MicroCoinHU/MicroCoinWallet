@@ -162,7 +162,7 @@ object MainForm: TMainForm
             TabOrder = 0
             object Label1: TLabel
               Left = 29
-              Top = 32
+              Top = 29
               Width = 77
               Height = 13
               Alignment = taRightJustify
@@ -1205,6 +1205,7 @@ object MainForm: TMainForm
       Align = alBottom
       BevelOuter = bvNone
       Caption = 'logPanel'
+      ShowCaption = False
       TabOrder = 1
       Visible = False
       object bottomPageControl: TPageControl
@@ -4653,8 +4654,8 @@ object MainForm: TMainForm
       end>
     LargeImages = MainActionImages
     Images = MainActionImages
-    Left = 676
-    Top = 385
+    Left = 692
+    Top = 381
     StyleName = 'Platform Default'
     object PrivateKeysAction: TAction
       Category = 'Wallet'
@@ -4766,11 +4767,13 @@ object MainForm: TMainForm
             Caption = '-'
           end
           item
+            Visible = False
             Action = CreateSubAccountAction
             Caption = 'Cre&ate subaccount'
             ImageIndex = 11
           end
           item
+            Visible = False
             Caption = '-'
           end
           item
@@ -4799,8 +4802,8 @@ object MainForm: TMainForm
         ActionBar = AccountsListToolbar
       end>
     Images = AccountListActionImages
-    Left = 580
-    Top = 319
+    Left = 608
+    Top = 327
     StyleName = 'Platform Default'
     object SelectAllAction: TAction
       AutoCheck = True
@@ -4868,6 +4871,7 @@ object MainForm: TMainForm
     object CreateSubAccountAction: TAction
       Caption = 'Create subaccount'
       ImageIndex = 11
+      Visible = False
       OnExecute = CreateSubAccountActionExecute
       OnUpdate = CreateSubAccountActionUpdate
     end
@@ -7096,8 +7100,8 @@ object MainForm: TMainForm
           0CA0A1950BB7261103C42C3FAD7FB620FF6D645021D15D769438D08A31E20AD6
           FA987E03B1B71EF0C4EFABEC0000000049454E44AE426082}
       end>
-    Left = 427
-    Top = 270
+    Left = 547
+    Top = 386
     Bitmap = {}
   end
   object PopupActionBar1: TPopupActionBar

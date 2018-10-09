@@ -35,7 +35,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, Vcl.Buttons,
   PngSpeedButton, Vcl.StdCtrls, Vcl.ExtCtrls, MicroCoin.Node.Events,
   VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs,
-  VCLTee.Chart, Threading;
+  MicroCoin.Account.Storage,
+  VCLTee.Chart, Threading, MicroCoin.BlockChain.Protocol;
 
 type
   TBlockChainExplorerForm = class(TForm)
@@ -175,10 +176,13 @@ var
   xData : PBlockData;
   xTransaction: ITransaction;
   i : integer;
+  errors: ansiString;
+  xEntry: TAccountStorageEntry;
 begin
   xBlock := TBlock.Create(nil);
   try
     xBlockNumber := TNode.Node.BlockManager.BlocksCount - Node.Index - 1;
+    xEntry := TNode.Node.BlockManager.AccountStorage.block(xBlockNumber);
     TNode.Node.BlockManager.Storage.LoadBlockChainBlock(xBlock, xBlockNumber);
     new(xData);
     xData^.BlockNumber := xBlockNumber;
@@ -199,8 +203,17 @@ begin
     if xBlockNumber > 0
     then xData^.HashratePrev := TNode.Node.BlockManager.AccountStorage.CalcBlockHashRateInKhs(xBlockNumber-1, 50)
     else xData^.HashratePrev := 0;
-
     xData^.Pow := TCrypto.ToHexaString(xBlock.BlockHeader.proof_of_work);
+    TMicroCoinProtocol.CalcProofOfWork(xBlock.BlockHeader, errors);
+    if errors <> xBlock.BlockHeader.proof_of_work
+    then begin ShowMessage(TCrypto.ToHexaString(errors)+ ' ' + TCrypto.ToHexaString(xEntry.BlockHeader.proof_of_work)
+    +' '+TCrypto.ToHexaString(xBlock.BlockHeader.initial_safe_box_hash)
+    +' '+TCrypto.ToHexaString(xEntry.BlockHeader.initial_safe_box_hash)
+    );
+    xBlock.ProofOfWork := errors;
+//     TNode.Node.BlockManager.Storage.SaveBlockChainBlock(xBlock);
+    end;
+
     xData^.MinerPayload := UTF8ToString( xBlock.BlockPayload );
     Sender.SetNodeData(Node, xData);
   finally

@@ -340,8 +340,8 @@ implementation
 {$ENDIF}
 
 uses UFolderHelper, OpenSSL, OpenSSLdef, UConst, UTime, MicroCoin.BlockChain.FileStorage,
-  UThread, UECIES, Threading,
-  MicroCoin.Forms.Common.About,
+  UThread, UECIES, Threading,MicroCoin.Transaction.TransactionList,
+  MicroCoin.Forms.Common.About, MicroCoin.Transaction.HashTree,
   MicroCoin.Net.NodeServer, MicroCoin.Net.ConnectionManager;
 
 type
@@ -371,10 +371,70 @@ begin
 end;
 
 procedure TMainForm.QRCodeDisplayClick(Sender: TObject);
+var
+  xSenderAccount : TAccount;
+  xTransaction : ITransaction;
+  xWalletKey : TWalletKey;
+  errors: AnsiString;
+  opc : TTransactionHashTree;
+  res: TTransactionList;
+  xtrs : array of ITRansaction;
 begin
   {$IFDEF EXTENDEDACCOUNT}
-  CreateSubaccount;
+ // CreateSubaccount;
   {$ENDIF}
+(*  try
+    TTask.Create(procedure
+    var
+      acc: integer;
+      nt: integer;
+      i : integer;
+      j: integer;
+      k: integer;
+    begin
+    k:=0;
+    for acc := 0 to FAccounts.Count-1 do begin
+      xSenderAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(acc)); // TAccount(accountVList.FocusedNode.GetData^);
+      if xSenderAccount.Balance<1000 then continue;
+//      if acc>10 then break;
+      inc(k);
+      i := TNode.Node.KeyManager.IndexOfAccountKey(xSenderAccount.AccountInfo.AccountKey);
+      xWalletKey := TNode.Node.KeyManager[i];
+      SetLength(xtrs, 0);
+      opc := TTransactionHashTree.Create;
+      xSenderAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(xSenderAccount.AccountNumber);
+      nt := 0;
+      for i := 1 to 2001 do begin
+        if i = xSenderAccount.AccountNumber then continue;
+        nt:=nt+1;
+        xTransaction := TTransferMoneyTransaction.CreateTransaction(xSenderAccount.AccountNumber,
+          xSenderAccount.NumberOfTransactions + nt,
+          i, xWalletKey.PrivateKey, 1, 1, '');
+       opc.AddTransactionToHashTree(xTransaction);
+       SetLength(xtrs, length(xtrs)+1);
+       xtrs[High(xtrs)] := xTransaction;
+  {       TTask.Create(procedure begin
+         if not TNode.Node.AddTransaction(nil, xTransaction, errors) then
+         ShowMessage(errors);
+       end).Start;
+       }
+//       Caption := IntToStr(i);
+//       Application.ProcessMessages;
+      end;
+      TNode.Node.AddOperations(nil, opc, nil, errors);
+      opc.Free;
+      SetLength(xtrs, 0);
+      if k>5 then begin
+        TThread.Sleep(30000);
+        k := 0;
+      end;
+    end;
+//    ShowMessage('done');
+    end).Start;
+  except on e:Exception do
+    ShowMessage(e.Message);
+  end;
+  *)
 end;
 
 procedure TMainForm.RefreshActionExecute(Sender: TObject);
@@ -1111,7 +1171,9 @@ begin
   FNodeNotifyEvents := TNodeNotifyEvents.Create(Self);
   FNodeNotifyEvents.OnBlocksChanged := OnNewAccount;
   FNodeNotifyEvents.OnNodeMessageEvent := OnNodeMessageEvent;
+  {$IFNDEF TESTNET}
   FNodeNotifyEvents.OnTransactionsChanged:= OnNewOperation;
+  {$ENDIF}
   TNode.Node.KeyManager := TKeyManager.Create(self);
   TNode.Node.KeyManager.OnChanged := OnWalletChanged;
   LoadAppParams;
@@ -1458,6 +1520,9 @@ begin
   logDisplay.Perform(EM_SCROLLCARET, 0, 0);
 end;
 
+var
+  lastHash : ansistring;
+
 procedure TMainForm.OnNewOperation(Sender: TObject);
 var
   i:integer;
@@ -1469,6 +1534,8 @@ begin
   then begin
     for i:=0 to TNodeNotifyEvents(Sender).Node.TransactionStorage.Count - 1 do begin
        xTransaction := TNodeNotifyEvents(Sender).Node.TransactionStorage.TransactionHashTree.GetTransaction(i);
+       if xTransaction.Sha256 = lastHash then continue;
+       lastHash := xTransaction.Sha256;
        if FAccounts.Find(xTransaction.DestinationAccount, xIndex)
        then begin
          xNotification := NotificationCenter.CreateNotification;
