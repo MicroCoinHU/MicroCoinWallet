@@ -3,7 +3,7 @@ object MainForm: TMainForm
   Top = 193
   Caption = 'MicroCoin Wallet'
   ClientHeight = 609
-  ClientWidth = 915
+  ClientWidth = 914
   Color = clBtnFace
   Constraints.MinHeight = 600
   Constraints.MinWidth = 865
@@ -23,7 +23,7 @@ object MainForm: TMainForm
   object StatusBar: TStatusBar
     Left = 0
     Top = 586
-    Width = 915
+    Width = 914
     Height = 23
     Panels = <
       item
@@ -60,7 +60,7 @@ object MainForm: TMainForm
   object MainToolbar: TActionToolBar
     Left = 0
     Top = 0
-    Width = 915
+    Width = 914
     Height = 57
     ActionManager = MainActions
     AllowHiding = False
@@ -86,7 +86,7 @@ object MainForm: TMainForm
   object rootPanel: TPanel
     Left = 0
     Top = 57
-    Width = 915
+    Width = 914
     Height = 529
     Margins.Left = 0
     Margins.Top = 10
@@ -98,8 +98,8 @@ object MainForm: TMainForm
     TabOrder = 2
     object Splitter1: TSplitter
       Left = 0
-      Top = 450
-      Width = 915
+      Top = 493
+      Width = 914
       Height = 3
       Cursor = crVSplit
       Align = alBottom
@@ -110,8 +110,8 @@ object MainForm: TMainForm
     object MainPanel: TPanel
       Left = 0
       Top = 0
-      Width = 915
-      Height = 450
+      Width = 914
+      Height = 493
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
@@ -119,8 +119,8 @@ object MainForm: TMainForm
         AlignWithMargins = True
         Left = 0
         Top = 15
-        Width = 915
-        Height = 435
+        Width = 914
+        Height = 478
         Margins.Left = 0
         Margins.Top = 15
         Margins.Right = 0
@@ -136,7 +136,7 @@ object MainForm: TMainForm
           Left = 13
           Top = 0
           Width = 392
-          Height = 425
+          Height = 468
           Margins.Top = 0
           Margins.Right = 10
           Margins.Bottom = 0
@@ -162,7 +162,7 @@ object MainForm: TMainForm
             TabOrder = 0
             object Label1: TLabel
               Left = 29
-              Top = 33
+              Top = 32
               Width = 77
               Height = 13
               Alignment = taRightJustify
@@ -734,11 +734,40 @@ object MainForm: TMainForm
             end
             object Label9: TLabel
               Left = 56
-              Top = 204
+              Top = 203
               Width = 50
               Height = 13
               Alignment = taRightJustify
               Caption = 'Password:'
+            end
+            object btnSelectAccount: TPngSpeedButton
+              Left = 214
+              Top = 28
+              Width = 23
+              Height = 20
+              OnClick = btnSelectAccountClick
+              PngImage.Data = {
+                89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+                610000000473424954080808087C086488000000097048597300000AF000000A
+                F00142AC34980000001874455874536F6674776172650041646F626520466972
+                65776F726B734FB31F4E000002104944415478DAAD934F68134114C6DFFCD9EC
+                A6D9AA49B3110FB1E9A901414A52ACC941688F221E048FE2218807A1D853B120
+                143C880862D183A08857A12AE2A128B12AD42ED816914221C6042A455A68F3C7
+                B5249BEECEF8B2B11749B050071ECCCEDBEFC7F7F69B25524AD8CF22FF1DF07C
+                7ABAAB37161B2494F8AA95EAF2F0C8C8C69E014B8B0B9739576E08290DAF49A0
+                2E8478904824C7FE09585CF87411C54F544D83886100A114CAA5125896050879
+                9448262F7504BC9E99F18523C60FBFE6EFE98FF703A5ACD5440BC54201CA9532
+                34ECC6B1543ABDD21660CECF1F679C7F8946A3601861701CC76B527451ABD520
+                9FFF06C275474F0C0DDD6B0BF8383737C039FF1CEB8B41301802DBAE375BC039
+                839D1D07BEE67260284EA67720F5B82DE06D36ABE9BABEAE77771F8CE308CD33
+                2124F87C0A148B45286D6EC1ED6567E269267DB3E347C431AEA08BFB8140008C
+                480418A3B08942625BF022F70BC63F6C83CAC454FDEE99AB1D63344D739C517A
+                1DB781E6B3A65061162AAB632FBFF7B93812650C98146FD470CFF9AD3B677FB6
+                BD48EF6667C3AAAA9EC404D4909F2EC513A9D5AED3B71E2AD2C9484241623214
+                6045276270EDD5B5DA9EAFF2E15313A3A2519FF2DE4788A61F38B2969D5C27AD
+                C4E11056104BC552B09AC7D48BA2B5840BB0113A3A7C8EEBD10BD2D97E5FCD3F
+                9BB4856C39E0C4E3F03FA25D21F9DB8523A5B5BB67A871A574F7FD37FE06FFAF
+                E4E1AECBFBD30000000049454E44AE426082}
             end
             object payloadEdit: TMemo
               Left = 112
@@ -819,33 +848,14 @@ object MainForm: TMainForm
                   Width = 389
                 end>
             end
-            object targetAccountEdit: TAccountEditor
+            object edTargetAccount: TEdit
               Left = 112
-              Top = 31
-              Width = 125
-              Height = 21
-              Glyph.Data = {
-                89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-                610000000473424954080808087C086488000000097048597300000AF000000A
-                F00142AC34980000001874455874536F6674776172650041646F626520466972
-                65776F726B734FB31F4E000002104944415478DAAD934F68134114C6DFFCD9EC
-                A6D9AA49B3110FB1E9A901414A52ACC941688F221E048FE2218807A1D853B120
-                143C880862D183A08857A12AE2A128B12AD42ED816914221C6042A455A68F3C7
-                B5249BEECEF8B2B11749B050071ECCCEDBEFC7F7F69B25524AD8CF22FF1DF07C
-                7ABAAB37161B2494F8AA95EAF2F0C8C8C69E014B8B0B9739576E08290DAF49A0
-                2E8478904824C7FE09585CF87411C54F544D83886100A114CAA5125896050879
-                9448262F7504BC9E99F18523C60FBFE6EFE98FF703A5ACD5440BC54201CA9532
-                34ECC6B1543ABDD21660CECF1F679C7F8946A3601861701CC76B527451ABD520
-                9FFF06C275474F0C0DDD6B0BF8383737C039FF1CEB8B41301802DBAE375BC039
-                839D1D07BEE67260284EA67720F5B82DE06D36ABE9BABEAE77771F8CE308CD33
-                2124F87C0A148B45286D6EC1ED6567E269267DB3E347C431AEA08BFB8140008C
-                480418A3B08942625BF022F70BC63F6C83CAC454FDEE99AB1D63344D739C517A
-                1DB781E6B3A65061162AAB632FBFF7B93812650C98146FD470CFF9AD3B677FB6
-                BD48EF6667C3AAAA9EC404D4909F2EC513A9D5AED3B71E2AD2C9484241623214
-                6045276270EDD5B5DA9EAFF2E15313A3A2519FF2DE4788A61F38B2969D5C27AD
-                C4E11056104BC552B09AC7D48BA2B5840BB0113A3A7C8EEBD10BD2D97E5FCD3F
-                9BB4856C39E0C4E3F03FA25D21F9DB8523A5B5BB67A871A574F7FD37FE06FFAF
-                E4E1AECBFBD30000000049454E44AE426082}
+              Top = 29
+              Width = 100
+              Height = 19
+              Alignment = taRightJustify
+              TabOrder = 7
+              OnKeyPress = edTargetAccountKeyPress
             end
           end
           object GeneralInfoPanel: TPanel
@@ -911,9 +921,9 @@ object MainForm: TMainForm
             object labelPendingCaption: TLabel
               Left = 6
               Top = 68
-              Width = 113
+              Width = 122
               Height = 13
-              Caption = 'Pending Operations:'
+              Caption = 'Pending transactions:'
               Color = clBtnFace
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
@@ -924,7 +934,7 @@ object MainForm: TMainForm
               ParentFont = False
             end
             object labelOperationsPending: TLabel
-              Left = 125
+              Left = 134
               Top = 68
               Width = 6
               Height = 13
@@ -1006,6 +1016,7 @@ object MainForm: TMainForm
               Proportional = True
               ShowHint = True
               Stretch = True
+              OnClick = QRCodeDisplayClick
               ExplicitLeft = 268
               ExplicitTop = 30
               ExplicitHeight = 94
@@ -1031,8 +1042,8 @@ object MainForm: TMainForm
         object rightPanel: TPanel
           Left = 415
           Top = 0
-          Width = 490
-          Height = 425
+          Width = 489
+          Height = 468
           Align = alClient
           AutoSize = True
           BevelKind = bkSoft
@@ -1041,8 +1052,8 @@ object MainForm: TMainForm
           object accountVList: TVirtualStringTree
             Left = 0
             Top = 90
-            Width = 486
-            Height = 331
+            Width = 485
+            Height = 374
             Align = alClient
             BevelInner = bvNone
             BevelOuter = bvNone
@@ -1077,7 +1088,7 @@ object MainForm: TMainForm
               item
                 Alignment = taRightJustify
                 Position = 0
-                Width = 100
+                Width = 121
                 WideText = 'Account'
               end
               item
@@ -1094,14 +1105,14 @@ object MainForm: TMainForm
               item
                 Alignment = taRightJustify
                 Position = 3
-                Width = 136
+                Width = 114
                 WideText = 'Transactions'
               end>
           end
           object accountsFilterPanel: TPanel
             Left = 0
             Top = 20
-            Width = 486
+            Width = 485
             Height = 70
             Align = alTop
             AutoSize = True
@@ -1111,7 +1122,7 @@ object MainForm: TMainForm
               AlignWithMargins = True
               Left = 10
               Top = 0
-              Width = 476
+              Width = 475
               Height = 44
               Margins.Left = 10
               Margins.Top = 0
@@ -1136,7 +1147,7 @@ object MainForm: TMainForm
             object AccountsListToolbar: TActionToolBar
               Left = 0
               Top = 44
-              Width = 486
+              Width = 485
               Height = 26
               ActionManager = AccountListActions
               Caption = 'AccountsListToolbar'
@@ -1170,7 +1181,7 @@ object MainForm: TMainForm
           object accountsPanelHeader: THeaderControl
             Left = 0
             Top = 0
-            Width = 486
+            Width = 485
             Height = 20
             DragReorder = True
             Enabled = False
@@ -1188,9 +1199,9 @@ object MainForm: TMainForm
     end
     object logPanel: TPanel
       Left = 0
-      Top = 453
-      Width = 915
-      Height = 76
+      Top = 496
+      Width = 914
+      Height = 33
       Align = alBottom
       BevelOuter = bvNone
       Caption = 'logPanel'
@@ -1199,8 +1210,8 @@ object MainForm: TMainForm
       object bottomPageControl: TPageControl
         Left = 0
         Top = 0
-        Width = 915
-        Height = 76
+        Width = 914
+        Height = 33
         ActivePage = logSheet
         Align = alClient
         Images = MiscImages
@@ -1211,12 +1222,12 @@ object MainForm: TMainForm
           object logDisplay: TRichEdit
             Left = 0
             Top = 0
-            Width = 907
-            Height = 47
+            Width = 906
+            Height = 4
             Align = alClient
             BevelOuter = bvNone
             BorderStyle = bsNone
-            Font.Charset = ANSI_CHARSET
+            Font.Charset = EASTEUROPE_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
@@ -1233,15 +1244,11 @@ object MainForm: TMainForm
         object activeConnectionsSheet: TTabSheet
           Caption = 'Active connections'
           ImageIndex = 4
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetConnections: TMemo
             Left = 0
             Top = 0
-            Width = 907
-            Height = 47
+            Width = 906
+            Height = 4
             Align = alClient
             BevelOuter = bvNone
             BorderStyle = bsNone
@@ -1254,15 +1261,11 @@ object MainForm: TMainForm
         object blackListedIPsSheet: TTabSheet
           Caption = 'Blacklisted IPs'
           ImageIndex = 3
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetBlackLists: TMemo
             Left = 0
             Top = 0
-            Width = 907
-            Height = 47
+            Width = 906
+            Height = 4
             Align = alClient
             BorderStyle = bsNone
             ReadOnly = True
@@ -1274,15 +1277,11 @@ object MainForm: TMainForm
         object serversSheet: TTabSheet
           Caption = 'Servers'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetServers: TMemo
             Left = 0
             Top = 0
-            Width = 907
-            Height = 47
+            Width = 906
+            Height = 4
             Align = alClient
             BorderStyle = bsNone
             ReadOnly = True
@@ -1294,10 +1293,6 @@ object MainForm: TMainForm
         object miscInfoSheet: TTabSheet
           Caption = 'Misc info'
           ImageIndex = 2
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object labelBlocksCountCaption: TLabel
             Left = 9
             Top = 5
@@ -4622,6 +4617,14 @@ object MainForm: TMainForm
             Caption = '-'
           end
           item
+            Action = ExchangeAction
+            Caption = 'E&xchange info'
+            ImageIndex = 5
+          end
+          item
+            Caption = '-'
+          end
+          item
             Action = SettingsAction
             Caption = '&Options'
             ImageIndex = 4
@@ -4715,6 +4718,12 @@ object MainForm: TMainForm
       ImageIndex = 8
       OnExecute = CommunityActionExecute
     end
+    object ExchangeAction: TAction
+      Category = 'Wallet'
+      Caption = 'Exchange info'
+      ImageIndex = 5
+      OnExecute = ExchangeActionExecute
+    end
   end
   object AccountListActions: TActionManager
     ActionBars = <
@@ -4741,6 +4750,9 @@ object MainForm: TMainForm
             ImageIndex = 1
           end
           item
+            Caption = '-'
+          end
+          item
             Action = EditAccountAction
             Caption = 'E&dit'
             ImageIndex = 0
@@ -4749,6 +4761,14 @@ object MainForm: TMainForm
             Action = ChangeKeyAction
             Caption = '&Change key'
             ImageIndex = 3
+          end
+          item
+            Caption = '-'
+          end
+          item
+            Action = CreateSubAccountAction
+            Caption = 'Cre&ate subaccount'
+            ImageIndex = 11
           end
           item
             Caption = '-'
@@ -4844,6 +4864,12 @@ object MainForm: TMainForm
       ImageIndex = 10
       OnExecute = TransactionHistoryActionExecute
       OnUpdate = TransactionHistoryActionUpdate
+    end
+    object CreateSubAccountAction: TAction
+      Caption = 'Create subaccount'
+      ImageIndex = 11
+      OnExecute = CreateSubAccountActionExecute
+      OnUpdate = CreateSubAccountActionUpdate
     end
   end
   object MainActionImages: TPngImageList
@@ -5410,6 +5436,71 @@ object MainForm: TMainForm
           B47035BAF300C46A7191E74358F241DEDE045147F10C0AEB78B0332095B4FF0B
           9DF7E5008105D5023F5D10CAF6540A296C1C76F6AAAC7E3F00FFD3EB9F04CD9D
           4E34541B7B0000000049454E44AE426082}
+      end
+      item
+        Background = clWindow
+        Name = 'view-investment'
+        PngImage.Data = {
+          89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+          F4000000017352474200AECE1CE900000006624B474400FF00FF00FFA0BDA793
+          000000097048597300000DD700000DD70142289B780000000774494D4507DA05
+          0912151A1FEC3D63000006E14944415478DAED967B5455551EC7BFE7DC73EFE5
+          15A017AE483C0451311F1016681498E523970DEA8CF46E168DCA6366CD5A9936
+          69CB2C8AA6519C59D30C3A57CD8C94F1D5A02DB4345341CCA0CC0411419E3E40
+          B85CDEF7C9BD67F73BE7DCB4358B8A56C9FC33E7FE73F7D967EFFDF97DF7EFF7
+          DD9BC3FFF8E1FE0F703B273F63326386CE7BD0BEAFBAAC881BE179FB15E864AC
+          30BFB177A1C9EE02A3B64EABC2B311BE453A8E7BF4B62B203D39974C6CAEDE13
+          1E3C0F81E7E0620C075ACD78395AC70D0BC0EFBEBCCE9684F8C90B0BB49AAFA0
+          C2D6C62E6CBFF7CEE10148FDAC99FD26D41FA20CC0C19B00B63798B02F317C78
+          00E69FAC638BC2746E00C04710F06E433B3E9E19353C0049476B58CA98917089
+          9015F051AB905FD78ED23913860720B6A88AFD2A2210A2E856402DE0FDCB3770
+          7EC1A49F0F50D2DE8724FD1D83F6959307C493078C2D3CCF16448C2205445981
+          202F350C55D7D1B838E69751A043648586DACE851D0E97DC0EA03A5F3E6E6451
+          20AFD4B97ECF59B66C5228D4F4BF7BC0894F8D167475F7E25A6ADC2F03B0B2E2
+          065B147C0778F75452B215B6F4213726487EE1B7B39CF5085E808B00C907A0E2
+          E1EFB0A0FBE9F81F073879A31733837C07ED3B63ECC78C401FCAF27AB6245C07
+          BB4B5140AB52615FB30987678E95E7E6DF3DCD449F11001395811C0FBEBF0B62
+          5AE2D014308AEC83BC4BA6C546BB536EEBB50232A37507F53CB7506A277C5CCD
+          168FD11380E806E0F19FA67694CD9BA8CCFD4E29F3D50582310590E354E83519
+          C9A1EEFF6180632D3D7838D80F7F3CD7C25243FC6920642F6724F1BEAB3D783B
+          2E581E1B4549963A6EB4AC00FB5681CBADA85BA42419B695B23121A369071440
+          1501365D6B0596BA016A7BAC05EB6B3A9E68B538649C602F0D5E8909F93054C3
+          A5481F247F52C39E8D1A059B5B620F9554C76D289EADD4B1DFAE2F58C6D47058
+          9C2E798BC3BCB5C82EAF47CF53F7DE04888D0C81D33D5EA0F15F375CBB059072
+          ACDAB520328817E5E824068643573BF1A1DBA9261CAC60997785C04A0B48809E
+          E464FFA232BA9432D92DF169B66AFA04389C222C1465B5D989D2CBCDC0738937
+          0166454760C00DA02680E3971A6F018CDAF5B96BF9DD6379ABC32DA17458545D
+          81F1B169F207FE055FB255D322284211CC6183E37A2DFE597905B6D56963E519
+          D71AEAE74D0C83C3C5E4FDD490D37D74B109C84E57FA5F31D4278F97FA15000D
+          0114D75E01979D1E99929AD4C661CB09D74B8993F93E02909C2ADCDB032B4A2A
+          29491EB819C19FEE8BC60049547364278A56FC41DA49F69DFCF9EE7F0CF2EE7B
+          FBC74DF14FE3B0F9B86B75720CEF703A294A86069B88235575C0B22465D0D612
+          F6645C34AC362BEAFFFD17BCB7F4516CDBFB0FF0BC8AF65380AFB71FC92A40AB
+          F58456A3C5C0801D2A410D468A8894F91C7DD76FE9A52474A2DFDC4B5B3540AB
+          336C5CB71553E3633265808CC4A9BC75C02567B8A746054359F52D802D25EC85
+          A418541F7E0F879ECF92A2FFB1CA1DD2B3FFC066AC7B3D5B01C87E781ADFEF70
+          CA005E1A01AF9DA800D2DD008612B67EEE3D28DB6FC0FE179E42CEA617E96071
+          C2CF4787405D106D9B002F4F2F68040FCA740745AF812895A414BD54F3E66EBA
+          8CB860EC6C43776F0795A180D559EBB1674F01DED8F05626E7BBE394EB8D0763
+          790FCA6EC9AC2C24D5DA5355E87F66BA0CE091FF39FBFB43B13877601B36673D
+          8E9CBC9558F5DC26949EDB8BF8A9C924B352DF3C5DB94C9DEDE8A24502FCF5F0
+          F70B50FA98D2F745453112E35291FB4E16D6FC7E230AF6E42367C3FA4C6EC989
+          EA1D85CD5DBF75DA14A7537B08F8F584A0BDBB67443E26B59F296BDCB5BBA6FD
+          49E7990F206E7A91FD75DB3A2E88229F3F2B95A214DDEEC6A1BDA30525A74FA2
+          B3A31723743E7830690E0246EA65000944CA99A24F77A39D20572C7D9500DE27
+          800D99DFEB84F38E5480918447E64C92DBE3C39156D364DC4E00987BFF42848C
+          0EC7D717CB60B19A9194300F9F951F4579F90568341A381C76244C8F45425C32
+          CE5E38039BCD82C47B1E22076CC0B1D283787ED9B700B999433E0D23278FC8AA
+          AFACCDCBDDB2168F24490061E833F7C98BE949914F8A8B70A1B20E6ABA70381C
+          03888D8DC6AC071E81D9DC8F6E3A7C82028371B5A519474F1DC08AE504B07B27
+          727237FE04802904505193976B588B3B478561D1ECC7E1A49292F79F4EB8CA9A
+          B3385E7C1A76BB9D4A5283D9B39231312A56969FA39F9A4A73EF47F96833B562
+          65FA6B6C57C10EEECF7F7B3BFD27025CCC7B336F8D9C54638223E48979DA269E
+          0E18E93E60EAE980CDEA80D643438918208F73D24D48AA1AE99ED0D4D2287BC0
+          9AAC371135E5AE4391A1E1194306181F139871B1AC6CB38A0C473136F65F5FB0
+          41467183B4195C760B2626C4675C3E6F320C1960CEFCB8D056635B9AE4153FF7
+          A1AA61A303F53B8E1E3E77F51BAE3C03BA3B2F3A6A0000000049454E44AE4260
+          82}
       end>
     PngOptions = [pngBlendOnDisabled, pngGrayscaleOnDisabled]
     Left = 595
@@ -6448,6 +6539,31 @@ object MainForm: TMainForm
           5D2432CB68696A27390AF39F3E221A4BE0D891A3D0EB0D584F44602C33E1E993
           C121556127DEF7F35BEDBF7CFE527B4B73C3BFDE32C7B1A22C17F20FEE3FEAF9
           0A3C3346B84E2ED0640000000049454E44AE426082}
+      end
+      item
+        Background = clWindow
+        Name = 'list-add'
+        PngImage.Data = {
+          89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+          610000000473424954080808087C0864880000000970485973000001BB000001
+          BB013AECE3E20000001974455874536F667477617265007777772E696E6B7363
+          6170652E6F72679BEE3C1A000001EF4944415478DAA5D25D4893511807F0FFF9
+          DC6C1F6D39C120D43E26AC5B0B0CAC204212822EBCB0AB05AE8195F4E54D0411
+          E245DD5806110405168A1246414576115D5811114262D868B6A0B0417B8D2DF6
+          3ADEBDDBE9F892E08DD14B0F3C1C380FFC789EF31CA294C2FF04590BB8F0F6CC
+          C8CBEC642763CA8C478F8DC79B4F9D70051C7ED651EDD8DC4EAC4A09EF8D77F6
+          F5B6FBC21510BD1B51E777F781118E3BB3B7F0FC608AB8029A86C3EA6C6B2F08
+          A5B837378AA943E9BF02CB45A6D35E296CBABD5EF5EC4CEA02C1A34F1378D399
+          590D709D159DCA01124F139733854CDFABEF535C320EC91904A3E86E89831282
+          27E907F0E8BB1A215023055AEA76D90DC1C6C1E4B68BE71C405C12B9A33B8ED4
+          8255A05855B74D1CC0AC161C20C443A094C3033F8C621E05731165DF67636CEF
+          74C401C800C9B547F7D572C921BC0C418F1F4223C54A1EDA41486E8069994819
+          F3C82F2D212C0388442CE3E1FE0F7F807E725CBFC0909E4C2C4F273885640CAD
+          8D31F8A4C44C761E5EA13BE0DC39F518651FE7A71F1F48DD58730BDE6B42EDD9
+          1A43789D17AF33297C4DE4DDAD515C65AA6D4B33EA8301BC48CF219BFCE50EA0
+          8344C5EA37A22E10C0ECC237E47A8A6E807EDA7473C8FE592E119FF4435AC2FE
+          D2BBE0EE2B774D340C4F667F744543DB4BD662F1CACCC98F03AE807F8DDFE227
+          C4E1FD6965C10000000049454E44AE426082}
       end>
     PngOptions = [pngGrayscaleOnDisabled]
     Left = 465

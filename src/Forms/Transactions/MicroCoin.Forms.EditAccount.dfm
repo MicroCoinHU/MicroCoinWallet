@@ -228,7 +228,7 @@ object EditAccountForm: TEditAccountForm
     Height = 21
     Alignment = taRightJustify
     TabOrder = 3
-    Text = '0.0000'
+    Text = '0'
   end
   object edSignerAccount: TAccountEditor
     Left = 392

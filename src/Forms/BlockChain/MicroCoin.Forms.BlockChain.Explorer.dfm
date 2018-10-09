@@ -3,7 +3,7 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
   Top = 0
   Caption = 'Block explorer'
   ClientHeight = 545
-  ClientWidth = 957
+  ClientWidth = 1033
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
   object blockListView: TVirtualStringTree
     Left = 0
     Top = 41
-    Width = 957
-    Height = 504
+    Width = 1033
+    Height = 254
     Align = alClient
     Header.AutoSizeIndex = 10
     Header.Font.Charset = DEFAULT_CHARSET
@@ -38,6 +38,8 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
     OnFreeNode = blockListViewFreeNode
     OnGetText = blockListViewGetText
     OnInitNode = blockListViewInitNode
+    ExplicitWidth = 957
+    ExplicitHeight = 504
     Columns = <
       item
         Alignment = taRightJustify
@@ -103,20 +105,21 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
       item
         Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAutoSpring, coAllowFocus, coEditable]
         Position = 10
-        Width = 200
+        Width = 276
         WideText = 'Proof Of Work'
       end>
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 957
+    Width = 1033
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitWidth = 957
     DesignSize = (
-      957
+      1033
       41)
     object labelUpdated: TLabel
       Left = 20
@@ -126,7 +129,7 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
       Caption = 'labelUpdated'
     end
     object btnRefresh: TPngSpeedButton
-      Left = 884
+      Left = 960
       Top = 8
       Width = 63
       Height = 22
@@ -166,6 +169,49 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
         6541B0954C28DC478A1CB7780F78CEDD2ABDA9E2B046C981A6C14CCACBEA7B5A
         C5178A787327FE7F06D57A57397C47CE0000000049454E44AE426082}
       ExplicitLeft = 820
+    end
+  end
+  object Chart1: TChart
+    Left = 0
+    Top = 295
+    Width = 1033
+    Height = 250
+    Legend.Visible = False
+    Title.Text.Strings = (
+      'NetHash')
+    View3D = False
+    Align = alBottom
+    TabOrder = 2
+    ExplicitLeft = 112
+    ExplicitTop = 380
+    ExplicitWidth = 400
+    DefaultCanvas = 'TGDIPlusCanvas'
+    PrintMargins = (
+      15
+      37
+      15
+      37)
+    object Series1: TLineSeries
+      Marks.Style = smsValue
+      Marks.DrawEvery = 100
+      PercentFormat = '##0.##,%'
+      Title = 'Nethash'
+      Brush.BackColor = clDefault
+      Pointer.InflateMargins = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loAscending
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+      Data = {
+        001900000000000000000084400000000000AC87400000000000908A40000000
+        0000708C400000000000DC8E400000000000F48F400000000000369040000000
+        0000B890400000000000008E4000000000002C8A400000000000608840000000
+        0000348C400000000000008E4000000000007C8F400000000000188F40000000
+        00006C914000000000008E924000000000003E924000000000008A9140000000
+        00003091400000000000CA9240000000000030914000000000006C9140000000
+        0000188F400000000000808B40}
+      Detail = {0000000000}
     end
   end
 end

@@ -29,11 +29,11 @@ unit MicroCoin.Forms.Transaction.Explorer;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, System.Actions,
-  Vcl.ActnList, Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan,
-  System.ImageList, Vcl.ImgList, PngImageList, Vcl.StdCtrls, Vcl.Buttons,
-  PngBitBtn, Vcl.ExtCtrls, PngSpeedButton;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, VirtualTrees, System.Actions,
+  ActnList, PlatformDefaultStyleActnCtrls, ActnMan,
+  System.ImageList, ImgList, PngImageList, StdCtrls, Buttons,
+  PngBitBtn, ExtCtrls, PngSpeedButton;
 type
   TTransactionExplorer = class(TForm)
     transactionListView: TVirtualStringTree;
@@ -190,7 +190,7 @@ begin
     then exit;
     xData := TTransactionData(Pointer(xNode.Transactions[Node.Index])^);
     case Column of
-      0: CellText := xData.OperationTxt;
+      0: CellText := xData.TransactionAsString;
       4: CellText := TCurrencyUtils.CurrencyToString(xData.Amount);
       5: CellText := TCurrencyUtils.CurrencyToString(xData.Fee);
       6: CellText := TCurrencyUtils.CurrencyToString(xData.Balance);
@@ -251,8 +251,8 @@ begin
     xData^.valid := true;
     xData^.Block := xBlock.Block;
     xData^.time := xBlock.Timestamp;
-    xData^.AffectedAccount := xBlock.Block * CT_AccountsPerBlock;
-    xData^.OperationTxt := 'Blockchain reward';
+    xData^.AffectedAccount := xBlock.Block * cAccountsPerBlock;
+    xData^.TransactionAsString := 'Blockchain reward';
     xData^.Amount := xBlock.reward;
     xData^.Fee := xBlock.Fee;
     xData^.Balance := xBlock.reward + xBlock.Fee;

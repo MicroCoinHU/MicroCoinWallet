@@ -20,9 +20,9 @@
 | FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER          |
 | DEALINGS IN THE SOFTWARE.                                                    |
 |==============================================================================|
-| File:       MicroCoin.Forms.Keys.KeyManager.pas
-| Created at: 2018-09-11
-| Purpose:    Wallet key manager dialog
+| File:       MicroCoin.Forms.Keys.KeyManager.pas                              |
+| Created at: 2018-09-11                                                       |
+| Purpose:    Wallet key manager dialog                                        |
 |==============================================================================}
 
 unit MicroCoin.Forms.Keys.KeyManager;
@@ -105,6 +105,7 @@ type
       Column: TColumnIndex);
     procedure cbShowPrivateClick(Sender: TObject);
     procedure btnPrintClick(Sender: TObject);
+    procedure keyListFreeNode(Sender: TBaseVirtualTree; Node: PVirtualNode);
   private
     procedure ShowPrivateKey;
     function UnlockWallet : Boolean;
@@ -408,10 +409,10 @@ begin
     exit;
   end;
   case Length(xEncodedKey) of
-       32: xResult := ParseRawKey(CT_NID_secp256k1, xEncodedKey);
-       35,36: xResult := ParseRawKey(CT_NID_sect283k1, xEncodedKey);
-       48: xResult := ParseRawKey(CT_NID_secp384r1, xEncodedKey);
-       65,66: xResult := ParseRawKey(CT_NID_secp521r1, xEncodedKey);
+       32: xResult := ParseRawKey(cNID_secp256k1, xEncodedKey);
+       35,36: xResult := ParseRawKey(cNID_sect283k1, xEncodedKey);
+       48: xResult := ParseRawKey(cNID_secp384r1, xEncodedKey);
+       65,66: xResult := ParseRawKey(cNID_secp521r1, xEncodedKey);
        64, 80, 96: xResult := ParseEncryptedKey(xData[2], xEncodedKey);
        else begin
          MessageDlg('Invalid key', mtError, [mbOk], 0);
@@ -508,6 +509,12 @@ begin
     xQRCode.Free;
   end;
   ShowPrivateKey;
+end;
+
+procedure TWalletKeysForm.keyListFreeNode(Sender: TBaseVirtualTree;
+  Node: PVirtualNode);
+begin
+ TWalletKey(Node.GetData^) := Default(TWalletKey);
 end;
 
 procedure TWalletKeysForm.keyListGetText(Sender: TBaseVirtualTree;

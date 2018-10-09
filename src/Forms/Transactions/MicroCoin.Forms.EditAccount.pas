@@ -30,8 +30,8 @@ unit MicroCoin.Forms.EditAccount;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, StdCtrls, ExtCtrls, Buttons,
   MicroCoin.Transaction.ITransaction, MicroCoin.Transaction.ChangeAccountInfo,
   MicroCoin.Common, UCrypto, UECIES, UAES,
   PngBitBtn, MicroCoin.Node.Node, MicroCoin.Account.Data, UWalletkeys, MicroCoin.Account.AccountKey,
@@ -84,6 +84,7 @@ var
   xTransaction : ITransaction;
   xAccount : TAccount;
   xWalletKey: TWalletKey;
+  xSignerKey: TWalletKey;
   xFee: int64;
   xPayload, xErrors: AnsiString;
   xSignerAccount: TAccount;
@@ -105,6 +106,9 @@ begin
   xIndex := Integer(cbPrivateKey.Items.Objects[cbPrivateKey.ItemIndex]);
   xWalletKey := TNode.Node.KeyManager.Key[xIndex];
 
+  xIndex := TNode.Node.KeyManager.IndexOfAccountKey(xAccount.AccountInfo.AccountKey);
+  xSignerKey := TNode.Node.KeyManager[xIndex];
+
   if not TCurrencyUtils.ParseValue(edFee.Text, xFee) then begin
     MessageDlg('Invalid fee', mtError, [mbOk], 0);
     exit;
@@ -119,26 +123,26 @@ begin
   if Trim(edPayload.Text)<>'' then begin
      case cbEncryptMode.ItemIndex of
       0: xPayload := edPayload.Text;
-      1: xPayload := ECIESEncrypt(xAccount.AccountInfo.AccountKey, xPayload);
-      2: xPayload := ECIESEncrypt(xSignerAccount.AccountInfo.AccountKey, xPayload);
-      3: xPayload := TAESComp.EVP_Encrypt_AES256(xPayload, edPassword.Text);
+      1: xPayload := ECIESEncrypt(xAccount.AccountInfo.AccountKey, edPayload.Text);
+      2: xPayload := ECIESEncrypt(xSignerAccount.AccountInfo.AccountKey, edPayload.Text);
+      3: xPayload := TAESComp.EVP_Encrypt_AES256(edPayload.Text, edPassword.Text);
      end;
   end else xPayload := '';
 
   xTransaction := TChangeAccountInfoTransaction.CreateChangeAccountInfo(
-     xSignerAccount.AccountNumber, xSignerAccount.numberOfTransactions+1,
+     xSignerAccount.AccountNumber, xSignerAccount.NumberOfTransactions+1,
      xAccount.AccountNumber,
-     xWalletKey.PrivateKey,
+     xSignerKey.PrivateKey,
      not xWalletKey.AccountKey.Equals(xAccount.AccountInfo.AccountKey),
      xWalletKey.AccountKey,
-     (edAccountName.Text<>xAccount.name),
+     (edAccountName.Text<>xAccount.Name),
      edAccountName.Text,
-     edAccountType.Text<>IntToStr(xAccount.account_type),
+     edAccountType.Text<>IntToStr(xAccount.AccountType),
      StrToUInt(edAccountType.Text),
      xFee, xPayload);
     if MessageDlg('Do you want execute this transaction: '+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
     then exit;
-    if not TNode.Node.AddOperation(nil, xTransaction, xErrors)
+    if not TNode.Node.AddTransaction(nil, xTransaction, xErrors)
     then MessageDlg(xErrors, mtError, [mbOk], 0)
     else begin
       MessageDlg('Transaction successfully executed', mtInformation, [mbOK], 0);
@@ -159,9 +163,9 @@ var
 begin
   FAccountNumber := Value;
   xAccount := TNode.Node.BlockManager.AccountStorage.Account(FAccountNumber);
-  edAccountName.Text := xAccount.name;
-  edAccountType.Text := IntToStr(xAccount.account_type);
-  Caption := Caption + ' - ' +TAccount.AccountNumberToAccountTxtNumber(Value);
+  edAccountName.Text := xAccount.Name;
+  edAccountType.Text := IntToStr(xAccount.AccountType);
+  Caption := Caption + ' - ' +TAccount.AccountNumberToString(Value);
   xAccount := TNode.Node.BlockManager.AccountStorage.Account(FAccountNumber);
   for i:=0 to TNode.Node.KeyManager.Count-1 do begin
     xWalletKey:=TNode.Node.KeyManager[i];
