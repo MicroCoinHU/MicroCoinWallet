@@ -126,10 +126,11 @@ uses
   MicroCoin.Exchange.MapleChange in 'src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas',
   MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm}
   {$IFDEF EXTENDEDACCOUNT}
-  ,MicroCoin.Transaction.TransaferMoneyExtended in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransaferMoneyExtended.pas'
-  ,MicroCoin.Forms.Transaction.CreateSubAccount in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.pas' {CreateSubaccountForm}
-  {$ENDIF}
-  ;
+  ,
+  MicroCoin.Transaction.TransaferMoneyExtended in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransaferMoneyExtended.pas',
+  MicroCoin.Forms.Transaction.CreateSubAccount in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.pas' {CreateSubaccountForm},
+  MicroCoin.Transaction.Data in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.Data.pas'
+  {$ENDIF};
 
 procedure GetBuildInfo(var V1, V2, V3, V4: word);
 var

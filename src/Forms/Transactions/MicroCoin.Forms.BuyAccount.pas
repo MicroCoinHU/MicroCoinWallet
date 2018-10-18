@@ -96,7 +96,7 @@ begin
     exit;
   end;
 
- xIndex := TNode.Node.KeyManager.IndexOfAccountKey(Account.AccountInfo.AccountKey);
+ xIndex := TNode.Node.KeyManager.IndexOfAccountKey(edSignerAccount.Account.AccountInfo.AccountKey);
  xPrivateKey := TNode.Node.KeyManager.Key[xIndex].PrivateKey;
 
  if Trim(edPayload.Text)<>'' then begin

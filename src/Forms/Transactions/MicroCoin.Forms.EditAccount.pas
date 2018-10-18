@@ -60,6 +60,7 @@ type
     Label4: TLabel;
     procedure cbEncryptModeChange(Sender: TObject);
     procedure bbSaveClick(Sender: TObject);
+    procedure edAccountNameKeyPress(Sender: TObject; var Key: Char);
   private
     FAccountNumber: cardinal;
     procedure SetAccountNumber(const Value: cardinal);
@@ -153,6 +154,12 @@ end;
 procedure TEditAccountForm.cbEncryptModeChange(Sender: TObject);
 begin
   edPassword.Enabled := cbEncryptMode.ItemIndex = 3;
+end;
+
+procedure TEditAccountForm.edAccountNameKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = ' ' then Key := #0;
 end;
 
 procedure TEditAccountForm.SetAccountNumber(const Value: cardinal);

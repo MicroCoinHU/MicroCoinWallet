@@ -38,8 +38,6 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
     OnFreeNode = blockListViewFreeNode
     OnGetText = blockListViewGetText
     OnInitNode = blockListViewInitNode
-    ExplicitWidth = 957
-    ExplicitHeight = 504
     Columns = <
       item
         Alignment = taRightJustify
@@ -117,7 +115,6 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitWidth = 957
     DesignSize = (
       1033
       41)
@@ -182,15 +179,13 @@ object BlockChainExplorerForm: TBlockChainExplorerForm
     View3D = False
     Align = alBottom
     TabOrder = 2
-    ExplicitLeft = 112
-    ExplicitTop = 380
-    ExplicitWidth = 400
     DefaultCanvas = 'TGDIPlusCanvas'
     PrintMargins = (
       15
       37
       15
       37)
+    ColorPaletteIndex = 13
     object Series1: TLineSeries
       Marks.Style = smsValue
       Marks.DrawEvery = 100

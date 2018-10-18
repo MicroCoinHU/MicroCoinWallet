@@ -49,10 +49,12 @@ object EditAccountForm: TEditAccountForm
     Top = 27
     Width = 244
     Height = 21
+    CharCase = ecLowerCase
     EditLabel.Width = 72
     EditLabel.Height = 13
     EditLabel.Caption = 'Account name:'
     TabOrder = 0
+    OnKeyPress = edAccountNameKeyPress
   end
   object cbPrivateKey: TComboBox
     Left = 264
