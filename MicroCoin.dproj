@@ -127,10 +127,12 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Build>6</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.6;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Build>12</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.12;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.3.0.0;Comments=</VerInfo_Keys>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)</DCC_DcuOutput>
+        <VerInfo_MinorVer>3</VerInfo_MinorVer>
+        <VerInfo_Release>2</VerInfo_Release>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
@@ -142,6 +144,76 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="src\MicroCoin\Account\MicroCoin.Account.AccountKey.pas"/>
+        <DCCReference Include="src\MicroCoin\Account\MicroCoin.Account.Data.pas"/>
+        <DCCReference Include="src\MicroCoin\Account\MicroCoin.Account.RPC.pas"/>
+        <DCCReference Include="src\MicroCoin\Account\MicroCoin.Account.Storage.pas"/>
+        <DCCReference Include="src\MicroCoin\Account\MicroCoin.Account.Transaction.pas"/>
+        <DCCReference Include="src\MicroCoin\Application\MicroCoin.Application.Settings.pas"/>
+        <DCCReference Include="src\MicroCoin\BlockChain\MicroCoin.BlockChain.Base.pas"/>
+        <DCCReference Include="src\MicroCoin\BlockChain\MicroCoin.BlockChain.Block.pas"/>
+        <DCCReference Include="src\MicroCoin\BlockChain\MicroCoin.BlockChain.BlockHeader.pas"/>
+        <DCCReference Include="src\MicroCoin\BlockChain\MicroCoin.BlockChain.BlockManager.pas"/>
+        <DCCReference Include="src\MicroCoin\BlockChain\MicroCoin.BlockChain.Events.pas"/>
+        <DCCReference Include="src\MicroCoin\BlockChain\MicroCoin.BlockChain.FileStorage.pas"/>
+        <DCCReference Include="src\MicroCoin\BlockChain\MicroCoin.BlockChain.Protocol.pas"/>
+        <DCCReference Include="src\MicroCoin\BlockChain\MicroCoin.BlockChain.Storage.pas"/>
+        <DCCReference Include="src\MicroCoin\Common\MicroCoin.Common.AppSettings.pas"/>
+        <DCCReference Include="src\MicroCoin\Common\MicroCoin.Common.IniFileSettings.pas"/>
+        <DCCReference Include="src\MicroCoin\Common\MicroCoin.Common.Lists.pas"/>
+        <DCCReference Include="src\MicroCoin\Common\MicroCoin.Common.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UAES.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UBaseTypes.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UChunk.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UConst.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UCrypto.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UECIES.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UFolderHelper.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UJSONFunctions.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\ULog.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\USha256.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UTCPIP.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UThread.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UTime.pas"/>
+        <DCCReference Include="src\MicroCoin\Deprecated\UWalletKeys.pas"/>
+        <DCCReference Include="src\MicroCoin\Keys\MicroCoin.Keys.KeyManager.pas"/>
+        <DCCReference Include="src\MicroCoin\Mining\MicroCoin.Mining.Common.pas"/>
+        <DCCReference Include="src\MicroCoin\Mining\MicroCoin.Mining.Server.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Client.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Connection.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.ConnectionBase.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.ConnectionManager.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Discovery.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Events.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.INetNotificationSource.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.NodeServer.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Protocol.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Server.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Statistics.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Time.pas"/>
+        <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Utils.pas"/>
+        <DCCReference Include="src\MicroCoin\Node\MicroCoin.Node.Events.pas"/>
+        <DCCReference Include="src\MicroCoin\Node\MicroCoin.Node.Node.pas"/>
+        <DCCReference Include="src\MicroCoin\RPC\MicroCoin.RPC.Client.pas"/>
+        <DCCReference Include="src\MicroCoin\Rpc\MicroCoin.RPC.Handler.pas"/>
+        <DCCReference Include="src\MicroCoin\RPC\MicroCoin.RPC.MethodHandler.pas"/>
+        <DCCReference Include="src\MicroCoin\RPC\MicroCoin.RPC.Plugin.pas"/>
+        <DCCReference Include="src\MicroCoin\RPC\MicroCoin.RPC.PluginManager.pas"/>
+        <DCCReference Include="src\MicroCoin\RPC\MicroCoin.RPC.Result.pas"/>
+        <DCCReference Include="src\MicroCoin\RPC\MicroCoin.RPC.Server.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\MicroCoin.Transaction.Base.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\MicroCoin.Transaction.Events.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\MicroCoin.Transaction.HashTree.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\MicroCoin.Transaction.ITransaction.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\MicroCoin.Transaction.Manager.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\MicroCoin.Transaction.Transaction.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\Lists\MicroCoin.Transaction.TransactionList.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.ChangeAccountInfo.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.ChangeKey.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.CreateSubAccount.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.ListAccount.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.RecoverFounds.pas"/>
+        <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransferMoney.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

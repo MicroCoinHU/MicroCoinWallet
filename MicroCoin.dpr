@@ -25,8 +25,9 @@
 | Purpose:    MicroCoin Command line client                                    |
 |==============================================================================}
 program MicroCoin;
-
+{$IFDEF WINDOWS}
 {$APPTYPE CONSOLE}
+{$ENDIF}
 
 {$ifdef fpc}
  {$mode delphi}
@@ -35,10 +36,97 @@ program MicroCoin;
 {$R *.res}
 
 uses
-  SysUtils, MicroCoin.Console.Application;
+  {$IFDEF LINUX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF DEBUG}
+  FastMM4,
+  {$ENDIF}
+  {$IFDEF WINDOWS}
+  windows,
+  {$ENDIF}
+  Classes,
+  sysutils,
+  MicroCoin.Account.AccountKey in 'src\MicroCoin\Account\MicroCoin.Account.AccountKey.pas',
+  MicroCoin.Account.Data in 'src\MicroCoin\Account\MicroCoin.Account.Data.pas',
+  MicroCoin.Account.RPC in 'src\MicroCoin\Account\MicroCoin.Account.RPC.pas',
+  MicroCoin.Account.Storage in 'src\MicroCoin\Account\MicroCoin.Account.Storage.pas',
+  MicroCoin.Account.Transaction in 'src\MicroCoin\Account\MicroCoin.Account.Transaction.pas',
+  MicroCoin.Application.Settings in 'src\MicroCoin\Application\MicroCoin.Application.Settings.pas',
+  MicroCoin.BlockChain.Base in 'src\MicroCoin\BlockChain\MicroCoin.BlockChain.Base.pas',
+  MicroCoin.BlockChain.Block in 'src\MicroCoin\BlockChain\MicroCoin.BlockChain.Block.pas',
+  MicroCoin.BlockChain.BlockHeader in 'src\MicroCoin\BlockChain\MicroCoin.BlockChain.BlockHeader.pas',
+  MicroCoin.BlockChain.BlockManager in 'src\MicroCoin\BlockChain\MicroCoin.BlockChain.BlockManager.pas',
+  MicroCoin.BlockChain.Events in 'src\MicroCoin\BlockChain\MicroCoin.BlockChain.Events.pas',
+  MicroCoin.BlockChain.FileStorage in 'src\MicroCoin\BlockChain\MicroCoin.BlockChain.FileStorage.pas',
+  MicroCoin.BlockChain.Protocol in 'src\MicroCoin\BlockChain\MicroCoin.BlockChain.Protocol.pas',
+  MicroCoin.BlockChain.Storage in 'src\MicroCoin\BlockChain\MicroCoin.BlockChain.Storage.pas',
+  MicroCoin.Common.AppSettings in 'src\MicroCoin\Common\MicroCoin.Common.AppSettings.pas',
+  MicroCoin.Common.IniFileSettings in 'src\MicroCoin\Common\MicroCoin.Common.IniFileSettings.pas',
+  MicroCoin.Common.Lists in 'src\MicroCoin\Common\MicroCoin.Common.Lists.pas',
+  MicroCoin.Common in 'src\MicroCoin\Common\MicroCoin.Common.pas',
+  UAES in 'src\MicroCoin\Deprecated\UAES.pas',
+  UBaseTypes in 'src\MicroCoin\Deprecated\UBaseTypes.pas',
+  UChunk in 'src\MicroCoin\Deprecated\UChunk.pas',
+  UConst in 'src\MicroCoin\Deprecated\UConst.pas',
+  UCrypto in 'src\MicroCoin\Deprecated\UCrypto.pas',
+  UECIES in 'src\MicroCoin\Deprecated\UECIES.pas',
+  UFolderHelper in 'src\MicroCoin\Deprecated\UFolderHelper.pas',
+  UJSONFunctions in 'src\MicroCoin\Deprecated\UJSONFunctions.pas',
+  ULog in 'src\MicroCoin\Deprecated\ULog.pas',
+  USha256 in 'src\MicroCoin\Deprecated\USha256.pas',
+  UTCPIP in 'src\MicroCoin\Deprecated\UTCPIP.pas',
+  UThread in 'src\MicroCoin\Deprecated\UThread.pas',
+  UTime in 'src\MicroCoin\Deprecated\UTime.pas',
+  UWalletKeys in 'src\MicroCoin\Deprecated\UWalletKeys.pas',
+  MicroCoin.Keys.KeyManager in 'src\MicroCoin\Keys\MicroCoin.Keys.KeyManager.pas',
+  MicroCoin.Mining.Common in 'src\MicroCoin\Mining\MicroCoin.Mining.Common.pas',
+  MicroCoin.Mining.Server in 'src\MicroCoin\Mining\MicroCoin.Mining.Server.pas',
+  MicroCoin.Net.Client in 'src\MicroCoin\Net\MicroCoin.Net.Client.pas',
+  MicroCoin.Net.Connection in 'src\MicroCoin\Net\MicroCoin.Net.Connection.pas',
+  MicroCoin.Net.ConnectionBase in 'src\MicroCoin\Net\MicroCoin.Net.ConnectionBase.pas',
+  MicroCoin.Net.ConnectionManager in 'src\MicroCoin\Net\MicroCoin.Net.ConnectionManager.pas',
+  MicroCoin.Net.Discovery in 'src\MicroCoin\Net\MicroCoin.Net.Discovery.pas',
+  MicroCoin.Net.Events in 'src\MicroCoin\Net\MicroCoin.Net.Events.pas',
+  MicroCoin.Net.INetNotificationSource in 'src\MicroCoin\Net\MicroCoin.Net.INetNotificationSource.pas',
+  MicroCoin.Net.NodeServer in 'src\MicroCoin\Net\MicroCoin.Net.NodeServer.pas',
+  MicroCoin.Net.Protocol in 'src\MicroCoin\Net\MicroCoin.Net.Protocol.pas',
+  MicroCoin.Net.Server in 'src\MicroCoin\Net\MicroCoin.Net.Server.pas',
+  MicroCoin.Net.Statistics in 'src\MicroCoin\Net\MicroCoin.Net.Statistics.pas',
+  MicroCoin.Net.Time in 'src\MicroCoin\Net\MicroCoin.Net.Time.pas',
+  MicroCoin.Net.Utils in 'src\MicroCoin\Net\MicroCoin.Net.Utils.pas',
+  MicroCoin.Node.Events in 'src\MicroCoin\Node\MicroCoin.Node.Events.pas',
+  MicroCoin.Node.Node in 'src\MicroCoin\Node\MicroCoin.Node.Node.pas',
+  MicroCoin.RPC.Client in 'src\MicroCoin\RPC\MicroCoin.RPC.Client.pas',
+  MicroCoin.RPC.Handler in 'src\MicroCoin\Rpc\MicroCoin.RPC.Handler.pas',
+  MicroCoin.RPC.MethodHandler in 'src\MicroCoin\RPC\MicroCoin.RPC.MethodHandler.pas',
+  MicroCoin.RPC.Plugin in 'src\MicroCoin\RPC\MicroCoin.RPC.Plugin.pas',
+  MicroCoin.RPC.PluginManager in 'src\MicroCoin\RPC\MicroCoin.RPC.PluginManager.pas',
+  MicroCoin.RPC.Result in 'src\MicroCoin\RPC\MicroCoin.RPC.Result.pas',
+  MicroCoin.RPC.Server in 'src\MicroCoin\RPC\MicroCoin.RPC.Server.pas',
+  MicroCoin.Transaction.Base in 'src\MicroCoin\Transaction\MicroCoin.Transaction.Base.pas',
+  MicroCoin.Transaction.Events in 'src\MicroCoin\Transaction\MicroCoin.Transaction.Events.pas',
+  MicroCoin.Transaction.HashTree in 'src\MicroCoin\Transaction\MicroCoin.Transaction.HashTree.pas',
+  MicroCoin.Transaction.ITransaction in 'src\MicroCoin\Transaction\MicroCoin.Transaction.ITransaction.pas',
+  MicroCoin.Transaction.Manager in 'src\MicroCoin\Transaction\MicroCoin.Transaction.Manager.pas',
+  MicroCoin.Transaction.Transaction in 'src\MicroCoin\Transaction\MicroCoin.Transaction.Transaction.pas',
+  MicroCoin.Transaction.TransactionList in 'src\MicroCoin\Transaction\Lists\MicroCoin.Transaction.TransactionList.pas',
+  MicroCoin.Transaction.ChangeAccountInfo in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.ChangeAccountInfo.pas',
+  MicroCoin.Transaction.ChangeKey in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.ChangeKey.pas',
+  MicroCoin.Transaction.CreateSubAccount in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.CreateSubAccount.pas',
+  MicroCoin.Transaction.ListAccount in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.ListAccount.pas',
+  MicroCoin.Transaction.RecoverFounds in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.RecoverFounds.pas',
+  MicroCoin.Transaction.TransferMoney in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransferMoney.pas'
+  {$IFDEF EXTENDEDACCOUNT}
+  ,
+  MicroCoin.Transaction.TransaferMoneyExtended in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransaferMoneyExtended.pas',
+  MicroCoin.Forms.Transaction.CreateSubAccount in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.pas' {CreateSubaccountForm},
+  MicroCoin.Transaction.Data in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.Data.pas'
+  {$ENDIF}
+  ,MicroCoin.Console.Application in 'src\MicroCoin\Application\MicroCoin.Console.Application.pas';
 
-  var
-    C: Char;
+var
+  C: Char;
 begin
   try
     with TMicroCoinApplication.Create do begin
