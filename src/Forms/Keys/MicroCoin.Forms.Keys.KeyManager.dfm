@@ -160,46 +160,6 @@ object WalletKeysForm: TWalletKeysForm
     Stretch = True
     Visible = False
   end
-  object keyList: TVirtualStringTree
-    Left = 0
-    Top = 43
-    Width = 716
-    Height = 487
-    Align = alClient
-    DefaultNodeHeight = 24
-    Header.AutoSizeIndex = 2
-    Header.Font.Charset = DEFAULT_CHARSET
-    Header.Font.Color = clWindowText
-    Header.Font.Height = -11
-    Header.Font.Name = 'Tahoma'
-    Header.Font.Style = []
-    Header.Options = [hoAutoResize, hoColumnResize, hoDrag, hoShowSortGlyphs, hoVisible, hoAutoSpring]
-    PopupMenu = ListPopupMenu
-    TabOrder = 0
-    TreeOptions.PaintOptions = [toHideFocusRect, toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages]
-    TreeOptions.SelectionOptions = [toFullRowSelect, toRightClickSelect, toAlwaysSelectNode]
-    OnFocusChanged = keyListFocusChanged
-    OnFreeNode = keyListFreeNode
-    OnGetText = keyListGetText
-    OnInitNode = keyListInitNode
-    Columns = <
-      item
-        Position = 0
-        Width = 200
-        WideText = 'Name'
-      end
-      item
-        Position = 1
-        Width = 110
-        WideText = 'Curve'
-      end
-      item
-        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAutoSpring, coAllowFocus, coEditable]
-        Position = 2
-        Width = 402
-        WideText = 'Type'
-      end>
-  end
   object WalletKeysToolbar: TActionToolBar
     Left = 0
     Top = 0
@@ -231,7 +191,7 @@ object WalletKeysForm: TWalletKeysForm
     BevelOuter = bvNone
     Caption = 'Panel1'
     ShowCaption = False
-    TabOrder = 2
+    TabOrder = 1
     object qrPrivate: TImage
       AlignWithMargins = True
       Left = 10
@@ -323,6 +283,22 @@ object WalletKeysForm: TWalletKeysForm
       TabOrder = 1
       OnClick = cbShowPrivateClick
     end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 43
+    Width = 716
+    Height = 487
+    Align = alClient
+    DataSource = DataSource1
+    Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ReadOnly = True
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
   end
   object WalletKeyActions: TActionManager
     ActionBars = <
@@ -955,5 +931,10 @@ object WalletKeysForm: TWalletKeysForm
   object PrintDialog1: TPrintDialog
     Left = 444
     Top = 272
+  end
+  object DataSource1: TDataSource
+    DataSet = MicroCoinData.KeysTable
+    Left = 256
+    Top = 126
   end
 end

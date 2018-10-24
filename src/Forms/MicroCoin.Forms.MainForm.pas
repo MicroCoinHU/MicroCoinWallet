@@ -49,12 +49,12 @@ uses
   LCLIntf, LCLType, LMessages, fpjson, jsonparser, LResources, LCLTranslator, Translations,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs,
-  ExtCtrls, ComCtrls, UWalletKeys, StdCtrls, ULog, Grids, MicroCoin.Application.Settings,
+  ExtCtrls, ComCtrls, StdCtrls, ULog, Grids, MicroCoin.Application.Settings,
   Menus, ImgList, Styles, Themes,
-  synautil, UCrypto, Buttons, IniFiles,  MicroCoin.Keys.KeyManager,
-  System.Notification, PngImageList, Actions, ActnList,
-  PlatformDefaultStyleActnCtrls, ActnMan, ImageList,
-  VirtualTrees, PngBitBtn, PngSpeedButton, ActnCtrls,
+  synautil, UCrypto, Buttons, IniFiles,  MicroCoin.keys.MicroCoinKeyManager,
+  System.Notification, Vcl.ActnPopup, System.ImageList, PngImageList,
+  System.Actions, Vcl.ActnList, Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan,
+  VirtualTrees, PngBitBtn, PngSpeedButton, Vcl.ToolWin, Vcl.ActnCtrls,
   MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney, MicroCoin.Transaction.ChangeKey,
   MicroCoin.Forms.EditAccount, MicroCoin.Exchange.MapleChange,
   MicroCoin.Account.AccountKey, MicroCoin.Common.Lists, MicroCoin.Common,
@@ -76,8 +76,7 @@ uses
 {$ENDIF}
   MicroCoin.Forms.Transaction.History, MicroCoin.Forms.Keys.Keymanager, UITypes,
   SyncObjs, DelphiZXIngQRCode, ShellApi,
-  Tabs, ExtActns, MicroCoin.Forms.SellAccount, MicroCoin.Account.Editors,
-  ToolWin, WinXCtrls, ActnPopup
+  Tabs, ExtActns, MicroCoin.Forms.SellAccount, MicroCoin.Account.Editors
  {$IFDEF WINDOWS}, Windows{$ENDIF};
 
 const
@@ -675,7 +674,7 @@ begin
   FIsActivated := true;
   try
     try
-      TNode.Node.KeyManager.WalletFileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'WalletKeys.dat';
+      //TNode.Node.KeyManager.WalletFileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'WalletKeys.dat';
     except
       on E: Exception do
       begin
@@ -701,7 +700,7 @@ begin
     TFileStorage(TNode.Node.BlockManager.Storage).DatabaseFolder := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'Data';
     TFileStorage(TNode.Node.BlockManager.Storage).Initialize;
     // Init Grid
-    TNode.Node.KeyManager.OnChanged := OnWalletChanged;
+//    TNode.Node.KeyManager.OnChanged := OnWalletChanged;
     // Reading database
     TThreadActivate.Create(false).FreeOnTerminate := true;
     FNodeNotifyEvents.Node := TNode.Node;
@@ -1174,8 +1173,8 @@ begin
   {$IFNDEF TESTNET}
   FNodeNotifyEvents.OnTransactionsChanged:= OnNewOperation;
   {$ENDIF}
-  TNode.Node.KeyManager := TKeyManager.Create(self);
-  TNode.Node.KeyManager.OnChanged := OnWalletChanged;
+  TNode.Node.KeyManager := TMicroCoinKeyManager.Create();
+//  TNode.Node.KeyManager.OnChanged := OnWalletChanged;
   LoadAppParams;
   UpdatePrivateKeys;
   UpdateBlockChainState;

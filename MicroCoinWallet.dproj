@@ -3,7 +3,7 @@
         <ProjectGuid>{F3B2E6AD-6E4B-4736-A714-EEAE47C178BC}</ProjectGuid>
         <MainSource>MicroCoinWallet.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -92,8 +92,7 @@
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.3.3.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
-        <DCC_UnitSearchPath>src\MicroCoin\Account;src\MicroCoin\Transaction;src\MicroCoin\Application;src\MicroCoin\BlockChain;src\MicroCoin\Common;src\MicroCoin\Keys;src\MicroCoin\Mining;src\MicroCoin\Net;src\MicroCoin\Node;src\MicroCoin\Rpc;src\MicroCoin\Utils;src\MicroCoin\Transaction\Lists;src\MicroCoin\Transaction\Plugins;src\Forms;src\Forms\BlockChain;src\Forms\Transactions;src\MicroCoin;src\MicroCoin\Account;src\MicroCoin\3rdParty;src\MicroCoin\3rdParty\Synapse;src\MicroCoin\3rdParty\OpenSSL;src\Forms\Common;src\MicroCoin\Deprecated;src\Forms\Keys;src\MicroCoin\3rdParty\fastmm;src\MicroCoin\3rdParty\DelphiZXingQRCode;src\Common;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
-        <Custom_Styles>&quot;Cobalt XEMedia|VCLSTYLE|$(BDSCOMMONDIR)\Styles\CobaltXEMedia.vsf&quot;;&quot;Green Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\GreenGraphite.vsf&quot;;&quot;Light Green|VCLSTYLE|$(BDSCOMMONDIR)\Styles\LightGreen.vsf&quot;;&quot;MicroCoin Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\MicroCoinDark.vsf&quot;;&quot;MicroCoin Light|VCLSTYLE|$(BDSCOMMONDIR)\Styles\MicroCoinLight.vsf&quot;;&quot;Ruby Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\RubyGraphite.vsf&quot;</Custom_Styles>
+        <DCC_UnitSearchPath>src\MicroCoin\Account;src\MicroCoin\Transaction;src\MicroCoin\Application;src\MicroCoin\BlockChain;src\MicroCoin\Common;src\MicroCoin\Keys;src\MicroCoin\Mining;src\MicroCoin\Net;src\MicroCoin\Node;src\MicroCoin\Rpc;src\MicroCoin\Utils;src\MicroCoin\Transaction\Lists;src\MicroCoin\Transaction\Plugins;src\Forms;src\Forms\BlockChain;src\Forms\Transactions;src\MicroCoin;src\MicroCoin\Account;src\MicroCoin\3rdParty;src\MicroCoin\3rdParty\Synapse;src\MicroCoin\3rdParty\OpenSSL;src\Forms\Common;src\MicroCoin\Deprecated;src\Forms\Keys;src\MicroCoin\3rdParty\fastmm;src\MicroCoin\3rdParty\DelphiZXingQRCode;src\Common;src\MicroCoin\3rdParty\Zeos\component;src\MicroCoin\3rdParty\Zeos\core;src\MicroCoin\3rdParty\Zeos\dbc;src\MicroCoin\3rdParty\Zeos\parsesql;src\MicroCoin\3rdParty\Zeos\plain;src\MicroCoin\3rdParty\Zeos;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_MapFile>3</DCC_MapFile>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_MinorVer>3</VerInfo_MinorVer>
@@ -134,8 +133,8 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Build>46</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=MicroCoin;FileDescription=MicroCoin Desktop Wallet;FileVersion=1.3.2.46;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
+        <VerInfo_Build>50</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=MicroCoin;FileDescription=MicroCoin Desktop Wallet;FileVersion=1.3.2.50;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
         <VerInfo_Release>2</VerInfo_Release>
         <DCC_IOChecking>false</DCC_IOChecking>
         <DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
@@ -154,8 +153,8 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.74;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>74</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.80;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>80</VerInfo_Build>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
         <VerInfo_Release>2</VerInfo_Release>
@@ -229,8 +228,6 @@
         <DCCReference Include="src\MicroCoin\Deprecated\UTCPIP.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UThread.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UTime.pas"/>
-        <DCCReference Include="src\MicroCoin\Deprecated\UWalletKeys.pas"/>
-        <DCCReference Include="src\MicroCoin\Keys\MicroCoin.Keys.KeyManager.pas"/>
         <DCCReference Include="src\MicroCoin\Mining\MicroCoin.Mining.Common.pas"/>
         <DCCReference Include="src\MicroCoin\Mining\MicroCoin.Mining.Server.pas"/>
         <DCCReference Include="src\MicroCoin\Net\MicroCoin.Net.Client.pas"/>
@@ -306,6 +303,9 @@
         <DCCReference Include="src\Forms\MicroCoin.Forms.MainForm.pas">
             <Form>MainForm</Form>
         </DCCReference>
+        <DCCReference Include="src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransaferMoneyExtended.pas"/>
+        <DCCReference Include="src\MicroCoin\DataModule\DBModule.pas"/>
+        <DCCReference Include="src\MicroCoin\Keys\MicroCoin.Keys.MicroCoinKeyManager.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -335,6 +335,7 @@
                     <Source Name="MainSource">MicroCoinWallet.dpr</Source>
                 </Source>
                 <Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\19.0\Bpl\VirtualTreesD25.bpl">VirtualTreeView Controls</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k250.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp250.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>

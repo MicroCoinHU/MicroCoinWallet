@@ -36,13 +36,12 @@ uses
   Vcl.ActnList, Vcl.ActnMan, VirtualTrees, Vcl.Menus, Vcl.ActnPopup,
   Vcl.ToolWin, Vcl.ActnCtrls, UCrypto, UITypes, Vcl.StdCtrls, Vcl.Buttons,
   PngBitBtn, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  Printers,
-  DelphiZXIngQRCode;
+  Printers, DbModule,
+  DelphiZXIngQRCode, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TWalletKeysForm = class(TForm)
     WalletKeyActions: TActionManager;
-    keyList: TVirtualStringTree;
     WalletKeysToolbar: TActionToolBar;
     EditNameAction: TAction;
     ActionImages: TPngImageList;
@@ -76,6 +75,8 @@ type
     Image1: TImage;
     cbShowPrivate: TCheckBox;
     PrintDialog1: TPrintDialog;
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
     procedure FormCreate(Sender: TObject);
     procedure keyListInitNode(Sender: TBaseVirtualTree; ParentNode,
       Node: PVirtualNode; var InitialStates: TVirtualNodeInitStates);
@@ -120,8 +121,8 @@ var
 
 implementation
 
-uses MicroCoin.Node.Node, MicroCoin.Account.AccountKey, UWalletKeys, PlatformVclStylesActnCtrls,
-     UConst, Clipbrd, UAES;
+uses MicroCoin.Node.Node, MicroCoin.Account.AccountKey, PlatformVclStylesActnCtrls,
+     UConst, Clipbrd, UAES, MicroCoin.Keys.MicroCoinKeyManager, UWalletKeys;
 
 {$R *.dfm}
 
@@ -136,8 +137,6 @@ begin
     xKey.GenerateRandomPrivateKey(TAction(Sender).Tag);
     TNode.Node.KeyManager.AddPrivateKey(xName, xKey);
     FreeAndNil(xKey);
-    keyList.RootNodeCount := TNode.Node.KeyManager.Count;
-    keyList.ReinitNode(nil, true);
   end;
 end;
 
@@ -156,7 +155,6 @@ var
   xTop : Integer;
 begin
   if not UnlockWallet then exit;
-  if not Assigned( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey) then exit;
   ShowPrivateKey;
   if PrintDialog1.Execute(Self.Handle) then begin
 
@@ -169,7 +167,7 @@ begin
 
     Printer.Canvas.Font.Size := 20;
 
-    xText:=Format('MicroCoin Paper Wallet (%s)', [ UTF8ToString( TWalletKey(keyList.FocusedNode.GetData^).Name )]);
+//    xText:=Format('MicroCoin Paper Wallet (%s)', [ UTF8ToString( TWalletKey(keyList.FocusedNode.GetData^).Name )]);
 
     xRect.Left := 0;
     xRect.Top := Printer.Canvas.TextExtent(xText).Height + xMargin;
@@ -213,8 +211,8 @@ begin
     Printer.Canvas.LineTo( Printer.PageWidth - xMargin, xRect.Top);
     xRect.Top := xRect.Top + xPrinterPixelsPerInch_Y div 5;
     Printer.Canvas.Font.Size := 10;
-    xText := 'Private key: '+TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey)
-    +sLineBreak+sLineBreak+'Printed at: '+FormatDateTime('c', Now);
+//    xText := 'Private key: '+TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey)
+//    +sLineBreak+sLineBreak+'Printed at: '+FormatDateTime('c', Now);
     xRect.Height := xPrinterPixelsPerInch_Y;
     xRect.Width := Printer.PageWidth - xMargin;
     DrawText(Printer.Canvas.Handle, xText, -1, xRect, DT_NOPREFIX or DT_WORDBREAK);
@@ -243,15 +241,13 @@ begin
   if not UnlockWallet then exit;
   if MessageDlg('Do you want to DELETE this key? Delete is unreversible!!!', mtWarning, [mbYes, mbNo], 0) = mrYes
   then begin
-    TNode.Node.KeyManager.Delete(keyList.FocusedNode.Index);
-    keyList.RootNodeCount := TNode.Node.KeyManager.Count;
-    keyList.ReinitNode(nil, true);
+    DbModule.MicroCoinData.KeysTable.Delete;
   end;
 end;
 
 procedure TWalletKeysForm.DeleteKeyUpdate(Sender: TObject);
 begin
-  DeleteKey.Enabled := keyList.FocusedNode<>nil;
+  DeleteKey.Enabled := DBGrid1.Focused;
 end;
 
 procedure TWalletKeysForm.EditNameActionExecute(Sender: TObject);
@@ -261,14 +257,14 @@ begin
   if not UnlockWallet then exit;
   if InputQuery('Change name','Input new key name:',xName) then begin
     if xName = '' then exit;
-    TNode.Node.KeyManager.SetName(keyList.FocusedNode.Index, xName);
-    keyList.ReinitNode(keyList.FocusedNode, true);
+    TNode.Node.KeyManager.SetName(DbModule.MicroCoinData.KeysTable.FieldByName('id').AsInteger, xName);
+
   end;
 end;
 
 procedure TWalletKeysForm.EditNameActionUpdate(Sender: TObject);
 begin
-  EditNameAction.Enabled := keyList.FocusedNode<>nil;
+  EditNameAction.Enabled := DBGrid1.Focused;
 end;
 
 procedure TWalletKeysForm.ExportPrivateKeyExecute(Sender: TObject);
@@ -280,27 +276,29 @@ begin
   then begin
     if xPass[0]<>xPass[1] then raise Exception.Create('Passwords not match');
     if xPass[0]<>''
-    then Clipboard.AsText := TCrypto.ToHexaString( TAESComp.EVP_Encrypt_AES256( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey.ExportToRaw, xPass[0]) )
-    else Clipboard.AsText := TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey);
+    then Clipboard.AsText := TCrypto.ToHexaString( TAESComp.EVP_Encrypt_AES256( TCrypto.HexaToRaw(DBGrid1.DataSource.DataSet.FieldByName('d').Value), xPass[0]) )
+    else Clipboard.AsText := DBGrid1.DataSource.DataSet.FieldByName('d').Value;
+
     MessageDlg('Private key copied to clipboard', mtInformation, [mbOk], 0);
+
   end else exit;
 end;
 
 procedure TWalletKeysForm.ExportPrivateKeyUpdate(Sender: TObject);
 begin
-  ExportPrivateKey.Enabled := keyList.FocusedNode<>nil;
+  ExportPrivateKey.Enabled := not DbModule.MicroCoinData.KeysTable.Eof;
 end;
 
 procedure TWalletKeysForm.ExportPublicKeyExecute(Sender: TObject);
 begin
   if not UnlockWallet then exit;
-  Clipboard.AsText := TWalletKey(keyList.FocusedNode.GetData^).AccountKey.AccountPublicKeyExport;
+  Clipboard.AsText := TNode.Node.KeyManager.Get(DbModule.MicroCoinData.KeysTable.FieldByName('id').AsInteger).AccountKey.AccountPublicKeyExport;
   MessageDlg('Public key copied to clipboard', mtInformation, [mbOk], 0);
 end;
 
 procedure TWalletKeysForm.ExportPublicKeyUpdate(Sender: TObject);
 begin
-  ExportPublicKey.Enabled := keyList.FocusedNode<>nil;
+  ExportPublicKey.Enabled := true;
 end;
 
 procedure TWalletKeysForm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -311,8 +309,6 @@ end;
 
 procedure TWalletKeysForm.FormCreate(Sender: TObject);
 begin
-  keyList.NodeDataSize := SizeOf(TWalletKey);
-  keyList.RootNodeCount := TNode.Node.KeyManager.Count;
   WalletKeyActions.Style := PlatformVclStylesStyle;
 end;
 
@@ -336,15 +332,13 @@ begin
         end;
       end;
       for i := 0 to xKeys.Count-1 do begin
-        if TNode.Node.KeyManager.IndexOfAccountKey(xKeys[i].AccountKey) > -1
+        if TNode.Node.KeyManager.IndexOfAccountKey(xKeys[i].AccountKey) > 0
         then continue;
         if assigned(xKeys[i].PrivateKey)
         then TNode.Node.KeyManager.AddPrivateKey(xKeys[i].Name, xKeys[i].PrivateKey)
         else TNode.Node.KeyManager.AddPublicKey(xKeys[i].Name, xKeys[i].AccountKey);
       end;
       FreeAndNil(xKeys);
-      keyList.RootNodeCount := TNode.Node.KeyManager.Count;
-      keyList.ReinitNode(nil, true);
   end;
 end;
 
@@ -425,8 +419,6 @@ begin
     exit;
   end;
   TNode.Node.KeyManager.AddPrivateKey(xData[0], xResult);
-  keyList.RootNodeCount := TNode.Node.KeyManager.Count;
-  keyList.ReinitNode(nil, true);
 end;
 
 procedure TWalletKeysForm.ImportPrivateKeyUpdate(Sender: TObject);
@@ -466,8 +458,6 @@ begin
   if xData[0] = ''
   then xData[0] := DateTimeToStr(Now);
   TNode.Node.KeyManager.AddPublicKey(xData[0], xAccountKey);
-  keyList.RootNodeCount := TNode.Node.KeyManager.Count;
-  keyList.ReinitNode(nil, true);
 end;
 
 procedure TWalletKeysForm.ImportPublicKeyUpdate(Sender: TObject);
@@ -543,14 +533,10 @@ var
   xRow, xCol: Integer;
   xQRCodeBitmap: TBitmap;
 begin
-  if keyList.FocusedNode = nil
-  then exit;
-  if not Assigned( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey )
-  then exit;
   xQRCode := TDelphiZXingQRCode.Create;
   try
     xQRCodeBitmap := qrPrivate.Picture.Bitmap;
-    xQRCode.Data := TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey);
+    xQRCode.Data := DbModule.MicroCoinData.KeysTable.FieldByName('d').AsAnsiString;
     xQRCode.Encoding := TQRCodeEncoding(qrISO88591);
     xQRCode.QuietZone := 1;
     xQRCodeBitmap.SetSize(xQRCode.Rows, xQRCode.Columns);
@@ -590,7 +576,7 @@ begin
     xFilename := SaveKeysDialog.FileName;
     xStream := TFileStream.Create(xFilename, fmCreate);
     try
-      TNode.Node.KeyManager.SaveToStream(xStream);
+//      TNode.Node.KeyManager.SaveToStream(xStream);
       MessageDlg(Format('Wallet saved to %s', [xFilename]), mtInformation, [mbOk], 0);
     finally
       FreeAndNil(xStream);
@@ -600,7 +586,7 @@ end;
 
 procedure TWalletKeysForm.SaveAllUpdate(Sender: TObject);
 begin
-  SaveAll.Enabled := keyList.RootNodeCount > 0;
+  SaveAll.Enabled := true;
 end;
 
 function TWalletKeysForm.UnlockWallet: Boolean;

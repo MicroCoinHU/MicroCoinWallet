@@ -72,8 +72,6 @@ uses
   UTCPIP in 'src\MicroCoin\Deprecated\UTCPIP.pas',
   UThread in 'src\MicroCoin\Deprecated\UThread.pas',
   UTime in 'src\MicroCoin\Deprecated\UTime.pas',
-  UWalletKeys in 'src\MicroCoin\Deprecated\UWalletKeys.pas',
-  MicroCoin.Keys.KeyManager in 'src\MicroCoin\Keys\MicroCoin.Keys.KeyManager.pas',
   MicroCoin.Mining.Common in 'src\MicroCoin\Mining\MicroCoin.Mining.Common.pas',
   MicroCoin.Mining.Server in 'src\MicroCoin\Mining\MicroCoin.Mining.Server.pas',
   MicroCoin.Net.Client in 'src\MicroCoin\Net\MicroCoin.Net.Client.pas',
@@ -124,13 +122,12 @@ uses
   MicroCoin.Forms.Transaction.Explorer in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.pas' {TransactionExplorer},
   MicroCoin.Forms.Transaction.History in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.History.pas' {TransactionHistoryForm},
   MicroCoin.Exchange.MapleChange in 'src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas',
-  MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm}
+  MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm},
   {$IFDEF EXTENDEDACCOUNT}
-  ,
   MicroCoin.Transaction.TransaferMoneyExtended in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransaferMoneyExtended.pas',
-  MicroCoin.Forms.Transaction.CreateSubAccount in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.pas' {CreateSubaccountForm},
-  MicroCoin.Transaction.Data in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.Data.pas'
-  {$ENDIF};
+  {$ENDIF }
+  DBModule in 'src\MicroCoin\DataModule\DBModule.pas',
+  MicroCoin.Keys.MicroCoinKeyManager in 'src\MicroCoin\Keys\MicroCoin.Keys.MicroCoinKeyManager.pas';
 
 {$R *.res}
 
@@ -147,6 +144,7 @@ begin
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('MicroCoin Light');
   Application.Title := 'MicroCoin Wallet - '+ClientAppVersion{$IFDEF TESTNET}+' - TESTNET'{$ENDIF}{$IFDEF DEVNET}+' - DEVNET'{$ENDIF};
+  Application.CreateForm(TMicroCoinData, MicroCoinData);
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.
