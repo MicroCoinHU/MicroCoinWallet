@@ -30,9 +30,9 @@ unit MicroCoin.Forms.BuyAccount;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, PngBitBtn,
-  Vcl.ExtCtrls, MicroCoin.Account.Editors, MicroCoin.Common, MicroCoin.Account.Data,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, StdCtrls, Buttons, PngBitBtn,
+  ExtCtrls, MicroCoin.Account.Editors, MicroCoin.Common, MicroCoin.Account.Data,
   MicroCoin.Account.AccountKey, UCrypto, MicroCoin.Transaction.ITransaction,
   MicroCoin.Keys.KeyManager, UWalletKeys,
   MicroCoin.Transaction.TransferMoney, MicroCoin.Node.Node;
@@ -96,32 +96,32 @@ begin
     exit;
   end;
 
- xIndex := TNode.Node.KeyManager.IndexOfAccountKey(Account.AccountInfo.AccountKey);
+ xIndex := TNode.Node.KeyManager.IndexOfAccountKey(edSignerAccount.Account.AccountInfo.AccountKey);
  xPrivateKey := TNode.Node.KeyManager.Key[xIndex].PrivateKey;
 
  if Trim(edPayload.Text)<>'' then begin
     case cbEncryptMode.ItemIndex of
       0: xPayload := edPayload.Text;
-      1: xPayload := ECIESEncrypt(account.AccountInfo.AccountKey, xPayload);
-      2: xPayload := ECIESEncrypt(edSignerAccount.Account.AccountInfo.AccountKey, xPayload);
-      3: xPayload := TAESComp.EVP_Encrypt_AES256(xPayload, edPassword.Text);
+      1: xPayload := ECIESEncrypt(account.AccountInfo.AccountKey, edPayload.Text);
+      2: xPayload := ECIESEncrypt(edSignerAccount.Account.AccountInfo.AccountKey, edPayload.Text);
+      3: xPayload := TAESComp.EVP_Encrypt_AES256(edPayload.Text, edPassword.Text);
     end;
   end else xPayload := '';
 
   xNewkey := TNode.Node.KeyManager[Integer(cbKey.Items.Objects[cbKey.ItemIndex])].AccountKey;
   xTransaction := TBuyAccountTransaction.CreateBuy(
           edSignerAccount.Account.AccountNumber,
-          edSignerAccount.Account.n_operation+1,
+          edSignerAccount.Account.NumberOfTransactions+1,
           Account.AccountNumber,
-          Account.AccountInfo.account_to_pay,
-          Account.AccountInfo.price,
-          Account.AccountInfo.price,
+          Account.AccountInfo.AccountToPay,
+          Account.AccountInfo.Price,
+          Account.AccountInfo.Price,
           xFee,
           xNewkey,
           xPrivateKey,
           xPayload
         );
-  if not TNode.Node.AddOperation(nil, xTransaction, xErrors)
+  if not TNode.Node.AddTransaction(nil, xTransaction, xErrors)
   then MessageDlg(xErrors, mtError, [mbOk], 0)
   else begin
     MessageDlg('Account purchased', mtInformation, [mbOk], 0);
@@ -145,7 +145,7 @@ end;
 procedure TBuyAccountForm.SetAccount(const Value: TAccount);
 begin
   FAccount := Value;
-  Caption := Format('Buy account: %s', [ TAccount.AccountNumberToAccountTxtNumber(Account.AccountNumber) ]);
+  Caption := Format('Buy account: %s', [ TAccount.AccountNumberToString(Account.AccountNumber) ]);
 end;
 
 end.

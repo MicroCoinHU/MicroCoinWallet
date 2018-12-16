@@ -39,7 +39,6 @@ object TransactionExplorer: TTransactionExplorer
     OnGetCellIsEmpty = transactionListViewGetCellIsEmpty
     OnGetText = transactionListViewGetText
     OnInitNode = transactionListViewInitNode
-    ExplicitWidth = 844
     Columns = <
       item
         Position = 0
@@ -101,7 +100,6 @@ object TransactionExplorer: TTransactionExplorer
     Caption = 'Panel1'
     ShowCaption = False
     TabOrder = 1
-    ExplicitWidth = 844
     DesignSize = (
       997
       41)

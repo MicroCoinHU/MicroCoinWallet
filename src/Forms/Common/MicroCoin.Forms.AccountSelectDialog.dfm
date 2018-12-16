@@ -40,10 +40,11 @@ object AccountSelectDialog: TAccountSelectDialog
     TabOrder = 0
     TreeOptions.AutoOptions = [toAutoDropExpand, toAutoScrollOnExpand, toAutoSort, toAutoTristateTracking, toAutoDeleteMovedNodes, toAutoChangeScale, toDisableAutoscrollOnEdit]
     TreeOptions.MiscOptions = [toFullRepaintOnResize, toInitOnSave, toToggleOnDblClick, toWheelPanning]
-    TreeOptions.PaintOptions = [toShowDropmark, toShowHorzGridLines, toShowVertGridLines, toThemeAware, toUseBlendedImages, toStaticBackground]
+    TreeOptions.PaintOptions = [toHideFocusRect, toShowButtons, toShowDropmark, toShowHorzGridLines, toShowRoot, toShowTreeLines, toShowVertGridLines, toThemeAware, toUseBlendedImages, toFullVertGridLines, toStaticBackground]
     TreeOptions.SelectionOptions = [toFullRowSelect]
     OnFreeNode = accountVListFreeNode
     OnGetText = accountVListGetText
+    OnInitChildren = accountVListInitChildren
     OnInitNode = accountVListInitNode
     OnNodeDblClick = accountVListNodeDblClick
     Columns = <

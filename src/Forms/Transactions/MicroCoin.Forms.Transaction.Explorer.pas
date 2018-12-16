@@ -29,11 +29,11 @@ unit MicroCoin.Forms.Transaction.Explorer;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, System.Actions,
-  Vcl.ActnList, Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan,
-  System.ImageList, Vcl.ImgList, PngImageList, Vcl.StdCtrls, Vcl.Buttons,
-  PngBitBtn, Vcl.ExtCtrls, PngSpeedButton;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, VirtualTrees, System.Actions,
+  ActnList, PlatformDefaultStyleActnCtrls, ActnMan,
+  System.ImageList, ImgList, PngImageList, StdCtrls, Buttons,
+  PngBitBtn, ExtCtrls, PngSpeedButton;
 type
   TTransactionExplorer = class(TForm)
     transactionListView: TVirtualStringTree;
@@ -113,7 +113,7 @@ begin
     if xP = nil then
       exit;
     xNode := TTreeNode(xP^);
-    if TTransactionData(Pointer(xNode.Transactions[Node.Index])^).OpType = 0
+    if TTransactionData(Pointer(xNode.Transactions[Node.Index])^).transactionType = 0
     then TargetCanvas.Font.Color := clGreen;
   end;
 end;
@@ -179,20 +179,18 @@ begin
       6: CellText :=  TCurrencyUtils.CurrencyToString(Abs(xFee)+Abs(xAmount));
       else CellText:='';
     end;
-  end
-  else
-  begin
+  end else begin
     xP := Node.Parent.GetData;
-    if xP = nil then
-      exit;
+    if xP = nil
+    then exit;
     xNode := TTreeNode(xP^);
-    if xNode.Timestamp = 0 then
-      exit;
-    if not Assigned(xNode.Transactions) then
-      exit;
+    if xNode.Timestamp = 0
+    then exit;
+    if not Assigned(xNode.Transactions)
+    then exit;
     xData := TTransactionData(Pointer(xNode.Transactions[Node.Index])^);
     case Column of
-      0: CellText := xData.OperationTxt;
+      0: CellText := xData.TransactionAsString;
       4: CellText := TCurrencyUtils.CurrencyToString(xData.Amount);
       5: CellText := TCurrencyUtils.CurrencyToString(xData.Fee);
       6: CellText := TCurrencyUtils.CurrencyToString(xData.Balance);
@@ -222,7 +220,7 @@ begin
       for i := 0 to xBlock.Count - 1 do
       begin
         new(xData);
-        xBlock.Operation[i].GetTransactionData(xBlockNumber, xBlock.Operation[i].SignerAccount, xData^);
+        xBlock.Transaction[i].GetTransactionData(xBlockNumber, xBlock.Transaction[i].SignerAccount, xData^);
         TTreeNode(Node.GetData^).Transactions.Add(xData);
       end;
     end;
@@ -253,20 +251,20 @@ begin
     xData^.valid := true;
     xData^.Block := xBlock.Block;
     xData^.time := xBlock.Timestamp;
-    xData^.AffectedAccount := xBlock.Block * CT_AccountsPerBlock;
-    xData^.OperationTxt := 'Blockchain reward';
+    xData^.AffectedAccount := xBlock.Block * cAccountsPerBlock;
+    xData^.TransactionAsString := 'Blockchain reward';
     xData^.Amount := xBlock.reward;
     xData^.Fee := xBlock.Fee;
     xData^.Balance := xBlock.reward + xBlock.Fee;
     xData^.PrintablePayload := xBlock.block_payload;
     xNode.Transactions.Add(xData);
     xBlockTr := TBlock.Create(nil);
-    if TNode.Node.BlockManager.LoadTransactions(xBlockTr, xBlock.Block) then
-    begin
-      for i := 0 to xBlockTr.Count - 1 do
-      begin
+    if TNode.Node.BlockManager.LoadTransactions(xBlockTr, xBlock.Block)
+    then begin
+      for i := 0 to xBlockTr.Count - 1
+      do begin
         new(xData);
-        xBlockTr.Operation[i].GetTransactionData(xBlockNumber, xBlockTr.Operation[i].SignerAccount, xData^);
+        xBlockTr.Transaction[i].GetTransactionData(xBlockNumber, xBlockTr.Transaction[i].SignerAccount, xData^);
         xNode.Transactions.Add(xData);
       end;
     end;
@@ -275,10 +273,7 @@ begin
     Include(InitialStates, ivsExpanded);
     Sender.SetNodeData(Node, xNode);
   end
-  else
-  begin
-    Sender.SetNodeData(Node, xNode);
-  end;
+  else Sender.SetNodeData(Node, xNode);
 end;
 
 end.

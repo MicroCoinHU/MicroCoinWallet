@@ -96,7 +96,7 @@ object BuyAccountForm: TBuyAccountForm
     TabOrder = 3
     object btnSave: TPngBitBtn
       Left = 433
-      Top = 7
+      Top = 6
       Width = 75
       Height = 25
       Caption = 'Purchase'
@@ -219,7 +219,7 @@ object BuyAccountForm: TBuyAccountForm
     end
     object btnCancel: TPngBitBtn
       Left = 352
-      Top = 7
+      Top = 6
       Width = 75
       Height = 25
       Caption = 'Cancel'

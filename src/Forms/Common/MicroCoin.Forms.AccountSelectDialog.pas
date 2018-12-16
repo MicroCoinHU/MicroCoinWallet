@@ -59,19 +59,26 @@ type
       const HitInfo: THitInfo);
     procedure accountVListFreeNode(Sender: TBaseVirtualTree;
       Node: PVirtualNode);
+    procedure accountVListInitChildren(Sender: TBaseVirtualTree;
+      Node: PVirtualNode; var ChildCount: Cardinal);
   private
     FAccounts: TOrderedList;
     FSelectedAccount : TAccount;
     FJustForSale: boolean;
     FJustMyAccounts: boolean;
+    FShowSubaccounts: boolean;
     procedure UpdateAccounts;
     procedure SetJustForSale(const Value: boolean);
     procedure SetJustMyAccounts(const Value: boolean);
+    procedure SetShowSubAccounts(const Value: boolean);
   public
 
     property SelectedAccount : TAccount read FSelectedAccount;
     property JustMyAccounts : boolean read FJustMyAccounts write SetJustMyAccounts;
     property JustForSale : boolean read FJustForSale write SetJustForSale;
+    {$IFDEF EXTENDEDACCOUNT}
+    property ShowSubAccounts: boolean read FShowSubaccounts write SetShowSubAccounts;
+    {$ENDIF}
   end;
 
 var
@@ -91,32 +98,56 @@ procedure TAccountSelectDialog.accountVListGetText(Sender: TBaseVirtualTree;
   Node: PVirtualNode; Column: TColumnIndex; TextType: TVSTTextType;
   var CellText: string);
 var
-  Pa : PAccount;
+  xPa : PAccount;
 begin
   if Sender.GetNodeLevel(Node) = 0 then begin
-    Pa := Sender.GetNodeData(Node);
+    xPa := Sender.GetNodeData(Node);
     case Column of
-      0: CellText := string(TAccount.AccountNumberToAccountTxtNumber(pa.AccountNumber));
-      1: CellText := string(Pa.name);
-      2: CellText := string(TCurrencyUtils.CurrencyToString(Pa.balance));
-      3: CellText := Pa.n_operation.ToString;
+      0: CellText := string(TAccount.AccountNumberToString(xPa.AccountNumber));
+      1: CellText := string(xPa.Name);
+      2: CellText := string(TCurrencyUtils.CurrencyToString(xPa.Balance));
+      3: CellText := xPa.NumberOfTransactions.ToString;
     end;
+  end else begin
+    {$IFDEF EXTENDEDACCOUNT}
+    xPa := Sender.GetNodeData(Node.Parent);
+    case Column of
+      0: CellText := string(TAccount.AccountNumberToString(xPa.AccountNumber)+'/'+IntToStr(Node.Index+1));
+      1: CellText := '';
+      2: CellText := string(TCurrencyUtils.CurrencyToString(xPa.SubAccounts[Node.Index].Balance));
+      3: CellText := xPa.NumberOfTransactions.ToString;
+    end;
+    {$ENDIF}
   end;
+end;
+
+procedure TAccountSelectDialog.accountVListInitChildren(
+  Sender: TBaseVirtualTree; Node: PVirtualNode; var ChildCount: Cardinal);
+begin
+  {$IFDEF EXTENDEDACCOUNT}
+  if ShowSubAccounts
+  then ChildCount := Length(TAccount(Node.GetData^).SubAccounts);
+  {$ENDIF}
 end;
 
 procedure TAccountSelectDialog.accountVListInitNode(Sender: TBaseVirtualTree;
   ParentNode, Node: PVirtualNode; var InitialStates: TVirtualNodeInitStates);
 var
-  account : TAccount;
+  xAccount : TAccount;
 begin
   if cbMyAccounts.Checked or cbForSale.Checked then
   begin
-    account := TNode.Node.Operations.BlockManager.AccountStorage.Account(FAccounts.Get(Node.Index));
+    xAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(Node.Index));
   end
   else begin
-    account := TNode.Node.Operations.BlockManager.AccountStorage.Account(Node.Index);
+    xAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(Node.Index);
   end;
-  Sender.SetNodeData(Node, account);
+  {$IFDEF EXTENDEDACCOUNT}
+  if accountVList.GetNodeLevel(Node)=0
+  then Sender.ChildCount[Node] := Length(xAccount.SubAccounts);
+  {$ENDIF}
+  Sender.SetNodeData(Node, xAccount);
+
 end;
 
 procedure TAccountSelectDialog.accountVListNodeDblClick(
@@ -155,7 +186,7 @@ end;
 procedure TAccountSelectDialog.FormCreate(Sender: TObject);
 begin
   accountVList.NodeDataSize := sizeof(TAccount);
-  accountVList.RootNodeCount := TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount;
+  accountVList.RootNodeCount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount;
 end;
 
 procedure TAccountSelectDialog.FormDestroy(Sender: TObject);
@@ -177,6 +208,11 @@ begin
   cbMyAccounts.Enabled := not Value;
 end;
 
+procedure TAccountSelectDialog.SetShowSubAccounts(const Value: boolean);
+begin
+  FShowSubaccounts := Value;
+end;
+
 procedure TAccountSelectDialog.UpdateAccounts;
 var
   i: integer;
@@ -187,15 +223,15 @@ begin
     else FAccounts.Clear;
       if cbMyAccounts.Checked then begin
         for i := 0 to FAccounts.Count - 1 do begin
-           if TNode.Node.Operations.BlockManager.AccountStorage.Account(FAccounts.Get(i)).AccountInfo.state <> as_ForSale
+           if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(i)).AccountInfo.State <> as_ForSale
            then FAccounts.Delete(i);
         end;
       end else begin
         FAccounts.Clear;
-        for i := 0 to TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount - 1 do
+        for i := 0 to TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount - 1 do
         begin
-          if TNode.Node.Operations.BlockManager.AccountStorage.Account(i).AccountInfo.state = as_ForSale
-          then FAccounts.Add(TNode.Node.Operations.BlockManager.AccountStorage.Account(i).AccountNumber);
+          if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountInfo.State = as_ForSale
+          then FAccounts.Add(TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountNumber);
         end;
       end;
     accountVList.RootNodeCount := FAccounts.Count;
@@ -210,7 +246,7 @@ begin
     end;
     accountVList.RootNodeCount := FAccounts.Count;
   end else begin
-    accountVList.RootNodeCount := TNode.Node.Operations.BlockManager.AccountStorage.AccountsCount;
+    accountVList.RootNodeCount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount;
     FreeAndNil(FAccounts);
   end;
   end;

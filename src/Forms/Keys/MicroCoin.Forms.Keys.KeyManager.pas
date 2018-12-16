@@ -20,9 +20,9 @@
 | FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER          |
 | DEALINGS IN THE SOFTWARE.                                                    |
 |==============================================================================|
-| File:       MicroCoin.Forms.Keys.KeyManager.pas
-| Created at: 2018-09-11
-| Purpose:    Wallet key manager dialog
+| File:       MicroCoin.Forms.Keys.KeyManager.pas                              |
+| Created at: 2018-09-11                                                       |
+| Purpose:    Wallet key manager dialog                                        |
 |==============================================================================}
 
 unit MicroCoin.Forms.Keys.KeyManager;
@@ -105,6 +105,7 @@ type
       Column: TColumnIndex);
     procedure cbShowPrivateClick(Sender: TObject);
     procedure btnPrintClick(Sender: TObject);
+    procedure keyListFreeNode(Sender: TBaseVirtualTree; Node: PVirtualNode);
   private
     procedure ShowPrivateKey;
     function UnlockWallet : Boolean;
@@ -149,8 +150,8 @@ procedure TWalletKeysForm.btnPrintClick(Sender: TObject);
 var
   xRect: TRect;
   xText: string;
-  printerPixelsPerInch_X,  printerPixelsPerInch_Y,
-  printerLeftMargin, printerTopMargin: integer;
+  xPrinterPixelsPerInch_X,  xPrinterPixelsPerInch_Y,
+  xPrinterLeftMargin, xPrinterTopMargin: integer;
   xMargin: integer;
   xTop : Integer;
 begin
@@ -161,10 +162,10 @@ begin
 
     Printer.BeginDoc;
 
-    printerPixelsPerInch_X := GetDeviceCaps(Printer.Handle, LOGPIXELSX);
-    printerPixelsPerInch_Y := GetDeviceCaps(Printer.Handle, LOGPIXELSY);
+    xPrinterPixelsPerInch_X := GetDeviceCaps(Printer.Handle, LOGPIXELSX);
+    xPrinterPixelsPerInch_Y := GetDeviceCaps(Printer.Handle, LOGPIXELSY);
 
-    xMargin := printerPixelsPerInch_Y div 2;
+    xMargin := xPrinterPixelsPerInch_Y div 2;
 
     Printer.Canvas.Font.Size := 20;
 
@@ -177,10 +178,10 @@ begin
     Printer.Canvas.TextRect(xRect, xText, [TTextFormats.tfCenter]);
 
     xRect.Bottom := xRect.Top+Printer.Canvas.TextExtent(xText).Height;
-    Printer.Canvas.MoveTo(xMargin, xRect.Bottom + printerPixelsPerInch_Y div 5);
-    Printer.Canvas.LineTo( Printer.PageWidth - xMargin, xRect.Bottom+printerPixelsPerInch_Y div 5);
+    Printer.Canvas.MoveTo(xMargin, xRect.Bottom + xPrinterPixelsPerInch_Y div 5);
+    Printer.Canvas.LineTo( Printer.PageWidth - xMargin, xRect.Bottom+xPrinterPixelsPerInch_Y div 5);
     Printer.Canvas.Font.Size := 15;
-    xRect.Top := xRect.Bottom + printerPixelsPerInch_Y div 2;
+    xRect.Top := xRect.Bottom + xPrinterPixelsPerInch_Y div 2;
     xRect.Left := 0;
     xText := 'Public key';
     xRect.Width := (Printer.PageWidth) div 2;
@@ -189,9 +190,9 @@ begin
     Printer.Canvas.TextRect(xRect, xText ,[TTextFormats.tfCenter]);
 
     xRect.Top := xRect.Bottom + Printer.Canvas.TextExtent(xText).Height;
-    xRect.Left := ((Printer.PageWidth div 2) div 2) - printerPixelsPerInch_X;
-    xRect.Width := printerPixelsPerInch_X*2;
-    xRect.Height := printerPixelsPerInch_Y*2;
+    xRect.Left := ((Printer.PageWidth div 2) div 2) - xPrinterPixelsPerInch_X;
+    xRect.Width := xPrinterPixelsPerInch_X*2;
+    xRect.Height := xPrinterPixelsPerInch_Y*2;
     Printer.Canvas.StretchDraw(xRect, qrPublic.Picture.Bitmap);
 
     xRect.Top := xTop;
@@ -201,20 +202,20 @@ begin
     xRect.Height := Printer.Canvas.TextExtent(xText).Height;
     Printer.Canvas.TextRect(xRect, xText ,[TTextFormats.tfCenter]);
     xRect.Top :=  Printer.Canvas.TextExtent(xText).Height + xRect.Bottom;
-    xRect.Left := (Printer.PageWidth div 2) + ((Printer.PageWidth div 2) div 2) - printerPixelsPerInch_X;
+    xRect.Left := (Printer.PageWidth div 2) + ((Printer.PageWidth div 2) div 2) - xPrinterPixelsPerInch_X;
   //  xRect.Left := xRect.Right + xMargin;
-    xRect.Width := printerPixelsPerInch_X*2;
-    xRect.Height := printerPixelsPerInch_Y*2;
+    xRect.Width := xPrinterPixelsPerInch_X*2;
+    xRect.Height := xPrinterPixelsPerInch_Y*2;
     Printer.Canvas.StretchDraw(xRect, qrPrivate.Picture.Bitmap);
     xRect.Left := xMargin;
-    xRect.Top := printerPixelsPerInch_Y*2 + xRect.Top + printerPixelsPerInch_Y div 2;
+    xRect.Top := xPrinterPixelsPerInch_Y*2 + xRect.Top + xPrinterPixelsPerInch_Y div 2;
     Printer.Canvas.MoveTo(xMargin, xRect.Top);
     Printer.Canvas.LineTo( Printer.PageWidth - xMargin, xRect.Top);
-    xRect.Top := xRect.Top + printerPixelsPerInch_Y div 5;
+    xRect.Top := xRect.Top + xPrinterPixelsPerInch_Y div 5;
     Printer.Canvas.Font.Size := 10;
     xText := 'Private key: '+TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey)
     +sLineBreak+sLineBreak+'Printed at: '+FormatDateTime('c', Now);
-    xRect.Height := printerPixelsPerInch_Y;
+    xRect.Height := xPrinterPixelsPerInch_Y;
     xRect.Width := Printer.PageWidth - xMargin;
     DrawText(Printer.Canvas.Handle, xText, -1, xRect, DT_NOPREFIX or DT_WORDBREAK);
     Printer.EndDoc;
@@ -385,35 +386,44 @@ var
   xData: array[0..2] of string;
   xResult: TECPrivateKey;
 begin
-  if not UnlockWallet then exit;
+  if not UnlockWallet
+  then exit;
+
   if not InputQuery('Import private key', ['Name', 'Private key', #30+'Password'], xData )
   then exit;
+
   xData[0] := trim(xData[0]);
   xData[1] := trim(xData[1]);
   xData[2] := trim(xData[2]);
-  if xData[1] = '' then exit;
+
+  if xData[1] = ''
+  then exit;
+
+  if xData[0] = ''
+  then xData[0] := DateTimeToStr(Now);
+
   xEncodedKey := TCrypto.HexaToRaw(xData[1]);
-  if xEncodedKey = '' then begin
+  if xEncodedKey = ''
+  then begin
     MessageDlg('Invalid key', mtError, [mbOk], 0);
     exit;
   end;
   case Length(xEncodedKey) of
-       32: xResult := ParseRawKey(CT_NID_secp256k1, xEncodedKey);
-       35,36: xResult := ParseRawKey(CT_NID_sect283k1, xEncodedKey);
-       48: xResult := ParseRawKey(CT_NID_secp384r1, xEncodedKey);
-       65,66: xResult := ParseRawKey(CT_NID_secp521r1, xEncodedKey);
+       32: xResult := ParseRawKey(cNID_secp256k1, xEncodedKey);
+       35,36: xResult := ParseRawKey(cNID_sect283k1, xEncodedKey);
+       48: xResult := ParseRawKey(cNID_secp384r1, xEncodedKey);
+       65,66: xResult := ParseRawKey(cNID_secp521r1, xEncodedKey);
        64, 80, 96: xResult := ParseEncryptedKey(xData[2], xEncodedKey);
        else begin
-          MessageDlg('Invalid key', mtError, [mbOk], 0);
-          exit;
+         MessageDlg('Invalid key', mtError, [mbOk], 0);
+         exit;
        end;
   end;
-  if xResult = nil then begin
+  if xResult = nil
+  then begin
     MessageDlg('Invalid key or password', mtError, [mbOk], 0);
     exit;
   end;
-  if xData[0] = ''
-  then xData[0] := DateTimeToStr(Now);
   TNode.Node.KeyManager.AddPrivateKey(xData[0], xResult);
   keyList.RootNodeCount := TNode.Node.KeyManager.Count;
   keyList.ReinitNode(nil, true);
@@ -468,37 +478,43 @@ end;
 procedure TWalletKeysForm.keyListFocusChanged(Sender: TBaseVirtualTree;
   Node: PVirtualNode; Column: TColumnIndex);
 var
-  QRCode: TDelphiZXingQRCode;
-  Row, Col: Integer;
-  QRCodeBitmap: TBitmap;
+  xQRCode: TDelphiZXingQRCode;
+  xRow, xCol: Integer;
+  xQRCodeBitmap: TBitmap;
 begin
   if Node = nil then exit;
   qrPrivate.Picture := Image1.Picture;
-  QRCode := TDelphiZXingQRCode.Create;
+  xQRCode := TDelphiZXingQRCode.Create;
   try
-    QRCodeBitmap := qrPublic.Picture.Bitmap;
-    QRCode.Data := TWalletKey(Node.GetData^).AccountKey.AccountPublicKeyExport;
-    QRCode.Encoding := TQRCodeEncoding(qrISO88591);
-    QRCode.QuietZone := 1;
-    QRCodeBitmap.SetSize(QRCode.Rows, QRCode.Columns);
-    for Row := 0 to QRCode.Rows - 1 do
+    xQRCodeBitmap := qrPublic.Picture.Bitmap;
+    xQRCode.Data := TWalletKey(Node.GetData^).AccountKey.AccountPublicKeyExport;
+    xQRCode.Encoding := TQRCodeEncoding(qrISO88591);
+    xQRCode.QuietZone := 1;
+    xQRCodeBitmap.SetSize(xQRCode.Rows, xQRCode.Columns);
+    for xRow := 0 to xQRCode.Rows - 1 do
     begin
-      for Col := 0 to QRCode.Columns - 1 do
+      for xCol := 0 to xQRCode.Columns - 1 do
       begin
-        if (QRCode.IsBlack[Row, Col]) then
+        if (xQRCode.IsBlack[xRow, xCol]) then
         begin
-          QRCodeBitmap.Canvas.Pixels[Col, Row] := clBlack;
+          xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clBlack;
         end else
         begin
-          QRCodeBitmap.Canvas.Pixels[Col, Row] := clWhite;
+          xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clWhite;
         end;
       end;
     end;
-    QRPublic.Picture.Bitmap := QRCodeBitmap;
+    QRPublic.Picture.Bitmap := xQRCodeBitmap;
   finally
-    QRCode.Free;
+    xQRCode.Free;
   end;
   ShowPrivateKey;
+end;
+
+procedure TWalletKeysForm.keyListFreeNode(Sender: TBaseVirtualTree;
+  Node: PVirtualNode);
+begin
+ TWalletKey(Node.GetData^) := Default(TWalletKey);
 end;
 
 procedure TWalletKeysForm.keyListGetText(Sender: TBaseVirtualTree;
@@ -523,35 +539,37 @@ end;
 
 procedure TWalletKeysForm.ShowPrivateKey;
 var
-  QRCode: TDelphiZXingQRCode;
-  Row, Col: Integer;
-  QRCodeBitmap: TBitmap;
+  xQRCode: TDelphiZXingQRCode;
+  xRow, xCol: Integer;
+  xQRCodeBitmap: TBitmap;
 begin
-  if keyList.FocusedNode = nil then exit;
-  if not Assigned( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey ) then exit;
-  QRCode := TDelphiZXingQRCode.Create;
+  if keyList.FocusedNode = nil
+  then exit;
+  if not Assigned( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey )
+  then exit;
+  xQRCode := TDelphiZXingQRCode.Create;
   try
-    QRCodeBitmap := qrPrivate.Picture.Bitmap;
-    QRCode.Data := TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey);
-    QRCode.Encoding := TQRCodeEncoding(qrISO88591);
-    QRCode.QuietZone := 1;
-    QRCodeBitmap.SetSize(QRCode.Rows, QRCode.Columns);
-    for Row := 0 to QRCode.Rows - 1 do
+    xQRCodeBitmap := qrPrivate.Picture.Bitmap;
+    xQRCode.Data := TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey);
+    xQRCode.Encoding := TQRCodeEncoding(qrISO88591);
+    xQRCode.QuietZone := 1;
+    xQRCodeBitmap.SetSize(xQRCode.Rows, xQRCode.Columns);
+    for xRow := 0 to xQRCode.Rows - 1 do
     begin
-      for Col := 0 to QRCode.Columns - 1 do
+      for xCol := 0 to xQRCode.Columns - 1 do
       begin
-        if (QRCode.IsBlack[Row, Col]) then
+        if (xQRCode.IsBlack[xRow, xCol]) then
         begin
-          QRCodeBitmap.Canvas.Pixels[Col, Row] := clBlack;
+          xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clBlack;
         end else
         begin
-          QRCodeBitmap.Canvas.Pixels[Col, Row] := clWhite;
+          xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clWhite;
         end;
       end;
     end;
-    qrPrivate.Picture.Bitmap := QRCodeBitmap;
+    qrPrivate.Picture.Bitmap := xQRCodeBitmap;
   finally
-    QRCode.Free;
+    xQRCode.Free;
   end;
 end;
 

@@ -30,8 +30,8 @@ unit MicroCoin.Forms.SellAccount;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, StdCtrls, ExtCtrls, Buttons,
   PngBitBtn, MicroCoin.Forms.AccountSelectDialog,
   MicroCoin.Node.Node, MicroCoin.Account.AccountKey,
   MicroCoin.Account.Data, MicroCoin.Common, UCrypto,
@@ -137,7 +137,7 @@ end;
 procedure TSellAccountForm.SetAccount(const Value: TAccount);
 begin
   FAccount := Value;
-  edSignerAccount.AccountNumber := TAccount.AccountNumberToAccountTxtNumber(Value.AccountNumber);
+  edSignerAccount.AccountNumber := TAccount.AccountNumberToString(Value.AccountNumber);
 end;
 
 procedure TSellAccountForm.bbSaveClick(Sender: TObject);
@@ -190,13 +190,13 @@ begin
          exit;
        end;
 
-  xTransaction := TOpListAccountForSale.CreateListAccountForSale(
+  xTransaction := TListAccountForSaleTransaction.CreateListAccountForSale(
           edSignerAccount.Account.AccountNumber,
-          edSignerAccount.Account.n_operation+1,
+          edSignerAccount.Account.NumberOfTransactions+1,
           FAccount.AccountNumber, xPrice, xFee, edSellerAccount.Account.AccountNumber,
           xNewkey, xBlock, xPrivateKey, xPayload);
 
-  if not TNode.Node.AddOperation(nil, xTransaction, xErrors) then begin
+  if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
      MessageDlg(xErrors, mtError, [mbOk], 0);
   end else begin
      MessageDlg('Transaction sucessfully executed', mtInformation, [mbOk], 0);
