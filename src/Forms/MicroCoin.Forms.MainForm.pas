@@ -1215,7 +1215,7 @@ begin
   FAppSettings := TAppSettings.Create;
   FAppSettings.FileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'AppParams.prm';
 {$IFNDEF TESTNET}
-  TStyleManager.TrySetStyle(FAppSettings.Entries[TAppSettingsEntry.apTheme].GetAsString('MicroCoin Light'), false);
+  TStyleManager.TrySetStyle(FAppSettings.Entries[TAppSettingsEntry.apTheme].GetAsString('Slate Classico'), false);
 {$ENDIF}
   FNodeNotifyEvents := TNodeNotifyEvents.Create(Self);
   FNodeNotifyEvents.OnBlocksChanged := OnNewAccount;
@@ -2133,7 +2133,7 @@ begin
   begin
     if FPoolMiningServer.ClientsCount > 0 then
     begin
-      labelMinersClients.Caption := Format(StrConnectedJSONRPCClients, [(FPoolMiningServer.ClientsCount)]);
+      labelMinersClients.Caption := Format(StrConnectedJSONRPCClients, [FPoolMiningServer.ClientsCount]);
       labelMinersClients.Font.Color := clNavy;
     end
     else

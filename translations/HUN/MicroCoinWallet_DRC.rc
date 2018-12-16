@@ -1,0 +1,1584 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ generated include file.
+// Used by MicroCoinWallet_DRC.rc
+//
+#define MicroCoin_Forms_MainForm_StrNone 64912
+#define MicroCoin_Forms_MainForm_StrDownloadingBlocks 64913
+#define MicroCoin_Forms_MainForm_StrBlocks0n 64914
+#define MicroCoin_Forms_MainForm_StrDifficulty0x 64915
+#define MicroCoin_Forms_MainForm_StrLastOptiomalDeviation 64916
+#define MicroCoin_Forms_MainForm_StrConnectedJSONRPCClients 64917
+#define MicroCoin_Forms_MainForm_StrNoJSONRPCClients 64918
+#define MicroCoin_Forms_MainForm_StrJSONRPCServerNotActive 64919
+#define MicroCoin_Forms_MainForm_StrLastBlock 64920
+#define MicroCoin_Forms_MainForm_StrDiscoveringServers 64921
+#define MicroCoin_Forms_MainForm_StrObtainingNewBlockchain 64922
+#define MicroCoin_Forms_MainForm_StrRunning 64923
+#define MicroCoin_Forms_MainForm_StrAloneInTheWorld 64924
+#define MicroCoin_Forms_MainForm_StrAllMyPrivateKeys 64925
+#define MicroCoinWallet_StrMicroCoinWallet 64926
+#define MicroCoin_Forms_MainForm_StrInvalidAmount 64928
+#define MicroCoin_Forms_MainForm_StrInvalidFee 64929
+#define MicroCoin_Forms_MainForm_StrInvalidAccountNumber 64930
+#define MicroCoin_Forms_MainForm_StrPleaseSelectSenderAccount 64931
+#define MicroCoin_Forms_MainForm_StrSenderPrivateKeyNotFound 64932
+#define MicroCoin_Forms_MainForm_StrNotEnoughMoney 64933
+#define MicroCoin_Forms_MainForm_StrInvalidTargetAccount 64934
+#define MicroCoin_Forms_MainForm_StrTargetAccountIsLocked 64935
+#define MicroCoin_Forms_MainForm_StrSenderAccountIsLocked 64936
+#define MicroCoin_Forms_MainForm_StrExecuteTransaction 64937
+#define MicroCoin_Forms_MainForm_StrTransactionSuccessfullyExecuted 64938
+#define MicroCoin_Forms_MainForm_StrActive 64939
+#define MicroCoin_Forms_MainForm_StrStopped 64940
+#define MicroCoin_Forms_MainForm_StrClientsServers 64941
+#define MicroCoin_Forms_MainForm_StrTraffic 64942
+#define MicroCoin_Forms_MainForm_StrExceptionAtTimerUpdate 64943
+#define MicroCoin_Forms_Transaction_Explorer_StrTransactions 64944
+#define MicroCoin_Forms_Transaction_Explorer_StrBlockchainReward 64945
+#define MicroCoin_Forms_Transaction_History_StrPending 64946
+#define MicroCoin_Forms_MainForm_NewTransaction 64947
+#define MicroCoin_Forms_MainForm_StrReallyWantToRevokeSell 64948
+#define MicroCoin_Forms_MainForm_StrTransactionExecuted 64949
+#define MicroCoin_Forms_MainForm_StrCanNotOpenWallet 64950
+#define MicroCoin_Forms_MainForm_StrAnErrorOccoured 64951
+#define MicroCoin_Forms_MainForm_StrCanNotLoadRequiredLibrary 64952
+#define MicroCoin_Forms_MainForm_StrCannotCreateDir 64953
+#define MicroCoin_Forms_MainForm_StrRestoringTheWindow 64954
+#define MicroCoin_Forms_MainForm_StrDoubleClickTheSystemTray 64955
+#define MicroCoin_Forms_MainForm_StrPleaseSelectAccounts 64956
+#define MicroCoin_Forms_MainForm_StrNewForMiner 64957
+#define MicroCoin_Forms_MainForm_StrUnlockWallet 64958
+#define MicroCoin_Forms_MainForm_StrPassword 64959
+#define MicroCoin_Forms_ChangeAccountKey_StrTransactionExecuted 64960
+#define MicroCoin_Forms_EditAccount_StrTransactionSuccessfullyExecuted 64961
+#define MicroCoin_Forms_EditAccount_StrDoYouWantExecute 64962
+#define MicroCoin_Forms_EditAccount_StrPrivateKeyNotFound 64963
+#define MicroCoin_Forms_EditAccount_StrInvalidFee 64964
+#define MicroCoin_Forms_EditAccount_StrUnlockWallet 64965
+#define MicroCoin_Forms_EditAccount_StrPassword 64966
+#define MicroCoin_Forms_SellAccount_StrEstimatedValidUntil 64967
+#define MicroCoin_Forms_SellAccount_StrUnlockWallet 64968
+#define MicroCoin_Forms_SellAccount_StrPassword 64969
+#define MicroCoin_Forms_SellAccount_StrInvalidPrice 64970
+#define MicroCoin_Forms_SellAccount_StrInvalidFee 64971
+#define MicroCoin_Forms_SellAccount_StrPrivateKeyNotFound 64972
+#define MicroCoin_Forms_SellAccount_StrInvalidPublicKey 64973
+#define MicroCoin_Forms_SellAccount_StrTransactionSucessfullyExecuted 64974
+#define MicroCoin_Forms_Transaction_Explorer_StrLastUpdated 64975
+#define MicroCoin_Forms_Keys_KeyManager_StrPrivatePublicKey 64976
+#define MicroCoin_Forms_Keys_KeyManager_StrPublicKey 64977
+#define MicroCoin_Forms_Keys_KeyManager_StrWalletSavedTo 64978
+#define MicroCoin_Forms_Keys_KeyManager_StrUnlockWallet 64979
+#define MicroCoin_Forms_Keys_KeyManager_StrYourPassword 64980
+#define MicroCoin_Forms_BuyAccount_StrUnlockWallet 64981
+#define MicroCoin_Forms_BuyAccount_StrPassword 64982
+#define MicroCoin_Forms_BuyAccount_StrInvalidFee 64983
+#define MicroCoin_Forms_BuyAccount_StrAccountPurchased 64984
+#define MicroCoin_Forms_BuyAccount_StrBuyAccount 64985
+#define MicroCoin_Forms_ChangeAccountKey_StrUnlockWallet 64986
+#define MicroCoin_Forms_ChangeAccountKey_StrPassword 64987
+#define MicroCoin_Forms_ChangeAccountKey_StrInvalidKey 64988
+#define MicroCoin_Forms_ChangeAccountKey_StrInvalidFee 64989
+#define MicroCoin_Forms_ChangeAccountKey_StrKeyNotFound 64990
+#define MicroCoin_Forms_ChangeAccountKey_StrDoYouWantExecute 64991
+#define MicroCoin_Forms_Keys_KeyManager_StrEncryptExportedKey 64992
+#define MicroCoin_Forms_Keys_KeyManager_StrEnterPassword 64993
+#define MicroCoin_Forms_Keys_KeyManager_StrRepeatPassword 64994
+#define MicroCoin_Forms_Keys_KeyManager_StrPrivateKeyCopiedToClipboard 64995
+#define MicroCoin_Forms_Keys_KeyManager_StrPublicKeyCopiedToClipboard 64996
+#define MicroCoin_Forms_Keys_KeyManager_StrImportKeys 64997
+#define MicroCoin_Forms_Keys_KeyManager_StrInvalidPassword 64998
+#define MicroCoin_Forms_Keys_KeyManager_StrImportPrivateKey 64999
+#define MicroCoin_Forms_Keys_KeyManager_StrName 65000
+#define MicroCoin_Forms_Keys_KeyManager_StrPrivateKey 65001
+#define MicroCoin_Forms_Keys_KeyManager_StrPassword 65002
+#define MicroCoin_Forms_Keys_KeyManager_StrInvalidKey 65003
+#define MicroCoin_Forms_Keys_KeyManager_StrInvalidKeyOrPassw 65004
+#define MicroCoin_Forms_Keys_KeyManager_StrImportPublicKey 65005
+#define MicroCoin_Forms_Keys_KeyManager_StrEncodedPublicKey 65006
+#define MicroCoin_Forms_Keys_KeyManager_StrAccountKeyAlreadyExists 65007
+#define System_JSONConsts_SJSONPathEndedOpenString 65008
+#define System_JSONConsts_SJSONPathInvalidArrayIndex 65009
+#define System_JSONConsts_SJSONPathUnexpectedIndexedChar 65010
+#define System_JSONConsts_SJSONPathDotsEmptyName 65011
+#define MicroCoin_Forms_Common_Settings_StrServerPortAndJSONRPCPortEquals 65012
+#define MicroCoin_Forms_Keys_KeyManager_StrKeyName 65013
+#define MicroCoin_Forms_Keys_KeyManager_StrEnterName 65014
+#define MicroCoin_Forms_Keys_KeyManager_StrMicroCoinPaperWallet 65015
+#define MicroCoin_Forms_Keys_KeyManager_StrChangeWalletPassword 65016
+#define MicroCoin_Forms_Keys_KeyManager_StrNewPassword 65017
+#define MicroCoin_Forms_Keys_KeyManager_StrPasswordAgain 65018
+#define MicroCoin_Forms_Keys_KeyManager_StrPasswordsNotMatch 65019
+#define MicroCoin_Forms_Keys_KeyManager_StrPasswordChanged 65020
+#define MicroCoin_Forms_Keys_KeyManager_StrDoYouWantToDELETE 65021
+#define MicroCoin_Forms_Keys_KeyManager_StrChangeName 65022
+#define MicroCoin_Forms_Keys_KeyManager_StrInputNewKeyName 65023
+#define Vcl_Imaging_pnglang_EPNGCannotAssignChunkText 65024
+#define Vcl_Imaging_pnglang_EPNGUnexpectedEndText 65025
+#define Vcl_Imaging_pnglang_EPNGNoImageDataText 65026
+#define Vcl_Imaging_pnglang_EPNGCannotAddChunkText 65027
+#define Vcl_Imaging_pnglang_EPNGCannotAddInvalidImageText 65028
+#define Vcl_Imaging_pnglang_EPNGCouldNotLoadResourceText 65029
+#define Vcl_Imaging_pnglang_EPNGOutMemoryText 65030
+#define Vcl_Imaging_pnglang_EPNGCannotChangeTransparentText 65031
+#define Vcl_Imaging_pnglang_EPNGHeaderNotPresentText 65032
+#define Vcl_Imaging_pnglang_EInvalidNewSize 65033
+#define Vcl_Imaging_pnglang_EInvalidSpec 65034
+#define System_JSONConsts_SUTF8Start    65035
+#define System_JSONConsts_SUTF8UnexpectedByte 65036
+#define System_JSONConsts_SUTF8InvalidHeaderByte 65037
+#define System_JSONConsts_SJSONPathUnexpectedRootChar 65038
+#define System_JSONConsts_SJSONPathEndedOpenBracket 65039
+#define UTCPIP_rsExceptionRec           65040
+#define UTCPIP_rsClosingConne2          65041
+#define MicroCoin_Node_Node_rsAccountSZero 65042
+#define MicroCoin_Node_Node_rsBlockchainRe 65043
+#define Vcl_Imaging_pnglang_EPngInvalidCRCText 65044
+#define Vcl_Imaging_pnglang_EPNGInvalidIHDRText 65045
+#define Vcl_Imaging_pnglang_EPNGMissingMultipleIDATText 65046
+#define Vcl_Imaging_pnglang_EPNGZLIBErrorText 65047
+#define Vcl_Imaging_pnglang_EPNGInvalidPaletteText 65048
+#define Vcl_Imaging_pnglang_EPNGInvalidFileHeaderText 65049
+#define Vcl_Imaging_pnglang_EPNGIHDRNotFirstText 65050
+#define Vcl_Imaging_pnglang_EPNGSizeExceedsText 65051
+#define Vcl_Imaging_pnglang_EPNGUnknownPalEntryText 65052
+#define Vcl_Imaging_pnglang_EPNGUnknownCriticalChunkText 65053
+#define Vcl_Imaging_pnglang_EPNGUnknownCompressionText 65054
+#define Vcl_Imaging_pnglang_EPNGUnknownInterlaceText 65055
+#define VirtualTrees_SWrongStreamVersion 65056
+#define VirtualTrees_SStreamTooSmall    65057
+#define VirtualTrees_SCorruptStream1    65058
+#define VirtualTrees_SCorruptStream2    65059
+#define VirtualTrees_SClipboardFailed   65060
+#define UTime_rs1MinuteAgo              65061
+#define UTime_rsMinutesAgo              65062
+#define UTime_rs1HourAgo                65063
+#define UTime_rsHoursAgo                65064
+#define UTime_rsDaysAgo                 65065
+#define UTime_rsSecondsAgo              65066
+#define UTCPIP_rsCannotConnec           65067
+#define UTCPIP_rsErrorConnect           65068
+#define UTCPIP_rsExceptionAtT           65069
+#define UTCPIP_rsErrorWaiting           65070
+#define UTCPIP_rsClosingConne           65071
+#define Vcl_ComStrs_sTabFailClear       65072
+#define Vcl_ComStrs_sTabFailDelete      65073
+#define Vcl_ComStrs_sTabFailRetrieve    65074
+#define Vcl_ComStrs_sTabFailGetObject   65075
+#define Vcl_ComStrs_sTabFailSet         65076
+#define Vcl_ComStrs_sTabFailSetObject   65077
+#define Vcl_ComStrs_sTabMustBeMultiLine 65078
+#define Vcl_ComStrs_sInvalidOwner       65079
+#define Vcl_ComStrs_sRichEditInsertError 65080
+#define Vcl_ComStrs_sRichEditLoadFail   65081
+#define Vcl_ComStrs_sRichEditSaveFail   65082
+#define Vcl_ComStrs_sPageIndexError     65083
+#define Vcl_ComStrs_sInvalidComCtl32    65084
+#define VTHeaderPopup_sResizeToFit      65085
+#define VirtualTrees_SWrongMoveError    65086
+#define VirtualTrees_SWrongStreamFormat 65087
+#define Vcl_Consts_SStyleFileDescription 65088
+#define Vcl_Consts_SStyleHookClassRegistered 65089
+#define Vcl_Consts_SStyleHookClassNotRegistered 65090
+#define Vcl_Consts_SStyleInvalidParameter 65091
+#define Vcl_Consts_SStyleHookClassNotFound 65092
+#define Vcl_Consts_SStyleFeatureNotSupported 65093
+#define Vcl_Consts_SStyleNotRegistered  65094
+#define Vcl_Consts_SStyleUnregisterError 65095
+#define Vcl_Consts_SStyleNotRegisteredNoName 65096
+#define Vcl_Consts_sBeginInvokeNoHandle 65097
+#define Vcl_Consts_SToggleSwitchCaptionOn 65098
+#define Vcl_Consts_SToggleSwitchCaptionOff 65099
+#define System_Win_ComConst_SOleError   65100
+#define System_Win_ComConst_SNoMethod   65101
+#define System_Win_ComConst_SVarNotObject 65102
+#define System_Win_ComConst_STooManyParams 65103
+#define Vcl_Consts_SUTF8Encoding        65104
+#define Vcl_Consts_SUTF7Encoding        65105
+#define Vcl_Consts_STrayIconRemoveError 65106
+#define Vcl_Consts_SPageControlNotSet   65107
+#define Vcl_Consts_SWindowsVistaRequired 65108
+#define Vcl_Consts_STaskDlgButtonCaption 65109
+#define Vcl_Consts_STaskDlgRadioButtonCaption 65110
+#define Vcl_Consts_SInvalidTaskDlgButtonCaption 65111
+#define Vcl_Consts_SStyleLoadError      65112
+#define Vcl_Consts_SStyleLoadErrors     65113
+#define Vcl_Consts_SStyleRegisterError  65114
+#define Vcl_Consts_SStyleClassRegisterError 65115
+#define Vcl_Consts_SStyleNotFound       65116
+#define Vcl_Consts_SStyleClassNotFound  65117
+#define Vcl_Consts_SStyleInvalidHandle  65118
+#define Vcl_Consts_SStyleFormatError    65119
+#define Vcl_Consts_SErrorLoadingFile    65120
+#define Vcl_Consts_SNoName              65121
+#define Vcl_Consts_SAddRemoveButtons    65122
+#define Vcl_Consts_SResetActionToolBar  65123
+#define Vcl_Consts_SCircularReferencesNotAllowed 65124
+#define Vcl_Consts_SCannotHideActionBand 65125
+#define Vcl_Consts_SUnableToSaveSettings 65126
+#define Vcl_Consts_SRestoreDefaultSchedule 65127
+#define Vcl_Consts_SNoGetItemEventHandler 65128
+#define Vcl_Consts_SMissingActionBarStyleName 65129
+#define Vcl_Consts_SActionBarStyleMissing 65130
+#define Vcl_Consts_SActionManagerNotAssigned 65131
+#define Vcl_Consts_SANSIEncoding        65132
+#define Vcl_Consts_SASCIIEncoding       65133
+#define Vcl_Consts_SUnicodeEncoding     65134
+#define Vcl_Consts_SBigEndianEncoding   65135
+#define Vcl_Consts_SDockTreeRemoveError 65136
+#define Vcl_Consts_SDockZoneNotFound    65137
+#define Vcl_Consts_SDockZoneHasNoCtl    65138
+#define Vcl_Consts_SDockZoneVersionConflict 65139
+#define Vcl_Consts_SPromptArrayTooShort 65140
+#define Vcl_Consts_SPromptArrayEmpty    65141
+#define Vcl_Consts_SUsername            65142
+#define Vcl_Consts_SPassword            65143
+#define Vcl_Consts_SDomain              65144
+#define Vcl_Consts_SLogin               65145
+#define Vcl_Consts_SAssignSubItemError  65146
+#define Vcl_Consts_SDeleteItemWithSubItems 65147
+#define Vcl_Consts_SDeleteNotAllowed    65148
+#define Vcl_Consts_SMoveNotAllowed      65149
+#define Vcl_Consts_SMoreButtons         65150
+#define Vcl_Consts_SExpand              65151
+#define Vcl_Consts_SmkcIns              65152
+#define Vcl_Consts_SmkcDel              65153
+#define Vcl_Consts_SmkcShift            65154
+#define Vcl_Consts_SmkcCtrl             65155
+#define Vcl_Consts_SmkcAlt              65156
+#define Vcl_Consts_SOutOfRange          65157
+#define Vcl_Consts_sAllFilter           65158
+#define Vcl_Consts_SInsertLineError     65159
+#define Vcl_Consts_SInvalidClipFmt      65160
+#define Vcl_Consts_SIconToClipboard     65161
+#define Vcl_Consts_SCannotOpenClipboard 65162
+#define Vcl_Consts_SInvalidMemoSize     65163
+#define Vcl_Consts_SInvalidPrinterOp    65164
+#define Vcl_Consts_SNoDefaultPrinter    65165
+#define Vcl_Consts_SDuplicateMenus      65166
+#define Vcl_Consts_SDockedCtlNeedsName  65167
+#define Vcl_Consts_SMsgDlgNoToAll       65168
+#define Vcl_Consts_SMsgDlgYesToAll      65169
+#define Vcl_Consts_SMsgDlgClose         65170
+#define Vcl_Consts_SmkcBkSp             65171
+#define Vcl_Consts_SmkcTab              65172
+#define Vcl_Consts_SmkcEsc              65173
+#define Vcl_Consts_SmkcEnter            65174
+#define Vcl_Consts_SmkcSpace            65175
+#define Vcl_Consts_SmkcPgUp             65176
+#define Vcl_Consts_SmkcPgDn             65177
+#define Vcl_Consts_SmkcEnd              65178
+#define Vcl_Consts_SmkcHome             65179
+#define Vcl_Consts_SmkcLeft             65180
+#define Vcl_Consts_SmkcUp               65181
+#define Vcl_Consts_SmkcRight            65182
+#define Vcl_Consts_SmkcDown             65183
+#define Vcl_Consts_SVJPGImages          65184
+#define Vcl_Consts_SVPNGImages          65185
+#define Vcl_Consts_SVGIFImages          65186
+#define Vcl_Consts_SMsgDlgWarning       65187
+#define Vcl_Consts_SMsgDlgError         65188
+#define Vcl_Consts_SMsgDlgInformation   65189
+#define Vcl_Consts_SMsgDlgConfirm       65190
+#define Vcl_Consts_SMsgDlgYes           65191
+#define Vcl_Consts_SMsgDlgNo            65192
+#define Vcl_Consts_SMsgDlgOK            65193
+#define Vcl_Consts_SMsgDlgCancel        65194
+#define Vcl_Consts_SMsgDlgHelp          65195
+#define Vcl_Consts_SMsgDlgAbort         65196
+#define Vcl_Consts_SMsgDlgRetry         65197
+#define Vcl_Consts_SMsgDlgIgnore        65198
+#define Vcl_Consts_SMsgDlgAll           65199
+#define Vcl_Consts_SOKButton            65200
+#define Vcl_Consts_SCancelButton        65201
+#define Vcl_Consts_SYesButton           65202
+#define Vcl_Consts_SNoButton            65203
+#define Vcl_Consts_SHelpButton          65204
+#define Vcl_Consts_SCloseButton         65205
+#define Vcl_Consts_SIgnoreButton        65206
+#define Vcl_Consts_SRetryButton         65207
+#define Vcl_Consts_SAbortButton         65208
+#define Vcl_Consts_SAllButton           65209
+#define Vcl_Consts_SCannotDragForm      65210
+#define Vcl_Consts_SVMetafiles          65211
+#define Vcl_Consts_SVEnhMetafiles       65212
+#define Vcl_Consts_SVIcons              65213
+#define Vcl_Consts_SVBitmaps            65214
+#define Vcl_Consts_SVTIFFImages         65215
+#define Vcl_Consts_SCannotShowModal     65216
+#define Vcl_Consts_SScrollBarRange      65217
+#define Vcl_Consts_SPropertyOutOfRange  65218
+#define Vcl_Consts_SMenuIndexError      65219
+#define Vcl_Consts_SMenuReinserted      65220
+#define Vcl_Consts_SMenuNotFound        65221
+#define Vcl_Consts_SNoTimers            65222
+#define Vcl_Consts_SNotPrinting         65223
+#define Vcl_Consts_SPrinting            65224
+#define Vcl_Consts_SPrinterIndexError   65225
+#define Vcl_Consts_SInvalidPrinter      65226
+#define Vcl_Consts_SDeviceOnPort        65227
+#define Vcl_Consts_SGroupIndexTooLow    65228
+#define Vcl_Consts_SNoMDIForm           65229
+#define Vcl_Consts_SImageCanvasNeedsBitmap 65230
+#define Vcl_Consts_SControlParentSetToSelf 65231
+#define Vcl_Consts_SNoCanvasHandle      65232
+#define Vcl_Consts_SInvalidTextFormatFlag 65233
+#define Vcl_Consts_SInvalidImageSize    65234
+#define Vcl_Consts_SInvalidImageList    65235
+#define Vcl_Consts_SReplaceImage        65236
+#define Vcl_Consts_SInsertImage         65237
+#define Vcl_Consts_SImageIndexError     65238
+#define Vcl_Consts_SImageReadFail       65239
+#define Vcl_Consts_SImageWriteFail      65240
+#define Vcl_Consts_SWindowDCError       65241
+#define Vcl_Consts_SWindowClass         65242
+#define Vcl_Consts_SCannotFocus         65243
+#define Vcl_Consts_SParentRequired      65244
+#define Vcl_Consts_SParentGivenNotAParent 65245
+#define Vcl_Consts_SMDIChildNotVisible  65246
+#define Vcl_Consts_SVisibleChanged      65247
+#define Vcl_Consts_SCantWriteResourceStreamError 65248
+#define Vcl_Consts_SInvalidTabPosition  65249
+#define Vcl_Consts_SInvalidTabStyle     65250
+#define Vcl_Consts_SInvalidBitmap       65251
+#define Vcl_Consts_SInvalidIcon         65252
+#define Vcl_Consts_SInvalidMetafile     65253
+#define Vcl_Consts_SInvalidPixelFormat  65254
+#define Vcl_Consts_SInvalidImage        65255
+#define Vcl_Consts_SScanLine            65256
+#define Vcl_Consts_SChangeIconSize      65257
+#define Vcl_Consts_SChangeWicSize       65258
+#define Vcl_Consts_SOleGraphic          65259
+#define Vcl_Consts_SUnknownExtension    65260
+#define Vcl_Consts_SUnknownClipboardFormat 65261
+#define Vcl_Consts_SUnknownStreamFormat 65262
+#define Vcl_Consts_SOutOfResources      65263
+#define System_RTLConsts_sObserverUnsupported 65264
+#define System_RTLConsts_sObserverMultipleSingleCast 65265
+#define System_RTLConsts_sObserverNoInterface 65266
+#define System_RTLConsts_sObserverNoSinglecastFound 65267
+#define System_RTLConsts_sObserverNoMulticastFound 65268
+#define System_RTLConsts_sObserverNotAvailable 65269
+#define System_RTLConsts_SInvalidDateString 65270
+#define System_RTLConsts_SInvalidTimeString 65271
+#define System_RTLConsts_SInvalidOffsetString 65272
+#define System_RTLConsts_sInvalidTaskConstruction 65273
+#define System_RTLConsts_sWaitNilTask   65274
+#define System_RTLConsts_sCannotStartCompletedTask 65275
+#define System_RTLConsts_sOneOrMoreTasksCancelled 65276
+#define System_RTLConsts_sDefaultAggregateExceptionMsg 65277
+#define System_RTLConsts_sMustWaitOnOneEvent 65278
+#define System_RTLConsts_sBeginInvokeDestroying 65279
+#define System_RTLConsts_SWindows2000   65280
+#define System_RTLConsts_SWindowsXP     65281
+#define System_RTLConsts_SWindowsServer2003 65282
+#define System_RTLConsts_SWindowsServer2003R2 65283
+#define System_RTLConsts_SWindowsServer2012 65284
+#define System_RTLConsts_SWindowsServer2012R2 65285
+#define System_RTLConsts_SWindowsServer2016 65286
+#define System_RTLConsts_SWindows8      65287
+#define System_RTLConsts_SWindows8Point1 65288
+#define System_RTLConsts_SWindows10     65289
+#define System_RTLConsts_SWinRTNoRTTI   65290
+#define System_RTLConsts_SWinRTInstanceError 65291
+#define System_RTLConsts_SWinRTICreatedError 65292
+#define System_RTLConsts_SWinRTHStringError 65293
+#define System_RTLConsts_SWinRTFactoryError 65294
+#define System_RTLConsts_SWinRTWrongFactoryError 65295
+#define System_RTLConsts_SGenericItemNotFound 65296
+#define System_RTLConsts_SGenericDuplicateItem 65297
+#define System_RTLConsts_SInsufficientRtti 65298
+#define System_RTLConsts_SParameterCountMismatch 65299
+#define System_RTLConsts_SNonPublicType 65300
+#define System_RTLConsts_SByRefArgMismatch 65301
+#define System_RTLConsts_SServiceNotFound 65302
+#define System_RTLConsts_SVersionStr    65303
+#define System_RTLConsts_SSPVersionStr  65304
+#define System_RTLConsts_SVersion32     65305
+#define System_RTLConsts_SVersion64     65306
+#define System_RTLConsts_SWindows       65307
+#define System_RTLConsts_SWindowsVista  65308
+#define System_RTLConsts_SWindowsServer2008 65309
+#define System_RTLConsts_SWindows7      65310
+#define System_RTLConsts_SWindowsServer2008R2 65311
+#define System_RTLConsts_sTimespanTooLong 65312
+#define System_RTLConsts_sInvalidTimespanDuration 65313
+#define System_RTLConsts_sTimespanValueCannotBeNan 65314
+#define System_RTLConsts_sCannotNegateTimespan 65315
+#define System_RTLConsts_sInvalidTimespanFormat 65316
+#define System_RTLConsts_sTimespanElementTooLong 65317
+#define System_RTLConsts_SNoContext     65318
+#define System_RTLConsts_SNoContextFound 65319
+#define System_RTLConsts_SNoIndex       65320
+#define System_RTLConsts_SNoSearch      65321
+#define System_RTLConsts_SNoTableOfContents 65322
+#define System_RTLConsts_SNoTopics      65323
+#define System_RTLConsts_SNothingFound  65324
+#define System_RTLConsts_SArgumentOutOfRange 65325
+#define System_RTLConsts_SArgumentNil   65326
+#define System_RTLConsts_SUnbalancedOperation 65327
+#define System_RTLConsts_sArgumentOutOfRange_StringIndex 65328
+#define System_RTLConsts_sArgumentOutOfRange_InvalidUTF32 65329
+#define System_RTLConsts_sArgument_InvalidHighSurrogate 65330
+#define System_RTLConsts_sArgument_InvalidLowSurrogate 65331
+#define System_RTLConsts_sInvalidStringAndObjectArrays 65332
+#define System_RTLConsts_sSameArrays    65333
+#define System_RTLConsts_sNoConstruct   65334
+#define System_RTLConsts_sInvalidTimeoutValue 65335
+#define System_RTLConsts_sSpinCountOutOfRange 65336
+#define System_RTLConsts_sInvalidResetCount 65337
+#define System_RTLConsts_sInvalidInitialCount 65338
+#define System_RTLConsts_sInvalidDecrementCount 65339
+#define System_RTLConsts_sInvalidIncrementCount 65340
+#define System_RTLConsts_sInvalidDecrementOperation 65341
+#define System_RTLConsts_sInvalidIncrementOperation 65342
+#define System_RTLConsts_sCountdownAlreadyZero 65343
+#define System_RTLConsts_SThreadStartError 65344
+#define System_RTLConsts_SThreadExternalCheckTerminated 65345
+#define System_RTLConsts_SThreadExternalSetReturnValue 65346
+#define System_RTLConsts_SParamIsNil    65347
+#define System_RTLConsts_SParamIsNegative 65348
+#define System_RTLConsts_SInputBufferExceed 65349
+#define System_RTLConsts_SInvalidCharsInPath 65350
+#define System_RTLConsts_SPathTooLong   65351
+#define System_RTLConsts_SPathNotFound  65352
+#define System_RTLConsts_SPathFormatNotSupported 65353
+#define System_RTLConsts_SFileNotFound  65354
+#define System_RTLConsts_SMissingDateTimeField 65355
+#define System_RTLConsts_SLocalTimeInvalid 65356
+#define System_RTLConsts_hNoFilterViewer 65357
+#define System_RTLConsts_sArgumentInvalid 65358
+#define System_RTLConsts_sArgumentOutOfRange_Index 65359
+#define System_RTLConsts_SReadOnlyProperty 65360
+#define System_RTLConsts_SRegCreateFailed 65361
+#define System_RTLConsts_SRegGetDataFailed 65362
+#define System_RTLConsts_SRegSetDataFailed 65363
+#define System_RTLConsts_SResNotFound   65364
+#define System_RTLConsts_SSeekNotImplemented 65365
+#define System_RTLConsts_SSortedListError 65366
+#define System_RTLConsts_SStringExpected 65367
+#define System_RTLConsts_SSymbolExpected 65368
+#define System_RTLConsts_SUnknownGroup  65369
+#define System_RTLConsts_SUnknownProperty 65370
+#define System_RTLConsts_SWriteError    65371
+#define System_RTLConsts_SThreadCreateError 65372
+#define System_RTLConsts_SThreadError   65373
+#define System_RTLConsts_SThreadExternalTerminate 65374
+#define System_RTLConsts_SThreadExternalWait 65375
+#define System_RTLConsts_SInvalidProperty 65376
+#define System_RTLConsts_SInvalidPropertyPath 65377
+#define System_RTLConsts_SInvalidPropertyValue 65378
+#define System_RTLConsts_SInvalidRegType 65379
+#define System_RTLConsts_SInvalidString 65380
+#define System_RTLConsts_SLineTooLong   65381
+#define System_RTLConsts_SListCapacityError 65382
+#define System_RTLConsts_SListCountError 65383
+#define System_RTLConsts_SListIndexError 65384
+#define System_RTLConsts_SMemoryStreamError 65385
+#define System_RTLConsts_SNoComSupport  65386
+#define System_RTLConsts_SNumberExpected 65387
+#define System_RTLConsts_SAnsiUTF8Expected 65388
+#define System_RTLConsts_SParseError    65389
+#define System_RTLConsts_SPropertyException 65390
+#define System_RTLConsts_SReadError     65391
+#define System_RTLConsts_SCantWriteResourceStreamError 65392
+#define System_RTLConsts_SCharExpected  65393
+#define System_RTLConsts_SCheckSynchronizeError 65394
+#define System_RTLConsts_SClassNotFound 65395
+#define System_RTLConsts_SDuplicateClass 65396
+#define System_RTLConsts_SDuplicateItem 65397
+#define System_RTLConsts_SDuplicateName 65398
+#define System_RTLConsts_SDuplicateString 65399
+#define System_RTLConsts_SFCreateErrorEx 65400
+#define System_RTLConsts_SFOpenErrorEx  65401
+#define System_RTLConsts_SIdentifierExpected 65402
+#define System_RTLConsts_SIniFileWriteError 65403
+#define System_RTLConsts_SInvalidBinary 65404
+#define System_RTLConsts_SInvalidFileName 65405
+#define System_RTLConsts_SInvalidImage  65406
+#define System_RTLConsts_SInvalidName   65407
+#define System_SysConst_SLongDayNameSat 65408
+#define System_SysConst_SCannotCreateDir 65409
+#define System_SysConst_SInvalidSourceArray 65410
+#define System_SysConst_SInvalidDestinationArray 65411
+#define System_SysConst_SCharIndexOutOfBounds 65412
+#define System_SysConst_SByteIndexOutOfBounds 65413
+#define System_SysConst_SInvalidCharCount 65414
+#define System_SysConst_SInvalidDestinationIndex 65415
+#define System_SysConst_SInvalidCodePage 65416
+#define System_SysConst_SInvalidEncodingName 65417
+#define System_SysConst_SNoMappingForUnicodeCharacter 65418
+#define System_SysConst_SInvalidStringBaseIndex 65419
+#define System_SysConst_SOperationCancelled 65420
+#define System_RTLConsts_SAncestorNotFound 65421
+#define System_RTLConsts_SAssignError   65422
+#define System_RTLConsts_SBitsIndexError 65423
+#define System_SysConst_SLongMonthNameOct 65424
+#define System_SysConst_SLongMonthNameNov 65425
+#define System_SysConst_SLongMonthNameDec 65426
+#define System_SysConst_SShortDayNameSun 65427
+#define System_SysConst_SShortDayNameMon 65428
+#define System_SysConst_SShortDayNameTue 65429
+#define System_SysConst_SShortDayNameWed 65430
+#define System_SysConst_SShortDayNameThu 65431
+#define System_SysConst_SShortDayNameFri 65432
+#define System_SysConst_SShortDayNameSat 65433
+#define System_SysConst_SLongDayNameSun 65434
+#define System_SysConst_SLongDayNameMon 65435
+#define System_SysConst_SLongDayNameTue 65436
+#define System_SysConst_SLongDayNameWed 65437
+#define System_SysConst_SLongDayNameThu 65438
+#define System_SysConst_SLongDayNameFri 65439
+#define System_SysConst_SShortMonthNameJun 65440
+#define System_SysConst_SShortMonthNameJul 65441
+#define System_SysConst_SShortMonthNameAug 65442
+#define System_SysConst_SShortMonthNameSep 65443
+#define System_SysConst_SShortMonthNameOct 65444
+#define System_SysConst_SShortMonthNameNov 65445
+#define System_SysConst_SShortMonthNameDec 65446
+#define System_SysConst_SLongMonthNameJan 65447
+#define System_SysConst_SLongMonthNameFeb 65448
+#define System_SysConst_SLongMonthNameMar 65449
+#define System_SysConst_SLongMonthNameApr 65450
+#define System_SysConst_SLongMonthNameMay 65451
+#define System_SysConst_SLongMonthNameJun 65452
+#define System_SysConst_SLongMonthNameJul 65453
+#define System_SysConst_SLongMonthNameAug 65454
+#define System_SysConst_SLongMonthNameSep 65455
+#define System_SysConst_SIntfCastError  65456
+#define System_SysConst_SSafecallException 65457
+#define System_SysConst_SMonitorLockException 65458
+#define System_SysConst_SNoMonitorSupportException 65459
+#define System_SysConst_SNotImplemented 65460
+#define System_SysConst_SObjectDisposed 65461
+#define System_SysConst_SAssertError    65462
+#define System_SysConst_SAbstractError  65463
+#define System_SysConst_SModuleAccessViolation 65464
+#define System_SysConst_SOSError        65465
+#define System_SysConst_SUnkOSError     65466
+#define System_SysConst_SShortMonthNameJan 65467
+#define System_SysConst_SShortMonthNameFeb 65468
+#define System_SysConst_SShortMonthNameMar 65469
+#define System_SysConst_SShortMonthNameApr 65470
+#define System_SysConst_SShortMonthNameMay 65471
+#define System_SysConst_SInvalidVarOp   65472
+#define System_SysConst_SInvalidVarNullOp 65473
+#define System_SysConst_SInvalidVarOpWithHResultWithPrefix 65474
+#define System_SysConst_SVarTypeOutOfRangeWithPrefix 65475
+#define System_SysConst_SVarTypeAlreadyUsedWithPrefix 65476
+#define System_SysConst_SVarTypeNotUsableWithPrefix 65477
+#define System_SysConst_SVarTypeTooManyCustom 65478
+#define System_SysConst_SVarTypeCouldNotConvert 65479
+#define System_SysConst_SVarTypeConvertOverflow 65480
+#define System_SysConst_SVarOverflow    65481
+#define System_SysConst_SVarInvalid     65482
+#define System_SysConst_SVarBadType     65483
+#define System_SysConst_SVarNotImplemented 65484
+#define System_SysConst_SVarUnexpected  65485
+#define System_SysConst_SExternalException 65486
+#define System_SysConst_SAssertionFailed 65487
+#define System_SysConst_SPrivilege      65488
+#define System_SysConst_SOperationAborted 65489
+#define System_SysConst_SException      65490
+#define System_SysConst_SExceptTitle    65491
+#define System_SysConst_SInvalidFormat  65492
+#define System_SysConst_SArgumentMissing 65493
+#define System_SysConst_SDispatchError  65494
+#define System_SysConst_SReadAccess     65495
+#define System_SysConst_SWriteAccess    65496
+#define System_SysConst_SExecuteAccess  65497
+#define System_SysConst_SInvalidAccess  65498
+#define System_SysConst_SFormatTooLong  65499
+#define System_SysConst_SVarArrayCreate 65500
+#define System_SysConst_SVarArrayBounds 65501
+#define System_SysConst_SVarArrayLocked 65502
+#define System_SysConst_SInvalidVarCast 65503
+#define System_SysConst_SEndOfFile      65504
+#define System_SysConst_SDiskFull       65505
+#define System_SysConst_SInvalidInput   65506
+#define System_SysConst_SDivByZero      65507
+#define System_SysConst_SRangeError     65508
+#define System_SysConst_SIntOverflow    65509
+#define System_SysConst_SInvalidOp      65510
+#define System_SysConst_SZeroDivide     65511
+#define System_SysConst_SOverflow       65512
+#define System_SysConst_SUnderflow      65513
+#define System_SysConst_SInvalidPointer 65514
+#define System_SysConst_SInvalidCast    65515
+#define System_SysConst_SAccessViolationArg3 65516
+#define System_SysConst_SAccessViolationNoArg 65517
+#define System_SysConst_SStackOverflow  65518
+#define System_SysConst_SControlC       65519
+#define System_SysConst_SUnknown        65520
+#define System_SysConst_SInvalidInteger 65521
+#define System_SysConst_SInvalidFloat   65522
+#define System_SysConst_SInvalidFloat2  65523
+#define System_SysConst_SInvalidDate    65524
+#define System_SysConst_SInvalidTime    65525
+#define System_SysConst_SInvalidDateTime 65526
+#define System_SysConst_SInvalidTimeStamp 65527
+#define System_SysConst_SInvalidGUID    65528
+#define System_SysConst_SInvalidBoolean 65529
+#define System_SysConst_STimeEncodeError 65530
+#define System_SysConst_SDateEncodeError 65531
+#define System_SysConst_SOutOfMemory    65532
+#define System_SysConst_SInOutError     65533
+#define System_SysConst_STooManyOpenFiles 65534
+#define System_SysConst_SAccessDenied   65535
+#define MicroCoin_BlockChain_BlockManager_StrMigratingToVersion 65536
+#define MicroCoin_BlockChain_BlockManager_StrLoadingCheckpointBlocks 65537
+#define MicroCoin_BlockChain_BlockManager_StrLoadingBlocks 65538
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        101
+#define _APS_NEXT_COMMAND_VALUE         40001
+#define _APS_NEXT_CONTROL_VALUE         1000
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    MicroCoin_Forms_MainForm_StrNone L"(nincs)"
+    MicroCoin_Forms_MainForm_StrDownloadingBlocks L"Let\x00F6lt\x00E9s: %.0n / %.0n"
+    MicroCoin_Forms_MainForm_StrBlocks0n L"Blokk: %.0n"
+    MicroCoin_Forms_MainForm_StrDifficulty0x L"Neh\x00E9zs\x00E9g: 0x"
+    MicroCoin_Forms_MainForm_StrLastOptiomalDeviation 
+                            "Utolsó %s: %s mp. (Optimális: %ss) Különbség: %s"
+    MicroCoin_Forms_MainForm_StrConnectedJSONRPCClients 
+                            "%d csatlakozott JSON-RPC kliens"
+    MicroCoin_Forms_MainForm_StrNoJSONRPCClients L"Nincs JSON-RPC kliens"
+    MicroCoin_Forms_MainForm_StrJSONRPCServerNotActive 
+                            "A JSON-RPC szerver nem aktív"
+    MicroCoin_Forms_MainForm_StrLastBlock L"Utols\x00F3 blokk: %s"
+    MicroCoin_Forms_MainForm_StrDiscoveringServers L"Szerverek keres\x00E9se"
+    MicroCoin_Forms_MainForm_StrObtainingNewBlockchain 
+                            "Új blokklánc beszerzése"
+    MicroCoin_Forms_MainForm_StrRunning L"Fut"
+    MicroCoin_Forms_MainForm_StrAloneInTheWorld L"Nincs kapcsolat..."
+    MicroCoin_Forms_MainForm_StrAllMyPrivateKeys L"(Minden kulcs)"
+    MicroCoinWallet_StrMicroCoinWallet L"MicroCoin T\x00E1rca"
+
+	MicroCoin_BlockChain_BlockManager_StrMigratingToVersion,	L"Migrating to version 2 format"
+	MicroCoin_BlockChain_BlockManager_StrLoadingCheckpointBlocks,	L"Loading checkpoint blocks %d/%d"
+	MicroCoin_BlockChain_BlockManager_StrLoadingBlocks,	L"Loading blocks"
+
+END
+
+STRINGTABLE
+BEGIN
+    MicroCoin_Forms_MainForm_StrInvalidAmount L"\x00C9rv\x00E9nytelen \x00F6sszeg"
+    MicroCoin_Forms_MainForm_StrInvalidFee L"\x00C9rv\x00E9nytelen k\x00F6lts\x00E9g"
+    MicroCoin_Forms_MainForm_StrInvalidAccountNumber L"\x00C9rv\x00E9nytelen sz\x00E1mlasz\x00E1m"
+    MicroCoin_Forms_MainForm_StrPleaseSelectSenderAccount 
+                            "Kérlek válassz ki legalább egy számlát a jobb oldali listából"
+    MicroCoin_Forms_MainForm_StrSenderPrivateKeyNotFound 
+                            "Nem találom a küldõ számla privát kulcsát"
+    MicroCoin_Forms_MainForm_StrNotEnoughMoney L"Nincs ennyi MicroCoinod"
+    MicroCoin_Forms_MainForm_StrInvalidTargetAccount L"\x00C9rv\x00E9nytelen c\x00E9lsz\x00E1mla"
+    MicroCoin_Forms_MainForm_StrTargetAccountIsLocked 
+                            "A cél számla még nem használható"
+    MicroCoin_Forms_MainForm_StrSenderAccountIsLocked 
+                            "A küldõ számlát még nem lehet használni"
+    MicroCoin_Forms_MainForm_StrExecuteTransaction 
+                            "Végrehajtsam a tranzakciót? "
+    MicroCoin_Forms_MainForm_StrTransactionSuccessfullyExecuted 
+                            "A tranzakció sikeresen végrehajtva"
+    MicroCoin_Forms_MainForm_StrActive L"Akt\x00EDv"
+    MicroCoin_Forms_MainForm_StrStopped L"Meg\x00E1ll\x00EDtva"
+    MicroCoin_Forms_MainForm_StrClientsServers L"%d kliens | %d szerver"
+    MicroCoin_Forms_MainForm_StrTraffic L"Forgalom: %.0n Kb | %.0n Kb"
+    MicroCoin_Forms_MainForm_StrExceptionAtTimerUpdate L"Hiba: %s: %s"
+END
+
+STRINGTABLE
+BEGIN
+    MicroCoin_Forms_Transaction_Explorer_StrTransactions L"%.0n tranzakci\x00F3"
+    MicroCoin_Forms_Transaction_Explorer_StrBlockchainReward 
+                            "Blokklánc jutalom"
+    MicroCoin_Forms_Transaction_History_StrPending L"V\x00E1rakozik"
+    MicroCoin_Forms_MainForm_NewTransaction L"\x00DAj tranzakci\x00F3"
+    MicroCoin_Forms_MainForm_StrReallyWantToRevokeSell 
+                            "Valóban vissza szeretnéd vonni az eladást?"
+    MicroCoin_Forms_MainForm_StrTransactionExecuted 
+                            "A tranzakció sikeresen végrehajtva"
+    MicroCoin_Forms_MainForm_StrCanNotOpenWallet 
+                            "Nem tudom megnyitni a %s fájlt"
+    MicroCoin_Forms_MainForm_StrAnErrorOccoured L"Hiba t\x00F6rt\x00E9nt: %s"
+    MicroCoin_Forms_MainForm_StrCanNotLoadRequiredLibrary 
+                            "Nem tudom betölteni a %s programkönyvtárat"
+    MicroCoin_Forms_MainForm_StrCannotCreateDir L"Nem hozhat\x00F3 l\x00E9tre a k\x00F6nyvt\x00E1r: "
+    MicroCoin_Forms_MainForm_StrRestoringTheWindow L"Az ablak vissza\x00E1ll\x00EDt\x00E1sa"
+    MicroCoin_Forms_MainForm_StrDoubleClickTheSystemTray 
+                            "Kattints az ikonra duplán az ablak visszaállításához"
+    MicroCoin_Forms_MainForm_StrPleaseSelectAccounts L"K\x00E9rlek v\x00E1lassz sz\x00E1ml\x00E1t"
+    MicroCoin_Forms_MainForm_StrNewForMiner L"\x00DAj kulcs %s"
+    MicroCoin_Forms_MainForm_StrUnlockWallet L"T\x00E1rca felold\x00E1sa"
+    MicroCoin_Forms_MainForm_StrPassword L"Jelsz\x00F3:"
+END
+
+STRINGTABLE
+BEGIN
+    MicroCoin_Forms_ChangeAccountKey_StrTransactionExecuted 
+                            "A tranzakció sikeresen végrehajtva"
+    MicroCoin_Forms_EditAccount_StrTransactionSuccessfullyExecuted 
+                            "A tranzakció sikeresen végrehajtva"
+    MicroCoin_Forms_EditAccount_StrDoYouWantExecute 
+                            "Végrehajtsam ezt a tranzakciót: "
+    MicroCoin_Forms_EditAccount_StrPrivateKeyNotFound 
+                            "A privát kulcs nem található"
+    MicroCoin_Forms_EditAccount_StrInvalidFee L"\x00C9rv\x00E9nytelen k\x00F6lts\x00E9g"
+    MicroCoin_Forms_EditAccount_StrUnlockWallet L"T\x00E1rca felold\x00E1sa"
+    MicroCoin_Forms_EditAccount_StrPassword L"Jelsz\x00F3:"
+    MicroCoin_Forms_SellAccount_StrEstimatedValidUntil 
+                            "Becsült érvényesség: "
+    MicroCoin_Forms_SellAccount_StrUnlockWallet L"T\x00E1rca felold\x00E1sa"
+    MicroCoin_Forms_SellAccount_StrPassword L"Jelsz\x00F3:"
+    MicroCoin_Forms_SellAccount_StrInvalidPrice L"\x00C9rv\x00E9nytelen \x00E1r"
+    MicroCoin_Forms_SellAccount_StrInvalidFee L"\x00C9rv\x00E9nytelen k\x00F6lts\x00E9g"
+    MicroCoin_Forms_SellAccount_StrPrivateKeyNotFound L"A priv\x00E1t kulcs nem tal\x00E1lhat\x00F3"
+    MicroCoin_Forms_SellAccount_StrInvalidPublicKey L"\x00C9rv\x00E9nytelen publikus kulcs: "
+    MicroCoin_Forms_SellAccount_StrTransactionSucessfullyExecuted 
+                            "A tranzakció sikeresen végrehajtva"
+    MicroCoin_Forms_Transaction_Explorer_StrLastUpdated L"Friss\x00EDtve: %s"
+END
+
+STRINGTABLE
+BEGIN
+    MicroCoin_Forms_Keys_KeyManager_StrPrivatePublicKey L"Priv\x00E1t & Publikus kulcs"
+    MicroCoin_Forms_Keys_KeyManager_StrPublicKey L"Publikus kulcs"
+    MicroCoin_Forms_Keys_KeyManager_StrWalletSavedTo L"A t\x00E1rc\x00E1t a(z) %s helyre mentettem"
+    MicroCoin_Forms_Keys_KeyManager_StrUnlockWallet L"T\x00E1rca felold\x00E1sa"
+    MicroCoin_Forms_Keys_KeyManager_StrYourPassword L"Jelszavad:"
+    MicroCoin_Forms_BuyAccount_StrUnlockWallet L"T\x00E1rca felold\x00E1sa"
+    MicroCoin_Forms_BuyAccount_StrPassword L"Jelsz\x00F3:"
+    MicroCoin_Forms_BuyAccount_StrInvalidFee L"\x00C9rv\x00E9nytelen k\x00F6lts\x00E9g"
+    MicroCoin_Forms_BuyAccount_StrAccountPurchased L"Sz\x00E1mla megv\x00E1s\x00E1rolva"
+    MicroCoin_Forms_BuyAccount_StrBuyAccount L"%s sz\x00E1mla v\x00E1s\x00E1rl\x00E1sa"
+    MicroCoin_Forms_ChangeAccountKey_StrUnlockWallet L"T\x00E1rca felold\x00E1sa"
+    MicroCoin_Forms_ChangeAccountKey_StrPassword L"Jelsz\x00F3:"
+    MicroCoin_Forms_ChangeAccountKey_StrInvalidKey L"\x00C9rv\x00E9nytelen kulcs: "
+    MicroCoin_Forms_ChangeAccountKey_StrInvalidFee L"\x00C9rv\x00E9nytelen k\x00F6lts\x00E9g"
+    MicroCoin_Forms_ChangeAccountKey_StrKeyNotFound L"A kulcs nem tal\x00E1lhat\x00F3"
+    MicroCoin_Forms_ChangeAccountKey_StrDoYouWantExecute 
+                            "Végrehajtsam ezt a tranzakciót: "
+END
+
+STRINGTABLE
+BEGIN
+    MicroCoin_Forms_Keys_KeyManager_StrEncryptExportedKey 
+                            "Kulcs titkosítása"
+    MicroCoin_Forms_Keys_KeyManager_StrEnterPassword L"Add meg a jelsz\x00F3t"
+    MicroCoin_Forms_Keys_KeyManager_StrRepeatPassword L"Jelsz\x00F3 \x00FAjra"
+    MicroCoin_Forms_Keys_KeyManager_StrPrivateKeyCopiedToClipboard 
+                            "A privát kulcs a vágólapra másolva"
+    MicroCoin_Forms_Keys_KeyManager_StrPublicKeyCopiedToClipboard 
+                            "A publikus kulcs a vágólapra másolva"
+    MicroCoin_Forms_Keys_KeyManager_StrImportKeys L"Kulcs import\x00E1l\x00E1sa"
+    MicroCoin_Forms_Keys_KeyManager_StrInvalidPassword L"\x00C9rv\x00E9nytelen jelsz\x00F3"
+    MicroCoin_Forms_Keys_KeyManager_StrImportPrivateKey L"Priv\x00E1t kulcs import\x00E1l\x00E1s"
+    MicroCoin_Forms_Keys_KeyManager_StrName L"N\x00E9v"
+    MicroCoin_Forms_Keys_KeyManager_StrPrivateKey L"Priv\x00E1t kulcs"
+    MicroCoin_Forms_Keys_KeyManager_StrPassword L"Jelsz\x00F3"
+    MicroCoin_Forms_Keys_KeyManager_StrInvalidKey L"\x00C9rv\x00E9nytelen kulcs"
+    MicroCoin_Forms_Keys_KeyManager_StrInvalidKeyOrPassw 
+                            "Érvénytelen kulcs, vagy érvénytelen jelszó"
+    MicroCoin_Forms_Keys_KeyManager_StrImportPublicKey L"Publikus kulcs import\x00E1l\x00E1sa"
+    MicroCoin_Forms_Keys_KeyManager_StrEncodedPublicKey L"K\x00F3dolt publikus kulcs"
+    MicroCoin_Forms_Keys_KeyManager_StrAccountKeyAlreadyExists 
+                            "Ez a kulcs már a tárcában van"
+END
+
+STRINGTABLE
+BEGIN
+    System_JSONConsts_SJSONPathEndedOpenString 
+                            "Path ended with an open string"
+    System_JSONConsts_SJSONPathInvalidArrayIndex L"Invalid index for array: %s"
+    System_JSONConsts_SJSONPathUnexpectedIndexedChar 
+                            "Unexpected character while parsing indexer: %s"
+    System_JSONConsts_SJSONPathDotsEmptyName 
+                            "Empty name not allowed in dot notation, use ['']"
+    MicroCoin_Forms_Common_Settings_StrServerPortAndJSONRPCPortEquals 
+                            "Server port and JSON RPC port are equal"
+    MicroCoin_Forms_Keys_KeyManager_StrKeyName L"Key name:"
+    MicroCoin_Forms_Keys_KeyManager_StrEnterName L"Enter name:"
+    MicroCoin_Forms_Keys_KeyManager_StrMicroCoinPaperWallet 
+                            "MicroCoin Paper Wallet (%s)"
+    MicroCoin_Forms_Keys_KeyManager_StrChangeWalletPassword 
+                            "Change wallet password"
+    MicroCoin_Forms_Keys_KeyManager_StrNewPassword L"New password"
+    MicroCoin_Forms_Keys_KeyManager_StrPasswordAgain L"Password again"
+    MicroCoin_Forms_Keys_KeyManager_StrPasswordsNotMatch L"Passwords not match"
+    MicroCoin_Forms_Keys_KeyManager_StrPasswordChanged L"Password changed"
+    MicroCoin_Forms_Keys_KeyManager_StrDoYouWantToDELETE 
+                            "Do you want to DELETE this key? Delete is unreversible!!!"
+    MicroCoin_Forms_Keys_KeyManager_StrChangeName L"Change name"
+    MicroCoin_Forms_Keys_KeyManager_StrInputNewKeyName L"Input new key name:"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Imaging_pnglang_EPNGCannotAssignChunkText 
+                            "The chunks must be compatible to be assigned."
+    Vcl_Imaging_pnglang_EPNGUnexpectedEndText 
+                            "This ""Portable Network Graphics"" image is invalid because the decoder found an unexpected end of the file."
+    Vcl_Imaging_pnglang_EPNGNoImageDataText 
+                            "This ""Portable Network Graphics"" image contains no data."
+    Vcl_Imaging_pnglang_EPNGCannotAddChunkText 
+                            "The program tried to add a existent critical chunk to the current image which is not allowed."
+    Vcl_Imaging_pnglang_EPNGCannotAddInvalidImageText 
+                            "It's not allowed to add a new chunk because the current image is invalid."
+    Vcl_Imaging_pnglang_EPNGCouldNotLoadResourceText 
+                            "The png image could not be loaded from the resource ID."
+    Vcl_Imaging_pnglang_EPNGOutMemoryText 
+                            "Some operation could not be performed because the system is out of resources. Close some windows and try again."
+    Vcl_Imaging_pnglang_EPNGCannotChangeTransparentText 
+                            "Setting bit transparency color is not allowed for png images containing alpha value for each pixel (COLOR_RGBALPHA and COLOR_GRAYSCALEALPHA)"
+    Vcl_Imaging_pnglang_EPNGHeaderNotPresentText 
+                            "This operation is not valid because the current image contains no valid header."
+    Vcl_Imaging_pnglang_EInvalidNewSize 
+                            "The new size provided for image resizing is invalid."
+    Vcl_Imaging_pnglang_EInvalidSpec 
+                            "The ""Portable Network Graphics"" could not be created because invalid image type parameters have being provided."
+    System_JSONConsts_SUTF8Start 
+                            "UTF8: A start byte not followed by enough continuation bytes in position %s"
+    System_JSONConsts_SUTF8UnexpectedByte 
+                            "UTF8: An unexpected continuation byte in %s-byte UTF8 in position %s"
+    System_JSONConsts_SUTF8InvalidHeaderByte 
+                            "UTF8: Type cannot be determined out of header byte at position %s"
+    System_JSONConsts_SJSONPathUnexpectedRootChar 
+                            "Unexpected char for root element: ."
+    System_JSONConsts_SJSONPathEndedOpenBracket 
+                            "Path ended with an open bracket"
+END
+
+STRINGTABLE
+BEGIN
+    UTCPIP_rsExceptionRec   L"Exception receiving buffer from %s %s (%s):%s"
+    UTCPIP_rsClosingConne2  L"Closing connection from %s (Sending error): %s %s"
+    MicroCoin_Node_Node_rsAccountSZero 
+                            "Account %s zero fee operations per block limit:%d"
+    MicroCoin_Node_Node_rsBlockchainRe L"Blokk jutalom"
+    Vcl_Imaging_pnglang_EPngInvalidCRCText 
+                            "This ""Portable Network Graphics"" image is not valid because it contains invalid pieces of data (crc error)"
+    Vcl_Imaging_pnglang_EPNGInvalidIHDRText 
+                            "The ""Portable Network Graphics"" image could not be loaded because one of its main piece of data (ihdr) might be corrupted"
+    Vcl_Imaging_pnglang_EPNGMissingMultipleIDATText 
+                            "This ""Portable Network Graphics"" image is invalid because it has missing image parts."
+    Vcl_Imaging_pnglang_EPNGZLIBErrorText 
+                            "Could not decompress the image because it contains invalid compressed data.\r\n Description: "
+    Vcl_Imaging_pnglang_EPNGInvalidPaletteText 
+                            "The ""Portable Network Graphics"" image contains an invalid palette."
+    Vcl_Imaging_pnglang_EPNGInvalidFileHeaderText 
+                            "The file being read is not a valid ""Portable Network Graphics"" image because it contains an invalid header. This file may be corrupted, try obtaining it again"
+    Vcl_Imaging_pnglang_EPNGIHDRNotFirstText 
+                            "This ""Portable Network Graphics"" image is not supported or it might be invalid.\r\n(IHDR chunk is not the first)"
+    Vcl_Imaging_pnglang_EPNGSizeExceedsText 
+                            "This ""Portable Network Graphics"" image is not supported because either its width or height exceeds the maximum size of 65535 pixels."
+    Vcl_Imaging_pnglang_EPNGUnknownPalEntryText 
+                            "There is no such palette entry."
+    Vcl_Imaging_pnglang_EPNGUnknownCriticalChunkText 
+                            "This ""Portable Network Graphics"" image contains an unknown critical part which could not be decoded."
+    Vcl_Imaging_pnglang_EPNGUnknownCompressionText 
+                            "This ""Portable Network Graphics"" image is encoded with an unknown compression scheme which could not be decoded."
+    Vcl_Imaging_pnglang_EPNGUnknownInterlaceText 
+                            "This ""Portable Network Graphics"" image uses an unknown interlace scheme which could not be decoded."
+END
+
+STRINGTABLE
+BEGIN
+    VirtualTrees_SWrongStreamVersion 
+                            "Unable to load tree structure, the version is unknown."
+    VirtualTrees_SStreamTooSmall 
+                            "Unable to load tree structure, not enough data available."
+    VirtualTrees_SCorruptStream1 
+                            "Stream data corrupt. A node's anchor chunk is missing."
+    VirtualTrees_SCorruptStream2 
+                            "Stream data corrupt. Unexpected data after node's end position."
+    VirtualTrees_SClipboardFailed L"Clipboard operation failed."
+    UTime_rs1MinuteAgo      L"1 minute ago"
+    UTime_rsMinutesAgo      L"%s minutes ago"
+    UTime_rs1HourAgo        L"1 hour ago"
+    UTime_rsHoursAgo        L"%s hours ago"
+    UTime_rsDaysAgo         L"%s days ago"
+    UTime_rsSecondsAgo      L"%s seconds ago"
+    UTCPIP_rsCannotConnec   L"Cannot connect to a server at: %s Reason: %s"
+    UTCPIP_rsErrorConnect   L"Error Connecting to %s: %s"
+    UTCPIP_rsExceptionAtT   L"Exception at TNetTcpIpClient.Discconnect step %s - %s"
+    UTCPIP_rsErrorWaiting   L"Error WaitingForData from %s: %s"
+    UTCPIP_rsClosingConne   L"Closing connection from %s (Receiving error): %s %s"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_ComStrs_sTabFailClear L"Failed to clear tab control"
+    Vcl_ComStrs_sTabFailDelete L"Failed to delete tab at index %d"
+    Vcl_ComStrs_sTabFailRetrieve L"Failed to retrieve tab at index %d"
+    Vcl_ComStrs_sTabFailGetObject L"Failed to get object at index %d"
+    Vcl_ComStrs_sTabFailSet L"Failed to set tab ""%s"" at index %d"
+    Vcl_ComStrs_sTabFailSetObject L"Failed to set object at index %d"
+    Vcl_ComStrs_sTabMustBeMultiLine 
+                            "MultiLine must be True when TabPosition is tpLeft or tpRight"
+    Vcl_ComStrs_sInvalidOwner L"Invalid owner"
+    Vcl_ComStrs_sRichEditInsertError L"RichEdit line insertion error"
+    Vcl_ComStrs_sRichEditLoadFail L"Failed to Load Stream"
+    Vcl_ComStrs_sRichEditSaveFail L"Failed to Save Stream"
+    Vcl_ComStrs_sPageIndexError 
+                            "%d is an invalid PageIndex value.  PageIndex must be between 0 and %d"
+    Vcl_ComStrs_sInvalidComCtl32 
+                            "This control requires version 4.70 or greater of COMCTL32.DLL"
+    VTHeaderPopup_sResizeToFit L"&Resize All Columns To Fit"
+    VirtualTrees_SWrongMoveError 
+                            "Target node cannot be a child node of the node to be moved."
+    VirtualTrees_SWrongStreamFormat 
+                            "Unable to load tree structure, the format is wrong."
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SStyleFileDescription L"VCL Style File"
+    Vcl_Consts_SStyleHookClassRegistered 
+                            "Class '%s' is already registered for '%s'"
+    Vcl_Consts_SStyleHookClassNotRegistered 
+                            "Class '%s' is not registered for '%s'"
+    Vcl_Consts_SStyleInvalidParameter L"%s parameter cannot be nil"
+    Vcl_Consts_SStyleHookClassNotFound 
+                            "A StyleHook class has not been registered for %s"
+    Vcl_Consts_SStyleFeatureNotSupported L"Feature not supported by this style"
+    Vcl_Consts_SStyleNotRegistered L"Style '%s' is not registered"
+    Vcl_Consts_SStyleUnregisterError L"Cannot unregister the system style"
+    Vcl_Consts_SStyleNotRegisteredNoName L"Style not registered"
+    Vcl_Consts_sBeginInvokeNoHandle 
+                            "Cannot call BeginInvoke on a control with no parent or window handle"
+    Vcl_Consts_SToggleSwitchCaptionOn L"On"
+    Vcl_Consts_SToggleSwitchCaptionOff L"Off"
+    System_Win_ComConst_SOleError L"OLE error %.8x"
+    System_Win_ComConst_SNoMethod 
+                            "Method '%s' not supported by automation object"
+    System_Win_ComConst_SVarNotObject 
+                            "Variant does not reference an automation object"
+    System_Win_ComConst_STooManyParams 
+                            "Dispatch methods do not support more than 64 parameters"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SUTF8Encoding L"UTF-8"
+    Vcl_Consts_SUTF7Encoding L"UTF-7"
+    Vcl_Consts_STrayIconRemoveError L"Cannot remove shell notification icon"
+    Vcl_Consts_SPageControlNotSet L"PageControl must first be assigned"
+    Vcl_Consts_SWindowsVistaRequired L"%s requires Windows Vista or later"
+    Vcl_Consts_STaskDlgButtonCaption L"Button%d"
+    Vcl_Consts_STaskDlgRadioButtonCaption L"RadioButton%d"
+    Vcl_Consts_SInvalidTaskDlgButtonCaption L"Caption cannot be empty"
+    Vcl_Consts_SStyleLoadError L"Unable to load style '%s'"
+    Vcl_Consts_SStyleLoadErrors L"Unable to load styles: %s"
+    Vcl_Consts_SStyleRegisterError L"Style '%s' already registered"
+    Vcl_Consts_SStyleClassRegisterError L"Style class '%s' already registered"
+    Vcl_Consts_SStyleNotFound L"Style '%s' not found"
+    Vcl_Consts_SStyleClassNotFound L"Style class '%s' not found"
+    Vcl_Consts_SStyleInvalidHandle L"Invalid style handle"
+    Vcl_Consts_SStyleFormatError L"Invalid style format"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SErrorLoadingFile 
+                            "Error loading previously saved settings file: %s\rWould you like to delete it?"
+    Vcl_Consts_SNoName      L"(No Name)"
+    Vcl_Consts_SAddRemoveButtons L"&Add or Remove Buttons"
+    Vcl_Consts_SResetActionToolBar L"Reset Toolbar"
+    Vcl_Consts_SCircularReferencesNotAllowed L"Circular references not allowed"
+    Vcl_Consts_SCannotHideActionBand L"%s does not allow hiding"
+    Vcl_Consts_SUnableToSaveSettings L"Unable to save settings"
+    Vcl_Consts_SRestoreDefaultSchedule 
+                            "Would you like to reset to the default Priority Schedule?"
+    Vcl_Consts_SNoGetItemEventHandler L"No OnGetItem event handler assigned"
+    Vcl_Consts_SMissingActionBarStyleName 
+                            "A style named %s has not been registered"
+    Vcl_Consts_SActionBarStyleMissing 
+                            "No ActionBand style unit present in the uses clause.\rYour application must include either XPStyleActnCtrls, StdStyleActnCtrls or a third party ActionBand style unit in its uses clause"
+    Vcl_Consts_SActionManagerNotAssigned 
+                            "%s ActionManager property has not been assigned"
+    Vcl_Consts_SANSIEncoding L"ANSI"
+    Vcl_Consts_SASCIIEncoding L"ASCII"
+    Vcl_Consts_SUnicodeEncoding L"Unicode"
+    Vcl_Consts_SBigEndianEncoding L"Big Endian Unicode"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SDockTreeRemoveError L"Error removing control from dock tree"
+    Vcl_Consts_SDockZoneNotFound L" - Dock zone not found"
+    Vcl_Consts_SDockZoneHasNoCtl L" - Dock zone has no control"
+    Vcl_Consts_SDockZoneVersionConflict 
+                            "Error loading dock zone from the stream. Expecting version %d, but found %d."
+    Vcl_Consts_SPromptArrayTooShort 
+                            "Length of value array must be >= length of prompt array"
+    Vcl_Consts_SPromptArrayEmpty L"Prompt array must not be empty"
+    Vcl_Consts_SUsername    L"&Username"
+    Vcl_Consts_SPassword    L"&Password"
+    Vcl_Consts_SDomain      L"&Domain"
+    Vcl_Consts_SLogin       L"Login"
+    Vcl_Consts_SAssignSubItemError 
+                            "Cannot assign a subitem to an actionbar when one of it's parent's is already assigned to an actionbar"
+    Vcl_Consts_SDeleteItemWithSubItems L"Item %s has subitems, delete anyway?"
+    Vcl_Consts_SDeleteNotAllowed L"You are not allowed to delete this item"
+    Vcl_Consts_SMoveNotAllowed L"Item %s is not allowed to be moved"
+    Vcl_Consts_SMoreButtons L"More Buttons"
+    Vcl_Consts_SExpand      L"Expand"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SmkcIns      L"Ins"
+    Vcl_Consts_SmkcDel      L"Del"
+    Vcl_Consts_SmkcShift    L"Shift+"
+    Vcl_Consts_SmkcCtrl     L"Ctrl+"
+    Vcl_Consts_SmkcAlt      L"Alt+"
+    Vcl_Consts_SOutOfRange  L"Value must be between %d and %d"
+    Vcl_Consts_sAllFilter   L"All"
+    Vcl_Consts_SInsertLineError L"Unable to insert a line"
+    Vcl_Consts_SInvalidClipFmt L"Invalid clipboard format"
+    Vcl_Consts_SIconToClipboard L"Clipboard does not support Icons"
+    Vcl_Consts_SCannotOpenClipboard L"Cannot open clipboard: %s"
+    Vcl_Consts_SInvalidMemoSize L"Text exceeds memo capacity"
+    Vcl_Consts_SInvalidPrinterOp L"Operation not supported on selected printer"
+    Vcl_Consts_SNoDefaultPrinter 
+                            "There is no default printer currently selected"
+    Vcl_Consts_SDuplicateMenus 
+                            "Menu '%s' is already being used by another form"
+    Vcl_Consts_SDockedCtlNeedsName L"Docked control must have a name"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SMsgDlgNoToAll L"N&o to All"
+    Vcl_Consts_SMsgDlgYesToAll L"Yes to &All"
+    Vcl_Consts_SMsgDlgClose L"&Close"
+    Vcl_Consts_SmkcBkSp     L"BkSp"
+    Vcl_Consts_SmkcTab      L"Tab"
+    Vcl_Consts_SmkcEsc      L"Esc"
+    Vcl_Consts_SmkcEnter    L"Enter"
+    Vcl_Consts_SmkcSpace    L"Space"
+    Vcl_Consts_SmkcPgUp     L"PgUp"
+    Vcl_Consts_SmkcPgDn     L"PgDn"
+    Vcl_Consts_SmkcEnd      L"End"
+    Vcl_Consts_SmkcHome     L"Home"
+    Vcl_Consts_SmkcLeft     L"Left"
+    Vcl_Consts_SmkcUp       L"Up"
+    Vcl_Consts_SmkcRight    L"Right"
+    Vcl_Consts_SmkcDown     L"Down"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SVJPGImages  L"JPEG Images"
+    Vcl_Consts_SVPNGImages  L"PNG Images"
+    Vcl_Consts_SVGIFImages  L"GIF Images"
+    Vcl_Consts_SMsgDlgWarning L"Warning"
+    Vcl_Consts_SMsgDlgError L"Error"
+    Vcl_Consts_SMsgDlgInformation L"Information"
+    Vcl_Consts_SMsgDlgConfirm L"Confirm"
+    Vcl_Consts_SMsgDlgYes   L"&Yes"
+    Vcl_Consts_SMsgDlgNo    L"&No"
+    Vcl_Consts_SMsgDlgOK    L"OK"
+    Vcl_Consts_SMsgDlgCancel L"Cancel"
+    Vcl_Consts_SMsgDlgHelp  L"&Help"
+    Vcl_Consts_SMsgDlgAbort L"&Abort"
+    Vcl_Consts_SMsgDlgRetry L"&Retry"
+    Vcl_Consts_SMsgDlgIgnore L"&Ignore"
+    Vcl_Consts_SMsgDlgAll   L"&All"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SOKButton    L"OK"
+    Vcl_Consts_SCancelButton L"Cancel"
+    Vcl_Consts_SYesButton   L"&Yes"
+    Vcl_Consts_SNoButton    L"&No"
+    Vcl_Consts_SHelpButton  L"&Help"
+    Vcl_Consts_SCloseButton L"&Close"
+    Vcl_Consts_SIgnoreButton L"&Ignore"
+    Vcl_Consts_SRetryButton L"&Retry"
+    Vcl_Consts_SAbortButton L"Abort"
+    Vcl_Consts_SAllButton   L"&All"
+    Vcl_Consts_SCannotDragForm L"Cannot drag a form"
+    Vcl_Consts_SVMetafiles  L"Metafiles"
+    Vcl_Consts_SVEnhMetafiles L"Enhanced Metafiles"
+    Vcl_Consts_SVIcons      L"Icons"
+    Vcl_Consts_SVBitmaps    L"Bitmaps"
+    Vcl_Consts_SVTIFFImages L"TIFF Images"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SCannotShowModal L"Cannot make a visible window modal"
+    Vcl_Consts_SScrollBarRange L"Scrollbar property out of range"
+    Vcl_Consts_SPropertyOutOfRange L"%s property out of range"
+    Vcl_Consts_SMenuIndexError L"Menu index out of range"
+    Vcl_Consts_SMenuReinserted L"Menu inserted twice"
+    Vcl_Consts_SMenuNotFound L"Sub-menu is not in menu"
+    Vcl_Consts_SNoTimers    L"Not enough timers available"
+    Vcl_Consts_SNotPrinting L"Printer is not currently printing"
+    Vcl_Consts_SPrinting    L"Printing in progress"
+    Vcl_Consts_SPrinterIndexError L"Printer index out of range"
+    Vcl_Consts_SInvalidPrinter L"Printer selected is not valid"
+    Vcl_Consts_SDeviceOnPort L"%s on %s"
+    Vcl_Consts_SGroupIndexTooLow 
+                            "GroupIndex cannot be less than a previous menu item's GroupIndex"
+    Vcl_Consts_SNoMDIForm   L"Cannot create form. No MDI forms are currently active"
+    Vcl_Consts_SImageCanvasNeedsBitmap 
+                            "Can only modify an image if it contains a bitmap"
+    Vcl_Consts_SControlParentSetToSelf 
+                            "A control cannot have itself as its parent"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SNoCanvasHandle L"Canvas does not allow drawing"
+    Vcl_Consts_SInvalidTextFormatFlag L"Text format flag '%s' not supported"
+    Vcl_Consts_SInvalidImageSize L"Invalid image size"
+    Vcl_Consts_SInvalidImageList L"Invalid ImageList"
+    Vcl_Consts_SReplaceImage L"Unable to Replace Image"
+    Vcl_Consts_SInsertImage L"Unable to Insert Image"
+    Vcl_Consts_SImageIndexError L"Invalid ImageList Index"
+    Vcl_Consts_SImageReadFail L"Failed to read ImageList data from stream"
+    Vcl_Consts_SImageWriteFail L"Failed to write ImageList data to stream"
+    Vcl_Consts_SWindowDCError L"Error creating window device context"
+    Vcl_Consts_SWindowClass L"Error creating window class"
+    Vcl_Consts_SCannotFocus L"Cannot focus a disabled or invisible window"
+    Vcl_Consts_SParentRequired L"Control '%s' has no parent window"
+    Vcl_Consts_SParentGivenNotAParent L"Parent given is not a parent of '%s'"
+    Vcl_Consts_SMDIChildNotVisible L"Cannot hide an MDI Child Form"
+    Vcl_Consts_SVisibleChanged L"Cannot change Visible in OnShow or OnHide"
+END
+
+STRINGTABLE
+BEGIN
+    Vcl_Consts_SCantWriteResourceStreamError 
+                            "Can't write to a read-only resource stream"
+    Vcl_Consts_SInvalidTabPosition 
+                            "Tab position incompatible with current tab style"
+    Vcl_Consts_SInvalidTabStyle 
+                            "Tab style incompatible with current tab position"
+    Vcl_Consts_SInvalidBitmap L"Bitmap image is not valid"
+    Vcl_Consts_SInvalidIcon L"Icon image is not valid"
+    Vcl_Consts_SInvalidMetafile L"Metafile is not valid"
+    Vcl_Consts_SInvalidPixelFormat L"Invalid pixel format"
+    Vcl_Consts_SInvalidImage L"Invalid image"
+    Vcl_Consts_SScanLine    L"Scan line index out of range"
+    Vcl_Consts_SChangeIconSize L"Cannot change the size of an icon"
+    Vcl_Consts_SChangeWicSize L"Cannot change the size of a WIC Image"
+    Vcl_Consts_SOleGraphic  L"Invalid operation on TOleGraphic"
+    Vcl_Consts_SUnknownExtension L"Unknown picture file extension (.%s)"
+    Vcl_Consts_SUnknownClipboardFormat L"Unsupported clipboard format"
+    Vcl_Consts_SUnknownStreamFormat L"Unsupported stream format"
+    Vcl_Consts_SOutOfResources L"Out of system resources"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_sObserverUnsupported L"Observer is not supported"
+    System_RTLConsts_sObserverMultipleSingleCast 
+                            "Cannot have multiple single cast observers added to the observers collection"
+    System_RTLConsts_sObserverNoInterface 
+                            "The object does not implement the observer interface"
+    System_RTLConsts_sObserverNoSinglecastFound 
+                            "No single cast observer with ID %d was added to the observer collection"
+    System_RTLConsts_sObserverNoMulticastFound 
+                            "No multi cast observer with ID %d was added to the observer collection"
+    System_RTLConsts_sObserverNotAvailable L"Observer is not available"
+    System_RTLConsts_SInvalidDateString L"Invalid date string: %s"
+    System_RTLConsts_SInvalidTimeString L"Invalid time string: %s"
+    System_RTLConsts_SInvalidOffsetString L"Invalid time Offset string: %s"
+    System_RTLConsts_sInvalidTaskConstruction 
+                            "Cannot construct an ITask in this manner"
+    System_RTLConsts_sWaitNilTask L"At least one task in array nil"
+    System_RTLConsts_sCannotStartCompletedTask 
+                            "Cannot start a task that has already completed"
+    System_RTLConsts_sOneOrMoreTasksCancelled 
+                            "One or more tasks were cancelled"
+    System_RTLConsts_sDefaultAggregateExceptionMsg 
+                            "One or more errors occurred"
+    System_RTLConsts_sMustWaitOnOneEvent L"Must wait on at least one event"
+    System_RTLConsts_sBeginInvokeDestroying 
+                            "Cannot call BeginInvoke on a TComponent in the process of destruction"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_SWindows2000 L"Windows 2000"
+    System_RTLConsts_SWindowsXP L"Windows XP"
+    System_RTLConsts_SWindowsServer2003 L"Windows Server 2003"
+    System_RTLConsts_SWindowsServer2003R2 L"Windows Server 2003 R2"
+    System_RTLConsts_SWindowsServer2012 L"Windows Server 2012"
+    System_RTLConsts_SWindowsServer2012R2 L"Windows Server 2012 R2"
+    System_RTLConsts_SWindowsServer2016 L"Windows Server 2016"
+    System_RTLConsts_SWindows8 L"Windows 8"
+    System_RTLConsts_SWindows8Point1 L"Windows 8.1"
+    System_RTLConsts_SWindows10 L"Windows 10"
+    System_RTLConsts_SWinRTNoRTTI L"No RTTI information found for class %s"
+    System_RTLConsts_SWinRTInstanceError L"Cannot create instance of class %s"
+    System_RTLConsts_SWinRTICreatedError 
+                            "The created instance of class %s is wrong"
+    System_RTLConsts_SWinRTHStringError L"Error creating HString for %s"
+    System_RTLConsts_SWinRTFactoryError L"Cannot get factory for class %s"
+    System_RTLConsts_SWinRTWrongFactoryError 
+                            "The factory obtained for %s is wrong"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_SGenericItemNotFound L"Item not found"
+    System_RTLConsts_SGenericDuplicateItem L"Duplicates not allowed"
+    System_RTLConsts_SInsufficientRtti 
+                            "Insufficient RTTI available to support this operation"
+    System_RTLConsts_SParameterCountMismatch L"Parameter count mismatch"
+    System_RTLConsts_SNonPublicType 
+                            "Type '%s' is not declared in the interface section of a unit"
+    System_RTLConsts_SByRefArgMismatch 
+                            "VAR and OUT arguments must match parameter type exactly"
+    System_RTLConsts_SServiceNotFound 
+                            "Specified Login Credential Service not found"
+    System_RTLConsts_SVersionStr L"%s (Version %d.%d, Build %d, %5:s)"
+    System_RTLConsts_SSPVersionStr 
+                            "%s Service Pack %4:d (Version %1:d.%2:d, Build %3:d, %5:s)"
+    System_RTLConsts_SVersion32 L"32-bit Edition"
+    System_RTLConsts_SVersion64 L"64-bit Edition"
+    System_RTLConsts_SWindows L"Windows"
+    System_RTLConsts_SWindowsVista L"Windows Vista"
+    System_RTLConsts_SWindowsServer2008 L"Windows Server 2008"
+    System_RTLConsts_SWindows7 L"Windows 7"
+    System_RTLConsts_SWindowsServer2008R2 L"Windows Server 2008 R2"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_sTimespanTooLong L"Timespan too long"
+    System_RTLConsts_sInvalidTimespanDuration 
+                            "The duration cannot be returned because the absolute value exceeds the value of TTimeSpan.MaxValue"
+    System_RTLConsts_sTimespanValueCannotBeNan L"Value cannot be NaN"
+    System_RTLConsts_sCannotNegateTimespan 
+                            "Negating the minimum value of a Timespan is invalid"
+    System_RTLConsts_sInvalidTimespanFormat L"Invalid Timespan format"
+    System_RTLConsts_sTimespanElementTooLong L"Timespan element too long"
+    System_RTLConsts_SNoContext L"No context-sensitive help installed"
+    System_RTLConsts_SNoContextFound L"No help found for context %d"
+    System_RTLConsts_SNoIndex L"Unable to open Index"
+    System_RTLConsts_SNoSearch L"Unable to open Search"
+    System_RTLConsts_SNoTableOfContents L"Unable to find a Table of Contents"
+    System_RTLConsts_SNoTopics L"No topic-based help system installed"
+    System_RTLConsts_SNothingFound L"No help found for %s"
+    System_RTLConsts_SArgumentOutOfRange L"Argument out of range"
+    System_RTLConsts_SArgumentNil L"Argument must not be nil"
+    System_RTLConsts_SUnbalancedOperation 
+                            "Unbalanced stack or queue operation"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_sArgumentOutOfRange_StringIndex 
+                            "String index out of range (%d).  Must be >= %d and <= %d"
+    System_RTLConsts_sArgumentOutOfRange_InvalidUTF32 
+                            "Invalid UTF32 character value.  Must be >= 0 and <= $10FFFF, excluding surrogate pair ranges"
+    System_RTLConsts_sArgument_InvalidHighSurrogate 
+                            "High surrogate char without a following low surrogate char at index: %d. Check that the string is encoded properly"
+    System_RTLConsts_sArgument_InvalidLowSurrogate 
+                            "Low surrogate char without a preceding high surrogate char at index: %d. Check that the string is encoded properly"
+    System_RTLConsts_sInvalidStringAndObjectArrays 
+                            "Length of Strings and Objects arrays must be equal"
+    System_RTLConsts_sSameArrays 
+                            "Source and Destination arrays must not be the same"
+    System_RTLConsts_sNoConstruct L"Class %s is not intended to be constructed"
+    System_RTLConsts_sInvalidTimeoutValue L"Invalid Timeout value: %s"
+    System_RTLConsts_sSpinCountOutOfRange 
+                            "SpinCount out of range. Must be between 0 and %d"
+    System_RTLConsts_sInvalidResetCount L"Invalid Reset Count: %d"
+    System_RTLConsts_sInvalidInitialCount L"Invalid Count: %d"
+    System_RTLConsts_sInvalidDecrementCount L"Invalid Decrement Count: %d"
+    System_RTLConsts_sInvalidIncrementCount L"Invalid Increment Count: %d"
+    System_RTLConsts_sInvalidDecrementOperation 
+                            "Decrement amount will cause invalid results: Count: %d, CurCount: %d"
+    System_RTLConsts_sInvalidIncrementOperation 
+                            "Count already max: Amount: %d, CurCount: %d"
+    System_RTLConsts_sCountdownAlreadyZero 
+                            "Countdown already reached zero (0)"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_SThreadStartError 
+                            "Cannot call Start on a running or suspended thread"
+    System_RTLConsts_SThreadExternalCheckTerminated 
+                            "Cannot call CheckTerminated on an externally created thread"
+    System_RTLConsts_SThreadExternalSetReturnValue 
+                            "Cannot call SetReturnValue on an externally create thread"
+    System_RTLConsts_SParamIsNil L"Parameter %s cannot be nil"
+    System_RTLConsts_SParamIsNegative 
+                            "Parameter %s cannot be a negative value"
+    System_RTLConsts_SInputBufferExceed 
+                            "Input buffer exceeded for %s = %d, %s = %d"
+    System_RTLConsts_SInvalidCharsInPath L"Invalid characters in path"
+    System_RTLConsts_SPathTooLong L"The specified path is too long"
+    System_RTLConsts_SPathNotFound L"The specified path was not found"
+    System_RTLConsts_SPathFormatNotSupported 
+                            "The path format is not supported"
+    System_RTLConsts_SFileNotFound L"The specified file was not found"
+    System_RTLConsts_SMissingDateTimeField L"?"
+    System_RTLConsts_SLocalTimeInvalid 
+                            "The given ""%s"" local time is invalid (situated within the missing period prior to DST)."
+    System_RTLConsts_hNoFilterViewer L"No help viewer that supports filters"
+    System_RTLConsts_sArgumentInvalid L"Invalid argument"
+    System_RTLConsts_sArgumentOutOfRange_Index 
+                            "Index out of range (%d).  Must be >= 0 and < %d"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_SReadOnlyProperty L"Property is read-only"
+    System_RTLConsts_SRegCreateFailed L"Failed to create key %s"
+    System_RTLConsts_SRegGetDataFailed L"Failed to get data for '%s'"
+    System_RTLConsts_SRegSetDataFailed L"Failed to set data for '%s'"
+    System_RTLConsts_SResNotFound L"Resource %s not found"
+    System_RTLConsts_SSeekNotImplemented L"%s.Seek not implemented"
+    System_RTLConsts_SSortedListError L"Operation not allowed on sorted list"
+    System_RTLConsts_SStringExpected L"String expected"
+    System_RTLConsts_SSymbolExpected L"%s expected"
+    System_RTLConsts_SUnknownGroup L"%s not in a class registration group"
+    System_RTLConsts_SUnknownProperty L"Property %s does not exist"
+    System_RTLConsts_SWriteError L"Stream write error"
+    System_RTLConsts_SThreadCreateError L"Thread creation error: %s"
+    System_RTLConsts_SThreadError L"Thread Error: %s (%d)"
+    System_RTLConsts_SThreadExternalTerminate 
+                            "Cannot terminate an externally created thread"
+    System_RTLConsts_SThreadExternalWait 
+                            "Cannot wait for an externally created thread"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_SInvalidProperty L"Invalid property value"
+    System_RTLConsts_SInvalidPropertyPath L"Invalid property path"
+    System_RTLConsts_SInvalidPropertyValue L"Invalid property value"
+    System_RTLConsts_SInvalidRegType L"Invalid data type for '%s'"
+    System_RTLConsts_SInvalidString L"Invalid string constant"
+    System_RTLConsts_SLineTooLong L"Line too long"
+    System_RTLConsts_SListCapacityError L"List capacity out of bounds (%d)"
+    System_RTLConsts_SListCountError L"List count out of bounds (%d)"
+    System_RTLConsts_SListIndexError L"List index out of bounds (%d)"
+    System_RTLConsts_SMemoryStreamError 
+                            "Out of memory while expanding memory stream"
+    System_RTLConsts_SNoComSupport L"%s has not been registered as a COM class"
+    System_RTLConsts_SNumberExpected L"Number expected"
+    System_RTLConsts_SAnsiUTF8Expected L"ANSI or UTF8 encoding expected"
+    System_RTLConsts_SParseError L"%s on line %d"
+    System_RTLConsts_SPropertyException L"Error reading %s%s%s: %s"
+    System_RTLConsts_SReadError L"Stream read error"
+END
+
+STRINGTABLE
+BEGIN
+    System_RTLConsts_SCantWriteResourceStreamError 
+                            "Can't write to a read-only resource stream"
+    System_RTLConsts_SCharExpected L"''%s'' expected"
+    System_RTLConsts_SCheckSynchronizeError 
+                            "CheckSynchronize called from thread $%x, which is NOT the main thread"
+    System_RTLConsts_SClassNotFound L"Class %s not found"
+    System_RTLConsts_SDuplicateClass L"A class named %s already exists"
+    System_RTLConsts_SDuplicateItem L"List does not allow duplicates ($0%x)"
+    System_RTLConsts_SDuplicateName L"A component named %s already exists"
+    System_RTLConsts_SDuplicateString L"String list does not allow duplicates"
+    System_RTLConsts_SFCreateErrorEx L"Cannot create file ""%s"". %s"
+    System_RTLConsts_SFOpenErrorEx L"Cannot open file ""%s"". %s"
+    System_RTLConsts_SIdentifierExpected L"Identifier expected"
+    System_RTLConsts_SIniFileWriteError L"Unable to write to %s"
+    System_RTLConsts_SInvalidBinary L"Invalid binary value"
+    System_RTLConsts_SInvalidFileName L"Invalid file name - %s"
+    System_RTLConsts_SInvalidImage L"Invalid stream format"
+    System_RTLConsts_SInvalidName L"''%s'' is not a valid component name"
+END
+
+STRINGTABLE
+BEGIN
+    System_SysConst_SLongDayNameSat L"Saturday"
+    System_SysConst_SCannotCreateDir L"Unable to create directory"
+    System_SysConst_SInvalidSourceArray L"Invalid source array"
+    System_SysConst_SInvalidDestinationArray L"Invalid destination array"
+    System_SysConst_SCharIndexOutOfBounds L"Character index out of bounds (%d)"
+    System_SysConst_SByteIndexOutOfBounds L"Start index out of bounds (%d)"
+    System_SysConst_SInvalidCharCount L"Invalid count (%d)"
+    System_SysConst_SInvalidDestinationIndex L"Invalid destination index (%d)"
+    System_SysConst_SInvalidCodePage L"Invalid code page"
+    System_SysConst_SInvalidEncodingName L"Invalid encoding name"
+    System_SysConst_SNoMappingForUnicodeCharacter 
+                            "No mapping for the Unicode character exists in the target multi-byte code page"
+    System_SysConst_SInvalidStringBaseIndex L"Invalid StringBaseIndex"
+    System_SysConst_SOperationCancelled L"Operation Cancelled"
+    System_RTLConsts_SAncestorNotFound L"Ancestor for '%s' not found"
+    System_RTLConsts_SAssignError L"Cannot assign a %s to a %s"
+    System_RTLConsts_SBitsIndexError L"Bits index out of range"
+END
+
+STRINGTABLE
+BEGIN
+    System_SysConst_SLongMonthNameOct L"October"
+    System_SysConst_SLongMonthNameNov L"November"
+    System_SysConst_SLongMonthNameDec L"December"
+    System_SysConst_SShortDayNameSun L"Sun"
+    System_SysConst_SShortDayNameMon L"Mon"
+    System_SysConst_SShortDayNameTue L"Tue"
+    System_SysConst_SShortDayNameWed L"Wed"
+    System_SysConst_SShortDayNameThu L"Thu"
+    System_SysConst_SShortDayNameFri L"Fri"
+    System_SysConst_SShortDayNameSat L"Sat"
+    System_SysConst_SLongDayNameSun L"Sunday"
+    System_SysConst_SLongDayNameMon L"Monday"
+    System_SysConst_SLongDayNameTue L"Tuesday"
+    System_SysConst_SLongDayNameWed L"Wednesday"
+    System_SysConst_SLongDayNameThu L"Thursday"
+    System_SysConst_SLongDayNameFri L"Friday"
+END
+
+STRINGTABLE
+BEGIN
+    System_SysConst_SShortMonthNameJun L"Jun"
+    System_SysConst_SShortMonthNameJul L"Jul"
+    System_SysConst_SShortMonthNameAug L"Aug"
+    System_SysConst_SShortMonthNameSep L"Sep"
+    System_SysConst_SShortMonthNameOct L"Oct"
+    System_SysConst_SShortMonthNameNov L"Nov"
+    System_SysConst_SShortMonthNameDec L"Dec"
+    System_SysConst_SLongMonthNameJan L"January"
+    System_SysConst_SLongMonthNameFeb L"February"
+    System_SysConst_SLongMonthNameMar L"March"
+    System_SysConst_SLongMonthNameApr L"April"
+    System_SysConst_SLongMonthNameMay L"May"
+    System_SysConst_SLongMonthNameJun L"June"
+    System_SysConst_SLongMonthNameJul L"July"
+    System_SysConst_SLongMonthNameAug L"August"
+    System_SysConst_SLongMonthNameSep L"September"
+END
+
+STRINGTABLE
+BEGIN
+    System_SysConst_SIntfCastError L"Interface not supported"
+    System_SysConst_SSafecallException L"Exception in safecall method"
+    System_SysConst_SMonitorLockException L"Object lock not owned"
+    System_SysConst_SNoMonitorSupportException 
+                            "Monitor support function not initialized"
+    System_SysConst_SNotImplemented L"Feature not implemented"
+    System_SysConst_SObjectDisposed L"Method called on disposed object"
+    System_SysConst_SAssertError L"%s (%s, line %d)"
+    System_SysConst_SAbstractError L"Abstract Error"
+    System_SysConst_SModuleAccessViolation 
+                            "Access violation at address %p in module '%s'. %s of address %p"
+    System_SysConst_SOSError L"System Error.  Code: %d.\r\n%s%s"
+    System_SysConst_SUnkOSError L"A call to an OS function failed"
+    System_SysConst_SShortMonthNameJan L"Jan"
+    System_SysConst_SShortMonthNameFeb L"Feb"
+    System_SysConst_SShortMonthNameMar L"Mar"
+    System_SysConst_SShortMonthNameApr L"Apr"
+    System_SysConst_SShortMonthNameMay L"May"
+END
+
+STRINGTABLE
+BEGIN
+    System_SysConst_SInvalidVarOp L"Invalid variant operation"
+    System_SysConst_SInvalidVarNullOp L"Invalid NULL variant operation"
+    System_SysConst_SInvalidVarOpWithHResultWithPrefix 
+                            "Invalid variant operation (%s%.8x)\n%s"
+    System_SysConst_SVarTypeOutOfRangeWithPrefix 
+                            "Custom variant type (%s%.4x) is out of range"
+    System_SysConst_SVarTypeAlreadyUsedWithPrefix 
+                            "Custom variant type (%s%.4x) already used by %s"
+    System_SysConst_SVarTypeNotUsableWithPrefix 
+                            "Custom variant type (%s%.4x) is not usable"
+    System_SysConst_SVarTypeTooManyCustom 
+                            "Too many custom variant types have been registered"
+    System_SysConst_SVarTypeCouldNotConvert 
+                            "Could not convert variant of type (%s) into type (%s)"
+    System_SysConst_SVarTypeConvertOverflow 
+                            "Overflow while converting variant of type (%s) into type (%s)"
+    System_SysConst_SVarOverflow L"Variant overflow"
+    System_SysConst_SVarInvalid L"Invalid argument"
+    System_SysConst_SVarBadType L"Invalid variant type"
+    System_SysConst_SVarNotImplemented L"Operation not supported"
+    System_SysConst_SVarUnexpected L"Unexpected variant error"
+    System_SysConst_SExternalException L"External exception %x"
+    System_SysConst_SAssertionFailed L"Assertion failed"
+END
+
+STRINGTABLE
+BEGIN
+    System_SysConst_SPrivilege L"Privileged instruction"
+    System_SysConst_SOperationAborted L"Operation aborted"
+    System_SysConst_SException L"Exception %s in module %s at %p.\r\n%s%s\r\n"
+    System_SysConst_SExceptTitle L"Application Error"
+    System_SysConst_SInvalidFormat 
+                            "Format '%s' invalid or incompatible with argument"
+    System_SysConst_SArgumentMissing L"No argument for format '%s'"
+    System_SysConst_SDispatchError L"Variant method calls not supported"
+    System_SysConst_SReadAccess L"Read"
+    System_SysConst_SWriteAccess L"Write"
+    System_SysConst_SExecuteAccess L"Execution"
+    System_SysConst_SInvalidAccess L"Invalid access"
+    System_SysConst_SFormatTooLong L"Format string too long"
+    System_SysConst_SVarArrayCreate L"Error creating variant or safe array"
+    System_SysConst_SVarArrayBounds 
+                            "Variant or safe array index out of bounds"
+    System_SysConst_SVarArrayLocked L"Variant or safe array is locked"
+    System_SysConst_SInvalidVarCast L"Invalid variant type conversion"
+END
+
+STRINGTABLE
+BEGIN
+    System_SysConst_SEndOfFile L"Read beyond end of file"
+    System_SysConst_SDiskFull L"Disk full"
+    System_SysConst_SInvalidInput L"Invalid numeric input"
+    System_SysConst_SDivByZero L"Division by zero"
+    System_SysConst_SRangeError L"Range check error"
+    System_SysConst_SIntOverflow L"Integer overflow"
+    System_SysConst_SInvalidOp L"Invalid floating point operation"
+    System_SysConst_SZeroDivide L"Floating point division by zero"
+    System_SysConst_SOverflow L"Floating point overflow"
+    System_SysConst_SUnderflow L"Floating point underflow"
+    System_SysConst_SInvalidPointer L"Invalid pointer operation"
+    System_SysConst_SInvalidCast L"Invalid class typecast"
+    System_SysConst_SAccessViolationArg3 
+                            "Access violation at address %p. %s of address %p"
+    System_SysConst_SAccessViolationNoArg L"Access violation"
+    System_SysConst_SStackOverflow L"Stack overflow"
+    System_SysConst_SControlC L"Control-C hit"
+END
+
+STRINGTABLE
+BEGIN
+    System_SysConst_SUnknown L"<unknown>"
+    System_SysConst_SInvalidInteger L"'%s' is not a valid integer value"
+    System_SysConst_SInvalidFloat L"'%s' is not a valid floating point value"
+    System_SysConst_SInvalidFloat2 
+                            "'%s' is not a valid floating point value for %s type"
+    System_SysConst_SInvalidDate L"'%s' is not a valid date"
+    System_SysConst_SInvalidTime L"'%s' is not a valid time"
+    System_SysConst_SInvalidDateTime L"'%s' is not a valid date and time"
+    System_SysConst_SInvalidTimeStamp L"'%d.%d' is not a valid timestamp"
+    System_SysConst_SInvalidGUID L"'%s' is not a valid GUID value"
+    System_SysConst_SInvalidBoolean L"'%s' is not a valid boolean value"
+    System_SysConst_STimeEncodeError L"Invalid argument to time encode"
+    System_SysConst_SDateEncodeError L"Invalid argument to date encode"
+    System_SysConst_SOutOfMemory L"Out of memory"
+    System_SysConst_SInOutError L"I/O error %d"
+    System_SysConst_STooManyOpenFiles L"Too many open files"
+    System_SysConst_SAccessDenied L"File access denied"
+END
+

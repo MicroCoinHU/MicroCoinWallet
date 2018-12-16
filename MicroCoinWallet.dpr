@@ -132,9 +132,74 @@ uses
   MicroCoin.Transaction.Data in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.Data.pas'
   {$ENDIF};
 
+resourcestring
+  StrMicroCoinWallet = 'MicroCoin Wallet';
+
 {$R *.res}
 
+function SetResourceHInstance(NewInstance: Longint): LongInt;
+var
+  CurModule: PLibModule;
 begin
+  CurModule := LibModuleList;
+  Result := 0;
+  while CurModule <> nil do
+  begin
+    if CurModule.Instance = HInstance then
+    begin
+      if CurModule.ResInstance <> CurModule.Instance then
+        FreeLibrary(CurModule.ResInstance);
+      CurModule.ResInstance := NewInstance;
+      Result := NewInstance;
+      Exit;
+    end;
+    CurModule := CurModule.Next;
+  end;
+end;
+
+
+function LoadNewResourceModule(Locale: LCID): LongInt;
+var
+  FileName: array [0..260] of char;
+  P: PChar;
+  LocaleName: array[0..4] of Char;
+  NewInst: LongInt;
+
+begin
+  GetModuleFileName(HInstance, FileName, SizeOf(FileName));
+  GetLocaleInfo(Locale, LOCALE_SABBREVLANGNAME, LocaleName, SizeOf(LocaleName));
+  P := PChar(@FileName) + lstrlen(FileName);
+  while (P^ <> '.') and (P <> @FileName) do Dec(P);
+  NewInst := 0;
+  Result := 0;
+  if P <> @FileName then
+  begin
+    Inc(P);
+    if LocaleName[0] <> #0 then
+    begin
+      lstrcpy(P, LocaleName);
+      NewInst := LoadLibraryEx(FileName, 0, LOAD_LIBRARY_AS_DATAFILE);
+      if NewInst = 0 then
+      begin
+        LocaleName[2] := #0;
+        lstrcpy(P, LocaleName);
+        NewInst := LoadLibraryEx(FileName, 0, LOAD_LIBRARY_AS_DATAFILE);
+      end;
+    end;
+  end;
+  if NewInst <> 0 then
+    Result := SetResourceHInstance(NewInst)
+end;
+
+const
+  HUN = LANG_HUNGARIAN;
+
+var
+  wLang: LangID;
+begin
+  wLang := GetSystemDefaultLCID;
+  if wlang = 1038 // Hungarian
+  then LoadNewResourceModule(HUN);
   {$IFDEF DEBUG}
   ReportMemoryLeaksOnShutdown := true;
   {$ENDIF}
@@ -146,7 +211,7 @@ begin
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Slate Classico');
-  Application.Title := 'MicroCoin Wallet - '+ClientAppVersion{$IFDEF TESTNET}+' - TESTNET'{$ENDIF}{$IFDEF DEVNET}+' - DEVNET'{$ENDIF};
+  Application.Title := StrMicroCoinWallet + ' - '+ClientAppVersion{$IFDEF TESTNET}+' - TESTNET'{$ENDIF}{$IFDEF DEVNET}+' - DEVNET'{$ENDIF};
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.

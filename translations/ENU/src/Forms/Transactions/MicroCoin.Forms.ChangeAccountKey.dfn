@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm" source-language="en-US" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">43450.8658796296</prop>
+        <prop prop-type="OrigDateTime">43450.6683796296</prop>
+        <prop prop-type="XlatDateTime">43450.6683796296</prop>
+        <prop prop-type="Translated">0</prop>
+        <prop prop-type="UnTranslated">131</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="O:ChangeAccountKeyForm.Left" resname="O:ChangeAccountKeyForm.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">0</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Top" resname="O:ChangeAccountKeyForm.Top">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">1</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.BorderStyle" resname="O:ChangeAccountKeyForm.BorderStyle">
+        <source>bsSingle</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">2</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Caption" resname="O:ChangeAccountKeyForm.Caption">
+        <source>'Change account key'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">3</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.ClientHeight" resname="O:ChangeAccountKeyForm.ClientHeight">
+        <source>308</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">4</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.ClientWidth" resname="O:ChangeAccountKeyForm.ClientWidth">
+        <source>521</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">5</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Color" resname="O:ChangeAccountKeyForm.Color">
+        <source>clBtnFace</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">6</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Font.Charset" resname="O:ChangeAccountKeyForm.Font.Charset">
+        <source>DEFAULT_CHARSET</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">7</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Font.Color" resname="O:ChangeAccountKeyForm.Font.Color">
+        <source>clWindowText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">8</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Font.Height" resname="O:ChangeAccountKeyForm.Font.Height">
+        <source>-11</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">9</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Font.Name" resname="O:ChangeAccountKeyForm.Font.Name">
+        <source>'Tahoma'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.865886412</prop><prop prop-type="Status">0</prop><prop prop-type="Order">10</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Font.Style" resname="O:ChangeAccountKeyForm.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">11</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.OldCreateOrder" resname="O:ChangeAccountKeyForm.OldCreateOrder">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">12</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.Position" resname="O:ChangeAccountKeyForm.Position">
+        <source>poOwnerFormCenter</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">13</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.PixelsPerInch" resname="O:ChangeAccountKeyForm.PixelsPerInch">
+        <source>96</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">14</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.TextHeight" resname="O:ChangeAccountKeyForm.TextHeight">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">15</prop><prop prop-type="Type">TChangeAccountKeyForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label3.Left" resname="O:ChangeAccountKeyForm.O:Label3.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">16</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label3.Top" resname="O:ChangeAccountKeyForm.O:Label3.Top">
+        <source>65</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">17</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label3.Width" resname="O:ChangeAccountKeyForm.O:Label3.Width">
+        <source>22</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">18</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label3.Height" resname="O:ChangeAccountKeyForm.O:Label3.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">19</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label3.Caption" resname="O:ChangeAccountKeyForm.O:Label3.Caption">
+        <source>'Fee:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">20</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label1.Left" resname="O:ChangeAccountKeyForm.O:Label1.Left">
+        <source>121</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864236</prop><prop prop-type="Status">0</prop><prop prop-type="Order">21</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label1.Top" resname="O:ChangeAccountKeyForm.O:Label1.Top">
+        <source>65</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">22</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label1.Width" resname="O:ChangeAccountKeyForm.O:Label1.Width">
+        <source>75</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">23</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label1.Height" resname="O:ChangeAccountKeyForm.O:Label1.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">24</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Label1.Caption" resname="O:ChangeAccountKeyForm.O:Label1.Caption">
+        <source>'Signer account:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">25</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.Left" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">26</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.Top" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.Top">
+        <source>30</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">27</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.Width" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.Width">
+        <source>501</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">28</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.Height" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">29</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Width" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Width">
+        <source>130</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">30</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Height" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">31</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Caption" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Caption">
+        <source>'New owner'#39's public key'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864352</prop><prop prop-type="Status">0</prop><prop prop-type="Order">32</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Charset" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Charset">
+        <source>DEFAULT_CHARSET</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">33</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Color" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Color">
+        <source>clWindowText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">34</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Height" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Height">
+        <source>-11</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">35</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Name" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Name">
+        <source>'Tahoma'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">36</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Style" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.Font.Style">
+        <source>[fsBold]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">37</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.ParentFont" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.EditLabel.ParentFont">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">38</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edNewPublicKey.TabOrder" resname="O:ChangeAccountKeyForm.O:edNewPublicKey.TabOrder">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">39</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edFee.Left" resname="O:ChangeAccountKeyForm.O:edFee.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">40</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edFee.Top" resname="O:ChangeAccountKeyForm.O:edFee.Top">
+        <source>80</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">41</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edFee.Width" resname="O:ChangeAccountKeyForm.O:edFee.Width">
+        <source>100</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">42</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edFee.Height" resname="O:ChangeAccountKeyForm.O:edFee.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">43</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edFee.Alignment" resname="O:ChangeAccountKeyForm.O:edFee.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864468</prop><prop prop-type="Status">0</prop><prop prop-type="Order">44</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edFee.TabOrder" resname="O:ChangeAccountKeyForm.O:edFee.TabOrder">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">45</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edFee.Text" resname="O:ChangeAccountKeyForm.O:edFee.Text">
+        <source>'0'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">46</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.Left" resname="O:ChangeAccountKeyForm.O:payloadPanel.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">47</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.Top" resname="O:ChangeAccountKeyForm.O:payloadPanel.Top">
+        <source>119</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">48</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.Width" resname="O:ChangeAccountKeyForm.O:payloadPanel.Width">
+        <source>521</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">49</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.Height" resname="O:ChangeAccountKeyForm.O:payloadPanel.Height">
+        <source>148</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">50</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.Align" resname="O:ChangeAccountKeyForm.O:payloadPanel.Align">
+        <source>alBottom</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">51</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.BevelEdges" resname="O:ChangeAccountKeyForm.O:payloadPanel.BevelEdges">
+        <source>[beTop, beBottom]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">52</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.BevelKind" resname="O:ChangeAccountKeyForm.O:payloadPanel.BevelKind">
+        <source>bkSoft</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">53</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.BevelOuter" resname="O:ChangeAccountKeyForm.O:payloadPanel.BevelOuter">
+        <source>bvNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">54</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.Caption" resname="O:ChangeAccountKeyForm.O:payloadPanel.Caption">
+        <source>'payloadPanel'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864583</prop><prop prop-type="Status">0</prop><prop prop-type="Order">55</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.ShowCaption" resname="O:ChangeAccountKeyForm.O:payloadPanel.ShowCaption">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">56</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.TabOrder" resname="O:ChangeAccountKeyForm.O:payloadPanel.TabOrder">
+        <source>2</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">57</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Left" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">58</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Top" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Top">
+        <source>88</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">59</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Width" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Width">
+        <source>135</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">60</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Height" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">61</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Alignment" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">62</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Caption" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label7.Caption">
+        <source>'Payload encryption method:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">63</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Left" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Left">
+        <source>258</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">64</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Top" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Top">
+        <source>88</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">65</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Width" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Width">
+        <source>50</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">66</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Height" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">67</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Alignment" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">68</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Caption" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label9.Caption">
+        <source>'Password:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">69</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Left" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">70</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Top" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Top">
+        <source>7</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">71</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Width" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Width">
+        <source>42</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">72</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Height" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">73</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Alignment" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">74</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Caption" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:Label6.Caption">
+        <source>'Payload:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">75</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Left" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">76</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Top" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Top">
+        <source>107</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">77</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Width" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Width">
+        <source>244</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">78</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Height" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864815</prop><prop prop-type="Status">0</prop><prop prop-type="Order">79</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Style" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Style">
+        <source>csDropDownList</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">80</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.TabOrder" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.TabOrder">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">81</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.OnChange" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.OnChange">
+        <source>cbEncryptModeChange</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">82</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Items.Strings[0]" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Items.Strings[0]">
+        <source>'No encryption'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">83</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">(</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Items.Strings[1]" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Items.Strings[1]">
+        <source>'Encrypt with target public key'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">84</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Items.Strings[2]" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Items.Strings[2]">
+        <source>'Encrypt with your public key'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">85</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Items.Strings[3]" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:cbEncryptMode.Items.Strings[3]">
+        <source>'Password'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">86</prop><prop prop-type="Type">TComboBox</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">)</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Left" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Left">
+        <source>258</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">87</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Top" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Top">
+        <source>107</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">88</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Width" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Width">
+        <source>250</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">89</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Height" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">90</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Enabled" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.Enabled">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">91</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.PasswordChar" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.PasswordChar">
+        <source>'•'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658864931</prop><prop prop-type="Status">0</prop><prop prop-type="Order">92</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.TabOrder" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPassword.TabOrder">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">93</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.Left" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">94</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.Top" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.Top">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">95</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.Width" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.Width">
+        <source>500</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">96</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.Height" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.Height">
+        <source>57</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">97</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.TabOrder" resname="O:ChangeAccountKeyForm.O:payloadPanel.O:edPayload.TabOrder">
+        <source>2</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">98</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.Left" resname="O:ChangeAccountKeyForm.O:Panel2.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">99</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.Top" resname="O:ChangeAccountKeyForm.O:Panel2.Top">
+        <source>267</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">100</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.Width" resname="O:ChangeAccountKeyForm.O:Panel2.Width">
+        <source>521</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">101</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.Height" resname="O:ChangeAccountKeyForm.O:Panel2.Height">
+        <source>41</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">102</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.Align" resname="O:ChangeAccountKeyForm.O:Panel2.Align">
+        <source>alBottom</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">103</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.BevelOuter" resname="O:ChangeAccountKeyForm.O:Panel2.BevelOuter">
+        <source>bvNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865046</prop><prop prop-type="Status">0</prop><prop prop-type="Order">104</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.Caption" resname="O:ChangeAccountKeyForm.O:Panel2.Caption">
+        <source>'Panel2'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">105</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.ShowCaption" resname="O:ChangeAccountKeyForm.O:Panel2.ShowCaption">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">106</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.TabOrder" resname="O:ChangeAccountKeyForm.O:Panel2.TabOrder">
+        <source>3</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">107</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Left" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Left">
+        <source>433</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">108</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Top" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Top">
+        <source>7</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">109</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Width" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Width">
+        <source>75</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">110</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Height" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Height">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">111</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Caption" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.Caption">
+        <source>'Save'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">112</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.TabOrder" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.TabOrder">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">113</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.OnClick" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.OnClick">
+        <source>btnSaveClick</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">114</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.PngImage.Data" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnSave.PngImage.Data">
+        <source>89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF610000000473424954080808087C0864880000000970485973000001BB000001BB013AECE3E20000001974455874536F667477617265007777772E696E6B73636170652E6F72679BEE3C1A000002444944415478DA63FCFFFF3F032580116480AF8FCFFB1F3F7E0AE41796A24A3281482606262646064646209F0182BBBB3A183838D83F6CDEB245106C80B3A3D37F09490986E9B3173220BB07AC01A41148800C0122309D9391CE70F7EE5D86BDFBF731820D70B477F8AFA4A4C4307DD61C86C57B2EA1BA024A3032405C11E7AAC7909A9CCC70EFDE3D86FD070F400CB0B3B5FBAFA8A0C03077C10286BF7FFF8135C15C0292FFF71F4A83182017A4A530DC7FF080E1D0E14310036CAC6DFE2BC8CB334C9E351762234C33C40410021AF21F82818694E4A4333C78F890E1C8D1231003AC2C2CFFCBC9C931744F9DCDB072C771142FC06309E40A200C763567A82EC86478F4E811C3B113C72106589899FF9795956568E899CAF0E73F8A6EA82B209A41668122A6B52297E1F1E3C70C274E9D8418606662F25F465A86A4F87FF2F409C3A933672006181B1AFD97969222C980A7CF9E319C3D7F0E6280A19EFE7F490909B0444B473B03272727DCF9A03400027FFFFE65080B0E01D3CAC0287FFEE205C3F94B172106E86869FF171713032B4C0526921953A7317CFBFE8DA1B2BA1AC5D6299326333C7BFE8C414E4616EC822BD7AE420C505755FB2F2A220256149798C0307BC64C862F5FBE30945755A218B068FE02B046136363863367CF32DCBC7D0B6280AAB2F25B4E0E0E210E760E86B0C8488605F3E6015DF09D21BFB000C580658B9730BC7EF386C1404F8FE1D2E5CB0C77EEDF8318A0A6A0A0FFEBDFBFBDFFFFFD170E8F8A64606666C61A708B172E02C7290B330B031333D3877B0F1E403213250000225113F06C9904500000000049454E44AE426082</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">115</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Left" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Left">
+        <source>352</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865162</prop><prop prop-type="Status">0</prop><prop prop-type="Order">116</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Top" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Top">
+        <source>7</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">117</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Width" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Width">
+        <source>75</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">118</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Height" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Height">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">119</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Caption" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.Caption">
+        <source>'Cancel'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">120</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.ModalResult" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.ModalResult">
+        <source>2</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">121</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.TabOrder" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.TabOrder">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">122</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.PngImage.Data" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.PngImage.Data">
+        <source>89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF610000000473424954080808087C0864880000000970485973000001BB000001BB013AECE3E20000001974455874536F667477617265007777772E696E6B73636170652E6F72679BEE3C1A000002FD4944415478DA9D934B6813511486FF9BC9CC6492994993368DAD2F5AEBAB8D288AF5515FB8115A501716A58B8042458C015D880B5D0A821B1751100445F1DD2EC44711146BB1D6AAB50ADA4AA94AAB440D4D2624334D329366C6DBD280F85AF86FEEE2DEF371FF73FE432CCBC23F649B3ECDBF3D20BF02DE1C3B561BEBEA6A537A7A726275F512469248666464500A04ECFE0D1B9A971D3F3EF857C0E3969648ACA3A3B574CD6ADE531780E8F78310026D6C0CF1BE3E245EBDD22B1A1BCF6DBA7A35FC1B60B2F8DBFD8ED0BC6090F04E27461E3DC678340A41E021D7CC837BE16264D53446AF5DB7666DDB7EA6089902BCA0DF1E387DBABF6A6B130FC3C0BB3B7715DE983821B2EC759E652B448E7D80FA156EDE3F137A3A89E8C34EBDEEC081E5F5D4CE14A06DFDFA01928CD5FA57AEC1EBF6F6246391C5214D8BB589A25F92A51EE7DAFAEA0258A8E329302C8FCCA761C0533ED8FCE449DD14E0424D4DC233B3CC9B513524DF0E1D09E5F327AF8962B9C72DF7FAB66CAAD2A309A8BA86FEDE97289F3B1B25BE32A4BF2794DD1F3E944E026C1151CCCE58BD944B0F7F0489AB95022105D9E5ECAD5CB7B2CAA4C539A68067AFDF9ABEACBE7FC25772362B70B012E34658D38429C0290A30799393E9D8391D4B3D027F4B72D9AAA40C41DE61A13BAE9AA5593D28000FAD52E9FB98918569F2C6A1690022D482A57CF6BA08039F5D54EDA62679E339D8253B3A75D3741B6670AF655DB92C8A075D2E722A9ED791F3CE51C2D3167096361103CF6B2DAD8019E50EC8D10C44994567AE604AB438448B2FD28656940843E931C59D7232C807560DEE2B36F1111DE3D348A47FB660F0AE580E3E1F8F2E75020EC33A2C72DC4D99657755781D47EDC9941C176C789FE5F4867078F9E6E2182775890669B4FD4668918F23654A1E7031506D76B8EC2CBC8C099B92C157378BBEB861CDDDB1F34CF0E72015759E4286EFDD6B5DC0EB7C25475006028E4659A1775F8C020672BC3EBFA9E9DC9E3F45B9A8DBD4CE105DA6D1EEEE9C2849011B437F924ABD9BD3D0E058B87163F3D67F2DD3FFACF30F51A56FF4789ABE890000000049454E44AE426082</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">123</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.PngOptions" resname="O:ChangeAccountKeyForm.O:Panel2.O:btnCancel.PngOptions">
+        <source>[pngBlendOnDisabled, pngGrayscaleOnDisabled]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">124</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edSignerAccount.Left" resname="O:ChangeAccountKeyForm.O:edSignerAccount.Left">
+        <source>121</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">125</prop><prop prop-type="Type">TAccountEditor</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edSignerAccount.Top" resname="O:ChangeAccountKeyForm.O:edSignerAccount.Top">
+        <source>80</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">126</prop><prop prop-type="Type">TAccountEditor</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edSignerAccount.Width" resname="O:ChangeAccountKeyForm.O:edSignerAccount.Width">
+        <source>101</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">127</prop><prop prop-type="Type">TAccountEditor</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edSignerAccount.Height" resname="O:ChangeAccountKeyForm.O:edSignerAccount.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865278</prop><prop prop-type="Status">0</prop><prop prop-type="Order">128</prop><prop prop-type="Type">TAccountEditor</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edSignerAccount.Glyph.Data" resname="O:ChangeAccountKeyForm.O:edSignerAccount.Glyph.Data">
+        <source>89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF610000000473424954080808087C086488000000097048597300000AF000000AF00142AC34980000001874455874536F6674776172650041646F62652046697265776F726B734FB31F4E000002104944415478DAAD934F68134114C6DFFCD9ECA6D9AA49B3110FB1E9A901414A52ACC941688F221E048FE2218807A1D853B120143C880862D183A08857A12AE2A128B12AD42ED816914221C6042A455A68F3C7B5249BEECEF8B2B11749B050071ECCCEDBEFC7F7F69B25524AD8CF22FF1DF07C7ABAAB37161B2494F8AA95EAF2F0C8C8C69E014B8B0B9739576E08290DAF49A02E8478904824C7FE09585CF87411C54F544D83886100A114CAA51258960508799448262F7504BC9E99F18523C60FBFE6EFE98FF703A5ACD5440BC54201CA953234ECC6B1543ABDD21660CECF1F679C7F8946A3601861701CC76B527451ABD5209FFF06C275474F0C0DDD6B0BF8383737C039FF1CEB8B41301802DBAE375BC039839D1D07BEE67260284EA67720F5B82DE06D36ABE9BABEAE77771F8CE308CD332124F87C0A148B45286D6EC1ED6567E269267DB3E347C431AEA08BFB8140008C480418A3B08942625BF022F70BC63F6C83CAC454FDEE99AB1D63344D739C517A1DB781E6B3A65061162AAB632FBFF7B93812650C98146FD470CFF9AD3B677FB6BD48EF6667C3AAAA9EC404D4909F2EC513A9D5AED3B71E2AD2C94842416232146045276270EDD5B5DA9EAFF2E15313A3A2519FF2DE4788A61F38B2969D5C27ADC4E11056104BC552B09AC7D48BA2B5840BB0113A3A7C8EEBD10BD2D97E5FCD3F9BB4856C39E0C4E3F03FA25D21F9DB8523A5B5BB67A871A574F7FD37FE06FFAFE4E1AECBFBD30000000049454E44AE426082</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865394</prop><prop prop-type="Status">0</prop><prop prop-type="Order">129</prop><prop prop-type="Type">TAccountEditor</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:ChangeAccountKeyForm.O:edSignerAccount.JustMyAccounts" resname="O:ChangeAccountKeyForm.O:edSignerAccount.JustMyAccounts">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43450.8658865394</prop><prop prop-type="Status">0</prop><prop prop-type="Order">130</prop><prop prop-type="Type">TAccountEditor</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

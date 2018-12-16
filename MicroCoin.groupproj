@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EF1188F3-CB96-4619-A530-D721CF4DBA5D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MicroCoinWallet.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Translations\HUN\MicroCoinWallet_HUN.bdsproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Translations\ENU\MicroCoinWallet_ENU.bdsproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MicroCoinWallet">
+        <MSBuild Projects="MicroCoinWallet.dproj"/>
+    </Target>
+    <Target Name="MicroCoinWallet:Clean">
+        <MSBuild Projects="MicroCoinWallet.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MicroCoinWallet:Make">
+        <MSBuild Projects="MicroCoinWallet.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MicroCoinWallet_HUN">
+        <MSBuild Projects="Translations\HUN\MicroCoinWallet_HUN.bdsproj"/>
+    </Target>
+    <Target Name="MicroCoinWallet_HUN:Clean">
+        <MSBuild Projects="Translations\HUN\MicroCoinWallet_HUN.bdsproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MicroCoinWallet_HUN:Make">
+        <MSBuild Projects="Translations\HUN\MicroCoinWallet_HUN.bdsproj" Targets="Make"/>
+    </Target>
+    <Target Name="MicroCoinWallet_ENU">
+        <MSBuild Projects="Translations\ENU\MicroCoinWallet_ENU.bdsproj"/>
+    </Target>
+    <Target Name="MicroCoinWallet_ENU:Clean">
+        <MSBuild Projects="Translations\ENU\MicroCoinWallet_ENU.bdsproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MicroCoinWallet_ENU:Make">
+        <MSBuild Projects="Translations\ENU\MicroCoinWallet_ENU.bdsproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MicroCoinWallet;MicroCoinWallet_HUN;MicroCoinWallet_ENU"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MicroCoinWallet:Clean;MicroCoinWallet_HUN:Clean;MicroCoinWallet_ENU:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MicroCoinWallet:Make;MicroCoinWallet_HUN:Make;MicroCoinWallet_ENU:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
