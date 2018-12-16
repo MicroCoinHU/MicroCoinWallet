@@ -71,6 +71,15 @@ var
 
 implementation
 uses UECIES, UAES;
+
+resourcestring
+  StrUnlockWallet = 'Unlock wallet';
+  StrPassword = 'Password:';
+  StrInvalidKey = 'Invalid key: ';
+  StrInvalidFee = 'Invalid fee';
+  StrKeyNotFound = 'Key not found';
+  StrDoYouWantExecute = 'Do you want execute this transaction: ';
+  StrTransactionExecuted = 'Transaction executed';
 {$R *.dfm}
 
 procedure TChangeAccountKeyForm.btnSaveClick(Sender: TObject);
@@ -87,24 +96,24 @@ begin
 
   while not TNode.Node.KeyManager.IsValidPassword
   do begin
-    if not InputQuery('Unlock wallet', [#30+'Password:'], xPassword) then exit;
+    if not InputQuery(StrUnlockWallet, [#30+StrPassword], xPassword) then exit;
     TNode.Node.KeyManager.WalletPassword := xPassword;
   end;
 
   if not TAccountKey.AccountKeyFromImport(edNewPublicKey.Text, xNewkey, xErrors) then
   begin
-    MessageDlg('Invalid key: ' + xErrors, mtError, [mbOK],0);
+    MessageDlg(StrInvalidKey + xErrors, mtError, [mbOK],0);
     exit;
   end;
 
   if not TCurrencyUtils.ParseValue(edFee.Text, xFee) then begin
-   MessageDlg('Invalid fee', mtError, [mbOk], 0);
+   MessageDlg(StrInvalidFee, mtError, [mbOk], 0);
    exit;
   end;
 
   xIndex := TNode.Node.KeyManager.IndexOfAccountKey(Account.AccountInfo.AccountKey);
   if xIndex<0 then begin
-   MessageDlg('Key not found', mtError, [mbOk], 0);
+   MessageDlg(StrKeyNotFound, mtError, [mbOk], 0);
    exit;
   end;
 
@@ -123,13 +132,13 @@ begin
          TNode.Node.KeyManager.Key[xIndex].PrivateKey,
          xNewkey, xFee, xPayload);
 
-  if MessageDlg('Do you want execute this transaction: '+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
+  if MessageDlg(StrDoYouWantExecute+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
   then exit;
 
   if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
     MessageDlg(xErrors, mtError, [mbOK], 0);
   end else begin
-    MessageDlg('Transaction executed', mtInformation, [mbOK], 0);
+    MessageDlg(StrTransactionExecuted, mtInformation, [mbOK], 0);
   end;
 
 end;

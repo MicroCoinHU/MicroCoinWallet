@@ -47,6 +47,7 @@ object AccountSelectDialog: TAccountSelectDialog
     OnInitChildren = accountVListInitChildren
     OnInitNode = accountVListInitNode
     OnNodeDblClick = accountVListNodeDblClick
+    ExplicitTop = 45
     Columns = <
       item
         Alignment = taRightJustify

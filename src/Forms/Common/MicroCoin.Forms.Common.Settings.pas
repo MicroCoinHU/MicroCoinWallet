@@ -97,6 +97,10 @@ implementation
 
 uses UConst, MicroCoin.Node.Node, MicroCoin.Account.AccountKey;
 
+resourcestring
+  StrServerPortAndJSONRPCPortEquals = 'Server port and JSON RPC port are equ' +
+  'al';
+
 {$R *.dfm}
 
 procedure TSettingsForm.btnCancelClick(Sender: TObject);
@@ -111,7 +115,7 @@ var
 begin
   if editMinerServerPort.Value = editJSONRPCPort.Value
   then begin
-    MessageDlg('Server port and JSON RPC port are equal', mtError, [mbOK], 0);
+    MessageDlg(StrServerPortAndJSONRPCPortEquals, mtError, [mbOK], 0);
     exit;
   end;
   xMiningMode := 0;

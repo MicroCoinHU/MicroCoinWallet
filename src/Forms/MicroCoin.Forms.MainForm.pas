@@ -344,6 +344,55 @@ uses UFolderHelper, OpenSSL, OpenSSLdef, UConst, UTime, MicroCoin.BlockChain.Fil
   MicroCoin.Forms.Common.About, MicroCoin.Transaction.HashTree,
   MicroCoin.Net.NodeServer, MicroCoin.Net.ConnectionManager;
 
+resourcestring
+  NewTransaction = 'New transaction';
+  StrReallyWantToRevokeSell = 'Really want to revoke sell?';
+  StrTransactionExecuted = 'Transaction executed sucessfully';
+  StrCanNotOpenWallet = 'Can not open wallet file: %s';
+  StrAnErrorOccoured = 'An error occoured: %s';
+  StrRestartApplication = 'Restart application?';
+  StrCanNotLoadRequiredLibrary = 'Can not load required library: %s';
+  StrCannotCreateDir = 'Cannot create dir: ';
+  StrRestoringTheWindow = 'Restoring the window.';
+  StrDoubleClickTheSystemTray = 'Double click the system tray icon to restore MicroCoin Wallet';
+  StrPleaseSelectAccounts = 'Please select accounts';
+  StrNewForMiner = 'New for miner %s';
+  StrUnlockWallet = 'Unlock wallet';
+  StrPassword = 'Password:';
+  StrInvalidAmount = 'Invalid amount';
+  StrInvalidFee = 'Invalid fee';
+  StrInvalidAccountNumber = 'Invalid account number';
+  StrPleaseSelectSenderAccount = 'Please select sender account from the list' +
+  ' on the right side';
+  StrSenderPrivateKeyNotFound = 'Sender private key not found';
+  StrNotEnoughMoney = 'Not enough money';
+  StrInvalidTargetAccount = 'Invalid target account, account does not exists';
+  StrTargetAccountIsLocked = 'Target Account is locked. Please try after 10 ' +
+  'blocks';
+  StrSenderAccountIsLocked = 'Sender Account is locked. Please try after 10 ' +
+  'blocks';
+  StrExecuteTransaction = 'Execute transaction? ';
+  StrTransactionSuccessfullyExecuted = 'Transaction successfully executed';
+  StrActive = 'Active';
+  StrStopped = 'Stopped';
+  StrClientsServers = '%d clients | %d servers';
+  StrTraffic = 'Traffic: %.0n Kb | %.0n Kb';
+  StrExceptionAtTimerUpdate = 'Exception at TimerUpdate %s: %s';
+  StrNone = '(none)';
+  StrDownloadingBlocks = 'Downloading blocks: %.0n / %.0n';
+  StrBlocks0n = 'Blocks: %.0n';
+  StrDifficulty0x = 'Difficulty: 0x';
+  StrLastOptiomalDeviation = 'Last %s: %s sec. (Optimal %ss) Deviation %s';
+  StrConnectedJSONRPCClients = '%d connected JSON-RPC clients';
+  StrNoJSONRPCClients = 'No JSON-RPC clients';
+  StrJSONRPCServerNotActive = 'JSON-RPC server not active';
+  StrLastBlock = 'Last block: %s';
+  StrDiscoveringServers = 'Discovering servers';
+  StrObtainingNewBlockchain = 'Obtaining new blockchain';
+  StrRunning = 'Running';
+  StrAloneInTheWorld = 'Alone in the world...';
+  StrAllMyPrivateKeys = '(All my private keys)';
+
 type
   TThreadActivate = class(TPCThread)
   protected
@@ -459,7 +508,7 @@ begin
   if xIndex < 0
   then exit;
 
-  if MessageDlg('Really want to revoke sell?',mtConfirmation,[mbYes, mbNo],0) <> mrYes
+  if MessageDlg(StrReallyWantToRevokeSell, mtConfirmation,[mbYes, mbNo],0) <> mrYes
   then exit;
 
   xPrivateKey := TNode.Node.KeyManager[xIndex].PrivateKey;
@@ -474,7 +523,7 @@ begin
   if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
      MessageDlg(xErrors, mtError, [mbOk],0);
   end else begin
-     MessageDlg('Transaction executed sucessfully', mtInformation, [mbOk], 0);
+     MessageDlg(StrTransactionExecuted, mtInformation, [mbOk], 0);
   end;
 end;
 
@@ -679,7 +728,7 @@ begin
     except
       on E: Exception do
       begin
-        E.Message := Format('Can not open wallet file: %s', [E.Message]);
+        E.Message := Format(StrCanNotOpenWallet, [E.Message]);
         raise;
       end;
     end;
@@ -718,7 +767,7 @@ begin
   except
     on E: Exception do
     begin
-      E.Message := Format('An error occoured: %s', [E.Message]);
+      E.Message := Format(StrAnErrorOccoured, [E.Message]);
       Application.MessageBox(PChar(E.Message), PChar(Application.Title), MB_ICONERROR + MB_OK);
       Halt;
     end;
@@ -1017,7 +1066,7 @@ end;
 
 procedure TMainForm.ConfirmRestart;
 begin
-  if MessageDlg('Restart application?', {$IFDEF fpc} rsYouNeedResta, {$ENDIF} mtConfirmation, [mbYes, mbNo],{$IFDEF fpc}''{$ELSE}0{$ENDIF}) = mrYes then
+  if MessageDlg(StrRestartApplication, {$IFDEF fpc} rsYouNeedResta, {$ENDIF} mtConfirmation, [mbYes, mbNo],{$IFDEF fpc}''{$ELSE}0{$ENDIF}) = mrYes then
     Application.Terminate;
 end;
 
@@ -1115,7 +1164,7 @@ var
 begin
   Caption := Application.Title;
   if not LoadSSLCrypt then begin
-    MessageDlg(Format('Can not load required library: %s', [SSL_C_LIB]), mtError, [mbOk], 0);
+    MessageDlg(Format(StrCanNotLoadRequiredLibrary, [SSL_C_LIB]), mtError, [mbOk], 0);
     Free;
     Exit;
   end;
@@ -1162,7 +1211,7 @@ begin
   FLog.OnNewLog := OnNewLog;
   FLog.SaveTypes := [];
   if not ForceDirectories(TFolderHelper.GetMicroCoinDataFolder) then
-    raise Exception.Create('Cannot create dir: ' + TFolderHelper.GetMicroCoinDataFolder);
+    raise Exception.Create(StrCannotCreateDir + TFolderHelper.GetMicroCoinDataFolder);
   FAppSettings := TAppSettings.Create;
   FAppSettings.FileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'AppParams.prm';
 {$IFNDEF TESTNET}
@@ -1183,8 +1232,8 @@ begin
   cbExploreMyAccountsClick(nil);
   TrayIcon.Visible := true;
   TrayIcon.Hint := Self.Caption;
-  TrayIcon.BalloonTitle := 'Restoring the window.';
-  TrayIcon.BalloonHint := 'Double click the system tray icon to restore MicroCoin Wallet';
+  TrayIcon.BalloonTitle := StrRestoringTheWindow;
+  TrayIcon.BalloonHint := StrDoubleClickTheSystemTray;
   TrayIcon.BalloonFlags := bfInfo;
   MinersBlocksFound := 0;
   FBackgroundPanel := TPanel.Create(Self);
@@ -1264,7 +1313,7 @@ procedure TMainForm.MultipleTransactionActionExecute(Sender: TObject);
 begin
   if accountVList.CheckedCount = 0
   then begin
-    MessageDlg('Please select accounts', TMsgDlgType.mtWarning, [mbOK], 0);
+    MessageDlg(StrPleaseSelectAccounts, TMsgDlgType.mtWarning, [mbOK], 0);
     exit;
   end;
 end;
@@ -1310,7 +1359,7 @@ begin
     xPrivateKey := TECPrivateKey.Create;
     try
       xPrivateKey.GenerateRandomPrivateKey(cDefault_EC_OpenSSL_NID);
-      TNode.Node.KeyManager.AddPrivateKey('New for miner ' + DateTimeToStr(now), xPrivateKey);
+      TNode.Node.KeyManager.AddPrivateKey(Format(StrNewForMiner, [DateTimeToStr(now)]), xPrivateKey);
       xPublicKey := xPrivateKey.PublicKey;
     finally
       xPrivateKey.Free;
@@ -1540,7 +1589,7 @@ begin
        then begin
          xNotification := NotificationCenter.CreateNotification;
          try
-           xNotification.Title := 'New transaction';
+           xNotification.Title := NewTransaction;
            xNotification.AlertBody := xTransaction.ToString;
            xNotification.Name := xTransaction.ToString;
            NotificationCenter.PresentNotification(xNotification);
@@ -1698,30 +1747,30 @@ begin
 
   while not TNode.Node.KeyManager.IsValidPassword
   do begin
-   if not InputQuery('Unlock wallet', [#30+'Password:'], xPassword) then exit;
+   if not InputQuery(StrUnlockWallet, [#30+StrPassword], xPassword) then exit;
    TNode.Node.KeyManager.WalletPassword := xPassword;
   end;
 
   xPassword := '';
 
   if not TCurrencyUtils.ParseValue(amountEdit.Text, xAmount) then begin
-    MessageDlg('Invalid amount', mtError, [mbOK], 0);
+    MessageDlg(StrInvalidAmount, mtError, [mbOK], 0);
     exit;
   end;
 
   if not TCurrencyUtils.ParseValue(feeEdit.Text, xFee) then begin
-    MessageDlg('Invalid fee', mtError, [mbOK], 0);
+    MessageDlg(StrInvalidFee, mtError, [mbOK], 0);
     exit;
   end;
 
   if not TAccount.ParseAccountNumber(edTargetAccount.Text, xTargetAccountNumber, xParent) then
   begin
-    MessageDlg('Invalid account number', TMsgDlgType.mtError, [mbOK],0);
+    MessageDlg(StrInvalidAccountNumber, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
 
   if accountVList.FocusedNode = nil then begin
-    MessageDlg('Please select sender account from the list on the right side', TMsgDlgType.mtError, [mbOK],0);
+    MessageDlg(StrPleaseSelectSenderAccount, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
   if accountVList.GetNodeLevel(accountVList.FocusedNode)=0
@@ -1738,19 +1787,19 @@ begin
   end;
 
   if i<0 then begin
-    MessageDlg('Sender private key not found', TMsgDlgType.mtError, [mbOK],0);
+    MessageDlg(StrSenderPrivateKeyNotFound, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
 
   if (xAmount + xFee) > xSenderAccount.Balance then begin
-    MessageDlg('Not enough money', TMsgDlgType.mtError, [mbOK],0);
+    MessageDlg(StrNotEnoughMoney, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
   {$IFDEF EXTENDEDACCOUNT}
   if xSenderSubAccount > 0
   then begin
     if (xAmount + xFee) > xSenderAccount.SubAccounts[xSenderSubAccount-1].Balance then begin
-      MessageDlg('Not enough money', TMsgDlgType.mtError, [mbOK],0);
+      MessageDlg(StrNotEnoughMoney, TMsgDlgType.mtError, [mbOK],0);
       exit;
     end;
   end;
@@ -1763,23 +1812,23 @@ begin
   {$ENDIF}
   except on E:Exception do
     begin
-      MessageDlg('Invalid target account, account does not exists', TMsgDlgType.mtError, [mbOK],0);
+      MessageDlg(StrInvalidTargetAccount, TMsgDlgType.mtError, [mbOK],0);
       exit;
     end;
   end;
 
   if xTargetAccount.IsAccountBlockedByProtocol(xTargetAccount.AccountNumber, TNode.Node.BlockManager.BlocksCount-1)
   then begin
-    MessageDlg('Target Account is locked. Please try after 10 blocks', TMsgDlgType.mtError, [mbOK],0);
+    MessageDlg(StrTargetAccountIsLocked, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
 
   if xSenderAccount.IsAccountBlockedByProtocol(xSenderAccount.AccountNumber, TNode.Node.BlockManager.BlocksCount-1)
   then begin
-    MessageDlg('Sender Account is locked. Please try after 10 blocks', TMsgDlgType.mtError, [mbOK],0);
+    MessageDlg(StrSenderAccountIsLocked, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
-
+{
   if xTargetAccount.AccountNumber = 528
   then begin
     if Trim(payloadEdit.Text)='' then begin
@@ -1793,6 +1842,7 @@ begin
      else exit;
     end;
   end;
+}
 
   if Trim(payloadEdit.Text)<>'' then begin
      case encryptModeSelect.ItemIndex of
@@ -1820,7 +1870,7 @@ begin
   end;
 {$ENDIF}
 
-  if MessageDlg('Execute transaction? '+xTransaction.ToString, mtConfirmation, [mbYes, mbNo], 0)<>mrYes
+  if MessageDlg(StrExecuteTransaction+xTransaction.ToString, mtConfirmation, [mbYes, mbNo], 0)<>mrYes
   then exit;
 
   if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
@@ -1832,7 +1882,7 @@ begin
     payloadEdit.Lines.Clear;
     encryptionPassword.Clear;
     edTargetAccount.Text := '';
-    MessageDlg('Transaction successfully executed', TMsgDlgType.mtInformation, [mbOK], 0);
+    MessageDlg(StrTransactionSuccessfullyExecuted, TMsgDlgType.mtInformation, [mbOK], 0);
   end;
 end;
 
@@ -1880,8 +1930,8 @@ begin
     xRect.Left := xRect.Left + 23;
     xRect.Top := xRect.Top;
     if TNode.Node.NetServer.Active
-    then xText := 'Active'
-    else xText := 'Stopped';
+    then xText := StrActive
+    else xText := StrStopped;
     StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, xRect, [tfLeft] , StatusBar.Canvas.Font.Color);
   end;
   if Panel.Index = 1 then begin
@@ -1895,7 +1945,7 @@ begin
     StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, xRect, miscIcons.Handle, xIndex);
     xRect.Left := xRect.Left + 23;
     xRect.Top := xRect.Top;
-    xText := Format('%d clients | %d servers', [TConnectionManager.Instance.NetStatistics.ClientsConnections, TConnectionManager.Instance.NetStatistics.ServersConnections]);
+    xText := Format(StrClientsServers, [TConnectionManager.Instance.NetStatistics.ClientsConnections, TConnectionManager.Instance.NetStatistics.ServersConnections]);
     StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, xRect, [tfLeft] , StatusBar.Canvas.Font.Color);
   end;
 
@@ -1906,7 +1956,7 @@ begin
     StyleServices.DrawIcon(StatusBar.Canvas.Handle, xDetails, xRect, miscIcons.Handle, 6);
     xRect.Left := xRect.Left + 23;
     xRect.Top := xRect.Top;
-    xText := Format('Traffic: %.0n Kb | %.0n Kb',
+    xText := Format(StrTraffic,
       [TConnectionManager.Instance.NetStatistics.BytesReceived/1024,
        TConnectionManager.Instance.NetStatistics.BytesSend/1024]);
        StyleServices.DrawText(StatusBar.Canvas.Handle, xDetails, xText, xRect, [tfLeft] , StatusBar.Canvas.Font.Color);
@@ -1928,7 +1978,7 @@ begin
   except
     on E: Exception do
     begin
-      E.Message := Format('Exception at TimerUpdate %s: %s', [E.Classname, E.Message]);
+      E.Message := Format(StrExceptionAtTimerUpdate, [E.Classname, E.Message]);
       TLog.NewLog(lterror, Classname, E.Message);
     end;
   end;
@@ -2023,7 +2073,7 @@ begin
       lblCurrentBlock.Caption := IntToStr(TNode.Node.BlockManager.BlocksCount) + ' (0..' +
         IntToStr(TNode.Node.BlockManager.BlocksCount - 1) + ')';;
     end
-    else lblCurrentBlock.Caption := '(none)';
+    else lblCurrentBlock.Caption := StrNone;
     lblCurrentAccounts.Caption := IntToStr(TNode.Node.BlockManager.AccountsCount);
     lblCurrentBlockTime.Caption := UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
     labelOperationsPending.Caption := IntToStr(TNode.Node.TransactionStorage.Count);
@@ -2031,7 +2081,7 @@ begin
     if TConnectionManager.Instance.MaxRemoteOperationBlock.block > TNode.Node.BlockManager.BlocksCount
     then begin
       StatusBar.Panels[3].Text :=
-      Format('Downloading blocks: %.0n / %.0n', [TNode.Node.BlockManager.BlocksCount+0.0,
+      Format(StrDownloadingBlocks, [TNode.Node.BlockManager.BlocksCount+0.0,
                                                  TConnectionManager.Instance.MaxRemoteOperationBlock.block+0.0
       ]);
       if Assigned(FBackgroundPanel) then begin
@@ -2041,12 +2091,12 @@ begin
       end;
     end
     else begin
-      StatusBar.Panels[3].Text := 'Blocks: ' + Format('%.0n', [TNode.Node.BlockManager.BlocksCount+0.0]) + ' | ' + 'Difficulty: 0x' +
+      StatusBar.Panels[3].Text := Format(StrBlocks0n, [TNode.Node.BlockManager.BlocksCount+0.0]) + ' | ' + StrDifficulty0x +
         IntToHex(TNode.Node.TransactionStorage.BlockHeader.compact_target, 8);
     end;
     favg := TNode.Node.BlockManager.GetActualTargetSecondsAverage(cDifficultyCalcBlocks);
     F := (cBlockTime - favg) / cBlockTime;
-    lblTimeAverage.Caption := Format('Last %s: %s sec. (Optimal %ss) Deviation %s', [IntToStr(cDifficultyCalcBlocks), FormatFloat('0.0', favg),
+    lblTimeAverage.Caption := Format(StrLastOptiomalDeviation, [IntToStr(cDifficultyCalcBlocks), FormatFloat('0.0', favg),
       IntToStr(cBlockTime), FormatFloat('0.00%', F * 100)]);
     if favg >= cBlockTime then
     begin
@@ -2083,12 +2133,12 @@ begin
   begin
     if FPoolMiningServer.ClientsCount > 0 then
     begin
-      labelMinersClients.Caption := Format('%s connected JSON-RPC clients', [IntToStr(FPoolMiningServer.ClientsCount)]);
+      labelMinersClients.Caption := Format(StrConnectedJSONRPCClients, [(FPoolMiningServer.ClientsCount)]);
       labelMinersClients.Font.Color := clNavy;
     end
     else
     begin
-      labelMinersClients.Caption := 'No JSON-RPC clients';
+      labelMinersClients.Caption := StrNoJSONRPCClients;
       labelMinersClients.Font.Color := clDkGray;
     end;
     MinersBlocksFound := FPoolMiningServer.ClientsWins;
@@ -2096,7 +2146,7 @@ begin
   else
   begin
     MinersBlocksFound := 0;
-    labelMinersClients.Caption := 'JSON-RPC server not active';
+    labelMinersClients.Caption := StrJSONRPCServerNotActive;
     labelMinersClients.Font.Color := clRed;
   end;
   //if TConnectionManager.Instance.IsGettingNewBlockChainFromClient then begin
@@ -2162,11 +2212,11 @@ begin
   OnNetStatisticsChanged(nil);
   if TNode.Node.IsBlockChainValid(xErrors) then
   begin
-    StatusBar.Panels[4].Text := 'Last block: ' + UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
+    StatusBar.Panels[4].Text := Format(StrLastBlock, [UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp)]);
   end
   else
   begin
-    StatusBar.Panels[4].Text := 'Last block: ' + UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
+    StatusBar.Panels[4].Text := Format(StrLastBlock, [UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp)]);
   end;
 end;
 
@@ -2181,21 +2231,21 @@ begin
       lblNodeStatus.Font.Color := clGreen;
       if TConnectionManager.Instance.IsDiscoveringServers then
       begin
-        lblNodeStatus.Caption := 'Discovering servers';
+        lblNodeStatus.Caption := StrDiscoveringServers;
       end
       else if TConnectionManager.Instance.IsGettingNewBlockChainFromClient then
       begin
-        lblNodeStatus.Caption := 'Obtaining new blockchain';
+        lblNodeStatus.Caption := StrObtainingNewBlockchain;
       end
       else
       begin
-        lblNodeStatus.Caption := 'Running';
+        lblNodeStatus.Caption := StrRunning;
       end;
     end
     else
     begin
       lblNodeStatus.Font.Color := clRed;
-      lblNodeStatus.Caption := 'Alone in the world...';
+      lblNodeStatus.Caption := StrAloneInTheWorld;
     end;
   end
   else
@@ -2252,7 +2302,7 @@ begin
     end;
     cbMyPrivateKeys.Sorted := true;
     cbMyPrivateKeys.Sorted := false;
-    cbMyPrivateKeys.Items.InsertObject(0, '(All my private keys)', TObject(-1));
+    cbMyPrivateKeys.Items.InsertObject(0, StrAllMyPrivateKeys, TObject(-1));
   finally
     cbMyPrivateKeys.Items.EndUpdate;
   end;

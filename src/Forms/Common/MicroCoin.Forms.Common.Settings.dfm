@@ -40,10 +40,6 @@ object SettingsForm: TSettingsForm
     object TabSheet1: TTabSheet
       Caption = 'Application options'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label5: TLabel
         Left = 12
         Top = 6

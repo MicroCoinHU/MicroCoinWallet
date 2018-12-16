@@ -69,6 +69,11 @@ uses MicroCoin.Node.Node, MicroCoin.BlockChain.Block, UConst,
   MicroCoin.Transaction.ITransaction, MicroCoin.Transaction.Base,
   DateUtils, MicroCoin.Common, MicroCoin.Account.Data, MicroCoin.BlockChain.BlockHeader;
 
+resourcestring
+  StrLastUpdated = 'Last updated: %s';
+  StrTransactions = '%.0n transactions';
+  StrBlockchainReward = 'Blockchain reward';
+
 {$R *.dfm}
 
 type
@@ -87,14 +92,14 @@ procedure TTransactionExplorer.FormCreate(Sender: TObject);
 begin
   transactionListView.RootNodeCount := TNode.Node.BlockManager.BlocksCount;
   transactionListView.NodeDataSize := SizeOf(TTreeNode);
-  Label1.Caption := Format('Last updated: %s', [FormatDateTime('c', Now)]);
+  Label1.Caption := Format(StrLastUpdated, [FormatDateTime('c', Now)]);
 end;
 
 procedure TTransactionExplorer.RefreshActionExecute(Sender: TObject);
 begin
   transactionListView.RootNodeCount := TNode.Node.BlockManager.BlocksCount;
   transactionListView.ReinitNode(nil, true);
-  Label1.Caption := Format('Last updated: %s', [FormatDateTime('c', Now)]);
+  Label1.Caption := Format(StrLastUpdated, [FormatDateTime('c', Now)]);
 end;
 
 procedure TTransactionExplorer.transactionListViewDrawText(Sender: TBaseVirtualTree; TargetCanvas: TCanvas;
@@ -173,7 +178,7 @@ begin
     case Column of
       0: CellText := FormatDateTime('c', UnixToDateTime(xNode.Timestamp, false));
       1: CellText := Format('%.0n', [xNode.BlockNumber+0.0]);
-      3: CellText := Format('%.0n transactions', [xTransactionCount+0.0]);
+      3: CellText := Format(StrTransactions, [xTransactionCount+0.0]);
       4: CellText :=  TCurrencyUtils.CurrencyToString(xAmount);
       5: CellText :=  TCurrencyUtils.CurrencyToString(xFee);
       6: CellText :=  TCurrencyUtils.CurrencyToString(Abs(xFee)+Abs(xAmount));
@@ -252,7 +257,7 @@ begin
     xData^.Block := xBlock.Block;
     xData^.time := xBlock.Timestamp;
     xData^.AffectedAccount := xBlock.Block * cAccountsPerBlock;
-    xData^.TransactionAsString := 'Blockchain reward';
+    xData^.TransactionAsString := StrBlockchainReward;
     xData^.Amount := xBlock.reward;
     xData^.Fee := xBlock.Fee;
     xData^.Balance := xBlock.reward + xBlock.Fee;

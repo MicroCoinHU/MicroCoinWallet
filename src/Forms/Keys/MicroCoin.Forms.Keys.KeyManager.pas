@@ -123,6 +123,42 @@ implementation
 uses MicroCoin.Node.Node, MicroCoin.Account.AccountKey, UWalletKeys, PlatformVclStylesActnCtrls,
      UConst, Clipbrd, UAES;
 
+resourcestring
+  StrKeyName = 'Key name:';
+  StrEnterName = 'Enter name:';
+  StrMicroCoinPaperWallet = 'MicroCoin Paper Wallet (%s)';
+  StrChangeWalletPassword = 'Change wallet password';
+  StrNewPassword = 'New password';
+  StrPasswordAgain = 'Password again';
+  StrPasswordsNotMatch = 'Passwords not match';
+  StrPasswordChanged = 'Password changed';
+  StrDoYouWantToDELETE = 'Do you want to DELETE this key? Delete is unrevers' +
+  'ible!!!';
+  StrChangeName = 'Change name';
+  StrInputNewKeyName = 'Input new key name:';
+  StrEncryptExportedKey = 'Encrypt exported key';
+  StrEnterPassword = 'Enter password';
+  StrRepeatPassword = 'Repeat password';
+
+  StrPrivateKeyCopiedToClipboard = 'Private key copied to clipboard';
+  StrPublicKeyCopiedToClipboard = 'Public key copied to clipboard';
+  StrImportKeys = 'Import keys';
+  StrInvalidPassword = 'Invalid password';
+  StrImportPrivateKey = 'Import private key';
+  StrName = 'Name';
+  StrPrivateKey = 'Private key';
+  StrPassword = 'Password';
+  StrInvalidKey = 'Invalid key';
+  StrInvalidKeyOrPassw = 'Invalid key or password';
+  StrImportPublicKey = 'Import public key';
+  StrEncodedPublicKey = 'Encoded public key';
+  StrAccountKeyAlreadyExists = 'Account key already exists in wallet';
+  StrPrivatePublicKey = 'Private & Public key';
+  StrPublicKey = 'Public key';
+  StrWalletSavedTo = 'Wallet saved to %s';
+  StrUnlockWallet = 'Unlock wallet';
+  StrYourPassword = 'Your password:';
+
 {$R *.dfm}
 
 procedure TWalletKeysForm.AddNewKeyExecute(Sender: TObject);
@@ -131,7 +167,7 @@ var
   xName: string;
 begin
   if not UnlockWallet then exit;
-  if InputQuery('Key name:', 'Enter name:', xName) then begin
+  if InputQuery(StrKeyName, StrEnterName, xName) then begin
     xKey := TECPrivateKey.Create;
     xKey.GenerateRandomPrivateKey(TAction(Sender).Tag);
     TNode.Node.KeyManager.AddPrivateKey(xName, xKey);
@@ -169,7 +205,7 @@ begin
 
     Printer.Canvas.Font.Size := 20;
 
-    xText:=Format('MicroCoin Paper Wallet (%s)', [ UTF8ToString( TWalletKey(keyList.FocusedNode.GetData^).Name )]);
+    xText:=Format(StrMicroCoinPaperWallet, [ UTF8ToString( TWalletKey(keyList.FocusedNode.GetData^).Name )]);
 
     xRect.Left := 0;
     xRect.Top := Printer.Canvas.TextExtent(xText).Height + xMargin;
@@ -228,20 +264,20 @@ var
 begin
   if not UnlockWallet then exit;
   repeat
-    if not InputQuery('Change wallet password', [#30+'New password', #30+'Password again'], xPassword)
+    if not InputQuery(StrChangeWalletPassword, [#30+StrNewPassword, #30+StrPasswordAgain], xPassword)
     then exit;
     if xPassword[0] <> xPassword[1]
-    then MessageDlg('Passwords not match', mtError, [mbOk], 0)
+    then MessageDlg(StrPasswordsNotMatch, mtError, [mbOk], 0)
     else break;
   until true;
   TNode.Node.KeyManager.WalletPassword := xPassword[0];
-  MessageDlg('Password changed', mtInformation, [mbOK], 0);
+  MessageDlg(StrPasswordChanged, mtInformation, [mbOK], 0);
 end;
 
 procedure TWalletKeysForm.DeleteKeyExecute(Sender: TObject);
 begin
   if not UnlockWallet then exit;
-  if MessageDlg('Do you want to DELETE this key? Delete is unreversible!!!', mtWarning, [mbYes, mbNo], 0) = mrYes
+  if MessageDlg(StrDoYouWantToDELETE, mtWarning, [mbYes, mbNo], 0) = mrYes
   then begin
     TNode.Node.KeyManager.Delete(keyList.FocusedNode.Index);
     keyList.RootNodeCount := TNode.Node.KeyManager.Count;
@@ -259,7 +295,7 @@ var
   xName: String;
 begin
   if not UnlockWallet then exit;
-  if InputQuery('Change name','Input new key name:',xName) then begin
+  if InputQuery(StrChangeName,StrInputNewKeyName,xName) then begin
     if xName = '' then exit;
     TNode.Node.KeyManager.SetName(keyList.FocusedNode.Index, xName);
     keyList.ReinitNode(keyList.FocusedNode, true);
@@ -276,13 +312,13 @@ var
   xPass: array[0..1] of string;
 begin
   if not UnlockWallet then exit;
-  if InputQuery('Encrypt exported key', [#30+'Enter password', #30+'Repeat password'], {$IFDEF FPC}true,{$ENDIF} xPass)
+  if InputQuery(StrEncryptExportedKey, [#30+StrEnterPassword, #30+StrRepeatPassword], {$IFDEF FPC}true,{$ENDIF} xPass)
   then begin
-    if xPass[0]<>xPass[1] then raise Exception.Create('Passwords not match');
+    if xPass[0]<>xPass[1] then raise Exception.Create(StrPasswordsNotMatch);
     if xPass[0]<>''
     then Clipboard.AsText := TCrypto.ToHexaString( TAESComp.EVP_Encrypt_AES256( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey.ExportToRaw, xPass[0]) )
     else Clipboard.AsText := TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey);
-    MessageDlg('Private key copied to clipboard', mtInformation, [mbOk], 0);
+    MessageDlg(StrPrivateKeyCopiedToClipboard, mtInformation, [mbOk], 0);
   end else exit;
 end;
 
@@ -295,7 +331,7 @@ procedure TWalletKeysForm.ExportPublicKeyExecute(Sender: TObject);
 begin
   if not UnlockWallet then exit;
   Clipboard.AsText := TWalletKey(keyList.FocusedNode.GetData^).AccountKey.AccountPublicKeyExport;
-  MessageDlg('Public key copied to clipboard', mtInformation, [mbOk], 0);
+  MessageDlg(StrPublicKeyCopiedToClipboard, mtInformation, [mbOk], 0);
 end;
 
 procedure TWalletKeysForm.ExportPublicKeyUpdate(Sender: TObject);
@@ -326,12 +362,12 @@ begin
     xKeys := TWalletKeys.Create(nil);
     xKeys.WalletFileName := OpenWalletDialog.FileName;
     if not xKeys.IsValidPassword then begin
-      if not InputQuery('Import keys', #30+'Enter password', xPassword)
+      if not InputQuery(StrImportKeys, #30+StrEnterPassword, xPassword)
       then exit;
         xKeys.WalletPassword := xPassword;
         if not xKeys.IsValidPassword
         then begin
-          MessageDlg('Invalid password', mtError, [mbOk], 0);
+          MessageDlg(StrInvalidPassword, mtError, [mbOk], 0);
           exit;
         end;
       end;
@@ -389,7 +425,7 @@ begin
   if not UnlockWallet
   then exit;
 
-  if not InputQuery('Import private key', ['Name', 'Private key', #30+'Password'], xData )
+  if not InputQuery(StrImportPrivateKey, [StrName, StrPrivateKey, #30+StrPassword], xData )
   then exit;
 
   xData[0] := trim(xData[0]);
@@ -405,7 +441,7 @@ begin
   xEncodedKey := TCrypto.HexaToRaw(xData[1]);
   if xEncodedKey = ''
   then begin
-    MessageDlg('Invalid key', mtError, [mbOk], 0);
+    MessageDlg(StrInvalidKey, mtError, [mbOk], 0);
     exit;
   end;
   case Length(xEncodedKey) of
@@ -415,13 +451,13 @@ begin
        65,66: xResult := ParseRawKey(cNID_secp521r1, xEncodedKey);
        64, 80, 96: xResult := ParseEncryptedKey(xData[2], xEncodedKey);
        else begin
-         MessageDlg('Invalid key', mtError, [mbOk], 0);
+         MessageDlg(StrInvalidKey, mtError, [mbOk], 0);
          exit;
        end;
   end;
   if xResult = nil
   then begin
-    MessageDlg('Invalid key or password', mtError, [mbOk], 0);
+    MessageDlg(StrInvalidKeyOrPassw, mtError, [mbOk], 0);
     exit;
   end;
   TNode.Node.KeyManager.AddPrivateKey(xData[0], xResult);
@@ -442,7 +478,7 @@ var
   xRawKey: string;
 begin
   if not UnlockWallet then exit;
-  if not InputQuery('Import public key', ['Key name', 'Encoded public key'], xData)
+  if not InputQuery(StrImportPublicKey, [StrKeyName, StrEncodedPublicKey], xData)
   then exit;
   if not TAccountKey.AccountPublicKeyImport(xData[1], xAccountKey, xErrors)
   then begin
@@ -460,7 +496,7 @@ begin
   end;
   if TNode.Node.KeyManager.IndexOfAccountKey(xAccountKey) > -1
   then begin
-    MessageDlg('Account key already exists in wallet', mtInformation, [mbOk], 0);
+    MessageDlg(StrAccountKeyAlreadyExists, mtInformation, [mbOk], 0);
     exit;
   end;
   if xData[0] = ''
@@ -527,7 +563,7 @@ begin
   case Column of
     0: CellText := UTF8ToString(xKey.Name);
     1: CellText := TAccountKey.GetECInfoTxt(xKey.AccountKey.EC_OpenSSL_NID);
-    2: if Assigned(xKey.PrivateKey) then CellText := 'Private & Public key' else CellText := 'Public key';
+    2: if Assigned(xKey.PrivateKey) then CellText := StrPrivatePublicKey else CellText := StrPublicKey;
   end;
 end;
 
@@ -591,7 +627,7 @@ begin
     xStream := TFileStream.Create(xFilename, fmCreate);
     try
       TNode.Node.KeyManager.SaveToStream(xStream);
-      MessageDlg(Format('Wallet saved to %s', [xFilename]), mtInformation, [mbOk], 0);
+      MessageDlg(Format(StrWalletSavedTo, [xFilename]), mtInformation, [mbOk], 0);
     finally
       FreeAndNil(xStream);
     end;
@@ -610,7 +646,7 @@ begin
   Result := TNode.Node.KeyManager.IsValidPassword;
   while not TNode.Node.KeyManager.IsValidPassword
   do begin
-    if not InputQuery('Unlock wallet', #30+'Your password:', xPassword)
+    if not InputQuery(StrUnlockWallet, #30+StrYourPassword, xPassword)
     then exit;
     TNode.Node.KeyManager.WalletPassword := xPassword;
   end;

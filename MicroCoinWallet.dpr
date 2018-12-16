@@ -145,7 +145,7 @@ begin
     DefaultFormatSettings.ThousandSeparator := ',';
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('MicroCoin Light');
+  TStyleManager.TrySetStyle('Slate Classico');
   Application.Title := 'MicroCoin Wallet - '+ClientAppVersion{$IFDEF TESTNET}+' - TESTNET'{$ENDIF}{$IFDEF DEVNET}+' - DEVNET'{$ENDIF};
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;

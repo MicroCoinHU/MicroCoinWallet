@@ -76,6 +76,14 @@ var
 
 implementation
 
+resourcestring
+  StrTransactionSuccessfullyExecuted = 'Transaction successfully executed';
+  StrDoYouWantExecute = 'Do you want execute this transaction: ';
+  StrPrivateKeyNotFound = 'Private key not found in wallet';
+  StrInvalidFee = 'Invalid fee';
+  StrUnlockWallet = 'Unlock wallet';
+  StrPassword = 'Password:';
+
 {$R *.dfm}
 
 { TEditAccountForm }
@@ -95,7 +103,7 @@ begin
 
   while not TNode.Node.KeyManager.IsValidPassword
   do begin
-   if not InputQuery('Unlock wallet', [#30+'Password:'], xPassword) then exit;
+   if not InputQuery(StrUnlockWallet, [#30+StrPassword], xPassword) then exit;
    TNode.Node.KeyManager.WalletPassword := xPassword;
   end;
 
@@ -111,13 +119,13 @@ begin
   xSignerKey := TNode.Node.KeyManager[xIndex];
 
   if not TCurrencyUtils.ParseValue(edFee.Text, xFee) then begin
-    MessageDlg('Invalid fee', mtError, [mbOk], 0);
+    MessageDlg(StrInvalidFee, mtError, [mbOk], 0);
     exit;
   end;
 
   xIndex :=  TNode.Node.KeyManager.IndexOfAccountKey(xAccount.AccountInfo.AccountKey);
   if xIndex<0 then begin
-    MessageDlg('Private key not found in wallet', mtError, [mbOk],0);
+    MessageDlg(StrPrivateKeyNotFound, mtError, [mbOk],0);
     exit;
   end;
 
@@ -141,12 +149,12 @@ begin
      edAccountType.Text<>IntToStr(xAccount.AccountType),
      StrToUInt(edAccountType.Text),
      xFee, xPayload);
-    if MessageDlg('Do you want execute this transaction: '+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
+    if MessageDlg(StrDoYouWantExecute+xTransaction.ToString+'?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes
     then exit;
     if not TNode.Node.AddTransaction(nil, xTransaction, xErrors)
     then MessageDlg(xErrors, mtError, [mbOk], 0)
     else begin
-      MessageDlg('Transaction successfully executed', mtInformation, [mbOK], 0);
+      MessageDlg(StrTransactionSuccessfullyExecuted, mtInformation, [mbOK], 0);
       Close;
     end;
 end;

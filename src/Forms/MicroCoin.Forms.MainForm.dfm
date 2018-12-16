@@ -4618,14 +4618,6 @@ object MainForm: TMainForm
             Caption = '-'
           end
           item
-            Action = ExchangeAction
-            Caption = 'E&xchange info'
-            ImageIndex = 5
-          end
-          item
-            Caption = '-'
-          end
-          item
             Action = SettingsAction
             Caption = '&Options'
             ImageIndex = 4
@@ -4723,6 +4715,7 @@ object MainForm: TMainForm
       Category = 'Wallet'
       Caption = 'Exchange info'
       ImageIndex = 5
+      Visible = False
       OnExecute = ExchangeActionExecute
     end
   end
@@ -4765,12 +4758,6 @@ object MainForm: TMainForm
           end
           item
             Caption = '-'
-          end
-          item
-            Visible = False
-            Action = CreateSubAccountAction
-            Caption = 'Cre&ate subaccount'
-            ImageIndex = 11
           end
           item
             Visible = False
@@ -6575,8 +6562,8 @@ object MainForm: TMainForm
     Bitmap = {}
   end
   object NotificationCenter: TNotificationCenter
-    Left = 465
-    Top = 327
+    Left = 217
+    Top = 119
   end
   object ApplicationEvents: TApplicationEvents
     OnException = ApplicationEventsException

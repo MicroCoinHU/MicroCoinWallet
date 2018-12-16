@@ -75,6 +75,9 @@ uses
   MicroCoin.Node.Node, MicroCoin.Transaction.ITransaction, DateUtils,
   MicroCoin.Common;
 
+resourcestring
+  StrPending = 'Pending';
+
 {$R *.dfm}
 
 procedure TTransactionHistoryForm.FormClose(Sender: TObject;
@@ -164,7 +167,7 @@ begin
   case Column of
      0: if xData.time>0
         then CellText := FormatDateTime('c', DateUtils.UnixToDateTime(xData.time, false))
-        else CellText := 'Pending';
+        else CellText := StrPending;
      1: CellText := Format('%.0n',[xData.Block+0.0]);
      2: CellText := TAccount.AccountNumberToString(xData.AffectedAccount);
      3: CellText := xData.TransactionAsString;

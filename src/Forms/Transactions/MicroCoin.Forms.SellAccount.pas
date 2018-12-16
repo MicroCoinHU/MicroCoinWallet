@@ -83,6 +83,16 @@ var
 
 implementation
 
+resourcestring
+  StrEstimatedValidUntil = 'Estimated valid until: ';
+  StrUnlockWallet = 'Unlock wallet';
+  StrPassword = 'Password:';
+  StrInvalidPrice = 'Invalid price';
+  StrInvalidFee = 'Invalid fee';
+  StrPrivateKeyNotFound = 'Private key not found';
+  StrInvalidPublicKey = 'Invalid public key: ';
+  StrTransactionSucessfullyExecuted = 'Transaction sucessfully executed';
+
 {$R *.dfm}
 
 procedure TSellAccountForm.cbEncryptModeChange(Sender: TObject);
@@ -116,14 +126,14 @@ begin
   xBlock := xBlock * 5 * 60;
   if xBlock2>xBlock then
   lbOfferValidTime.Caption :=
-  'Estimated valid until: '
+  StrEstimatedValidUntil
    + FormatDateTime('c',UnixToDateTime(TNode.Node.BlockManager.LastBlockFound.TimeStamp + xBlock, false))
    + ' ~ ' + FormatDateTime('c',UnixToDateTime(TNode.Node.BlockManager.LastBlockFound.TimeStamp + xBlock2, false))
 
   else
 
   lbOfferValidTime.Caption :=
-  'Estimated valid until: '
+   StrEstimatedValidUntil
    + FormatDateTime('c',UnixToDateTime(TNode.Node.BlockManager.LastBlockFound.TimeStamp + xBlock2, false))
    + ' ~ ' + FormatDateTime('c',UnixToDateTime(TNode.Node.BlockManager.LastBlockFound.TimeStamp + xBlock, false));
 
@@ -155,23 +165,23 @@ begin
 
   while not TNode.Node.KeyManager.IsValidPassword
   do begin
-   if not InputQuery('Unlock wallet', [#30+'Password:'], xPassword) then exit;
+   if not InputQuery(StrUnlockWallet, [#30+StrPassword], xPassword) then exit;
    TNode.Node.KeyManager.WalletPassword := xPassword;
   end;
 
   if not TCurrencyUtils.ParseValue(edPrice.Text, xPrice) then begin
-    MessageDlg('Invalid price', mtError, [mbOk], 0);
+    MessageDlg(StrInvalidPrice, mtError, [mbOk], 0);
     exit;
   end;
 
   if not TCurrencyUtils.ParseValue(edFee.Text, xFee) then begin
-    MessageDlg('Invalid fee', mtError, [mbOk], 0);
+    MessageDlg(StrInvalidFee, mtError, [mbOk], 0);
     exit;
   end;
 
   xIndex := TNode.Node.KeyManager.IndexOfAccountKey(edSignerAccount.Account.AccountInfo.AccountKey);
   if xIndex < 0 then begin
-    MessageDlg('Private key not found', mtError, [mbOK], 0);
+    MessageDlg(StrPrivateKeyNotFound, mtError, [mbOK], 0);
     exit;
   end;
 
@@ -186,7 +196,7 @@ begin
   if edNewPublicKey.Text<>''
   then if not TAccountKey.AccountKeyFromImport(edNewPublicKey.Text, xNewkey, xErrors)
        then begin
-         MessageDlg('Invalid public key: ' + xErrors, mtError, [mbOK], 0);
+         MessageDlg(StrInvalidPublicKey + xErrors, mtError, [mbOK], 0);
          exit;
        end;
 
@@ -199,7 +209,7 @@ begin
   if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
      MessageDlg(xErrors, mtError, [mbOk], 0);
   end else begin
-     MessageDlg('Transaction sucessfully executed', mtInformation, [mbOk], 0);
+     MessageDlg(StrTransactionSucessfullyExecuted, mtInformation, [mbOk], 0);
      Close;
   end;
 end;

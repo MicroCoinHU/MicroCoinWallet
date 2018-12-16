@@ -71,6 +71,13 @@ implementation
 
 uses UECIES, UAES;
 
+resourcestring
+  StrUnlockWallet = 'Unlock wallet';
+  StrPassword = 'Password:';
+  StrInvalidFee = 'Invalid fee';
+  StrAccountPurchased = 'Account purchased';
+  StrBuyAccount = 'Buy account: %s';
+
 {$R *.dfm}
 
 procedure TBuyAccountForm.btnSaveClick(Sender: TObject);
@@ -86,13 +93,13 @@ var
 begin
   while not TNode.Node.KeyManager.IsValidPassword
   do begin
-   if not InputQuery('Unlock wallet', [#30+'Password:'], xPassword) then exit;
+   if not InputQuery(StrUnlockWallet, [#30+StrPassword], xPassword) then exit;
    TNode.Node.KeyManager.WalletPassword := xPassword;
   end;
 
   if not TCurrencyUtils.ParseValue(edFee.Text, xFee)
   then begin
-    MessageDlg('Invalid fee', mtError, [mbOk], 0);
+    MessageDlg(StrInvalidFee, mtError, [mbOk], 0);
     exit;
   end;
 
@@ -124,7 +131,7 @@ begin
   if not TNode.Node.AddTransaction(nil, xTransaction, xErrors)
   then MessageDlg(xErrors, mtError, [mbOk], 0)
   else begin
-    MessageDlg('Account purchased', mtInformation, [mbOk], 0);
+    MessageDlg(StrAccountPurchased, mtInformation, [mbOk], 0);
     Close;
   end;
 end;
@@ -145,7 +152,7 @@ end;
 procedure TBuyAccountForm.SetAccount(const Value: TAccount);
 begin
   FAccount := Value;
-  Caption := Format('Buy account: %s', [ TAccount.AccountNumberToString(Account.AccountNumber) ]);
+  Caption := Format(StrBuyAccount, [ TAccount.AccountNumberToString(Account.AccountNumber) ]);
 end;
 
 end.
