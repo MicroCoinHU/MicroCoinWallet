@@ -56,7 +56,7 @@ uses
   PlatformDefaultStyleActnCtrls, ActnMan, ImageList,
   VirtualTrees, PngBitBtn, PngSpeedButton, ActnCtrls,
   MicroCoin.Transaction.Base, MicroCoin.Transaction.TransferMoney, MicroCoin.Transaction.ChangeKey,
-  MicroCoin.Forms.EditAccount, MicroCoin.Exchange.MapleChange,
+  MicroCoin.Forms.EditAccount,
   MicroCoin.Account.AccountKey, MicroCoin.Common.Lists, MicroCoin.Common,
   MicroCoin.Transaction.ITransaction,
   MicroCoin.Account.Data, Types, httpsend,
@@ -263,7 +263,6 @@ type
     procedure HomePageActionExecute(Sender: TObject);
     procedure accountVListInitChildren(Sender: TBaseVirtualTree;
       Node: PVirtualNode; var ChildCount: Cardinal);
-    procedure ExchangeActionExecute(Sender: TObject);
     procedure QRCodeDisplayClick(Sender: TObject);
     procedure edTargetAccountKeyPress(Sender: TObject; var Key: Char);
     procedure CreateSubAccountActionUpdate(Sender: TObject);
@@ -338,7 +337,7 @@ implementation
 {$R *.lfm}
 {$ENDIF}
 
-uses UFolderHelper, OpenSSL, OpenSSLdef, UConst, UTime, MicroCoin.BlockChain.FileStorage,
+uses UFolderHelper, OpenSSLDef, openssl, UConst, UTime, MicroCoin.BlockChain.FileStorage,
   UThread, UECIES, Threading,MicroCoin.Transaction.TransactionList,
   MicroCoin.Forms.Common.About, MicroCoin.Transaction.HashTree,
   MicroCoin.Net.NodeServer, MicroCoin.Net.ConnectionManager;
@@ -436,7 +435,7 @@ var
   errors: AnsiString;
   opc : TTransactionHashTree;
   res: TTransactionList;
-  xtrs : array of ITRansaction;
+  xtrs : array of ITransaction;
 begin
   {$IFDEF EXTENDEDACCOUNT}
  // CreateSubaccount;
@@ -1149,11 +1148,6 @@ begin
   else encryptionPassword.Text := '';
 end;
 
-procedure TMainForm.ExchangeActionExecute(Sender: TObject);
-begin
-  TMapleChangeForm.Create(nil).ShowModal;
-end;
-
 procedure TMainForm.FinishedLoadingApp;
 var
   i : integer;
@@ -1842,7 +1836,7 @@ begin
  {$ENDIF}
 
   try
-    xTargetAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(IfThen(xParent=-1, xTargetAccountNumber, xParent));
+    xTargetAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[IfThen(xParent=-1, xTargetAccountNumber, xParent)];
   {$IFDEF EXTENDEDACCOUNT}
     if xParent>-1 then xTargetSubAccount := xTargetAccountNumber;
   {$ENDIF}

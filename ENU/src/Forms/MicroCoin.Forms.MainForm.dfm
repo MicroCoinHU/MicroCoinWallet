@@ -4716,7 +4716,6 @@ object MainForm: TMainForm
       Caption = 'Exchange info'
       ImageIndex = 5
       Visible = False
-      OnExecute = ExchangeActionExecute
     end
   end
   object AccountListActions: TActionManager

@@ -247,7 +247,7 @@ begin
   if Sender.GetNodeLevel(Node) = 0 then
   begin
     xBlockNumber := TNode.Node.BlockManager.BlocksCount - Node.Index - 1;
-    xBlock := TNode.Node.BlockManager.AccountStorage.Block(xBlockNumber).BlockHeader;
+    xBlock := TNode.Node.BlockManager.AccountStorage.Blocks[xBlockNumber].BlockHeader;
     xNode.Timestamp := xBlock.Timestamp;
     xNode.BlockNumber := xBlock.Block;
     xNode.Transactions := TList.Create;

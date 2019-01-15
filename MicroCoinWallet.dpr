@@ -123,14 +123,8 @@ uses
   MicroCoin.Forms.SellAccount in 'src\Forms\Transactions\MicroCoin.Forms.SellAccount.pas' {SellAccountForm},
   MicroCoin.Forms.Transaction.Explorer in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.pas' {TransactionExplorer},
   MicroCoin.Forms.Transaction.History in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.History.pas' {TransactionHistoryForm},
-  MicroCoin.Exchange.MapleChange in 'src\Forms\Exchange\MicroCoin.Exchange.MapleChange.pas',
-  MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm}
-  {$IFDEF EXTENDEDACCOUNT}
-  ,
-  MicroCoin.Transaction.TransaferMoneyExtended in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.TransaferMoneyExtended.pas',
-  MicroCoin.Forms.Transaction.CreateSubAccount in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.pas' {CreateSubaccountForm},
-  MicroCoin.Transaction.Data in 'src\MicroCoin\Transaction\Plugins\MicroCoin.Transaction.Data.pas'
-  {$ENDIF};
+  MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm},
+  MicroCoin.Common.Stream in 'src\MicroCoin\Common\MicroCoin.Common.Stream.pas';
 
 resourcestring
   StrMicroCoinWallet = 'MicroCoin Wallet';

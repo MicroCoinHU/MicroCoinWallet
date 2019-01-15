@@ -107,7 +107,7 @@ begin
    TNode.Node.KeyManager.WalletPassword := xPassword;
   end;
 
-  xAccount := TNode.Node.BlockManager.AccountStorage.Account(FAccountNumber);
+  xAccount := TNode.Node.BlockManager.AccountStorage.Accounts[FAccountNumber];
   if edSignerAccount.AccountNumber <> '' then begin
     xSignerAccount := edSignerAccount.Account;
   end else xSignerAccount := xAccount;
@@ -177,11 +177,11 @@ var
   xWalletKey: TWalletKey;
 begin
   FAccountNumber := Value;
-  xAccount := TNode.Node.BlockManager.AccountStorage.Account(FAccountNumber);
+  xAccount := TNode.Node.BlockManager.AccountStorage.Accounts[FAccountNumber];
   edAccountName.Text := xAccount.Name;
   edAccountType.Text := IntToStr(xAccount.AccountType);
   Caption := Caption + ' - ' +TAccount.AccountNumberToString(Value);
-  xAccount := TNode.Node.BlockManager.AccountStorage.Account(FAccountNumber);
+  xAccount := TNode.Node.BlockManager.AccountStorage.Accounts[FAccountNumber];
   for i:=0 to TNode.Node.KeyManager.Count-1 do begin
     xWalletKey:=TNode.Node.KeyManager[i];
     cbPrivateKey.Items.AddObject(xWalletKey.Name,TObject(i));

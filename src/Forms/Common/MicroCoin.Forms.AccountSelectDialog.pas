@@ -137,10 +137,10 @@ var
 begin
   if cbMyAccounts.Checked or cbForSale.Checked then
   begin
-    xAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(Node.Index));
+    xAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[FAccounts.Get(Node.Index)];
   end
   else begin
-    xAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(Node.Index);
+    xAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[Node.Index];
   end;
   {$IFDEF EXTENDEDACCOUNT}
   if accountVList.GetNodeLevel(Node)=0
@@ -223,15 +223,15 @@ begin
     else FAccounts.Clear;
       if cbMyAccounts.Checked then begin
         for i := 0 to FAccounts.Count - 1 do begin
-           if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(i)).AccountInfo.State <> as_ForSale
+           if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[FAccounts.Get(i)].AccountInfo.State <> as_ForSale
            then FAccounts.Delete(i);
         end;
       end else begin
         FAccounts.Clear;
         for i := 0 to TNode.Node.TransactionStorage.BlockManager.AccountStorage.AccountsCount - 1 do
         begin
-          if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountInfo.State = as_ForSale
-          then FAccounts.Add(TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(i).AccountNumber);
+          if TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[i].AccountInfo.State = as_ForSale
+          then FAccounts.Add(TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[i].AccountNumber);
         end;
       end;
     accountVList.RootNodeCount := FAccounts.Count;

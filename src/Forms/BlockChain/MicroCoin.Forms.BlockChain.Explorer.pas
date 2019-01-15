@@ -182,7 +182,7 @@ begin
   xBlock := TBlock.Create(nil);
   try
     xBlockNumber := TNode.Node.BlockManager.BlocksCount - Node.Index - 1;
-    xEntry := TNode.Node.BlockManager.AccountStorage.block(xBlockNumber);
+    xEntry := TNode.Node.BlockManager.AccountStorage.Blocks[xBlockNumber];
     TNode.Node.BlockManager.Storage.LoadBlockChainBlock(xBlock, xBlockNumber);
     new(xData);
     xData^.BlockNumber := xBlockNumber;

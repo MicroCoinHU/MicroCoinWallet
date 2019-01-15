@@ -14,7 +14,7 @@
 		</Source>
 		<Options>
 			<Options Name="BaseLang">1033</Options>
-			<Options Name="TargetName">..\..\bin\Win32\Release\MicroCoinWallet.ENU</Options>
+			<Options Name="TargetName">..\..\bin\Win32\Debug\MicroCoinWallet.ENU</Options>
 			<Options Name="BRCC_IncludePath"></Options>
 			<Options Name="Company"></Options>
 			<Options Name="Configuration"></Options>
@@ -29,21 +29,5 @@
 			<Options Name="KeyFile"></Options>
 			<Options Name="KeyName"></Options>
 		</Options>
-		<FileList>
-			<File FileName="F\projects\bin\Win32\Release\MicroCoinWallet_DRC.rc" ContainerId="W32RC" ModuleName="MicroCoinWallet_DRC.rc"/>
-			<File FileName="src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.BlockChain.Explorer.dfm"/>
-			<File FileName="src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.AccountSelectDialog.dfm"/>
-			<File FileName="src\Forms\Common\MicroCoin.Forms.Common.About.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Common.About.dfm"/>
-			<File FileName="src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Common.Settings.dfm"/>
-			<File FileName="src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Keys.KeyManager.dfm"/>
-			<File FileName="src\Forms\MicroCoin.Forms.MainForm.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.MainForm.dfm"/>
-			<File FileName="src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.BuyAccount.dfm"/>
-			<File FileName="src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.ChangeAccountKey.dfm"/>
-			<File FileName="src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.EditAccount.dfm"/>
-			<File FileName="src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.SellAccount.dfm"/>
-			<File FileName="src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Transaction.CreateSubAccount.dfm"/>
-			<File FileName="src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Transaction.Explorer.dfm"/>
-			<File FileName="src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Transaction.History.dfm"/>
-		</FileList>
-	</W32ResourceDLL.Personality>
+		<FileList><File FileName="F\projects\bin\Win32\Release\MicroCoinWallet_DRC.rc" ContainerId="W32RC" ModuleName="MicroCoinWallet_DRC.rc"/><File FileName="src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.BlockChain.Explorer.dfm"/><File FileName="src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.AccountSelectDialog.dfm"/><File FileName="src\Forms\Common\MicroCoin.Forms.Common.About.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Common.About.dfm"/><File FileName="src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Common.Settings.dfm"/><File FileName="src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Keys.KeyManager.dfm"/><File FileName="src\Forms\MicroCoin.Forms.MainForm.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.MainForm.dfm"/><File FileName="src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.BuyAccount.dfm"/><File FileName="src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.ChangeAccountKey.dfm"/><File FileName="src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.EditAccount.dfm"/><File FileName="src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.SellAccount.dfm"/><File FileName="src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Transaction.CreateSubAccount.dfm"/><File FileName="src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Transaction.Explorer.dfm"/><File FileName="src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm" ContainerId="W32Form" ModuleName="MicroCoin.Forms.Transaction.History.dfm"/><File FileName="F\projects\bin\Win32\Debug\MicroCoinWallet_DRC.rc" ContainerId="W32RC" ModuleName="MicroCoinWallet_DRC.rc"/></FileList></W32ResourceDLL.Personality>
 </BorlandProject>
