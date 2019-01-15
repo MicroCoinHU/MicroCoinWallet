@@ -220,9 +220,9 @@ begin
       ChildCount := 0
     else
     begin
-      ChildCount := xBlock.Count;
+      ChildCount := xBlock.TransactionCount;
       TTreeNode(Node.GetData^).Transactions := TList.Create;
-      for i := 0 to xBlock.Count - 1 do
+      for i := 0 to xBlock.TransactionCount - 1 do
       begin
         new(xData);
         xBlock.Transaction[i].GetTransactionData(xBlockNumber, xBlock.Transaction[i].SignerAccount, xData^);
@@ -266,7 +266,7 @@ begin
     xBlockTr := TBlock.Create(nil);
     if TNode.Node.BlockManager.LoadTransactions(xBlockTr, xBlock.Block)
     then begin
-      for i := 0 to xBlockTr.Count - 1
+      for i := 0 to xBlockTr.TransactionCount - 1
       do begin
         new(xData);
         xBlockTr.Transaction[i].GetTransactionData(xBlockNumber, xBlockTr.Transaction[i].SignerAccount, xData^);

@@ -164,8 +164,8 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.89;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>89</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.95;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>95</VerInfo_Build>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
         <VerInfo_Release>2</VerInfo_Release>
@@ -232,10 +232,8 @@
         <DCCReference Include="src\MicroCoin\Deprecated\UConst.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UCrypto.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UECIES.pas"/>
-        <DCCReference Include="src\MicroCoin\Deprecated\UFolderHelper.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UJSONFunctions.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\ULog.pas"/>
-        <DCCReference Include="src\MicroCoin\Deprecated\USha256.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UTCPIP.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UThread.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UTime.pas"/>

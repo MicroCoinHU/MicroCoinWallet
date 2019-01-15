@@ -337,7 +337,7 @@ implementation
 {$R *.lfm}
 {$ENDIF}
 
-uses UFolderHelper, OpenSSLDef, openssl, UConst, UTime, MicroCoin.BlockChain.FileStorage,
+uses OpenSSLDef, openssl, UConst, UTime, MicroCoin.BlockChain.FileStorage,
   UThread, UECIES, Threading,MicroCoin.Transaction.TransactionList,
   MicroCoin.Forms.Common.About, MicroCoin.Transaction.HashTree,
   MicroCoin.Net.NodeServer, MicroCoin.Net.ConnectionManager;
@@ -732,7 +732,7 @@ begin
   FIsActivated := true;
   try
     try
-      TNode.Node.KeyManager.WalletFileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'WalletKeys.dat';
+      TNode.Node.KeyManager.WalletFileName := MicroCoinDataFolder + PathDelim + 'WalletKeys.dat';
     except
       on E: Exception do
       begin
@@ -755,7 +755,7 @@ begin
     //    TNode.Node.KeyManager := TNode.Node.KeyManager;
     // Check Database
     TNode.Node.BlockManager.StorageClass := TFileStorage;
-    TFileStorage(TNode.Node.BlockManager.Storage).DatabaseFolder := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'Data';
+    TFileStorage(TNode.Node.BlockManager.Storage).DatabaseFolder := MicroCoinDataFolder + PathDelim + 'Data';
     TFileStorage(TNode.Node.BlockManager.Storage).Initialize;
     // Init Grid
     TNode.Node.KeyManager.OnChanged := OnWalletChanged;
@@ -1174,6 +1174,7 @@ end;
 
 procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+  FNotificationCenter.Free;
   TimerUpdateStatus.Enabled := false;
   Timer1.Enabled := false
 end;
@@ -1233,16 +1234,16 @@ begin
     StatusBar.Panels[i].Text := '';
   end;
 
-  if FileExists(TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'MicroCointWallet.log')
-  then DeleteFile(TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'MicroCointWallet.log');
+  if FileExists(MicroCoinDataFolder + PathDelim + 'MicroCointWallet.log')
+  then DeleteFile(MicroCoinDataFolder + PathDelim + 'MicroCointWallet.log');
 
   FLog := TLog.Create(Self);
   FLog.OnNewLog := OnNewLog;
   FLog.SaveTypes := [];
-  if not ForceDirectories(TFolderHelper.GetMicroCoinDataFolder) then
-    raise Exception.Create(StrCannotCreateDir + TFolderHelper.GetMicroCoinDataFolder);
+  if not ForceDirectories(MicroCoinDataFolder) then
+    raise Exception.Create(StrCannotCreateDir + MicroCoinDataFolder);
   FAppSettings := TAppSettings.Create;
-  FAppSettings.FileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'AppParams.prm';
+  FAppSettings.FileName := MicroCoinDataFolder + PathDelim + 'AppParams.prm';
 {$IFNDEF TESTNET}
   TStyleManager.TrySetStyle(FAppSettings.Entries[TAppSettingsEntry.apTheme].GetAsString('Slate Classico'), false);
 {$ENDIF}
@@ -1406,7 +1407,6 @@ procedure TMainForm.LoadAppParams;
 var
   xMemoryStream: TMemoryStream;
   s: AnsiString;
-  xFileVersionInfo: TFileVersionInfo;
 begin
   xMemoryStream := TMemoryStream.Create;
   try
@@ -1420,9 +1420,7 @@ begin
   if FAppSettings.Find(TAppSettingsEntry.apMinerName) = nil then
   begin
     // New configuration... assigning a new random value
-    xFileVersionInfo := TFolderHelper.GetTFileVersionInfo(Application.ExeName);
-    FAppSettings.Entries[TAppSettingsEntry.apMinerName].SetAsString(Format('New Node %s - %s Build: %s', [DateTimeToStr(now), xFileVersionInfo.InternalName,
-      xFileVersionInfo.FileVersion]));
+    FAppSettings.Entries[TAppSettingsEntry.apMinerName].SetAsString(Format('New Node %s - %s', [DateTimeToStr(now), UConst.ClientAppVersion]));
   end;
   UpdateConfigChanged;
 end;
@@ -1611,7 +1609,7 @@ begin
   if FNotificationCenter = nil then exit;
   if FAppSettings.Entries[TAppSettingsEntry.apNotifyOnNewTransaction].GetAsBoolean(true)
   then begin
-    for i:=0 to TNodeNotifyEvents(Sender).Node.TransactionStorage.Count - 1 do begin
+    for i:=0 to TNodeNotifyEvents(Sender).Node.TransactionStorage.TransactionCount - 1 do begin
        xTransaction := TNodeNotifyEvents(Sender).Node.TransactionStorage.TransactionHashTree.GetTransaction(i);
        if xTransaction.Sha256 = lastHash then continue;
        lastHash := xTransaction.Sha256;
@@ -2091,7 +2089,7 @@ begin
     else lblCurrentBlock.Caption := StrNone;
     lblCurrentAccounts.Caption := IntToStr(TNode.Node.BlockManager.AccountsCount);
     lblCurrentBlockTime.Caption := UnixTimeToLocalElapsedTime(TNode.Node.BlockManager.LastBlock.timestamp);
-    labelOperationsPending.Caption := IntToStr(TNode.Node.TransactionStorage.Count);
+    labelOperationsPending.Caption := IntToStr(TNode.Node.TransactionStorage.TransactionCount);
     lblCurrentDifficulty.Caption := IntToHex(TNode.Node.TransactionStorage.BlockHeader.compact_target, 8);
     if TConnectionManager.Instance.MaxRemoteOperationBlock.block > TNode.Node.BlockManager.BlocksCount
     then begin
@@ -2193,7 +2191,7 @@ begin
       FLog.SaveTypes := CT_TLogTypes_ALL
     else
       FLog.SaveTypes := CT_TLogTypes_DEFAULT;
-    FLog.FileName := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'MicroCointWallet.log';
+    FLog.FileName := MicroCoinDataFolder + PathDelim + 'MicroCointWallet.log';
   end
   else
   begin
@@ -2204,7 +2202,7 @@ begin
   TNode.Node.NetServer.Port := FAppSettings.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(cNetServerPort);
   TNode.Node.NetServer.Active := xIsNetServerActive;
   TNode.Node.TransactionStorage.BlockPayload := FAppSettings.Entries[TAppSettingsEntry.apMinerName].GetAsString('');
-  TNode.Node.NodeLogFilename := TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'blocks.log';
+  TNode.Node.NodeLogFilename := MicroCoinDataFolder + PathDelim + 'blocks.log';
   if Assigned(FPoolMiningServer) then
   begin
     if FPoolMiningServer.Port <> FAppSettings.Entries[TAppSettingsEntry.apJSONRPCMinerServerPort]

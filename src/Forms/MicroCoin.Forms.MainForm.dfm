@@ -1220,10 +1220,6 @@ object MainForm: TMainForm
         object logSheet: TTabSheet
           Caption = 'Log'
           ImageIndex = 5
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object logDisplay: TRichEdit
             Left = 0
             Top = 0

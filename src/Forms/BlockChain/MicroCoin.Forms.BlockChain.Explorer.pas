@@ -187,12 +187,12 @@ begin
     new(xData);
     xData^.BlockNumber := xBlockNumber;
     xData^.Time := xBlock.timestamp;
-    xData^.Transcations := xBlock.Count;
+    xData^.Transcations := xBlock.TransactionCount;
     xData^.Amount := 0;
     xData^.Fee := 0;
     xData^.Total := 0;
     xData^.Reward := xBlock.BlockHeader.reward;
-    for i := 0 to xBlock.Count - 1
+    for i := 0 to xBlock.TransactionCount - 1
     do begin
      xData^.Amount := xData.Amount + Abs(xBlock.Transaction[i].Amount);
      xData^.Fee := xData.Fee + Abs(xBlock.Transaction[i].Fee);
