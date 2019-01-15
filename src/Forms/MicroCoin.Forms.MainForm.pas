@@ -337,7 +337,7 @@ implementation
 {$R *.lfm}
 {$ENDIF}
 
-uses OpenSSLDef, openssl, UConst, UTime, MicroCoin.BlockChain.FileStorage,
+uses OpenSSLDef, openssl, MicroCoin.Common.Config, UTime, MicroCoin.BlockChain.FileStorage,
   UThread, UECIES, Threading,MicroCoin.Transaction.TransactionList,
   MicroCoin.Forms.Common.About, MicroCoin.Transaction.HashTree,
   MicroCoin.Net.NodeServer, MicroCoin.Net.ConnectionManager;
@@ -412,7 +412,7 @@ type
 procedure TThreadActivate.BCExecute;
 begin
   TNode.Node.BlockManager.DiskRestoreFromTransactions(cMaxBlocks);
-  TNode.Node.AutoDiscoverNodes(CT_Discover_IPs);
+  TNode.Node.AutoDiscoverNodes(cDiscover_IPs);
   TNode.Node.NetServer.Active := true;
   Synchronize(MainForm.DoUpdateAccounts);
   Synchronize(MainForm.FinishedLoadingApp);
@@ -746,7 +746,7 @@ begin
     setlength(xNodeServers, 0);
     // Creating Node:
     TNode.Node.NetServer.Port := FAppSettings.Entries[TAppSettingsEntry.apInternetServerPort].GetAsInteger(cNetServerPort);
-    TNode.Node.PeerCache := FAppSettings.Entries[TAppSettingsEntry.apPeerCache].GetAsString('') + ';' + CT_Discover_IPs;
+    TNode.Node.PeerCache := FAppSettings.Entries[TAppSettingsEntry.apPeerCache].GetAsString('') + ';' + cDiscover_IPs;
     // Create RPC server
     FRPCServer := TRPCServer.Instance;
     FRPCServer.WalletKeys := TNode.Node.KeyManager;
@@ -1420,7 +1420,7 @@ begin
   if FAppSettings.Find(TAppSettingsEntry.apMinerName) = nil then
   begin
     // New configuration... assigning a new random value
-    FAppSettings.Entries[TAppSettingsEntry.apMinerName].SetAsString(Format('New Node %s - %s', [DateTimeToStr(now), UConst.ClientAppVersion]));
+    FAppSettings.Entries[TAppSettingsEntry.apMinerName].SetAsString(Format('New Node %s - %s', [DateTimeToStr(now), ClientAppVersion]));
   end;
   UpdateConfigChanged;
 end;

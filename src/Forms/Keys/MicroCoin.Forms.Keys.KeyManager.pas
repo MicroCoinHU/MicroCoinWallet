@@ -121,7 +121,7 @@ var
 implementation
 
 uses MicroCoin.Node.Node, MicroCoin.Account.AccountKey, UWalletKeys, PlatformVclStylesActnCtrls,
-     UConst, Clipbrd, UAES;
+     MicroCoin.Common.Config, Clipbrd, UAES;
 
 resourcestring
   StrKeyName = 'Key name:';

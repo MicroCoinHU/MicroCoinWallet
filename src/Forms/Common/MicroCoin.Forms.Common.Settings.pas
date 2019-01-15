@@ -96,7 +96,7 @@ var
 
 implementation
 
-uses UConst, MicroCoin.Node.Node, MicroCoin.Account.AccountKey;
+uses MicroCoin.Common.Config, MicroCoin.Node.Node, MicroCoin.Account.AccountKey;
 
 resourcestring
   StrServerPortAndJSONRPCPortEquals = 'Server port and JSON RPC port are equ' +

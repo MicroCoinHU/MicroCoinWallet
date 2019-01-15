@@ -65,7 +65,7 @@ var
 
 implementation
 
-uses MicroCoin.Node.Node, MicroCoin.BlockChain.Block, UConst,
+uses MicroCoin.Node.Node, MicroCoin.BlockChain.Block, MicroCoin.Common.Config,
   MicroCoin.Transaction.ITransaction, MicroCoin.Transaction.Base,
   DateUtils, MicroCoin.Common, MicroCoin.Account.Data, MicroCoin.BlockChain.BlockHeader;
 
