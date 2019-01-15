@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm" source-language="en-US" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">43479.7333333333</prop>
+        <prop prop-type="OrigDateTime">43450.6913888889</prop>
+        <prop prop-type="XlatDateTime">43450.6913888889</prop>
+        <prop prop-type="Translated">0</prop>
+        <prop prop-type="UnTranslated">110</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="O:TransactionExplorer.Left" resname="O:TransactionExplorer.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">0</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Top" resname="O:TransactionExplorer.Top">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">1</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Caption" resname="O:TransactionExplorer.Caption">
+        <source>'Transaction explorer'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">2</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.ClientHeight" resname="O:TransactionExplorer.ClientHeight">
+        <source>508</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">3</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.ClientWidth" resname="O:TransactionExplorer.ClientWidth">
+        <source>997</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">4</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Color" resname="O:TransactionExplorer.Color">
+        <source>clBtnFace</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">5</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Font.Charset" resname="O:TransactionExplorer.Font.Charset">
+        <source>DEFAULT_CHARSET</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">6</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Font.Color" resname="O:TransactionExplorer.Font.Color">
+        <source>clWindowText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">7</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Font.Height" resname="O:TransactionExplorer.Font.Height">
+        <source>-11</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">8</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Font.Name" resname="O:TransactionExplorer.Font.Name">
+        <source>'Tahoma'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">9</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Font.Style" resname="O:TransactionExplorer.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340625</prop><prop prop-type="Status">0</prop><prop prop-type="Order">10</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.OldCreateOrder" resname="O:TransactionExplorer.OldCreateOrder">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">11</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.Position" resname="O:TransactionExplorer.Position">
+        <source>poMainFormCenter</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">12</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.OnClose" resname="O:TransactionExplorer.OnClose">
+        <source>FormClose</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">13</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.OnCreate" resname="O:TransactionExplorer.OnCreate">
+        <source>FormCreate</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">14</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.PixelsPerInch" resname="O:TransactionExplorer.PixelsPerInch">
+        <source>96</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">15</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.TextHeight" resname="O:TransactionExplorer.TextHeight">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">16</prop><prop prop-type="Type">TTransactionExplorer</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Left" resname="O:TransactionExplorer.O:transactionListView.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">17</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Top" resname="O:TransactionExplorer.O:transactionListView.Top">
+        <source>41</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">18</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Width" resname="O:TransactionExplorer.O:transactionListView.Width">
+        <source>997</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">19</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Height" resname="O:TransactionExplorer.O:transactionListView.Height">
+        <source>467</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">20</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Align" resname="O:TransactionExplorer.O:transactionListView.Align">
+        <source>alClient</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406366</prop><prop prop-type="Status">0</prop><prop prop-type="Order">21</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.ButtonStyle" resname="O:TransactionExplorer.O:transactionListView.ButtonStyle">
+        <source>bsTriangle</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">22</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Header.AutoSizeIndex" resname="O:TransactionExplorer.O:transactionListView.Header.AutoSizeIndex">
+        <source>7</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">23</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Header.Font.Charset" resname="O:TransactionExplorer.O:transactionListView.Header.Font.Charset">
+        <source>DEFAULT_CHARSET</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">24</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Header.Font.Color" resname="O:TransactionExplorer.O:transactionListView.Header.Font.Color">
+        <source>clWindowText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">25</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Header.Font.Height" resname="O:TransactionExplorer.O:transactionListView.Header.Font.Height">
+        <source>-11</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">26</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Header.Font.Name" resname="O:TransactionExplorer.O:transactionListView.Header.Font.Name">
+        <source>'Tahoma'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">27</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Header.Font.Style" resname="O:TransactionExplorer.O:transactionListView.Header.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">28</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Header.Options" resname="O:TransactionExplorer.O:transactionListView.Header.Options">
+        <source>[hoColumnResize, hoDblClickResize, hoDrag, hoShowSortGlyphs, hoVisible, hoAutoSpring]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">29</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.TabOrder" resname="O:TransactionExplorer.O:transactionListView.TabOrder">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">30</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.TreeOptions.AutoOptions" resname="O:TransactionExplorer.O:transactionListView.TreeOptions.AutoOptions">
+        <source>[toAutoDropExpand, toAutoScrollOnExpand, toAutoSpanColumns, toAutoTristateTracking, toAutoDeleteMovedNodes, toAutoChangeScale]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">31</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.TreeOptions.PaintOptions" resname="O:TransactionExplorer.O:transactionListView.TreeOptions.PaintOptions">
+        <source>[toHideFocusRect, toShowButtons, toShowDropmark, toShowHorzGridLines, toShowRoot, toShowVertGridLines, toThemeAware, toUseBlendedImages]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">32</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.TreeOptions.SelectionOptions" resname="O:TransactionExplorer.O:transactionListView.TreeOptions.SelectionOptions">
+        <source>[toFullRowSelect]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">33</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.OnDrawText" resname="O:TransactionExplorer.O:transactionListView.OnDrawText">
+        <source>transactionListViewDrawText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406481</prop><prop prop-type="Status">0</prop><prop prop-type="Order">34</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.OnFreeNode" resname="O:TransactionExplorer.O:transactionListView.OnFreeNode">
+        <source>transactionListViewFreeNode</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">35</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.OnGetCellIsEmpty" resname="O:TransactionExplorer.O:transactionListView.OnGetCellIsEmpty">
+        <source>transactionListViewGetCellIsEmpty</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">36</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.OnGetText" resname="O:TransactionExplorer.O:transactionListView.OnGetText">
+        <source>transactionListViewGetText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">37</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.OnInitNode" resname="O:TransactionExplorer.O:transactionListView.OnInitNode">
+        <source>transactionListViewInitNode</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">38</prop><prop prop-type="Type">TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[0].Position" resname="O:TransactionExplorer.O:transactionListView.Columns[0].Position">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">39</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">&lt;item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[0].Width" resname="O:TransactionExplorer.O:transactionListView.Columns[0].Width">
+        <source>175</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">40</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[0].WideText" resname="O:TransactionExplorer.O:transactionListView.Columns[0].WideText">
+        <source>'Time'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">41</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">end</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[1].Alignment" resname="O:TransactionExplorer.O:transactionListView.Columns[1].Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">42</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[1].Position" resname="O:TransactionExplorer.O:transactionListView.Columns[1].Position">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">43</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[1].Width" resname="O:TransactionExplorer.O:transactionListView.Columns[1].Width">
+        <source>60</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">44</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[1].WideText" resname="O:TransactionExplorer.O:transactionListView.Columns[1].WideText">
+        <source>'Block'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406597</prop><prop prop-type="Status">0</prop><prop prop-type="Order">45</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">end</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[2].Alignment" resname="O:TransactionExplorer.O:transactionListView.Columns[2].Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">46</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[2].Options" resname="O:TransactionExplorer.O:transactionListView.Columns[2].Options">
+        <source>[coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">47</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[2].Position" resname="O:TransactionExplorer.O:transactionListView.Columns[2].Position">
+        <source>2</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">48</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[2].Width" resname="O:TransactionExplorer.O:transactionListView.Columns[2].Width">
+        <source>100</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">49</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[2].WideText" resname="O:TransactionExplorer.O:transactionListView.Columns[2].WideText">
+        <source>'Account'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">50</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">end</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[3].Alignment" resname="O:TransactionExplorer.O:transactionListView.Columns[3].Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">51</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[3].Position" resname="O:TransactionExplorer.O:transactionListView.Columns[3].Position">
+        <source>3</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">52</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[3].Width" resname="O:TransactionExplorer.O:transactionListView.Columns[3].Width">
+        <source>166</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">53</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[3].WideText" resname="O:TransactionExplorer.O:transactionListView.Columns[3].WideText">
+        <source>'Transaction'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">54</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">end</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[4].Alignment" resname="O:TransactionExplorer.O:transactionListView.Columns[4].Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">55</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[4].Position" resname="O:TransactionExplorer.O:transactionListView.Columns[4].Position">
+        <source>4</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">56</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[4].Width" resname="O:TransactionExplorer.O:transactionListView.Columns[4].Width">
+        <source>80</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406713</prop><prop prop-type="Status">0</prop><prop prop-type="Order">57</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[4].WideText" resname="O:TransactionExplorer.O:transactionListView.Columns[4].WideText">
+        <source>'Amount'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">58</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">end</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[5].Alignment" resname="O:TransactionExplorer.O:transactionListView.Columns[5].Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">59</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[5].Position" resname="O:TransactionExplorer.O:transactionListView.Columns[5].Position">
+        <source>5</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">60</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[5].Width" resname="O:TransactionExplorer.O:transactionListView.Columns[5].Width">
+        <source>60</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">61</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[5].WideText" resname="O:TransactionExplorer.O:transactionListView.Columns[5].WideText">
+        <source>'Fee'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">62</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">end</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[6].Alignment" resname="O:TransactionExplorer.O:transactionListView.Columns[6].Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">63</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[6].Position" resname="O:TransactionExplorer.O:transactionListView.Columns[6].Position">
+        <source>6</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">64</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[6].Width" resname="O:TransactionExplorer.O:transactionListView.Columns[6].Width">
+        <source>80</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">65</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[6].WideText" resname="O:TransactionExplorer.O:transactionListView.Columns[6].WideText">
+        <source>'Total'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">66</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">end</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[7].Options" resname="O:TransactionExplorer.O:transactionListView.Columns[7].Options">
+        <source>[coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAutoSpring, coAllowFocus, coEditable]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">67</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[7].Position" resname="O:TransactionExplorer.O:transactionListView.Columns[7].Position">
+        <source>7</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">68</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[7].Width" resname="O:TransactionExplorer.O:transactionListView.Columns[7].Width">
+        <source>342</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">69</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:transactionListView.Columns[7].WideText" resname="O:TransactionExplorer.O:transactionListView.Columns[7].WideText">
+        <source>'Payload'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">70</prop><prop prop-type="Type">C:TVirtualStringTree</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">end&gt;</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.Left" resname="O:TransactionExplorer.O:Panel1.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">71</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.Top" resname="O:TransactionExplorer.O:Panel1.Top">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">72</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.Width" resname="O:TransactionExplorer.O:Panel1.Width">
+        <source>997</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">73</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.Height" resname="O:TransactionExplorer.O:Panel1.Height">
+        <source>41</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">74</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.Align" resname="O:TransactionExplorer.O:Panel1.Align">
+        <source>alTop</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">75</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.Alignment" resname="O:TransactionExplorer.O:Panel1.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">76</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.BevelOuter" resname="O:TransactionExplorer.O:Panel1.BevelOuter">
+        <source>bvNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">77</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.Caption" resname="O:TransactionExplorer.O:Panel1.Caption">
+        <source>'Panel1'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">78</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.ShowCaption" resname="O:TransactionExplorer.O:Panel1.ShowCaption">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">79</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.TabOrder" resname="O:TransactionExplorer.O:Panel1.TabOrder">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">80</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.DesignSize[0]" resname="O:TransactionExplorer.O:Panel1.DesignSize[0]">
+        <source>997</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333406944</prop><prop prop-type="Status">0</prop><prop prop-type="Order">81</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">(</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.DesignSize[1]" resname="O:TransactionExplorer.O:Panel1.DesignSize[1]">
+        <source>41</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">82</prop><prop prop-type="Type">TPanel</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">)</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:Label1.Left" resname="O:TransactionExplorer.O:Panel1.O:Label1.Left">
+        <source>12</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">83</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:Label1.Top" resname="O:TransactionExplorer.O:Panel1.O:Label1.Top">
+        <source>14</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">84</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:Label1.Width" resname="O:TransactionExplorer.O:Panel1.O:Label1.Width">
+        <source>45</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">85</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:Label1.Height" resname="O:TransactionExplorer.O:Panel1.O:Label1.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">86</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:Label1.Caption" resname="O:TransactionExplorer.O:Panel1.O:Label1.Caption">
+        <source>'Updated:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">87</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Left" resname="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Left">
+        <source>913</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">88</prop><prop prop-type="Type">TPngSpeedButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Top" resname="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Top">
+        <source>9</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">89</prop><prop prop-type="Type">TPngSpeedButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Width" resname="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Width">
+        <source>77</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">90</prop><prop prop-type="Type">TPngSpeedButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Height" resname="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Height">
+        <source>26</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">91</prop><prop prop-type="Type">TPngSpeedButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Action" resname="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Action">
+        <source>RefreshAction</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733340706</prop><prop prop-type="Status">0</prop><prop prop-type="Order">92</prop><prop prop-type="Type">TPngSpeedButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Anchors" resname="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Anchors">
+        <source>[akTop, akRight]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">93</prop><prop prop-type="Type">TPngSpeedButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Flat" resname="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.Flat">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">94</prop><prop prop-type="Type">TPngSpeedButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.ExplicitLeft" resname="O:TransactionExplorer.O:Panel1.O:PngSpeedButton1.ExplicitLeft">
+        <source>760</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">95</prop><prop prop-type="Type">TPngSpeedButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:PngImageList1.PngImages[0].Background" resname="O:TransactionExplorer.O:PngImageList1.PngImages[0].Background">
+        <source>clWindow</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">96</prop><prop prop-type="Type">C:TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">&lt;item</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:PngImageList1.PngImages[0].Name" resname="O:TransactionExplorer.O:PngImageList1.PngImages[0].Name">
+        <source>'view-refresh'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">97</prop><prop prop-type="Type">C:TPngImageList</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:PngImageList1.PngImages[0].PngImage.Data" resname="O:TransactionExplorer.O:PngImageList1.PngImages[0].PngImage.Data">
+        <source>89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF610000000473424954080808087C0864880000000970485973000001BB000001BB013AECE3E20000001974455874536F667477617265007777772E696E6B73636170652E6F72679BEE3C1A000003394944415478DA6D534B681D5518FECE9973E6751F699C84DE382D7941E32BD650ACA9D5A0AD12B098765150E84245976EC4AEBA35C48D0B154471E3420415E45241424BB10A49210A31369AD8D492F49147AFBD69676EEEDC799D399E7B69208B1EF8F999E1FBBEF3FD8F43A494D879C818E907C5292DAF1DE9757B879CBC4397D796172A1B950B10F84AFE28FFBD8FDBA31223DB02EA0705C17B4E9F337EECE963A6DBE9A2ABA30B1AD5E0791EAEAD5F43F95239DCBCBEF90132FCDEE6167F88BC286C0934C9D420170F0D0F1F7A71E828A73AC5838E88052E5D9E4AFEBC3947DE7AE96DF6C9771FA325404F90D34383831323C347B990421921A856AB585D5F550082FEBDFDB076592D11AA8C2A07A01AC567DF7FAA90AF62A0B3B46BEEC833A3A66EEA10A9C0EC1FB3B8BABC04437058BA053FABA1DD7570F0C041B417DB0155B526357C3BF90D0819C3F8FE7D4F9CD9D3D3439A37CCFF358FFF2A6B92311A07717241191436E5A3517BAAC3D5C8C8632330A5091213FCFCEB3910F3753E3DD035F06CCE29C2F77CFCB3B800DBE681DF88F6373BAEFA3354E0C674F8BCB0767797E032176C8BC1BBED61656E4992C21B46FDE1B61E9B190C953B15F81B77911AD9D9B42C4E341D155EB35ED68BF43C9ED3A13738E001B5DB35C87A86D41393C43EC5E3ACAE7130203112F084208EC57951CE4677EC86A9521B87A6FA2B45A6424899C8B3B246D8493AC57C7A387452A013306C06BA82B0514F9F52255CB92FD04709F99C0D6AEFA75A5AD537D916BFA785FED7A1BA6E0C67F29931BED51D11EC067881A2B3C1E5BD051934FCF827D566A233ED95B6BDE64C3A9095A32459099374CD5CE41BF5345E6B8EF151CBE4B3E885199752D85C47CED0E1301B4955A861115825960624BDA188F3411C2F26B5EC7AE34A72AEF165B2B2BD89A79D923D110EA63C6770144C037925422D8AC414ADB91B014314A64B5194FDBD7AD17B32B81BBFA34AFC655BA0B903936E7FF185DCE3BAC1735AAB945A4784309F826404B6CFD1B16E8B1B339E7FEBAA37A5448F2B01B9F3313545DE2D3C647E68F531CB7DA448C37D29EA4E0CED16C59D99BA14BF6541B0954C28DC478A1CB7780F78CEDD2ABDA9E2B046C981A6C14CCACBEA7B5AC5178A787327FE7F06D57A57397C47CE0000000049454E44AE426082</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">98</prop><prop prop-type="Type">C:TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}end&gt;</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:PngImageList1.PngOptions" resname="O:TransactionExplorer.O:PngImageList1.PngOptions">
+        <source>[pngGrayscaleOnDisabled]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">99</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:PngImageList1.Left" resname="O:TransactionExplorer.O:PngImageList1.Left">
+        <source>408</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">100</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:PngImageList1.Top" resname="O:TransactionExplorer.O:PngImageList1.Top">
+        <source>148</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">101</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:PngImageList1.Bitmap" resname="O:TransactionExplorer.O:PngImageList1.Bitmap">
+        <source></source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">102</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:ActionManager1.Images" resname="O:TransactionExplorer.O:ActionManager1.Images">
+        <source>PngImageList1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">103</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:ActionManager1.Left" resname="O:TransactionExplorer.O:ActionManager1.Left">
+        <source>488</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">104</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:ActionManager1.Top" resname="O:TransactionExplorer.O:ActionManager1.Top">
+        <source>150</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">105</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:ActionManager1.StyleName" resname="O:TransactionExplorer.O:ActionManager1.StyleName">
+        <source>'Platform Default'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407292</prop><prop prop-type="Status">0</prop><prop prop-type="Order">106</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.Caption" resname="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.Caption">
+        <source>'Refresh'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407292</prop><prop prop-type="Status">0</prop><prop prop-type="Order">107</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.ImageIndex" resname="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.ImageIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407292</prop><prop prop-type="Status">0</prop><prop prop-type="Order">108</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.OnExecute" resname="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.OnExecute">
+        <source>RefreshActionExecute</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333407292</prop><prop prop-type="Status">0</prop><prop prop-type="Order">109</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

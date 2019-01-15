@@ -146,7 +146,6 @@ type
     MainActionImages: TPngImageList;
     miscIcons: TPngImageList;
     AccountListActionImages: TPngImageList;
-    NotificationCenter: TNotificationCenter;
     Panel2: TPanel;
     Label1: TLabel;
     Label2: TLabel;
@@ -281,7 +280,6 @@ type
     procedure CreateSubaccount;
     {$ENDIF}
   protected
-    { Private declarations }
     FIsActivated: Boolean;
     FLog: TLog;
     FAppSettings: TAppSettings;
@@ -324,6 +322,7 @@ type
     procedure CM_NetConnectionUpdated(var Msg: TMessage); message CM_PC_NetConnectionUpdated;
     procedure ConfirmRestart;
   public
+    FNotificationCenter: TBaseNotificationCenter;
     class constructor Create;
     property MinersBlocksFound: Integer read FMinersBlocksFound write SetMinersBlocksFound;
   end;
@@ -392,6 +391,16 @@ resourcestring
   StrRunning = 'Running';
   StrAloneInTheWorld = 'Alone in the world...';
   StrAllMyPrivateKeys = '(All my private keys)';
+  StrDownloadingCheckpoints = 'Downloading checkpoints: %d%%';
+  StrProcessingCheckpoints = 'Processing checkpoints: %d%%';
+  StrLoadingAccounts = 'Loading accounts. Be patient... :-)';
+  StrIgnoreOldBocks = 'Eldöntheted, hogy szeretnéd-e letölteni a teljes blokkláncot. '+ sLineBreak+
+                      'A teljes blokklánc letöltése hosszú ideig is eltarthat.'+ sLineBreak+
+                      'Ha nem töltöd le, hamarabb tudod használni a programot, '+sLineBreak+
+                      'és kevesebb lemezterület kerül felhasználásra, '+slineBreak+
+                      'cserébe a tranzakció történet nem lesz elérhető.'+sLineBreak+
+                      'Letöltöd az egész blokkláncot?';
+  StrDownloadBlockchain = 'Download blockchain?';
 
 type
   TThreadActivate = class(TPCThread)
@@ -751,6 +760,23 @@ begin
     TFileStorage(TNode.Node.BlockManager.Storage).Initialize;
     // Init Grid
     TNode.Node.KeyManager.OnChanged := OnWalletChanged;
+    if FAppSettings.Entries[TAppSettingsEntry.apFirstTime].GetAsBoolean(true)
+    then begin
+      with CreateMessageDialog
+        (StrIgnoreOldBocks,
+          mtConfirmation, [mbYes, mbNo]) do begin
+         Width := 400;
+         Caption := StrDownloadBlockchain;
+         if ShowModal = mrYes
+         then TConnectionManager.IgnoreOldBlocks := false
+         else TConnectionManager.IgnoreOldBlocks := true;
+         Free;
+       end;
+    end else begin
+      if TNode.Node.BlockManager.BlocksCount > 0 then begin
+
+      end;
+    end;
     // Reading database
     TThreadActivate.Create(false).FreeOnTerminate := true;
     FNodeNotifyEvents.Node := TNode.Node;
@@ -777,7 +803,7 @@ begin
   if FAppSettings.Entries[TAppSettingsEntry.apFirstTime].GetAsBoolean(true) then
   begin
     FAppSettings.Entries[TAppSettingsEntry.apFirstTime].SetAsBoolean(false);
-    AboutAction.Execute;
+//    AboutAction.Execute;
   end;
 end;
 
@@ -1168,6 +1194,11 @@ begin
     Free;
     Exit;
   end;
+  FNotificationCenter := nil;
+  try
+    FNotificationCenter := TBaseNotificationCenter.Create;
+  except
+  end;
   TCrypto.InitCrypto;
   TimerUpdateStatus.Enabled := true;
   logPanel.Height := 250;
@@ -1207,6 +1238,10 @@ begin
   begin
     StatusBar.Panels[i].Text := '';
   end;
+
+  if FileExists(TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'MicroCointWallet.log')
+  then DeleteFile(TFolderHelper.GetMicroCoinDataFolder + PathDelim + 'MicroCointWallet.log');
+
   FLog := TLog.Create(Self);
   FLog.OnNewLog := OnNewLog;
   FLog.SaveTypes := [];
@@ -1579,6 +1614,7 @@ var
   xIndex: integer;
   xNotification: TNotification;
 begin
+  if FNotificationCenter = nil then exit;
   if FAppSettings.Entries[TAppSettingsEntry.apNotifyOnNewTransaction].GetAsBoolean(true)
   then begin
     for i:=0 to TNodeNotifyEvents(Sender).Node.TransactionStorage.Count - 1 do begin
@@ -1587,12 +1623,12 @@ begin
        lastHash := xTransaction.Sha256;
        if FAccounts.Find(xTransaction.DestinationAccount, xIndex)
        then begin
-         xNotification := NotificationCenter.CreateNotification;
+         xNotification := FNotificationCenter.CreateNotification;
          try
            xNotification.Title := NewTransaction;
            xNotification.AlertBody := xTransaction.ToString;
            xNotification.Name := xTransaction.ToString;
-           NotificationCenter.PresentNotification(xNotification);
+           FNotificationCenter.PresentNotification(xNotification);
          finally
            xNotification.Free;
          end;
@@ -1828,21 +1864,6 @@ begin
     MessageDlg(StrSenderAccountIsLocked, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
-{
-  if xTargetAccount.AccountNumber = 528
-  then begin
-    if Trim(payloadEdit.Text)='' then begin
-      MessageDlg('Please specify your MapleChange Payload!', mtError, [mbOK], 0);
-      exit;
-    end;
-    if encryptModeSelect.ItemIndex<>1
-    then begin
-     if MessageDlg('You MUST encrypt your payload for deposit! Encrypt it?',  mtConfirmation, [mbYes, mbNo], 0) = mrYes
-     then encryptModeSelect.ItemIndex := 1
-     else exit;
-    end;
-  end;
-}
 
   if Trim(payloadEdit.Text)<>'' then begin
      case encryptModeSelect.ItemIndex of
@@ -2093,6 +2114,17 @@ begin
     else begin
       StatusBar.Panels[3].Text := Format(StrBlocks0n, [TNode.Node.BlockManager.BlocksCount+0.0]) + ' | ' + StrDifficulty0x +
         IntToHex(TNode.Node.TransactionStorage.BlockHeader.compact_target, 8);
+    end;
+    if TConnectionManager.IgnoreOldBlocks then begin
+      if TConnectionManager.Operation=1 then begin
+        StatusBar.Panels[3].Text := Format(StrDownloadingCheckpoints, [ TConnectionManager.Status ]);
+      end;
+      if TConnectionManager.Operation=2 then begin
+        StatusBar.Panels[3].Text := Format(StrProcessingCheckpoints, [ TConnectionManager.Status ]);
+      end;
+      if TConnectionManager.Operation=3 then begin
+        StatusBar.Panels[3].Text := StrLoadingAccounts;
+      end;
     end;
     favg := TNode.Node.BlockManager.GetActualTargetSecondsAverage(cDifficultyCalcBlocks);
     F := (cBlockTime - favg) / cBlockTime;

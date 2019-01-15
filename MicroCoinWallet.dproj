@@ -135,19 +135,26 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Build>78</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=MicroCoin;FileDescription=MicroCoin Desktop Wallet;FileVersion=1.3.5.78;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
+        <VerInfo_Build>118</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=MicroCoin;FileDescription=MicroCoin Desktop Wallet;FileVersion=1.3.5.118;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;ProgramID=hu.microcoin.wallet</VerInfo_Keys>
         <VerInfo_Release>5</VerInfo_Release>
         <DCC_IOChecking>false</DCC_IOChecking>
         <BRCC_CompilerToUse>rc</BRCC_CompilerToUse>
         <DCC_MapFile>0</DCC_MapFile>
-        <DCC_OutputDRCFile>false</DCC_OutputDRCFile>
+        <PF_KeyStore>F:\cert\nemethpeter.pfx</PF_KeyStore>
+        <PF_KeyStorePass>850147C05F990789CF62E530A45F7BF2E41F0519A05A97D897C80FA28E363C94DB04A390E34B1C31C1B15774FAD1C339BABA3609043F22FC1657458CE5A722CFC949F31FD555FAFEBFE4AF0D07551D5892013346C31A</PF_KeyStorePass>
+        <PF_UWPDistributionType>Store</PF_UWPDistributionType>
+        <PF_UWPPublisher>CN=Németh Péter, O=Németh Péter, L=Hajdúsámson</PF_UWPPublisher>
+        <PF_UWPPackageName>hu.microcoin.wallet</PF_UWPPackageName>
+        <PF_UWPPackageDisplayName>MicroCoin</PF_UWPPackageDisplayName>
+        <PF_UWPPublisherDisplayName>Pethical</PF_UWPPublisherDisplayName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Release>2</VerInfo_Release>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <BT_BuildType>AppStore</BT_BuildType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -157,8 +164,8 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.76;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>76</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.83;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>83</VerInfo_Build>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
         <VerInfo_Release>2</VerInfo_Release>
@@ -175,11 +182,11 @@
         <DCC_Define>TESTNET;DEBUG;$(DCC_Define)</DCC_Define>
         <VerInfo_Release>2</VerInfo_Release>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.48;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.49;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=</VerInfo_Keys>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
-        <VerInfo_Build>48</VerInfo_Build>
+        <VerInfo_Build>49</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_4)'!=''">
         <DCC_Define>DEVNET;DEBUG;EXTENDEDACCOUNT;$(DCC_Define)</DCC_Define>
@@ -348,8 +355,8 @@
                     <Language Name="ActiveLang">HUN</Language>
                 </Language>
                 <Resource_DLL_Projects>
-                    <Resource_DLL_Projects Name="Item0">magyar (Magyarország)*$0000040E*HUN*HUN</Resource_DLL_Projects>
-                    <Resource_DLL_Projects Name="Item1">angol (Egyesült Államok)*$00000409*ENU*ENU</Resource_DLL_Projects>
+                    <Resource_DLL_Projects Name="Item0">angol (Egyesült Államok)*$00000409*ENU*ENU</Resource_DLL_Projects>
+                    <Resource_DLL_Projects Name="Item1">magyar (Magyarország)*$0000040E*HUN*HUN</Resource_DLL_Projects>
                 </Resource_DLL_Projects>
                 <Misc_Files>
                     <Misc_Files Name="Item0">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
@@ -456,139 +463,348 @@
                     <Misc_Files Name="Item101">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
                     <Misc_Files Name="Item102">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
                     <Misc_Files Name="Item103">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item104">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item105">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item106">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item107">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item108">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item109">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item110">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item111">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item112">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item113">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item114">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item115">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item116">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item117">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item118">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item119">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item120">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item121">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item122">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item123">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item124">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item125">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item126">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item127">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item128">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item129">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item130">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item131">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item132">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item133">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item134">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item135">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item136">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item137">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item138">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item139">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item140">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item141">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item142">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item143">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item144">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item145">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item146">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item147">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item148">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item149">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item150">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item151">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item152">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item153">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item154">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item155">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item156">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item157">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item158">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item159">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item160">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item161">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item162">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item163">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item164">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item165">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item166">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item167">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item168">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item169">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item170">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item171">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item172">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item173">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item174">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item175">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item176">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item177">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item178">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item179">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item180">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item181">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item182">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item183">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item184">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item185">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item186">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item187">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item188">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item189">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item190">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item191">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item192">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item193">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item194">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item195">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item196">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item197">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item198">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item199">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item200">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item201">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item202">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item203">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item204">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item205">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item206">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item207">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item208">\\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item209">\\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item210">\\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item211">\\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item212">\\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item213">\\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item214">\\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item215">\\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item216">\\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item217">\\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item218">\\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item219">\\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
-                    <Misc_Files Name="Item220">\\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item104">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item105">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item106">src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item107">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item108">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item109">src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item110">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item111">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item112">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item113">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item114">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item115">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item116">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item117">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item118">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item119">src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item120">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item121">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item122">src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item123">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item124">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item125">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item126">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item127">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item128">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item129">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item130">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item131">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item132">src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item133">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item134">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item135">src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item136">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item137">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item138">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item139">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item140">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item141">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item142">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item143">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item144">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item145">src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item146">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item147">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item148">src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item149">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item150">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item151">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item152">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item153">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item154">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item155">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item156">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item157">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item158">src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item159">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item160">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item161">src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item162">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item163">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item164">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item165">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item166">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item167">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item168">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item169">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item170">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item171">src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item172">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item173">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item174">src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item175">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item176">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item177">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item178">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item179">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item180">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item181">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item182">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item183">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item184">src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item185">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item186">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item187">src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item188">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item189">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item190">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item191">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item192">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item193">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item194">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item195">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item196">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item197">src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item198">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item199">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item200">src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item201">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item202">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item203">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item204">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item205">src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item206">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item207">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item208">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item209">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item210">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item211">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item212">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item213">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item214">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item215">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item216">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item217">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item218">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item219">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item220">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item221">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item222">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item223">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item224">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item225">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item226">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item227">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item228">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item229">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item230">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item231">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item232">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item233">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item234">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item235">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item236">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item237">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item238">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item239">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item240">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item241">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item242">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item243">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item244">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item245">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item246">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item247">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item248">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item249">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item250">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item251">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item252">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item253">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item254">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item255">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item256">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item257">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item258">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item259">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item260">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item261">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item262">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item263">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item264">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item265">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item266">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item267">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item268">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item269">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item270">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item271">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item272">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item273">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item274">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item275">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item276">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item277">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item278">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item279">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item280">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item281">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item282">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item283">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item284">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item285">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item286">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item287">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item288">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item289">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item290">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item291">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item292">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item293">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item294">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item295">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item296">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item297">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item298">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item299">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item300">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item301">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item302">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item303">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item304">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item305">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item306">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item307">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item308">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item309">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item310">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item311">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item312">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item313">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item314">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item315">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item316">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item317">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item318">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item319">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item320">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item321">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item322">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item323">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item324">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item325">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item326">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item327">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item328">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item329">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item330">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item331">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item332">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item333">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item334">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item335">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item336">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item337">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item338">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item339">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item340">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item341">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item342">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item343">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item344">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item345">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item346">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item347">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item348">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item349">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item350">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item351">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item352">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item353">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item354">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item355">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item356">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item357">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item358">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item359">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item360">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item361">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item362">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item363">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item364">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item365">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item366">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item367">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item368">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item369">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item370">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item371">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item372">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item373">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item374">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item375">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item376">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item377">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item378">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item379">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item380">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item381">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item382">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item383">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item384">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item385">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item386">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item387">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item388">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item389">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item390">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item391">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item392">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item393">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item394">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item395">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item396">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item397">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item398">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item399">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item400">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item401">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item402">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item403">\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item404">\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item405">\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item406">\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item407">\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item408">\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item409">\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item410">\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item411">\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item412">\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item413">\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item414">\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item415">\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item416">\\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item417">\\src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item418">\\src\Forms\Common\MicroCoin.Forms.Common.About.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item419">\\src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item420">\\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item421">\\src\Forms\MicroCoin.Forms.MainForm.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item422">\\src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item423">\\src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item424">\\src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item425">\\src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item426">\\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item427">\\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm*Forms</Misc_Files>
+                    <Misc_Files Name="Item428">\\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm*Forms</Misc_Files>
                 </Misc_Files>
                 <RDP_Source_Files>
-                    <RDP_Source_Files Name="Item0">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item1">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item2">src\Forms\Common\MicroCoin.Forms.Common.About.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item3">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item4">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item5">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item6">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item7">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item8">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item9">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item10">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item11">src\Forms\Exchange\MicroCoin.Exchange.MapleChange.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item12">src\Forms\MicroCoin.Forms.MainForm.dfm</RDP_Source_Files>
-                    <RDP_Source_Files Name="Item13">..\bin\Win32\Release\MicroCoinWallet.drc</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item0">..\bin\Win32\Debug\MicroCoinWallet.drc</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item1">src\Forms\Common\MicroCoin.Forms.AccountSelectDialog.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item2">src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item3">src\Forms\Common\MicroCoin.Forms.Common.About.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item4">src\Forms\Common\MicroCoin.Forms.Common.Settings.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item5">src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item6">src\Forms\Transactions\MicroCoin.Forms.BuyAccount.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item7">src\Forms\Transactions\MicroCoin.Forms.ChangeAccountKey.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item8">src\Forms\Transactions\MicroCoin.Forms.EditAccount.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item9">src\Forms\Transactions\MicroCoin.Forms.SellAccount.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item10">src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item11">src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item12">src\Forms\Exchange\MicroCoin.Exchange.MapleChange.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item13">src\Forms\MicroCoin.Forms.MainForm.dfm</RDP_Source_Files>
+                    <RDP_Source_Files Name="Item14">..\bin\Win32\Release\MicroCoinWallet.drc</RDP_Source_Files>
                 </RDP_Source_Files>
             </Delphi.Personality>
             <Platforms>
@@ -596,9 +812,8 @@
                 <Platform value="Win64">True</Platform>
             </Platforms>
             <Deployment Version="3">
-                <DeployFile LocalName="..\bin\Win32\Devnet\MicroCoinWallet.exe" Configuration="Devnet" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Win32\Release\AppxManifest.xml" Configuration="Release" Class="ProjectUWPManifest">
                     <Platform Name="Win32">
-                        <RemoteName>MicroCoinWallet.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -617,6 +832,24 @@
                 <DeployFile LocalName="..\bin\Win32\Testnet\MicroCoinWallet.exe" Configuration="Testnet" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>MicroCoinWallet.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png" Configuration="Release" Class="UWP_DelphiLogo150">
+                    <Platform Name="Win32">
+                        <RemoteName>Logo150x150.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\bin\Win32\Devnet\MicroCoinWallet.exe" Configuration="Devnet" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>MicroCoinWallet.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png" Configuration="Release" Class="UWP_DelphiLogo44">
+                    <Platform Name="Win32">
+                        <RemoteName>Logo44x44.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

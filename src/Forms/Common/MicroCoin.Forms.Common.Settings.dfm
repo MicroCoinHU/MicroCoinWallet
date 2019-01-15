@@ -5,7 +5,7 @@ object SettingsForm: TSettingsForm
   BorderStyle = bsSingle
   Caption = 'MicroCoin settings'
   ClientHeight = 335
-  ClientWidth = 480
+  ClientWidth = 429
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -29,7 +29,7 @@ object SettingsForm: TSettingsForm
     AlignWithMargins = True
     Left = 10
     Top = 10
-    Width = 460
+    Width = 409
     Height = 281
     Margins.Left = 10
     Margins.Top = 10
@@ -37,9 +37,11 @@ object SettingsForm: TSettingsForm
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 460
     object TabSheet1: TTabSheet
       Caption = 'Application options'
       ImageIndex = 2
+      ExplicitWidth = 452
       object Label5: TLabel
         Left = 12
         Top = 6
@@ -174,10 +176,7 @@ object SettingsForm: TSettingsForm
     end
     object MiningTab: TTabSheet
       Caption = 'Mining options'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitWidth = 452
       object Label1: TLabel
         Left = 12
         Top = 69
@@ -253,10 +252,7 @@ object SettingsForm: TSettingsForm
     object NetOptions: TTabSheet
       Caption = 'Server options'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitWidth = 452
       object Label2: TLabel
         Left = 12
         Top = 21
@@ -310,7 +306,7 @@ object SettingsForm: TSettingsForm
       object memoAllowedIPs: TMemo
         Left = 152
         Top = 128
-        Width = 261
+        Width = 224
         Height = 89
         TabOrder = 3
       end
@@ -319,14 +315,15 @@ object SettingsForm: TSettingsForm
   object Panel2: TPanel
     Left = 0
     Top = 294
-    Width = 480
+    Width = 429
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitWidth = 480
     object btnSave: TPngBitBtn
-      Left = 380
-      Top = 9
+      Left = 329
+      Top = 8
       Width = 86
       Height = 25
       Caption = 'Save'
@@ -358,8 +355,8 @@ object SettingsForm: TSettingsForm
         454E44AE426082}
     end
     object btnCancel: TPngBitBtn
-      Left = 283
-      Top = 9
+      Left = 234
+      Top = 8
       Width = 86
       Height = 25
       Caption = 'Cancel'
@@ -394,6 +391,40 @@ object SettingsForm: TSettingsForm
         E72015759E4286EFDD6B5DC0EB7C25475006028E4659A1775F8C020672BC3EBF
         A9E9DC9E3F45B9A8DBD4CE105DA6D1EEEE9C2849011B437F924ABD9BD3D0E058
         B87163F3D67F2DD3FFACF30F51A56FF4789ABE890000000049454E44AE426082}
+    end
+    object PngBitBtn1: TPngBitBtn
+      Left = 14
+      Top = 8
+      Width = 127
+      Height = 25
+      Caption = 'Clean up my drive!'
+      TabOrder = 2
+      Visible = False
+      PngImage.Data = {
+        89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+        6100000006624B474400FF00FF00FFA0BDA79300000009704859730000004800
+        0000480046C96B3E000002564944415478DA63FCFFFF3F0331E0FFBF7F0CEF9F
+        DD5064E312F8C22324F51A26CE48AC011F5FDE95BDB4AA7B399798EC0EC3D08A
+        16262666E20DF8F7EF2FC3B5AD53EB9E1EDB91AD119A1F226FE47E9824177C7A
+        F540E2F4ECF25DBCB2EA5B8DA3AAAB9859D8FF9364C0DDA36B82EFEC5E52619A
+        D21E2224A3F910598EA0019FDF3E103A35B7662EBF8CC659A0ED2D8C0C8C0C04
+        0D0089FCFEF685EDEDF9D3169F3F4DAAFCF6E1AA0DBF6A63A4A249E41674B558
+        0D78F7F4BCD28B6B0D8D0C479E7A313E6510E2F3FDF6FF9F627A86AC5EFE2C82
+        06FCF9FD8BF1E6E1A4497C3CDB7244450C193E1CE26278B9F7FE6FC1988A7039
+        F798F5040D78FBF8ACDAE38B61DBC525189538787419784544193EDC38F5FFCB
+        9FA4140587BC79780DF8FDEB3BF3DD93759DFF7FAD2C16121262E0E49262F8F5
+        F31BC3CF5FF7FEFD622A8E5734CA5F82D78057F78FE93DBA54B49387EFB38480
+        200F030F2F1BC3970FCF19DEBDE5BA2C63B8CA874F54E3115E033EBE79C47F76
+        4771A7A0C08D4451492E36867FDF18DE3CBFFBFBC987C05215B3FA898282FC0C
+        0202020CECECECA8067CF9F28561D5AA554C3B76EE64BD71F98CA88BC9C7FAF8
+        28B9B81F9FEF302EDFF065C5D2ED5CED2CECBCEF819A7F292A2AFEB0B3B3FB19
+        1F1FFF5752521262C0AD5BB718A2A2A2D8CE9F3FCFFDEFDF3F2E76164661370B
+        B690DF7F7E32EC3BC3B0EBD71F86CF40CB7E01F13720FE2A2F2FFF65E1C2853F
+        ECEDED21060035313C7CF890E1D0A143CC4043581F3D7AC4F2E2C52B66A0CB98
+        98981898383939FF8B8B8BFF919191F9ADA3A3F3DBDADAFAAF9696D67F666666
+        0600E79321F0709E6C7D000000227A545874536F667477617265000078DA2B2F
+        2FD7CBCCCB2E4E4E2C48D5CB2F4A070036D806581053CA5C0000000049454E44
+        AE426082}
     end
   end
 end

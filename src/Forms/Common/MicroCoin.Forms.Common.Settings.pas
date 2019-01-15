@@ -33,7 +33,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs, StdCtrls, Buttons, PngBitBtn,
   ExtCtrls, ComCtrls, MicroCoin.Application.Settings, UCrypto, UITypes,
-  Vcl.Samples.Spin, Vcl.WinXCtrls, Styles, Themes;
+  Vcl.Samples.Spin, Vcl.WinXCtrls, Styles, Themes, PngSpeedButton;
 
 type
   TSettingsForm = class(TForm)
@@ -74,6 +74,7 @@ type
     CheckBox1: TCheckBox;
     CheckBox2: TCheckBox;
     Label12: TLabel;
+    PngBitBtn1: TPngBitBtn;
     procedure radiousethiskeyClick(Sender: TObject);
     procedure radioRandomkeyClick(Sender: TObject);
     procedure radionewKeyClick(Sender: TObject);

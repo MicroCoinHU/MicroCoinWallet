@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm" source-language="en-US" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.CreateSubAccount.dfm">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">43479.7333333333</prop>
+        <prop prop-type="OrigDateTime">43450.6913888889</prop>
+        <prop prop-type="XlatDateTime">43450.6913888889</prop>
+        <prop prop-type="Translated">0</prop>
+        <prop prop-type="UnTranslated">78</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="O:CreateSubaccountForm.Left" resname="O:CreateSubaccountForm.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">0</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Top" resname="O:CreateSubaccountForm.Top">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">1</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.BorderIcons" resname="O:CreateSubaccountForm.BorderIcons">
+        <source>[biSystemMenu]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">2</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.BorderStyle" resname="O:CreateSubaccountForm.BorderStyle">
+        <source>bsSingle</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">3</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Caption" resname="O:CreateSubaccountForm.Caption">
+        <source>'Create subaccount'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">4</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.ClientHeight" resname="O:CreateSubaccountForm.ClientHeight">
+        <source>186</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">5</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.ClientWidth" resname="O:CreateSubaccountForm.ClientWidth">
+        <source>448</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">6</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Color" resname="O:CreateSubaccountForm.Color">
+        <source>clBtnFace</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">7</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Font.Charset" resname="O:CreateSubaccountForm.Font.Charset">
+        <source>DEFAULT_CHARSET</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">8</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Font.Color" resname="O:CreateSubaccountForm.Font.Color">
+        <source>clWindowText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">9</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Font.Height" resname="O:CreateSubaccountForm.Font.Height">
+        <source>-11</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">10</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Font.Name" resname="O:CreateSubaccountForm.Font.Name">
+        <source>'Tahoma'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399074</prop><prop prop-type="Status">0</prop><prop prop-type="Order">11</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Font.Style" resname="O:CreateSubaccountForm.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">12</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.OldCreateOrder" resname="O:CreateSubaccountForm.OldCreateOrder">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">13</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.Position" resname="O:CreateSubaccountForm.Position">
+        <source>poMainFormCenter</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">14</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.PixelsPerInch" resname="O:CreateSubaccountForm.PixelsPerInch">
+        <source>96</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">15</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.TextHeight" resname="O:CreateSubaccountForm.TextHeight">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">16</prop><prop prop-type="Type">TCreateSubaccountForm</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label1.Left" resname="O:CreateSubaccountForm.O:Label1.Left">
+        <source>20</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">17</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label1.Top" resname="O:CreateSubaccountForm.O:Label1.Top">
+        <source>16</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">18</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label1.Width" resname="O:CreateSubaccountForm.O:Label1.Width">
+        <source>70</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">19</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label1.Height" resname="O:CreateSubaccountForm.O:Label1.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">20</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label1.Caption" resname="O:CreateSubaccountForm.O:Label1.Caption">
+        <source>'Initial balance:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">21</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label2.Left" resname="O:CreateSubaccountForm.O:Label2.Left">
+        <source>164</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">22</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label2.Top" resname="O:CreateSubaccountForm.O:Label2.Top">
+        <source>16</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.733339919</prop><prop prop-type="Status">0</prop><prop prop-type="Order">23</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label2.Width" resname="O:CreateSubaccountForm.O:Label2.Width">
+        <source>62</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">24</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label2.Height" resname="O:CreateSubaccountForm.O:Label2.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">25</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label2.Caption" resname="O:CreateSubaccountForm.O:Label2.Caption">
+        <source>'Balance limit:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">26</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label3.Left" resname="O:CreateSubaccountForm.O:Label3.Left">
+        <source>308</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">27</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label3.Top" resname="O:CreateSubaccountForm.O:Label3.Top">
+        <source>16</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">28</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label3.Width" resname="O:CreateSubaccountForm.O:Label3.Width">
+        <source>80</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">29</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label3.Height" resname="O:CreateSubaccountForm.O:Label3.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">30</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:Label3.Caption" resname="O:CreateSubaccountForm.O:Label3.Caption">
+        <source>'Daily spend limit:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">31</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edInitialBalance.Left" resname="O:CreateSubaccountForm.O:edInitialBalance.Left">
+        <source>20</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">32</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edInitialBalance.Top" resname="O:CreateSubaccountForm.O:edInitialBalance.Top">
+        <source>36</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">33</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edInitialBalance.Width" resname="O:CreateSubaccountForm.O:edInitialBalance.Width">
+        <source>121</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">34</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edInitialBalance.Height" resname="O:CreateSubaccountForm.O:edInitialBalance.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">35</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edInitialBalance.Alignment" resname="O:CreateSubaccountForm.O:edInitialBalance.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399306</prop><prop prop-type="Status">0</prop><prop prop-type="Order">36</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edInitialBalance.TabOrder" resname="O:CreateSubaccountForm.O:edInitialBalance.TabOrder">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">37</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edInitialBalance.OnKeyPress" resname="O:CreateSubaccountForm.O:edInitialBalance.OnKeyPress">
+        <source>edInitialBalanceKeyPress</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">38</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edBalanceLimit.Left" resname="O:CreateSubaccountForm.O:edBalanceLimit.Left">
+        <source>164</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">39</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edBalanceLimit.Top" resname="O:CreateSubaccountForm.O:edBalanceLimit.Top">
+        <source>36</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">40</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edBalanceLimit.Width" resname="O:CreateSubaccountForm.O:edBalanceLimit.Width">
+        <source>121</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">41</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edBalanceLimit.Height" resname="O:CreateSubaccountForm.O:edBalanceLimit.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">42</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edBalanceLimit.Alignment" resname="O:CreateSubaccountForm.O:edBalanceLimit.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">43</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edBalanceLimit.TabOrder" resname="O:CreateSubaccountForm.O:edBalanceLimit.TabOrder">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">44</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edBalanceLimit.OnKeyPress" resname="O:CreateSubaccountForm.O:edBalanceLimit.OnKeyPress">
+        <source>edInitialBalanceKeyPress</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">45</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edDailyLimit.Left" resname="O:CreateSubaccountForm.O:edDailyLimit.Left">
+        <source>308</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">46</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edDailyLimit.Top" resname="O:CreateSubaccountForm.O:edDailyLimit.Top">
+        <source>36</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">47</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edDailyLimit.Width" resname="O:CreateSubaccountForm.O:edDailyLimit.Width">
+        <source>121</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399421</prop><prop prop-type="Status">0</prop><prop prop-type="Order">48</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edDailyLimit.Height" resname="O:CreateSubaccountForm.O:edDailyLimit.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">49</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edDailyLimit.Alignment" resname="O:CreateSubaccountForm.O:edDailyLimit.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">50</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edDailyLimit.TabOrder" resname="O:CreateSubaccountForm.O:edDailyLimit.TabOrder">
+        <source>2</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">51</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edDailyLimit.OnKeyPress" resname="O:CreateSubaccountForm.O:edDailyLimit.OnKeyPress">
+        <source>edInitialBalanceKeyPress</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">52</prop><prop prop-type="Type">TEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edPublicKey.Left" resname="O:CreateSubaccountForm.O:edPublicKey.Left">
+        <source>20</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">53</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edPublicKey.Top" resname="O:CreateSubaccountForm.O:edPublicKey.Top">
+        <source>96</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">54</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edPublicKey.Width" resname="O:CreateSubaccountForm.O:edPublicKey.Width">
+        <source>409</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">55</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edPublicKey.Height" resname="O:CreateSubaccountForm.O:edPublicKey.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">56</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edPublicKey.EditLabel.Width" resname="O:CreateSubaccountForm.O:edPublicKey.EditLabel.Width">
+        <source>51</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">57</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edPublicKey.EditLabel.Height" resname="O:CreateSubaccountForm.O:edPublicKey.EditLabel.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">58</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edPublicKey.EditLabel.Caption" resname="O:CreateSubaccountForm.O:edPublicKey.EditLabel.Caption">
+        <source>'Public key:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">59</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:edPublicKey.TabOrder" resname="O:CreateSubaccountForm.O:edPublicKey.TabOrder">
+        <source>3</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">60</prop><prop prop-type="Type">TLabeledEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn1.Left" resname="O:CreateSubaccountForm.O:PngBitBtn1.Left">
+        <source>354</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">61</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn1.Top" resname="O:CreateSubaccountForm.O:PngBitBtn1.Top">
+        <source>143</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">62</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn1.Width" resname="O:CreateSubaccountForm.O:PngBitBtn1.Width">
+        <source>75</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">63</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn1.Height" resname="O:CreateSubaccountForm.O:PngBitBtn1.Height">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">64</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn1.Caption" resname="O:CreateSubaccountForm.O:PngBitBtn1.Caption">
+        <source>'Save'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">65</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn1.ModalResult" resname="O:CreateSubaccountForm.O:PngBitBtn1.ModalResult">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">66</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn1.TabOrder" resname="O:CreateSubaccountForm.O:PngBitBtn1.TabOrder">
+        <source>4</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">67</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn1.PngImage.Data" resname="O:CreateSubaccountForm.O:PngBitBtn1.PngImage.Data">
+        <source>89504E470D0A1A0A0000000D4948445200000010000000100803000000282D0F530000000373424954080808DBE14FE00000000970485973000001BB000001BB013AECE3E20000001974455874536F667477617265007777772E696E6B73636170652E6F72679BEE3C1A0000010E504C5445FFFFFF004E00004900005500004C00004F00004D00004E00004D00004B00004E00004D00004C00004D00004C00004E00004C00025002045304045304035203024E02024E02024D02024802005B00136412015B010E680C176615176915156B12116B0E0E680B095F07126B10105C0D185D141756111A54121C50111C50142C842347BA0E4A8D304D7D294E822D4E8B3150AC2A54832D57C21858A042599F415B9C3F5DB22D64B15064BA3273B46476B56376BC5977C05579B8617BBB667FC0687FC83582C64583C24A88C27A89BD4B89C67B8AC1578AC15B8EC4608EC7448FC95C90BD6B90C16F91C56991DE3E93C67093C86A96C36C98D54799D08F99D2909AC8689ACB7B9DC96DA6D077B6EAA129ECEFA80000002B74524E53000D0E181B1D21243233343536466B6C728D9091959A9DA0A3BCD6D8DBE6E7E9EBEDF5F5F6F7F9F9FAFAFE0D0EC0F10000009D4944415478DA636440038CF80458B93FFD43166093967CF8EC3F428055DA8CF9C99DE740017E910F6F191858A40D58FFFF3CF78C91814F46EFF6FD77CCD2FA3FFE715C7FF6839141C6F289F893079CDADFFF0B5F7EFA1D68A8A0B4F407E1D782DFFECB9C7BFA0D6CADA894F03BC1EFFFF81E3DF90675879884D06B76F17B4FBEC21D262E25CB72FDD15724974A88FE7EF205C5E9BCBF7E12E339300000628A371166E994D80000000049454E44AE426082</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">68</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.Left" resname="O:CreateSubaccountForm.O:PngBitBtn2.Left">
+        <source>265</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">69</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.Top" resname="O:CreateSubaccountForm.O:PngBitBtn2.Top">
+        <source>143</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">70</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.Width" resname="O:CreateSubaccountForm.O:PngBitBtn2.Width">
+        <source>75</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">71</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.Height" resname="O:CreateSubaccountForm.O:PngBitBtn2.Height">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">72</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.Cancel" resname="O:CreateSubaccountForm.O:PngBitBtn2.Cancel">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399653</prop><prop prop-type="Status">0</prop><prop prop-type="Order">73</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.Caption" resname="O:CreateSubaccountForm.O:PngBitBtn2.Caption">
+        <source>'Cancel'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399769</prop><prop prop-type="Status">0</prop><prop prop-type="Order">74</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.ModalResult" resname="O:CreateSubaccountForm.O:PngBitBtn2.ModalResult">
+        <source>2</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399769</prop><prop prop-type="Status">0</prop><prop prop-type="Order">75</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.TabOrder" resname="O:CreateSubaccountForm.O:PngBitBtn2.TabOrder">
+        <source>5</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399769</prop><prop prop-type="Status">0</prop><prop prop-type="Order">76</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:CreateSubaccountForm.O:PngBitBtn2.PngImage.Data" resname="O:CreateSubaccountForm.O:PngBitBtn2.PngImage.Data">
+        <source>89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF610000000473424954080808087C0864880000000970485973000001BB000001BB013AECE3E20000001974455874536F667477617265007777772E696E6B73636170652E6F72679BEE3C1A000002FD4944415478DA9D934B6813511486FF9BC9CC6492994993368DAD2F5AEBAB8D288AF5515FB8115A501716A58B8042458C015D880B5D0A821B1751100445F1DD2EC44711146BB1D6AAB50ADA4AA94AAB440D4D2624334D329366C6DBD280F85AF86FEEE2DEF371FF73FE432CCBC23F649B3ECDBF3D20BF02DE1C3B561BEBEA6A537A7A726275F512469248666464500A04ECFE0D1B9A971D3F3EF857C0E3969648ACA3A3B574CD6ADE531780E8F78310026D6C0CF1BE3E245EBDD22B1A1BCF6DBA7A35FC1B60B2F8DBFD8ED0BC6090F04E27461E3DC678340A41E021D7CC837BE16264D53446AF5DB7666DDB7EA6089902BCA0DF1E387DBABF6A6B130FC3C0BB3B7715DE983821B2EC759E652B448E7D80FA156EDE3F137A3A89E8C34EBDEEC081E5F5D4CE14A06DFDFA01928CD5FA57AEC1EBF6F6246391C5214D8BB589A25F92A51EE7DAFAEA0258A8E329302C8FCCA761C0533ED8FCE449DD14E0424D4DC233B3CC9B513524DF0E1D09E5F327AF8962B9C72DF7FAB66CAAD2A309A8BA86FEDE97289F3B1B25BE32A4BF2794DD1F3E944E026C1151CCCE58BD944B0F7F0489AB95022105D9E5ECAD5CB7B2CAA4C539A68067AFDF9ABEACBE7FC25772362B70B012E34658D38429C0290A30799393E9D8391D4B3D027F4B72D9AAA40C41DE61A13BAE9AA5593D28000FAD52E9FB98918569F2C6A1690022D482A57CF6BA08039F5D54EDA62679E339D8253B3A75D3741B6670AF655DB92C8A075D2E722A9ED791F3CE51C2D3167096361103CF6B2DAD8019E50EC8D10C44994567AE604AB438448B2FD28656940843E931C59D7232C807560DEE2B36F1111DE3D348A47FB660F0AE580E3E1F8F2E75020EC33A2C72DC4D99657755781D47EDC9941C176C789FE5F4867078F9E6E2182775890669B4FD4668918F23654A1E7031506D76B8EC2CBC8C099B92C157378BBEB861CDDDB1F34CF0E72015759E4286EFDD6B5DC0EB7C25475006028E4659A1775F8C020672BC3EBFA9E9DC9E3F45B9A8DBD4CE105DA6D1EEEE9C2849011B437F924ABD9BD3D0E058B87163F3D67F2DD3FFACF30F51A56FF4789ABE890000000049454E44AE426082</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43479.7333399769</prop><prop prop-type="Status">0</prop><prop prop-type="Order">77</prop><prop prop-type="Type">TPngBitBtn</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -64,6 +64,7 @@ WizardSmallImageFile=MicroCoinWallet.bmp
 AppComments=MicroCoin is a peer-to-peer Internet currency that enables instant, near-zero cost payments to anyone in the world.
 #ifdef sign
 SignTool=signtool
+SignedUninstaller=true
 #endif
 ;WindowVisible=yes
 
