@@ -62,7 +62,6 @@ uses
   UAES in 'src\MicroCoin\Deprecated\UAES.pas',
   UBaseTypes in 'src\MicroCoin\Deprecated\UBaseTypes.pas',
   UChunk in 'src\MicroCoin\Deprecated\UChunk.pas',
-  UConst in 'src\MicroCoin\Deprecated\UConst.pas',
   UCrypto in 'src\MicroCoin\Deprecated\UCrypto.pas',
   UECIES in 'src\MicroCoin\Deprecated\UECIES.pas',
   UJSONFunctions in 'src\MicroCoin\Deprecated\UJSONFunctions.pas',

@@ -229,7 +229,6 @@
         <DCCReference Include="src\MicroCoin\Deprecated\UAES.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UBaseTypes.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UChunk.pas"/>
-        <DCCReference Include="src\MicroCoin\Deprecated\UConst.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UCrypto.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UECIES.pas"/>
         <DCCReference Include="src\MicroCoin\Deprecated\UJSONFunctions.pas"/>
