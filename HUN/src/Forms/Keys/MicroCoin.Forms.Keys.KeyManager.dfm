@@ -196,7 +196,7 @@ object WalletKeysForm: TWalletKeysForm
       item
         Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAutoSpring, coAllowFocus, coEditable]
         Position = 2
-        Width = 402
+        Width = 406
         WideText = 'T'#237'pus'
       end>
   end
@@ -253,14 +253,13 @@ object WalletKeysForm: TWalletKeysForm
       AlignWithMargins = True
       Left = 3
       Top = 10
-      Width = 181
+      Width = 47
       Height = 13
       Margins.Top = 10
       Margins.Bottom = 10
       Align = alTop
       Alignment = taCenter
       Caption = 'Publikus kulcs'
-      ExplicitWidth = 47
     end
     object qrPublic: TImage
       AlignWithMargins = True

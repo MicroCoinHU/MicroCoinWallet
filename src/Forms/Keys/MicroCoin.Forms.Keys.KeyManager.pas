@@ -109,8 +109,8 @@ type
   private
     procedure ShowPrivateKey;
     function UnlockWallet : Boolean;
-    function ParseRawKey(AEC_OpenSSL_NID : Word; AEncodedKey : string) : TECPrivateKey;
-    function ParseEncryptedKey(APassword, AKey: AnsiString) : TECPrivateKey;
+    function ParseRawKey(AEC_OpenSSL_NID : Word; AEncodedKey : string) : TECKeyPair;
+    function ParseEncryptedKey(APassword, AKey: AnsiString) : TECKeyPair;
   public
     { Public declarations }
   end;
@@ -163,12 +163,12 @@ resourcestring
 
 procedure TWalletKeysForm.AddNewKeyExecute(Sender: TObject);
 var
-  xKey: TECPrivateKey;
+  xKey: TECKeyPair;
   xName: string;
 begin
   if not UnlockWallet then exit;
   if InputQuery(StrKeyName, StrEnterName, xName) then begin
-    xKey := TECPrivateKey.Create;
+    xKey := TECKeyPair.Create;
     xKey.GenerateRandomPrivateKey(TAction(Sender).Tag);
     TNode.Node.KeyManager.AddPrivateKey(xName, xKey);
     FreeAndNil(xKey);
@@ -389,9 +389,9 @@ begin
   ImportAll.Enabled := true;
 end;
 
-function TWalletKeysForm.ParseRawKey(AEC_OpenSSL_NID : Word; AEncodedKey : string) : TECPrivateKey;
+function TWalletKeysForm.ParseRawKey(AEC_OpenSSL_NID : Word; AEncodedKey : string) : TECKeyPair;
 begin
-  Result := TECPrivateKey.Create;
+  Result := TECKeyPair.Create;
   Try
     Result.SetPrivateKeyFromHexa(AEC_OpenSSL_NID, TBaseType.ToHexaString(AEncodedKey));
   Except
@@ -402,14 +402,14 @@ begin
   end;
 end;
 
-function TWalletKeysForm.ParseEncryptedKey(APassword, AKey: AnsiString) : TECPrivateKey;
+function TWalletKeysForm.ParseEncryptedKey(APassword, AKey: AnsiString) : TECKeyPair;
 var
   xDecryptedKey: AnsiString;
 begin
   Result := nil;
   if TAESComp.EVP_Decrypt_AES256(AKey, APassword, xDecryptedKey) then begin
     if (xDecryptedKey<>'') then begin
-      Result := TECPrivateKey.ImportFromRaw(xDecryptedKey);
+      Result := TECKeyPair.ImportFromRaw(xDecryptedKey);
       Exit;
     end
   end;
@@ -420,7 +420,7 @@ procedure TWalletKeysForm.ImportPrivateKeyExecute(Sender: TObject);
 var
   xRawkey, xEncodedKey: string;
   xData: array[0..2] of string;
-  xResult: TECPrivateKey;
+  xResult: TECKeyPair;
 begin
   if not UnlockWallet
   then exit;

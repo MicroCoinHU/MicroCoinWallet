@@ -83,9 +83,9 @@ resourcestring
 procedure TBuyAccountForm.btnSaveClick(Sender: TObject);
 var
   xFee: Int64;
-  xPrivateKey: TECPrivateKey;
+  xPrivateKey: TECKeyPair;
   xIndex: integer;
-  xNewkey: TECDSA_Public;
+  xNewkey: TECPublicKey;
   xPayload : AnsiString;
   xTransaction: ITransaction;
   xErrors: AnsiString;

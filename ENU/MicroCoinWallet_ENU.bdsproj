@@ -14,7 +14,7 @@
 		</Source>
 		<Options>
 			<Options Name="BaseLang">1033</Options>
-			<Options Name="TargetName">..\..\bin\Win32\Debug\MicroCoinWallet.ENU</Options>
+			<Options Name="TargetName">..\..\bin\Win32\Release\MicroCoinWallet.ENU</Options>
 			<Options Name="BRCC_IncludePath"></Options>
 			<Options Name="Company"></Options>
 			<Options Name="Configuration"></Options>

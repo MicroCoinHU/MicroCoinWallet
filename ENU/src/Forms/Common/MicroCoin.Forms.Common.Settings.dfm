@@ -41,7 +41,10 @@ object SettingsForm: TSettingsForm
     object TabSheet1: TTabSheet
       Caption = 'Application options'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 452
+      ExplicitHeight = 0
       object Label5: TLabel
         Left = 12
         Top = 6
@@ -176,7 +179,10 @@ object SettingsForm: TSettingsForm
     end
     object MiningTab: TTabSheet
       Caption = 'Mining options'
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 452
+      ExplicitHeight = 0
       object Label1: TLabel
         Left = 12
         Top = 69
@@ -252,7 +258,10 @@ object SettingsForm: TSettingsForm
     object NetOptions: TTabSheet
       Caption = 'Server options'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 452
+      ExplicitHeight = 0
       object Label2: TLabel
         Left = 12
         Top = 21

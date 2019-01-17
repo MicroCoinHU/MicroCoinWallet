@@ -41,7 +41,10 @@ object SettingsForm: TSettingsForm
     object TabSheet1: TTabSheet
       Caption = 'Alkalmaz'#225's be'#225'll'#237't'#225'sok'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 452
+      ExplicitHeight = 0
       object Label5: TLabel
         Left = 12
         Top = 6
@@ -176,7 +179,10 @@ object SettingsForm: TSettingsForm
     end
     object MiningTab: TTabSheet
       Caption = 'B'#225'ny'#225'szat'
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 452
+      ExplicitHeight = 0
       object Label1: TLabel
         Left = 12
         Top = 69
@@ -252,7 +258,10 @@ object SettingsForm: TSettingsForm
     object NetOptions: TTabSheet
       Caption = 'Szerver'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
       ExplicitWidth = 452
+      ExplicitHeight = 0
       object Label2: TLabel
         Left = 12
         Top = 21

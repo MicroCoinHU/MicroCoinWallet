@@ -154,7 +154,7 @@ procedure TSellAccountForm.bbSaveClick(Sender: TObject);
 var
   xTransaction : ITransaction;
   xPrice, xFee: Int64;
-  xPrivateKey: TECPrivateKey;
+  xPrivateKey: TECKeyPair;
   xPayload: AnsiString;
   xIndex: integer;
   xErrors: AnsiString;
@@ -191,7 +191,7 @@ begin
   then xBlock := StrToInt(edValidUntil.Text)
   else xBlock := 0;
 
-  xNewkey := CT_TECDSA_Public_Nul;
+  xNewkey := TAccountKey.Empty;
 
   if edNewPublicKey.Text<>''
   then if not TAccountKey.AccountKeyFromImport(edNewPublicKey.Text, xNewkey, xErrors)

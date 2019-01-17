@@ -503,7 +503,7 @@ procedure TMainForm.RevokeSellActionExecute(Sender: TObject);
 var
   xTransaction: ITransaction;
   xAccount: TAccount;
-  xPrivateKey: TECPrivateKey;
+  xPrivateKey: TECKeyPair;
   xErrors: AnsiString;
   xIndex: integer;
 begin
@@ -1228,7 +1228,7 @@ begin
   FOrderedAccountsKeyList := nil;
   TimerUpdateStatus.Enabled := false;
   FIsActivated := false;
-//  FWalletKeys := TKeyManager.Create(Self);
+
   for i := 0 to StatusBar.Panels.Count - 1 do
   begin
     StatusBar.Panels[i].Text := '';
@@ -1250,22 +1250,26 @@ begin
   FNodeNotifyEvents := TNodeNotifyEvents.Create(Self);
   FNodeNotifyEvents.OnBlocksChanged := OnNewAccount;
   FNodeNotifyEvents.OnNodeMessageEvent := OnNodeMessageEvent;
-  {$IFNDEF TESTNET}
+{$IFNDEF TESTNET}
   FNodeNotifyEvents.OnTransactionsChanged:= OnNewOperation;
-  {$ENDIF}
+{$ENDIF}
   TNode.Node.KeyManager := TKeyManager.Create(self);
   TNode.Node.KeyManager.OnChanged := OnWalletChanged;
   LoadAppParams;
+
   UpdatePrivateKeys;
   UpdateBlockChainState;
   UpdateConnectionStatus;
   cbExploreMyAccountsClick(nil);
+
   TrayIcon.Visible := true;
   TrayIcon.Hint := Self.Caption;
   TrayIcon.BalloonTitle := StrRestoringTheWindow;
   TrayIcon.BalloonHint := StrDoubleClickTheSystemTray;
   TrayIcon.BalloonFlags := bfInfo;
+
   MinersBlocksFound := 0;
+
   FBackgroundPanel := TPanel.Create(Self);
   FBackgroundPanel.Parent := MainPanel;
   FBackgroundPanel.Align := alClient;
@@ -1276,6 +1280,7 @@ begin
   FBackgroundPanel.BorderWidth := 0;
   FBackgroundPanel.Font.Size := 12;
   FBackgroundPanel.Alignment := TAlignment.taCenter;
+
   FProgessBar := TProgressBar.Create(FBackgroundPanel);
   FProgessBar.Parent := FBackgroundPanel;
   FProgessBar.Width := 250;
@@ -1355,18 +1360,18 @@ end;
 
 function TMainForm.GetAccountKeyForMiner: TAccountKey;
 var
-  xPrivateKey: TECPrivateKey;
+  xPrivateKey: TECKeyPair;
   i: Integer;
-  xPublicKey: TECDSA_Public;
+  xPublicKey: TECPublicKey;
 begin
-  Result := CT_TECDSA_Public_Nul;
+  Result := TAccountKey.Empty;
   if not Assigned(TNode.Node.KeyManager) then
     exit;
   if not Assigned(FAppSettings) then
     exit;
   case FMinerPrivateKeyType of
     mpk_NewEachTime:
-      xPublicKey := CT_TECDSA_Public_Nul;
+      xPublicKey := TAccountKey.Empty;
     mpk_Selected:
       begin
         xPublicKey := TAccountKey.FromRawString(FAppSettings.Entries[TAppSettingsEntry.apMinerPrivateKeySelectedPublicKey]
@@ -1374,7 +1379,7 @@ begin
       end;
   else
     // Random
-    xPublicKey := CT_TECDSA_Public_Nul;
+    xPublicKey := TAccountKey.Empty;
     if TNode.Node.KeyManager.Count > 0 then
       xPublicKey := TNode.Node.KeyManager.Key[Random(TNode.Node.KeyManager.Count)].AccountKey;
   end;
@@ -1386,7 +1391,7 @@ begin
   end;
   if i < 0 then
   begin
-    xPrivateKey := TECPrivateKey.Create;
+    xPrivateKey := TECKeyPair.Create;
     try
       xPrivateKey.GenerateRandomPrivateKey(cDefault_EC_OpenSSL_NID);
       TNode.Node.KeyManager.AddPrivateKey(Format(StrNewForMiner, [DateTimeToStr(now)]), xPrivateKey);

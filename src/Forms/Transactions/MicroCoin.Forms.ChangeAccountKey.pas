@@ -85,7 +85,7 @@ resourcestring
 
 procedure TChangeAccountKeyForm.btnSaveClick(Sender: TObject);
 var
-  xNewkey: TECDSA_Public;
+  xNewkey: TECPublicKey;
   xErrors: AnsiString;
   xFee: Int64;
   xSignerAccount: TAccount;

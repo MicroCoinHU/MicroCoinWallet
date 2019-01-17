@@ -126,7 +126,8 @@ uses
   MicroCoin.Crypto.BigNum in 'src\MicroCoin\Crypto\MicroCoin.Crypto.BigNum.pas',
   MicroCoin.Crypto.Errors in 'src\MicroCoin\Crypto\MicroCoin.Crypto.Errors.pas',
   OpenSSL in 'src\MicroCoin\3rdParty\OpenSSL\OpenSSL.pas',
-  OpenSSLdef in 'src\MicroCoin\3rdParty\OpenSSL\OpenSSLdef.pas';
+  OpenSSLdef in 'src\MicroCoin\3rdParty\OpenSSL\OpenSSLdef.pas',
+  MicroCoin.Crypto.Keys in 'src\MicroCoin\Crypto\MicroCoin.Crypto.Keys.pas';
 
 resourcestring
   StrMicroCoinWallet = 'MicroCoin Wallet';
