@@ -35,7 +35,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, Vcl.Buttons,
   PngSpeedButton, Vcl.StdCtrls, Vcl.ExtCtrls, MicroCoin.Node.Events,
   VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs,
-  MicroCoin.Account.Storage,
+  MicroCoin.Account.Storage, UBaseTypes,
   VCLTee.Chart, Threading, MicroCoin.BlockChain.Protocol;
 
 type
@@ -203,12 +203,12 @@ begin
     if xBlockNumber > 0
     then xData^.HashratePrev := TNode.Node.BlockManager.AccountStorage.CalcBlockHashRateInKhs(xBlockNumber-1, 50)
     else xData^.HashratePrev := 0;
-    xData^.Pow := TCrypto.ToHexaString(xBlock.BlockHeader.proof_of_work);
+    xData^.Pow := TBaseType.ToHexaString(xBlock.BlockHeader.proof_of_work);
     TMicroCoinProtocol.CalcProofOfWork(xBlock.BlockHeader, errors);
     if errors <> xBlock.BlockHeader.proof_of_work
-    then begin ShowMessage(TCrypto.ToHexaString(errors)+ ' ' + TCrypto.ToHexaString(xEntry.BlockHeader.proof_of_work)
-    +' '+TCrypto.ToHexaString(xBlock.BlockHeader.initial_safe_box_hash)
-    +' '+TCrypto.ToHexaString(xEntry.BlockHeader.initial_safe_box_hash)
+    then begin ShowMessage(TBaseType.ToHexaString(errors)+ ' ' + TBaseType.ToHexaString(xEntry.BlockHeader.proof_of_work)
+    +' '+TBaseType.ToHexaString(xBlock.BlockHeader.initial_safe_box_hash)
+    +' '+TBaseType.ToHexaString(xEntry.BlockHeader.initial_safe_box_hash)
     );
     xBlock.ProofOfWork := errors;
 //     TNode.Node.BlockManager.Storage.SaveBlockChainBlock(xBlock);

@@ -35,7 +35,7 @@ uses
   PngBitBtn, MicroCoin.Forms.AccountSelectDialog,
   MicroCoin.Node.Node, MicroCoin.Account.AccountKey,
   MicroCoin.Account.Data, MicroCoin.Common, UCrypto,
-  DateUtils,
+  DateUtils, MicroCoin.Crypto.Keys,
   MicroCoin.Account.Editors, MicroCoin.Transaction.ITransaction,
   MicroCoin.Transaction.Base, MicroCoin.Transaction.ListAccount;
 

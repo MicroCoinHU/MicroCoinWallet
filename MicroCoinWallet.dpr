@@ -121,7 +121,12 @@ uses
   MicroCoin.Forms.Transaction.Explorer in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.pas' {TransactionExplorer},
   MicroCoin.Forms.Transaction.History in 'src\Forms\Transactions\MicroCoin.Forms.Transaction.History.pas' {TransactionHistoryForm},
   MicroCoin.Forms.MainForm in 'src\Forms\MicroCoin.Forms.MainForm.pas' {MainForm},
-  MicroCoin.Common.Stream in 'src\MicroCoin\Common\MicroCoin.Common.Stream.pas';
+  MicroCoin.Common.Stream in 'src\MicroCoin\Common\MicroCoin.Common.Stream.pas',
+  MicroCoin.Common.Config in 'src\MicroCoin\Common\MicroCoin.Common.Config.pas',
+  MicroCoin.Crypto.BigNum in 'src\MicroCoin\Crypto\MicroCoin.Crypto.BigNum.pas',
+  MicroCoin.Crypto.Errors in 'src\MicroCoin\Crypto\MicroCoin.Crypto.Errors.pas',
+  OpenSSL in 'src\MicroCoin\3rdParty\OpenSSL\OpenSSL.pas',
+  OpenSSLdef in 'src\MicroCoin\3rdParty\OpenSSL\OpenSSLdef.pas';
 
 resourcestring
   StrMicroCoinWallet = 'MicroCoin Wallet';
@@ -200,6 +205,7 @@ begin
     DefaultFormatSettings.DecimalSeparator := '.';
     DefaultFormatSettings.ThousandSeparator := ',';
   {$ENDIF}
+
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Slate Classico');
   Application.Title := StrMicroCoinWallet + ' - '+ClientAppVersion{$IFDEF TESTNET}+' - TESTNET'{$ENDIF}{$IFDEF DEVNET}+' - DEVNET'{$ENDIF};

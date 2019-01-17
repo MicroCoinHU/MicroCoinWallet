@@ -35,6 +35,7 @@ uses
   ExtCtrls, MicroCoin.Account.Editors, MicroCoin.Account.AccountKey, UCrypto,
   MicroCoin.Common, MicroCoin.Account.Data, MicroCoin.Transaction.ChangeKey,
   MicroCoin.Node.Node, MicroCoin.Transaction.Base,
+  MicroCoin.Crypto.Keys,
   MicroCoin.Transaction.ITransaction, MicroCoin.Transaction.Transaction;
 
 type

@@ -35,7 +35,7 @@ uses
   Vcl.ImgList, PngImageList, Vcl.PlatformDefaultStyleActnCtrls, System.Actions,
   Vcl.ActnList, Vcl.ActnMan, VirtualTrees, Vcl.Menus, Vcl.ActnPopup,
   Vcl.ToolWin, Vcl.ActnCtrls, UCrypto, UITypes, Vcl.StdCtrls, Vcl.Buttons,
-  PngBitBtn, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  PngBitBtn, Vcl.Imaging.pngimage, MicroCoin.Crypto.Keys, Vcl.ExtCtrls,
   Printers,
   DelphiZXIngQRCode;
 
@@ -121,7 +121,7 @@ var
 implementation
 
 uses MicroCoin.Node.Node, MicroCoin.Account.AccountKey, UWalletKeys, PlatformVclStylesActnCtrls,
-     MicroCoin.Common.Config, Clipbrd, UAES;
+     MicroCoin.Common.Config, Clipbrd, UAES, UBaseTypes;
 
 resourcestring
   StrKeyName = 'Key name:';
@@ -316,7 +316,7 @@ begin
   then begin
     if xPass[0]<>xPass[1] then raise Exception.Create(StrPasswordsNotMatch);
     if xPass[0]<>''
-    then Clipboard.AsText := TCrypto.ToHexaString( TAESComp.EVP_Encrypt_AES256( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey.ExportToRaw, xPass[0]) )
+    then Clipboard.AsText := TBaseType.ToHexaString( TAESComp.EVP_Encrypt_AES256( TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey.ExportToRaw, xPass[0]) )
     else Clipboard.AsText := TCrypto.PrivateKey2Hexa(TNode.Node.KeyManager[keyList.FocusedNode.Index].PrivateKey);
     MessageDlg(StrPrivateKeyCopiedToClipboard, mtInformation, [mbOk], 0);
   end else exit;
@@ -393,7 +393,7 @@ function TWalletKeysForm.ParseRawKey(AEC_OpenSSL_NID : Word; AEncodedKey : strin
 begin
   Result := TECPrivateKey.Create;
   Try
-    Result.SetPrivateKeyFromHexa(AEC_OpenSSL_NID, TCrypto.ToHexaString(AEncodedKey));
+    Result.SetPrivateKeyFromHexa(AEC_OpenSSL_NID, TBaseType.ToHexaString(AEncodedKey));
   Except
     On E:Exception do begin
       Result.Free;
@@ -438,7 +438,7 @@ begin
   if xData[0] = ''
   then xData[0] := DateTimeToStr(Now);
 
-  xEncodedKey := TCrypto.HexaToRaw(xData[1]);
+  xEncodedKey := TBaseType.HexaToRaw(xData[1]);
   if xEncodedKey = ''
   then begin
     MessageDlg(StrInvalidKey, mtError, [mbOk], 0);
@@ -482,7 +482,7 @@ begin
   then exit;
   if not TAccountKey.AccountPublicKeyImport(xData[1], xAccountKey, xErrors)
   then begin
-    xRawKey := TCrypto.HexaToRaw(xData[1]);
+    xRawKey := TBaseType.HexaToRaw(xData[1]);
     if trim(xRawKey)='' then begin
       MessageDlg(xErrors, mtError, [mbOk], 0);
       exit;

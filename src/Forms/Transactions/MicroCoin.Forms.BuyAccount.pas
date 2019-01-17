@@ -34,7 +34,7 @@ uses
   Controls, Forms, Dialogs, StdCtrls, Buttons, PngBitBtn,
   ExtCtrls, MicroCoin.Account.Editors, MicroCoin.Common, MicroCoin.Account.Data,
   MicroCoin.Account.AccountKey, UCrypto, MicroCoin.Transaction.ITransaction,
-  MicroCoin.Keys.KeyManager, UWalletKeys,
+  MicroCoin.Keys.KeyManager, UWalletKeys, MicroCoin.Crypto.Keys,
   MicroCoin.Transaction.TransferMoney, MicroCoin.Node.Node;
 
 type

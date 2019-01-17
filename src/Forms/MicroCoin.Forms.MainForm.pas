@@ -50,7 +50,7 @@ uses
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs,
   ExtCtrls, ComCtrls, UWalletKeys, StdCtrls, ULog, Grids, MicroCoin.Application.Settings,
-  Menus, ImgList, Styles, Themes,
+  Menus, ImgList, Styles, Themes, UBaseTypes,
   synautil, UCrypto, Buttons, IniFiles,  MicroCoin.Keys.KeyManager,
   System.Notification, PngImageList, Actions, ActnList,
   PlatformDefaultStyleActnCtrls, ActnMan, ImageList,
@@ -70,7 +70,7 @@ uses
   MicroCoin.Mining.Server,  MicroCoin.Forms.ChangeAccountKey, MicroCoin.Node.Events,
   MicroCoin.Forms.Transaction.Explorer, MicroCoin.Forms.Common.Settings,
   MicroCoin.Net.Connection, MicroCoin.Net.Client, MicroCoin.Net.Statistics,
-  MicroCoin.Forms.BuyAccount, MicroCoin.Transaction.ListAccount,
+  MicroCoin.Forms.BuyAccount, MicroCoin.Transaction.ListAccount, MicroCoin.Crypto.Keys,
 {$IFDEF EXTENDEDACCOUNT}
   MicroCoin.Transaction.CreateSubAccount,
 {$ENDIF}
@@ -321,7 +321,7 @@ type
     procedure CM_NetConnectionUpdated(var Msg: TMessage); message CM_PC_NetConnectionUpdated;
     procedure ConfirmRestart;
   public
-    FNotificationCenter: TBaseNotificationCenter;
+    FNotificationCenter: TNotificationCenter;
     class constructor Create;
     property MinersBlocksFound: Integer read FMinersBlocksFound write SetMinersBlocksFound;
   end;
@@ -1191,7 +1191,7 @@ begin
   end;
   FNotificationCenter := nil;
   try
-    FNotificationCenter := TBaseNotificationCenter.Create;
+    FNotificationCenter := TNotificationCenter.Create(self);
   except
   end;
   TCrypto.InitCrypto;
@@ -2316,7 +2316,7 @@ begin
       then FOrderedAccountsKeyList.AddAccountKey(xWalletKey.AccountKey);
       if (xWalletKey.name = '')
       then begin
-        s := 'Sha256=' + TCrypto.ToHexaString(TCrypto.DoSha256(xWalletKey.AccountKey.ToRawString));
+        s := 'Sha256=' + TBaseType.ToHexaString(TCrypto.DoSha256(xWalletKey.AccountKey.ToRawString));
       end else begin
         s := xWalletKey.name;
       end;

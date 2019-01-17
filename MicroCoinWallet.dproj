@@ -164,8 +164,8 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.95;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>95</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.3.2.98;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>98</VerInfo_Build>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)\</DCC_ExeOutput>
         <DCC_DcuOutput>..\dcu\$(Platform)\$(Config)\</DCC_DcuOutput>
         <VerInfo_Release>2</VerInfo_Release>
@@ -313,6 +313,11 @@
             <Form>MainForm</Form>
         </DCCReference>
         <DCCReference Include="src\MicroCoin\Common\MicroCoin.Common.Stream.pas"/>
+        <DCCReference Include="src\MicroCoin\Common\MicroCoin.Common.Config.pas"/>
+        <DCCReference Include="src\MicroCoin\Crypto\MicroCoin.Crypto.BigNum.pas"/>
+        <DCCReference Include="src\MicroCoin\Crypto\MicroCoin.Crypto.Errors.pas"/>
+        <DCCReference Include="src\MicroCoin\3rdParty\OpenSSL\OpenSSL.pas"/>
+        <DCCReference Include="src\MicroCoin\3rdParty\OpenSSL\OpenSSLdef.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
