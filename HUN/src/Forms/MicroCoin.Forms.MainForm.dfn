@@ -5,8 +5,8 @@
     <header>
       <prop-group name="ITEHeaderProp">
         <prop prop-type="Version">9.0</prop>
-        <prop prop-type="SelfDateTime">43482.7680787037</prop>
-        <prop prop-type="OrigDateTime">43482.7658333333</prop>
+        <prop prop-type="SelfDateTime">43482.8712268519</prop>
+        <prop prop-type="OrigDateTime">43482.7742592593</prop>
         <prop prop-type="XlatDateTime">43479.745787037</prop>
         <prop prop-type="Translated">88</prop>
         <prop prop-type="UnTranslated">1030</prop>
@@ -2846,7 +2846,7 @@
         <prop prop-type="Created">43479.7333581829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">558</prop><prop prop-type="Type">TRichEdit</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:MainForm.O:rootPanel.O:logPanel.O:bottomPageControl.O:logSheet.O:logDisplay.Font.Charset" resname="O:MainForm.O:rootPanel.O:logPanel.O:bottomPageControl.O:logSheet.O:logDisplay.Font.Charset">
-        <source>ANSI_CHARSET</source>
+        <source>EASTEUROPE_CHARSET</source>
         <prop-group name="ITEFieldProp">
         <prop prop-type="Created">43479.7333581829</prop><prop prop-type="Status">0</prop><prop prop-type="Order">559</prop><prop prop-type="Type">TRichEdit</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>

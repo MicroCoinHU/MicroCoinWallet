@@ -1228,7 +1228,7 @@ object MainForm: TMainForm
             Align = alClient
             BevelOuter = bvNone
             BorderStyle = bsNone
-            Font.Charset = ANSI_CHARSET
+            Font.Charset = EASTEUROPE_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
