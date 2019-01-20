@@ -1,9 +1,9 @@
 [submodule "src/MicroCoin"]
 	path = src/MicroCoin
 	url = https://github.com/MicroCoinHU/MicroCoin.git
-[submodule "components/PNGComponents"]
-	path = components/PNGComponents
+[submodule "src/components/PNGComponents"]
+	path = src/components/PNGComponents
 	url = https://github.com/TurboPack/PNGComponents.git
-[submodule "components/VirtualTreeView"]
-	path = components/VirtualTreeView
+[submodule "src/components/VirtualTreeView"]
+	path = src/components/VirtualTreeView
 	url = https://github.com/TurboPack/VirtualTreeView.git
