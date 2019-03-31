@@ -30,11 +30,11 @@ unit MicroCoin.Forms.AccountSelectDialog;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, VirtualTrees,
-  MicroCoin.Node.Node, MicroCoin.Account.Data, MicroCoin.Common, Vcl.Menus,
-  MicroCoin.Common.Lists, System.Actions, Vcl.ActnList, Vcl.ListActns,
-  Vcl.Buttons, PngBitBtn, UITypes;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, StdCtrls, ExtCtrls, VirtualTrees,
+  MicroCoin.Node.Node, MicroCoin.Account.Data, MicroCoin.Common, Menus,
+  MicroCoin.Common.Lists, ActnList,
+  Buttons, PngBitBtn, UITypes;
 
 type
   TAccountSelectDialog = class(TForm)

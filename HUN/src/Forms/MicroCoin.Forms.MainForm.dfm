@@ -1245,10 +1245,6 @@ object MainForm: TMainForm
         object activeConnectionsSheet: TTabSheet
           Caption = 'Akt'#237'v kapcsolatok'
           ImageIndex = 4
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetConnections: TMemo
             Left = 0
             Top = 0
@@ -1266,10 +1262,6 @@ object MainForm: TMainForm
         object blackListedIPsSheet: TTabSheet
           Caption = 'Feketelista'
           ImageIndex = 3
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetBlackLists: TMemo
             Left = 0
             Top = 0
@@ -1286,10 +1278,6 @@ object MainForm: TMainForm
         object serversSheet: TTabSheet
           Caption = 'Szerverek'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetServers: TMemo
             Left = 0
             Top = 0
@@ -1306,10 +1294,6 @@ object MainForm: TMainForm
         object miscInfoSheet: TTabSheet
           Caption = 'Egy'#233'b inf'#243
           ImageIndex = 2
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object labelBlocksCountCaption: TLabel
             Left = 9
             Top = 5

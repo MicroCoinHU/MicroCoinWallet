@@ -36,10 +36,15 @@ uses
   {$ENDIF }
   windows,
   Forms,
+  {$IFDEF FPC}
+  Interfaces,
+  {$ENDIF }
   Classes,
   sysutils,
+  {$IFNDEF FPC}
   Vcl.Themes,
   Vcl.Styles,
+  {$ENDIF }
   MicroCoin.Account.AccountKey in 'src\MicroCoin\Account\MicroCoin.Account.AccountKey.pas',
   MicroCoin.Account.Data in 'src\MicroCoin\Account\MicroCoin.Account.Data.pas',
   MicroCoin.Account.Editors in 'src\MicroCoin\Account\MicroCoin.Account.Editors.pas',
@@ -127,7 +132,14 @@ uses
   MicroCoin.Crypto.Errors in 'src\MicroCoin\Crypto\MicroCoin.Crypto.Errors.pas',
   OpenSSL in 'src\MicroCoin\3rdParty\OpenSSL\OpenSSL.pas',
   OpenSSLdef in 'src\MicroCoin\3rdParty\OpenSSL\OpenSSLdef.pas',
-  MicroCoin.Crypto.Keys in 'src\MicroCoin\Crypto\MicroCoin.Crypto.Keys.pas';
+  MicroCoin.Crypto.Keys in 'src\MicroCoin\Crypto\MicroCoin.Crypto.Keys.pas',
+  MicroCoin.Net.Handlers.AccountStorage in 'src\MicroCoin\Net\Handlers\MicroCoin.Net.Handlers.AccountStorage.pas',
+  MicroCoin.Net.Handlers.GetBlocks in 'src\MicroCoin\Net\Handlers\MicroCoin.Net.Handlers.GetBlocks.pas',
+  MicroCoin.Net.Handlers.GetOpBlocks in 'src\MicroCoin\Net\Handlers\MicroCoin.Net.Handlers.GetOpBlocks.pas',
+  MicroCoin.Net.Handlers.Hello in 'src\MicroCoin\Net\Handlers\MicroCoin.Net.Handlers.Hello.pas',
+  MicroCoin.Net.Handlers.Message in 'src\MicroCoin\Net\Handlers\MicroCoin.Net.Handlers.Message.pas',
+  MicroCoin.Net.Handlers.NewBlock in 'src\MicroCoin\Net\Handlers\MicroCoin.Net.Handlers.NewBlock.pas',
+  MicroCoin.Net.Handlers.NewTransaction in 'src\MicroCoin\Net\Handlers\MicroCoin.Net.Handlers.NewTransaction.pas';
 
 resourcestring
   StrMicroCoinWallet = 'MicroCoin Wallet';
@@ -195,8 +207,9 @@ var
   wLang: LangID;
 begin
   wLang := GetSystemDefaultLCID;
-  if wlang = 1038 // Hungarian
-  then LoadNewResourceModule(HUN);
+  LoadNewResourceModule(LANGIDFROMLCID(wLang));
+//  if wlang = 1038 // Hungarian
+//  then LoadNewResourceModule(HUN);
   {$IFDEF DEBUG}
   ReportMemoryLeaksOnShutdown := true;
   {$ENDIF}

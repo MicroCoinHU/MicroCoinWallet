@@ -1016,7 +1016,6 @@ object MainForm: TMainForm
               Proportional = True
               ShowHint = True
               Stretch = True
-              OnClick = QRCodeDisplayClick
               ExplicitLeft = 268
               ExplicitTop = 30
               ExplicitHeight = 94
@@ -1245,10 +1244,6 @@ object MainForm: TMainForm
         object activeConnectionsSheet: TTabSheet
           Caption = 'Active connections'
           ImageIndex = 4
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetConnections: TMemo
             Left = 0
             Top = 0
@@ -1266,10 +1261,6 @@ object MainForm: TMainForm
         object blackListedIPsSheet: TTabSheet
           Caption = 'Blacklisted IPs'
           ImageIndex = 3
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetBlackLists: TMemo
             Left = 0
             Top = 0
@@ -1286,10 +1277,6 @@ object MainForm: TMainForm
         object serversSheet: TTabSheet
           Caption = 'Servers'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object memoNetServers: TMemo
             Left = 0
             Top = 0
@@ -1306,10 +1293,6 @@ object MainForm: TMainForm
         object miscInfoSheet: TTabSheet
           Caption = 'Misc info'
           ImageIndex = 2
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object labelBlocksCountCaption: TLabel
             Left = 9
             Top = 5
@@ -4762,16 +4745,6 @@ object MainForm: TMainForm
             Caption = '-'
           end
           item
-            Action = EditAccountAction
-            Caption = 'E&dit'
-            ImageIndex = 0
-          end
-          item
-            Action = ChangeKeyAction
-            Caption = '&Change key'
-            ImageIndex = 3
-          end
-          item
             Caption = '-'
           end
           item
@@ -4869,13 +4842,6 @@ object MainForm: TMainForm
       ImageIndex = 10
       OnExecute = TransactionHistoryActionExecute
       OnUpdate = TransactionHistoryActionUpdate
-    end
-    object CreateSubAccountAction: TAction
-      Caption = 'Create subaccount'
-      ImageIndex = 11
-      Visible = False
-      OnExecute = CreateSubAccountActionExecute
-      OnUpdate = CreateSubAccountActionUpdate
     end
   end
   object MainActionImages: TPngImageList
@@ -6579,7 +6545,7 @@ object MainForm: TMainForm
   object ApplicationEvents: TApplicationEvents
     OnException = ApplicationEventsException
     OnMinimize = ApplicationEvents1Minimize
-    Left = 639
+    Left = 687
     Top = 255
   end
   object MiscActions: TActionManager

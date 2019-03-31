@@ -64,16 +64,10 @@ uses
   MicroCoin.Account.Storage, PlatformVclStylesActnCtrls,
   MicroCoin.Forms.AccountSelectDialog,
   MicroCoin.RPC.Server, UAES, Math, MicroCoin.Forms.Transaction.CreateSubAccount,
-  {$IFDEF EXTENDEDACCOUNT}
-  MicroCoin.Transaction.TransaferMoneyExtended,
-  {$ENDIF}
   MicroCoin.Mining.Server,  MicroCoin.Forms.ChangeAccountKey, MicroCoin.Node.Events,
   MicroCoin.Forms.Transaction.Explorer, MicroCoin.Forms.Common.Settings,
   MicroCoin.Net.Connection, MicroCoin.Net.Client, MicroCoin.Net.Statistics,
   MicroCoin.Forms.BuyAccount, MicroCoin.Transaction.ListAccount, MicroCoin.Crypto.Keys,
-{$IFDEF EXTENDEDACCOUNT}
-  MicroCoin.Transaction.CreateSubAccount,
-{$ENDIF}
   MicroCoin.Forms.Transaction.History, MicroCoin.Forms.Keys.Keymanager, UITypes,
   SyncObjs, DelphiZXIngQRCode, ShellApi,
   Tabs, ExtActns, MicroCoin.Forms.SellAccount, MicroCoin.Account.Editors,
@@ -201,7 +195,6 @@ type
     ExchangeAction: TAction;
     edTargetAccount: TEdit;
     btnSelectAccount: TPngSpeedButton;
-    CreateSubAccountAction: TAction;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -263,10 +256,7 @@ type
     procedure HomePageActionExecute(Sender: TObject);
     procedure accountVListInitChildren(Sender: TBaseVirtualTree;
       Node: PVirtualNode; var ChildCount: Cardinal);
-    procedure QRCodeDisplayClick(Sender: TObject);
     procedure edTargetAccountKeyPress(Sender: TObject; var Key: Char);
-    procedure CreateSubAccountActionUpdate(Sender: TObject);
-    procedure CreateSubAccountActionExecute(Sender: TObject);
     procedure btnSelectAccountClick(Sender: TObject);
   private
     FBackgroundPanel: TPanel;
@@ -275,9 +265,6 @@ type
     FProgessBar: TProgressBar;
     procedure SetMinersBlocksFound(const Value: Integer);
     procedure FinishedLoadingApp;
-    {$IFDEF EXTENDEDACCOUNT}
-    procedure CreateSubaccount;
-    {$ENDIF}
   protected
     FIsActivated: Boolean;
     FLog: TLog;
@@ -427,73 +414,6 @@ begin
   UpdateAccounts(true);
 end;
 
-procedure TMainForm.QRCodeDisplayClick(Sender: TObject);
-var
-  xSenderAccount : TAccount;
-  xTransaction : ITransaction;
-  xWalletKey : TWalletKey;
-  errors: AnsiString;
-  opc : TTransactionHashTree;
-  res: TTransactionList;
-  xtrs : array of ITransaction;
-begin
-  {$IFDEF EXTENDEDACCOUNT}
- // CreateSubaccount;
-  {$ENDIF}
-(*  try
-    TTask.Create(procedure
-    var
-      acc: integer;
-      nt: integer;
-      i : integer;
-      j: integer;
-      k: integer;
-    begin
-    k:=0;
-    for acc := 0 to FAccounts.Count-1 do begin
-      xSenderAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(FAccounts.Get(acc)); // TAccount(accountVList.FocusedNode.GetData^);
-      if xSenderAccount.Balance<1000 then continue;
-//      if acc>10 then break;
-      inc(k);
-      i := TNode.Node.KeyManager.IndexOfAccountKey(xSenderAccount.AccountInfo.AccountKey);
-      xWalletKey := TNode.Node.KeyManager[i];
-      SetLength(xtrs, 0);
-      opc := TTransactionHashTree.Create;
-      xSenderAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Account(xSenderAccount.AccountNumber);
-      nt := 0;
-      for i := 1 to 2001 do begin
-        if i = xSenderAccount.AccountNumber then continue;
-        nt:=nt+1;
-        xTransaction := TTransferMoneyTransaction.CreateTransaction(xSenderAccount.AccountNumber,
-          xSenderAccount.NumberOfTransactions + nt,
-          i, xWalletKey.PrivateKey, 1, 1, '');
-       opc.AddTransactionToHashTree(xTransaction);
-       SetLength(xtrs, length(xtrs)+1);
-       xtrs[High(xtrs)] := xTransaction;
-  {       TTask.Create(procedure begin
-         if not TNode.Node.AddTransaction(nil, xTransaction, errors) then
-         ShowMessage(errors);
-       end).Start;
-       }
-//       Caption := IntToStr(i);
-//       Application.ProcessMessages;
-      end;
-      TNode.Node.AddOperations(nil, opc, nil, errors);
-      opc.Free;
-      SetLength(xtrs, 0);
-      if k>5 then begin
-        TThread.Sleep(30000);
-        k := 0;
-      end;
-    end;
-//    ShowMessage('done');
-    end).Start;
-  except on e:Exception do
-    ShowMessage(e.Message);
-  end;
-  *)
-end;
-
 procedure TMainForm.RefreshActionExecute(Sender: TObject);
 begin
   UpdateAccounts(true);
@@ -605,13 +525,9 @@ begin
     begin
       for xCol := 0 to xQRCode.Columns - 1 do
       begin
-        if (xQRCode.IsBlack[xRow, xCol]) then
-        begin
-          xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clBlack;
-        end else
-        begin
-          xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clWhite;
-        end;
+        if (xQRCode.IsBlack[xRow, xCol])
+        then xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clBlack
+        else xQRCodeBitmap.Canvas.Pixels[xCol, xRow] := clWhite;
       end;
     end;
     QRCodeDisplay.Picture.Bitmap := xQRCodeBitmap;
@@ -670,25 +586,13 @@ begin
       3: CellText := xPAccount.NumberOfTransactions.ToString;
     end;
   end else begin
-  {$IFDEF EXTENDEDACCOUNT}
-    xPAccount := TAccount(Sender.GetNodeData(Node.Parent)^);
-    case Column of
-      0: CellText := TAccount.AccountNumberToString(xPAccount.AccountNumber) + '/' +IntToStr(Node.Index+1);
-      1: CellText := '';
-      2: CellText := TCurrencyUtils.CurrencyToString(xPAccount.SubAccounts[Node.Index].Balance);
-    end;
-  {$ENDIF}
   end;
 end;
 
 procedure TMainForm.accountVListInitChildren(Sender: TBaseVirtualTree;
   Node: PVirtualNode; var ChildCount: Cardinal);
 begin
-  {$IFDEF EXTENDEDACCOUNT}
-  ChildCount := Length(TAccount(Node.GetData^).SubAccounts);
-  {$ELSE}
   ChildCount := 0;
-  {$ENDIF}
 end;
 
 procedure TMainForm.accountVListInitNode(Sender: TBaseVirtualTree; ParentNode,
@@ -708,11 +612,6 @@ begin
 
   xAccount := TNode.Node.TransactionStorage.AccountTransaction.Account(xAccountNumber);
 
-  {$IFDEF EXTENDEDACCOUNT}
-  if Sender.GetNodeLevel(Node) = 0 then begin
-    Sender.ChildCount[Node] := Length(xAccount.SubAccounts);
-  end else Sender.ChildCount[Node] := 0;
-  {$ENDIF}
   Sender.SetNodeData(Node, xAccount);
 end;
 
@@ -761,9 +660,7 @@ begin
     TNode.Node.KeyManager.OnChanged := OnWalletChanged;
     if FAppSettings.Entries[TAppSettingsEntry.apFirstTime].GetAsBoolean(true)
     then begin
-      with CreateMessageDialog
-        (StrIgnoreOldBocks,
-          mtConfirmation, [mbYes, mbNo]) do begin
+      with CreateMessageDialog(StrIgnoreOldBocks, mtConfirmation, [mbYes, mbNo]) do begin
          Width := 400;
          Caption := StrDownloadBlockchain;
          if ShowModal = mrYes
@@ -799,11 +696,8 @@ begin
   end;
   UpdatePrivateKeys;
   UpdateAccounts(false);
-  if FAppSettings.Entries[TAppSettingsEntry.apFirstTime].GetAsBoolean(true) then
-  begin
-    FAppSettings.Entries[TAppSettingsEntry.apFirstTime].SetAsBoolean(false);
-//    AboutAction.Execute;
-  end;
+  if FAppSettings.Entries[TAppSettingsEntry.apFirstTime].GetAsBoolean(true)
+  then FAppSettings.Entries[TAppSettingsEntry.apFirstTime].SetAsBoolean(false);
 end;
 
 procedure TMainForm.ApplicationEventsException(Sender: TObject; E: Exception);
@@ -847,9 +741,6 @@ end;
 procedure TMainForm.btnSelectAccountClick(Sender: TObject);
 begin
   with TAccountSelectDialog.Create(nil) do begin
-  {$IFDEF EXTENDEDACCOUNT}
-    ShowSubAccounts := true;
-  {$ENDIF}
     if ShowModal = mrOk
     then begin
       edTargetAccount.Text := TAccount.AccountNumberToString(SelectedAccount.AccountNumber);
@@ -857,71 +748,6 @@ begin
     Free;
   end;
 end;
-
-{$IFDEF EXTENDEDACCOUNT}
-procedure TMainForm.CreateSubaccount;
-var
-  i: integer;
-  xErrors: AnsiString;
-  xTransaction: ITransaction;
-begin
-  i := TNode.Node.KeyManager.IndexOfAccountKey(
-      TAccount(accountVList.FocusedNode.GetData^).AccountInfo.AccountKey
-  );
-  xTransaction := TCreateSubAccountTransaction.Create(
-    TAccount(accountVList.FocusedNode.GetData^).AccountNumber,
-    0,
-    TAccount(accountVList.FocusedNode.GetData^).NumberOfTransactions+1,
-    TNode.Node.KeyManager[i].PrivateKey,
-    TAccount(accountVList.FocusedNode.GetData^).AccountInfo.AccountKey,
-    100000,0,0
-  );
-  if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
-    MessageDlg(xErrors, TMsgDlgType.mtError, [mbOK],0);
-    exit;
-  end;
-end;
-{$ENDIF}
-
-procedure TMainForm.CreateSubAccountActionExecute(Sender: TObject);
-var
-  i : integer;
-  xTransaction : ITransaction;
-  xErrors: ansistring;
-  xKey: TAccountKey;
-begin
-{$IFDEF EXTENDEDACCOUNT}
-  with TCreateSubaccountForm.Create(self) do begin
-    if ShowModal = mrOk
-    then begin
-      i := TNode.Node.KeyManager.IndexOfAccountKey(
-          TAccount(accountVList.FocusedNode.GetData^).AccountInfo.AccountKey
-      );
-       TAccountKey.AccountKeyFromImport(PublicKey, xKey, xErrors);
-      xTransaction := TCreateSubAccountTransaction.Create(
-        TAccount(accountVList.FocusedNode.GetData^).AccountNumber,
-        0,
-        TAccount(accountVList.FocusedNode.GetData^).NumberOfTransactions+1,
-        TNode.Node.KeyManager[i].PrivateKey,
-        xKey, InitialBalance, BalanceLimit, DailyLimit
-      );
-      if not TNode.Node.AddTransaction(nil, xTransaction, xErrors) then begin
-        MessageDlg(xErrors, TMsgDlgType.mtError, [mbOK],0);
-        exit;
-      end;
-    end;
-    Free;
-  end;
-{$ENDIF}
-end;
-
-procedure TMainForm.CreateSubAccountActionUpdate(Sender: TObject);
-begin
-{$IFDEF EXTENDEDACCOUNT}
- CreateSubAccountAction.Enabled := (accountVList.FocusedNode<>nil) and (accountVList.GetNodeLevel(accountVList.FocusedNode)=0);
-{$ENDIF}
-end;
-
 
 procedure TMainForm.BuyActionExecute(Sender: TObject);
 begin
@@ -1767,16 +1593,7 @@ var
   xParent : Int64;
   xPayload : AnsiString;
   xPassword: string;
-  {$IFDEF EXTENDEDACCOUNT}
-  xSenderSubAccount : Cardinal;
-  xTargetSubAccount : Cardinal;
-  {$ENDIF}
 begin
-
-  {$IFDEF EXTENDEDACCOUNT}
-  xSenderSubAccount := 0;
-  xTargetSubAccount := 0;
-  {$ENDIF}
 
   while not TNode.Node.KeyManager.IsValidPassword
   do begin
@@ -1802,21 +1619,16 @@ begin
     exit;
   end;
 
+  i:=-1;
   if accountVList.FocusedNode = nil then begin
     MessageDlg(StrPleaseSelectSenderAccount, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
+
   if accountVList.GetNodeLevel(accountVList.FocusedNode)=0
   then begin
      xSenderAccount := TAccount(accountVList.FocusedNode.GetData()^);
      i := TNode.Node.KeyManager.IndexOfAccountKey(xSenderAccount.AccountInfo.AccountKey);
-  end
-  else begin
-  {$IFDEF EXTENDEDACCOUNT}
-     xSenderAccount := TAccount(accountVList.FocusedNode.Parent.GetData()^);
-     xSenderSubAccount := accountVList.FocusedNode.Index+1;
-     i := TNode.Node.KeyManager.IndexOfAccountKey(xSenderAccount.SubAccounts[xSenderSubAccount-1].AccountKey);
-  {$ENDIF}
   end;
 
   if i<0 then begin
@@ -1828,21 +1640,9 @@ begin
     MessageDlg(StrNotEnoughMoney, TMsgDlgType.mtError, [mbOK],0);
     exit;
   end;
-  {$IFDEF EXTENDEDACCOUNT}
-  if xSenderSubAccount > 0
-  then begin
-    if (xAmount + xFee) > xSenderAccount.SubAccounts[xSenderSubAccount-1].Balance then begin
-      MessageDlg(StrNotEnoughMoney, TMsgDlgType.mtError, [mbOK],0);
-      exit;
-    end;
-  end;
- {$ENDIF}
 
   try
     xTargetAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[IfThen(xParent=-1, xTargetAccountNumber, xParent)];
-  {$IFDEF EXTENDEDACCOUNT}
-    if xParent>-1 then xTargetSubAccount := xTargetAccountNumber;
-  {$ENDIF}
   except on E:Exception do
     begin
       MessageDlg(StrInvalidTargetAccount, TMsgDlgType.mtError, [mbOK],0);
@@ -1873,20 +1673,9 @@ begin
 
   xWalletKey := TNode.Node.KeyManager.Key[i];
 
-{$IFDEF EXTENDEDACCOUNT}
-  if (xSenderSubAccount>0) or (xTargetSubAccount>0) then begin
-    xTransaction := TTransferMoneyExtended.CreateTransaction(xSenderAccount.AccountNumber,
-      xSenderSubAccount, xSenderAccount.NumberOfTransactions + 1,
-      xTargetAccount.AccountNumber, xTargetSubAccount,
-      xWalletKey.PrivateKey, xAmount, xFee, xPayload);
-  end else begin
-{$ENDIF}
     xTransaction := TTransferMoneyTransaction.CreateTransaction(xSenderAccount.AccountNumber,
       xSenderAccount.NumberOfTransactions + 1,
       xTargetAccount.AccountNumber, xWalletKey.PrivateKey, xAmount, xFee, xPayload);
-{$IFDEF EXTENDEDACCOUNT}
-  end;
-{$ENDIF}
 
   if MessageDlg(StrExecuteTransaction+xTransaction.ToString, mtConfirmation, [mbYes, mbNo], 0)<>mrYes
   then exit;
@@ -2081,7 +1870,6 @@ end;
 procedure TMainForm.UpdateBlockChainState;
 var
   F, favg: real;
-  xIsMining: boolean;
 begin
   UpdateNodeStatus;
   if true then
@@ -2145,10 +1933,7 @@ begin
       TNode.Node.BlockManager.GetActualTargetSecondsAverage(cDifficultyCalcBlocks div 2)),
       cDifficultyCalcBlocks div 4, FormatFloat('0.0',
       TNode.Node.BlockManager.GetActualTargetSecondsAverage(cDifficultyCalcBlocks div 4))]);
-  end
-  else
-  begin
-    xIsMining := false;
+  end else begin
     StatusBar.Panels[3].Text := '';
     lblCurrentBlock.Caption := '';
     lblCurrentAccounts.Caption := '';
@@ -2178,10 +1963,6 @@ begin
     labelMinersClients.Caption := StrJSONRPCServerNotActive;
     labelMinersClients.Font.Color := clRed;
   end;
-  //if TConnectionManager.Instance.IsGettingNewBlockChainFromClient then begin
-  //  ProgressBar2.Max := TConnectionManager.Instance.MaxRemoteOperationBlock.block;
-  //  ProgressBar2.Position := TNode.Node.BlockManager.BlocksCount;
-  //end;
 end;
 
 procedure TMainForm.UpdateConfigChanged;
