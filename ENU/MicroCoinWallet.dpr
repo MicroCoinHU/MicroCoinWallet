@@ -4175,7 +4175,7 @@ library MicroCoinWallet;
 {ITE} {DFMFileType} {src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm}
 {ITE} {DFMFileType} {src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm}
 {ITE} {DFMFileType} {src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm}
-{ITE} {RCFileType} {F\projects\bin\Win32\Debug\MicroCoinWallet_DRC.rc}
+{ITE} {RCFileType} {C\other\_MCC\bin\Win32\Debug\MicroCoinWallet_DRC.rc}
 
 {$R 'src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm' 'BlockChainExplorerForm:TForm'}
 {$R 'src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm' 'BlockChainExplorerForm:TForm'}
@@ -8350,7 +8350,7 @@ library MicroCoinWallet;
 {$R 'src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm' 'TransactionHistoryForm:TForm'}
 {$R 'src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm' 'TransactionHistoryForm:TForm'}
 {$R 'src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm' 'TransactionHistoryForm:TForm'}
-{$R 'F\projects\bin\Win32\Debug\MicroCoinWallet_DRC.res' 'F\projects\bin\Win32\Debug\MicroCoinWallet_DRC.rc'}
+{$R 'C\other\_MCC\bin\Win32\Debug\MicroCoinWallet_DRC.res' 'C\other\_MCC\bin\Win32\Debug\MicroCoinWallet_DRC.rc'}
 
 {$E ENU}
 

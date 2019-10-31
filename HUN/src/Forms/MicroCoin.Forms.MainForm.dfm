@@ -1016,7 +1016,6 @@ object MainForm: TMainForm
               Proportional = True
               ShowHint = True
               Stretch = True
-              OnClick = QRCodeDisplayClick
               ExplicitLeft = 268
               ExplicitTop = 30
               ExplicitHeight = 94
@@ -1220,6 +1219,10 @@ object MainForm: TMainForm
         object logSheet: TTabSheet
           Caption = 'Napl'#243'k'
           ImageIndex = 5
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object logDisplay: TRichEdit
             Left = 0
             Top = 0
@@ -1245,6 +1248,10 @@ object MainForm: TMainForm
         object activeConnectionsSheet: TTabSheet
           Caption = 'Akt'#237'v kapcsolatok'
           ImageIndex = 4
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetConnections: TMemo
             Left = 0
             Top = 0
@@ -1262,6 +1269,10 @@ object MainForm: TMainForm
         object blackListedIPsSheet: TTabSheet
           Caption = 'Feketelista'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetBlackLists: TMemo
             Left = 0
             Top = 0
@@ -1278,6 +1289,10 @@ object MainForm: TMainForm
         object serversSheet: TTabSheet
           Caption = 'Szerverek'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoNetServers: TMemo
             Left = 0
             Top = 0
@@ -1294,6 +1309,10 @@ object MainForm: TMainForm
         object miscInfoSheet: TTabSheet
           Caption = 'Egy'#233'b inf'#243
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object labelBlocksCountCaption: TLabel
             Left = 9
             Top = 5
@@ -4746,16 +4765,6 @@ object MainForm: TMainForm
             Caption = '-'
           end
           item
-            Action = EditAccountAction
-            Caption = 'S&zerkeszt'#233's'
-            ImageIndex = 0
-          end
-          item
-            Action = ChangeKeyAction
-            Caption = '&Kulcs m'#243'dos'#237't'#225'sa'
-            ImageIndex = 3
-          end
-          item
             Caption = '-'
           end
           item
@@ -4764,17 +4773,17 @@ object MainForm: TMainForm
           end
           item
             Action = SellAccountAction
-            Caption = 'Ela&d'#225's'
+            Caption = 'S&ell'
             ImageIndex = 6
           end
           item
             Action = RevokeSellAction
-            Caption = 'Elad'#225's visszavon'#225'sa'
+            Caption = 'Re&voke sell'
             ImageIndex = 4
           end
           item
             Action = BuyAction
-            Caption = 'Megv'#233'tel'
+            Caption = 'B&uy'
             ImageIndex = 9
           end
           item
@@ -4782,7 +4791,7 @@ object MainForm: TMainForm
           end
           item
             Action = RefreshAction
-            Caption = 'Friss'#237't'#233's'
+            Caption = '&Refresh'
             ImageIndex = 8
           end>
         ActionBar = AccountsListToolbar
@@ -4853,13 +4862,6 @@ object MainForm: TMainForm
       ImageIndex = 10
       OnExecute = TransactionHistoryActionExecute
       OnUpdate = TransactionHistoryActionUpdate
-    end
-    object CreateSubAccountAction: TAction
-      Caption = #218'j alsz'#225'mla'
-      ImageIndex = 11
-      Visible = False
-      OnExecute = CreateSubAccountActionExecute
-      OnUpdate = CreateSubAccountActionUpdate
     end
   end
   object MainActionImages: TPngImageList
@@ -6560,7 +6562,7 @@ object MainForm: TMainForm
   object ApplicationEvents: TApplicationEvents
     OnException = ApplicationEventsException
     OnMinimize = ApplicationEvents1Minimize
-    Left = 639
+    Left = 687
     Top = 255
   end
   object MiscActions: TActionManager

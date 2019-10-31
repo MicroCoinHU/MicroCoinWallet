@@ -142,7 +142,7 @@ begin
      xSignerAccount.AccountNumber, xSignerAccount.NumberOfTransactions+1,
      xAccount.AccountNumber,
      xSignerKey.PrivateKey,
-     not xWalletKey.AccountKey.Equals(xAccount.AccountInfo.AccountKey),
+     not (xWalletKey.AccountKey = xAccount.AccountInfo.AccountKey),
      xWalletKey.AccountKey,
      (edAccountName.Text<>xAccount.Name),
      edAccountName.Text,
@@ -185,7 +185,7 @@ begin
   for i:=0 to TNode.Node.KeyManager.Count-1 do begin
     xWalletKey:=TNode.Node.KeyManager[i];
     cbPrivateKey.Items.AddObject(xWalletKey.Name,TObject(i));
-    if xAccount.AccountInfo.AccountKey.Equals(xWalletKey.AccountKey) then begin
+    if xAccount.AccountInfo.AccountKey = xWalletKey.AccountKey then begin
       cbPrivateKey.ItemIndex := cbPrivateKey.Items.Count-1;
     end;
   end;

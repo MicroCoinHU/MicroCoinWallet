@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file original="F:\projects\MicroCoinWallet\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm" source-language="en-US" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="F:\projects\MicroCoinWallet\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm">
+  <file original="C:\other\_MCC\MicroCoinWallet\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm" source-language="en-US" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="C:\other\_MCC\MicroCoinWallet\src\Forms\Keys\MicroCoin.Forms.Keys.KeyManager.dfm">
     <header>
       <prop-group name="ITEHeaderProp">
         <prop prop-type="Version">9.0</prop>
-        <prop prop-type="SelfDateTime">43482.7680092593</prop>
-        <prop prop-type="OrigDateTime">43480.9184722222</prop>
-        <prop prop-type="XlatDateTime">43450.6913888889</prop>
+        <prop prop-type="SelfDateTime">43746.5709259259</prop>
+        <prop prop-type="OrigDateTime">43746.5505787037</prop>
+        <prop prop-type="XlatDateTime">43746.5505787037</prop>
         <prop prop-type="Translated">0</prop>
         <prop prop-type="UnTranslated">323</prop>
       </prop-group>
@@ -1516,7 +1516,7 @@
       <trans-unit id="O:WalletKeysForm.O:ActionImages.Bitmap" resname="O:WalletKeysForm.O:ActionImages.Bitmap">
         <source></source>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43479.7333043634</prop><prop prop-type="Status">0</prop><prop prop-type="Order">300</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+        <prop prop-type="Created">43746.5709285301</prop><prop prop-type="Status">0</prop><prop prop-type="Order">300</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:WalletKeysForm.O:ListPopupMenu.Images" resname="O:WalletKeysForm.O:ListPopupMenu.Images">
         <source>ActionImages</source>

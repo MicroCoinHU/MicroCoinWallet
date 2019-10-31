@@ -6,12 +6,6 @@
         <Projects Include="MicroCoinWallet.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\MicroCoinMiner\MicroCoinMiner.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="..\MicroCoinGUIMiner\MicroCoinGUIMiner.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="ENU\MicroCoinWallet_ENU.bdsproj">
             <Dependencies/>
         </Projects>
@@ -35,24 +29,6 @@
     <Target Name="MicroCoinWallet:Make">
         <MSBuild Projects="MicroCoinWallet.dproj" Targets="Make"/>
     </Target>
-    <Target Name="MicroCoinMiner">
-        <MSBuild Projects="..\MicroCoinMiner\MicroCoinMiner.dproj"/>
-    </Target>
-    <Target Name="MicroCoinMiner:Clean">
-        <MSBuild Projects="..\MicroCoinMiner\MicroCoinMiner.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="MicroCoinMiner:Make">
-        <MSBuild Projects="..\MicroCoinMiner\MicroCoinMiner.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="MicroCoinGUIMiner">
-        <MSBuild Projects="..\MicroCoinGUIMiner\MicroCoinGUIMiner.dproj"/>
-    </Target>
-    <Target Name="MicroCoinGUIMiner:Clean">
-        <MSBuild Projects="..\MicroCoinGUIMiner\MicroCoinGUIMiner.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="MicroCoinGUIMiner:Make">
-        <MSBuild Projects="..\MicroCoinGUIMiner\MicroCoinGUIMiner.dproj" Targets="Make"/>
-    </Target>
     <Target Name="MicroCoinWallet_ENU">
         <MSBuild Projects="ENU\MicroCoinWallet_ENU.bdsproj"/>
     </Target>
@@ -72,13 +48,13 @@
         <MSBuild Projects="HUN\MicroCoinWallet_HUN.bdsproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="MicroCoinWallet;MicroCoinMiner;MicroCoinGUIMiner;MicroCoinWallet_ENU;MicroCoinWallet_HUN"/>
+        <CallTarget Targets="MicroCoinWallet;MicroCoinWallet_ENU;MicroCoinWallet_HUN"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="MicroCoinWallet:Clean;MicroCoinMiner:Clean;MicroCoinGUIMiner:Clean;MicroCoinWallet_ENU:Clean;MicroCoinWallet_HUN:Clean"/>
+        <CallTarget Targets="MicroCoinWallet:Clean;MicroCoinWallet_ENU:Clean;MicroCoinWallet_HUN:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="MicroCoinWallet:Make;MicroCoinMiner:Make;MicroCoinGUIMiner:Make;MicroCoinWallet_ENU:Make;MicroCoinWallet_HUN:Make"/>
+        <CallTarget Targets="MicroCoinWallet:Make;MicroCoinWallet_ENU:Make;MicroCoinWallet_HUN:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -202,7 +202,7 @@ begin
 
   for i := 0 to TNode.Node.KeyManager.Count-1 do begin
     cbMyKeys.AddItem(TNode.Node.KeyManager[i].Name, TNode.Node.KeyManager[i].PrivateKey);
-    if TNode.Node.KeyManager[i].AccountKey.Equals( TAccountKey.FromRawString(xSelectedKey) )
+    if TNode.Node.KeyManager[i].AccountKey = TAccountKey.FromRawString(xSelectedKey)
     then cbMyKeys.ItemIndex := i;
   end;
 end;

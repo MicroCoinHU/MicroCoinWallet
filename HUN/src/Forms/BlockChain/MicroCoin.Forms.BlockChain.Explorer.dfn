@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file original="F:\projects\MicroCoinWallet\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm" source-language="en-US" target-language="hu-HU" datatype="delphiform" tool="ETM v10.0" ts="F:\projects\MicroCoinWallet\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm">
+  <file original="C:\other\_MCC\MicroCoinWallet\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm" source-language="en-US" target-language="hu-HU" datatype="delphiform" tool="ETM v10.0" ts="C:\other\_MCC\MicroCoinWallet\src\Forms\BlockChain\MicroCoin.Forms.BlockChain.Explorer.dfm">
     <header>
       <prop-group name="ITEHeaderProp">
         <prop prop-type="Version">9.0</prop>
-        <prop prop-type="SelfDateTime">43479.8387037037</prop>
-        <prop prop-type="OrigDateTime">43450.6913888889</prop>
-        <prop prop-type="XlatDateTime">43479.6817361111</prop>
+        <prop prop-type="SelfDateTime">43746.5711342593</prop>
+        <prop prop-type="OrigDateTime">43746.5505787037</prop>
+        <prop prop-type="XlatDateTime">43746.5505787037</prop>
         <prop prop-type="Translated">13</prop>
         <prop prop-type="UnTranslated">122</prop>
       </prop-group>
     </header>
     <body>
-      <trans-unit id="Untranslated" resname="O:BlockChainExplorerForm.Left">
-        <source>0</source>
-        <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456719444</prop><prop prop-type="Status">3</prop><prop prop-type="Order">-1</prop><prop prop-type="Type">TBlockChainExplorerForm</prop><prop prop-type="Localize">1</prop></prop-group>
-      </trans-unit>
       <trans-unit id="O:BlockChainExplorerForm.Left" resname="O:BlockChainExplorerForm.Left">
         <source>0</source>
         <prop-group name="ITEFieldProp">

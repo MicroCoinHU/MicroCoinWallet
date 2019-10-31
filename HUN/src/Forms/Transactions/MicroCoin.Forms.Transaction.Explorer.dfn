@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file original="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm" source-language="en-US" target-language="hu-HU" datatype="delphiform" tool="ETM v10.0" ts="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm">
+  <file original="C:\other\_MCC\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm" source-language="en-US" target-language="hu-HU" datatype="delphiform" tool="ETM v10.0" ts="C:\other\_MCC\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm">
     <header>
       <prop-group name="ITEHeaderProp">
         <prop prop-type="Version">9.0</prop>
-        <prop prop-type="SelfDateTime">43479.83875</prop>
-        <prop prop-type="OrigDateTime">43450.6913888889</prop>
-        <prop prop-type="XlatDateTime">43479.6817361111</prop>
+        <prop prop-type="SelfDateTime">43746.5713657407</prop>
+        <prop prop-type="OrigDateTime">43746.5505787037</prop>
+        <prop prop-type="XlatDateTime">43746.5505787037</prop>
         <prop prop-type="Translated">11</prop>
-        <prop prop-type="UnTranslated">98</prop>
+        <prop prop-type="UnTranslated">99</prop>
       </prop-group>
     </header>
     <body>
-      <trans-unit id="O:TransactionExplorer.O:PngImageList1.Bitmap" resname="O:TransactionExplorer.O:PngImageList1.Bitmap">
-        <source></source>
-        <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">3</prop><prop prop-type="Order">-1</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
-      </trans-unit>
       <trans-unit id="O:TransactionExplorer.Left" resname="O:TransactionExplorer.Left">
         <source>0</source>
         <prop-group name="ITEFieldProp">
@@ -538,41 +533,46 @@
         <prop-group name="ITEFieldProp">
         <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">101</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
+      <trans-unit id="O:TransactionExplorer.O:PngImageList1.Bitmap" resname="O:TransactionExplorer.O:PngImageList1.Bitmap">
+        <source></source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">43746.5713741204</prop><prop prop-type="Status">0</prop><prop prop-type="Order">102</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
       <trans-unit id="O:TransactionExplorer.O:ActionManager1.Images" resname="O:TransactionExplorer.O:ActionManager1.Images">
         <source>PngImageList1</source>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">102</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
+        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">103</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:TransactionExplorer.O:ActionManager1.Left" resname="O:TransactionExplorer.O:ActionManager1.Left">
         <source>488</source>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">103</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
+        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">104</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:TransactionExplorer.O:ActionManager1.Top" resname="O:TransactionExplorer.O:ActionManager1.Top">
         <source>150</source>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">104</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
+        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">105</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:TransactionExplorer.O:ActionManager1.StyleName" resname="O:TransactionExplorer.O:ActionManager1.StyleName">
         <source>'Platform Default'</source>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">105</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
+        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">106</prop><prop prop-type="Type">TActionManager</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.Caption" resname="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.Caption">
         <source>'Refresh'</source>
         <target>'Frissítés'</target>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">1</prop><prop prop-type="Order">106</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
+        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">1</prop><prop prop-type="Order">107</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.ImageIndex" resname="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.ImageIndex">
         <source>0</source>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">107</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
+        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">108</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.OnExecute" resname="O:TransactionExplorer.O:ActionManager1.O:RefreshAction.OnExecute">
         <source>RefreshActionExecute</source>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">108</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
+        <prop prop-type="Created">43450.7456979977</prop><prop prop-type="Status">0</prop><prop prop-type="Order">109</prop><prop prop-type="Type">TAction</prop><prop prop-type="Localize">1</prop></prop-group>
       </trans-unit>
     </body>
   </file>

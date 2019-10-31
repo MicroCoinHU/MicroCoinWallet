@@ -1143,15 +1143,17 @@ begin
     FreeAndNil(FRPCServer);
     FreeAndNil(FPoolMiningServer);
     FreeAndNil(FAppSettings);
-    FLog.OnNewLog := nil;
-    TConnectionManager.Instance.OnReceivedHelloMessage := nil;
-    TConnectionManager.Instance.OnStatisticsChanged := nil;
-    TConnectionManager.Instance.OnNetConnectionsUpdated := nil;
-    TConnectionManager.Instance.OnNodeServersUpdated := nil;
-    TConnectionManager.Instance.OnBlackListUpdated := nil;
+    if FLog <> nil then FLog.OnNewLog := nil;
+    if TConnectionManager.HasInstance then begin
+      TConnectionManager.Instance.OnReceivedHelloMessage := nil;
+      TConnectionManager.Instance.OnStatisticsChanged := nil;
+      TConnectionManager.Instance.OnNetConnectionsUpdated := nil;
+      TConnectionManager.Instance.OnNodeServersUpdated := nil;
+      TConnectionManager.Instance.OnBlackListUpdated := nil;
+      TConnectionManager.Instance.OnReceivedHelloMessage := nil;
+      TConnectionManager.Instance.OnStatisticsChanged := nil;
+    end;
     FreeAndNil(FNodeNotifyEvents);
-    TConnectionManager.Instance.OnReceivedHelloMessage := nil;
-    TConnectionManager.Instance.OnStatisticsChanged := nil;
     FreeAndNil(FOrderedAccountsKeyList);
     Application.ProcessMessages;
     TNode.FreeNode;
@@ -1613,7 +1615,7 @@ begin
     exit;
   end;
 
-  if not TAccount.ParseAccountNumber(edTargetAccount.Text, xTargetAccountNumber, xParent) then
+  if not TAccount.ParseAccountNumber(edTargetAccount.Text, xTargetAccountNumber) then
   begin
     MessageDlg(StrInvalidAccountNumber, TMsgDlgType.mtError, [mbOK],0);
     exit;
@@ -1971,7 +1973,7 @@ var
   i: Integer;
 begin
   FLog.OnNewLog := OnNewLog;
-  if FAppSettings.Entries[TAppSettingsEntry.apSaveLogFiles].GetAsBoolean(false) then
+  if FAppSettings.Entries[TAppSettingsEntry.apSaveLogFiles].GetAsBoolean(false) or true then
   begin
     if FAppSettings.Entries[TAppSettingsEntry.apSaveDebugLogs].GetAsBoolean(false) then
       FLog.SaveTypes := CT_TLogTypes_ALL

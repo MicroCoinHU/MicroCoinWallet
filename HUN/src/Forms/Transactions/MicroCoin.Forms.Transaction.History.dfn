@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file original="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm" source-language="en-US" target-language="hu-HU" datatype="delphiform" tool="ETM v10.0" ts="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm">
+  <file original="C:\other\_MCC\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm" source-language="en-US" target-language="hu-HU" datatype="delphiform" tool="ETM v10.0" ts="C:\other\_MCC\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.History.dfm">
     <header>
       <prop-group name="ITEHeaderProp">
         <prop prop-type="Version">9.0</prop>
-        <prop prop-type="SelfDateTime">43479.83875</prop>
-        <prop prop-type="OrigDateTime">43450.6913888889</prop>
-        <prop prop-type="XlatDateTime">43479.6817361111</prop>
+        <prop prop-type="SelfDateTime">43746.5713657407</prop>
+        <prop prop-type="OrigDateTime">43746.5505787037</prop>
+        <prop prop-type="XlatDateTime">43746.5505787037</prop>
         <prop prop-type="Translated">9</prop>
         <prop prop-type="UnTranslated">57</prop>
       </prop-group>

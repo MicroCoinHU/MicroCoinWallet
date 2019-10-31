@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file original="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm" source-language="en-US" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="F:\projects\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm">
+  <file original="C:\other\_MCC\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm" source-language="en-US" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="C:\other\_MCC\MicroCoinWallet\src\Forms\Transactions\MicroCoin.Forms.Transaction.Explorer.dfm">
     <header>
       <prop-group name="ITEHeaderProp">
         <prop prop-type="Version">9.0</prop>
-        <prop prop-type="SelfDateTime">43479.7333333333</prop>
-        <prop prop-type="OrigDateTime">43450.6913888889</prop>
-        <prop prop-type="XlatDateTime">43450.6913888889</prop>
+        <prop prop-type="SelfDateTime">43746.5710648148</prop>
+        <prop prop-type="OrigDateTime">43746.5505787037</prop>
+        <prop prop-type="XlatDateTime">43746.5505787037</prop>
         <prop prop-type="Translated">0</prop>
         <prop prop-type="UnTranslated">110</prop>
       </prop-group>
@@ -526,7 +526,7 @@
       <trans-unit id="O:TransactionExplorer.O:PngImageList1.Bitmap" resname="O:TransactionExplorer.O:PngImageList1.Bitmap">
         <source></source>
         <prop-group name="ITEFieldProp">
-        <prop prop-type="Created">43479.7333407176</prop><prop prop-type="Status">0</prop><prop prop-type="Order">102</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+        <prop prop-type="Created">43746.5710874537</prop><prop prop-type="Status">0</prop><prop prop-type="Order">102</prop><prop prop-type="Type">TPngImageList</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
       </trans-unit>
       <trans-unit id="O:TransactionExplorer.O:ActionManager1.Images" resname="O:TransactionExplorer.O:ActionManager1.Images">
         <source>PngImageList1</source>
