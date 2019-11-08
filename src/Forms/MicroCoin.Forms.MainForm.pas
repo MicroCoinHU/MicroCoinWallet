@@ -1592,7 +1592,6 @@ var
   xWalletKey : TWalletKey;
   xAmount, xFee : int64;
   xErrors: AnsiString;
-  xParent : Int64;
   xPayload : AnsiString;
   xPassword: string;
 begin
@@ -1644,7 +1643,7 @@ begin
   end;
 
   try
-    xTargetAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[IfThen(xParent=-1, xTargetAccountNumber, xParent)];
+    xTargetAccount := TNode.Node.TransactionStorage.BlockManager.AccountStorage.Accounts[xTargetAccountNumber];
   except on E:Exception do
     begin
       MessageDlg(StrInvalidTargetAccount, TMsgDlgType.mtError, [mbOK],0);

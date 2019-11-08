@@ -28,12 +28,10 @@
 ;| https://github.com/RRUZ/vcl-styles-plugins                                   |
 ;|==============================================================================|
 
-
-// Uncomment next line to digital sign executables & setup
 #define sign 
 
 #define MyAppName "MicroCoin"
-#define MyAppVersion "1.3.5"
+#define MyAppVersion "1.3.6.1"
 #define MyAppPublisher "MicroCoin"
 #define MyAppURL "https://microcoin.hu"
 #define MyAppExeName "MicroCoinWallet.exe"
@@ -48,14 +46,14 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-AppCopyright=Copyright (C) 2017-2018 MicroCoin Developers
+AppCopyright=Copyright (C) 2017-2019 MicroCoin Developers
 DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yes
 DisableWelcomePage=no
 LicenseFile=License.rtf
 OutputDir=output
 OutputBaseFilename=MicroCoinSetup
-// SetupIconFile=MicroCoinWallet_Icon.ico
+SetupIconFile=MicroCoinWallet_Icon.ico
 Compression=lzma
 SolidCompression=yes
 DefaultGroupName={#MyAppPublisher}
@@ -161,7 +159,7 @@ hungarian.CustomInstallation=Egyéni telepítés
 hungarian.SourceCode=Forráskód
 hungarian.Miner=Bányászó program
 hungarian.ConsoleMiner=Konzolos bányászprogram
-hungarian.GUIMiner=MicroCoin grafikus bányász program (instabil)
+hungarian.GUIMiner=MicroCoin grafikus bányász program
 hungarian.CreateDesktopIconForMiner=Bányászó program ikon létrehozása az asztalon
 hungarian.OpenSSL=OpenSSL fájlok
 hungarian.Program=Program fájlok
@@ -270,6 +268,5 @@ begin
   { this statement, the following won't install your VC redist only when }
   { the Visual C++ 2010 Redist (x86) and Visual C++ 2010 SP1 Redist(x86) }
   { are installed for the current user }
-  Result := not (VCVersionInstalled(VC_2010_REDIST_X86) and VCVersionInstalled(VC_2010_SP1_REDIST_X86));
+  Result := not (VCVersionInstalled(VC_2010_REDIST_X86) and not VCVersionInstalled(VC_2010_SP1_REDIST_X86));
 end;
-
